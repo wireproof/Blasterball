@@ -1,0 +1,16 @@
+[
+  {
+    "source": "research/bb3-decoded/data/sound/music/Boss.ogg",
+    "source_sha256": "4f7903e885ffc4f39db39dc6a1f3871845547974b390ca25cc4a1349e1a173be",
+    "output": "ios/Resources/Audio/bb3/music0.m4a",
+    "output_sha256": "d3a022542e86b5f4350af91d01ef52b88b8043547310813e862faa13d3d23108",
+    "conversion": "ffmpeg AAC128k; original audio"
+  },
+  {
+    "source": "research/bb3-decoded/data/sound/music/Track_03.ogg",
+    "source_sha256": "6b1bbf06f001070436bd319948b8268585bd970a2810daf5518cc940114e33a6",
+    "output": "ios/Resources/Audio/bb3/music3.m4a",
+    "output_sha256": "0c445f9ebe5fd0e0c231c85875e583c35f63674f0fdf9dac7ec549f05d12d7cf",
+    "conversion": "ffmpeg AAC128k; original audio"
+  }
+]

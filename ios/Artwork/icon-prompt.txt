@@ -1,0 +1,1 @@
+Built-in image_gen; 2026-10-26. Square iOS icon inspired by Blasterball 2/3: reflective chrome ball with magenta/cyan trail, colorful beveled jewel bricks over cobalt aquatic backdrop, chrome paddle with luminous cyan endcaps. Premium nostalgic arcade render, full bleed opaque square, no text, no numbers, no rounded mask. Source: Icon-source.png. Derived app icon sizes via sips.

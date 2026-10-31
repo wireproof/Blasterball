@@ -1,0 +1,142 @@
+{
+  "edition": "remix",
+  "campaignSource": {
+    "path": "bb2-remix/app/MEDIA/WORLD/world.dat",
+    "sha256": "eba86583886ae3e676fcdcfa340f13de88fc1781062bb369e92cbaf9069108b9",
+    "bytes": 418008
+  },
+  "resources": [
+    {
+      "resource": "BB2-bricks.png",
+      "source": "bb2-remix/app/MEDIA/IMAGES/bricks.png",
+      "sourceSHA256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a",
+      "resourceSHA256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        480,
+        256
+      ]
+    },
+    {
+      "resource": "BB2-paddle.png",
+      "source": "bb2-remix/app/MEDIA/IMAGES/paddle.png",
+      "sourceSHA256": "d94ebbb4a05d9e07291a287ec9f6e13045bb28d18462c23f4a6968586b7bd583",
+      "resourceSHA256": "d94ebbb4a05d9e07291a287ec9f6e13045bb28d18462c23f4a6968586b7bd583",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "resource": "BB2-ball.png",
+      "source": "bb2-remix/app/MEDIA/IMAGES/ball.png",
+      "sourceSHA256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a",
+      "resourceSHA256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        16,
+        80
+      ]
+    },
+    {
+      "resource": "BB2-powerup.png",
+      "source": "bb2-remix/app/MEDIA/IMAGES/powerup.png",
+      "sourceSHA256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b",
+      "resourceSHA256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        512,
+        1536
+      ]
+    },
+    {
+      "resource": "BB2-background-1.png",
+      "source": "bb2-remix/app/MEDIA/BACKDROPS/en/1.jpg",
+      "sourceSHA256": "fd2f941ffc27a643f3310ec33bd346b64998a2ba789ae91c88d61d37ffa4e496",
+      "resourceSHA256": "78d2510950dcc26628ab7cff5176528421737c7de03ff6da135cdef7b4b9f0e2",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-2.png",
+      "source": "bb2-remix/app/MEDIA/BACKDROPS/en/2.jpg",
+      "sourceSHA256": "6acb543681de50872fb1d8c71730fd7c1d4a44d97f0574835181c498cc0f5e35",
+      "resourceSHA256": "306e0df343eaa5eba4f6ae0460e5ad2f0c72778262e9e913b4259c46fc7f2ade",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-3.png",
+      "source": "bb2-remix/app/MEDIA/BACKDROPS/en/3.jpg",
+      "sourceSHA256": "f30016583ad53ce825b921b29870ab4fd1e643672e0f9355cd57d7acb9c0695c",
+      "resourceSHA256": "92904cdf6982f67c6eb78b9df1377512d61a9c30a82f58d450d6f351d41d462f",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-5.png",
+      "source": "bb2-remix/app/MEDIA/BACKDROPS/en/5.jpg",
+      "sourceSHA256": "b43517c38c4220471c47359f46421ccb9de7588e6b2038d84f10764ceb7e9dd1",
+      "resourceSHA256": "b2a9ef7cbaeb575d8ec70d3dabbc776d8ff22bad5020883f8d1baa33c297aa59",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-6.png",
+      "source": "bb2-remix/app/MEDIA/BACKDROPS/en/6.jpg",
+      "sourceSHA256": "73055af6df38209f6801c1f61c229963be0ec133e6ae20729672e57b903ee179",
+      "resourceSHA256": "02275a3abdb31b7e7596ae7beb873babde602a2e4c25f9b26a3b201c22d912e4",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-7.png",
+      "source": "bb2-remix/app/MEDIA/BACKDROPS/en/7.jpg",
+      "sourceSHA256": "32a720749f1f30ad9eefe0fa37b9dc335926eae013f72b750f1dafcd9773c5b6",
+      "resourceSHA256": "ee4f41ffd05dec2baa2f4b25f3101b7b09715b7f3ee4d82ce1c4248ff7371053",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-8.png",
+      "source": "bb2-remix/app/MEDIA/BACKDROPS/en/8.jpg",
+      "sourceSHA256": "c00c76a80ec1979bda218bbc7a6e476b76ff1bc82b8e4538ece7f89da1cc9c3c",
+      "resourceSHA256": "612daf9d0c1d7d7d2d320407b23a4c4f6320cf46e9c74a3395f19864a9a2015e",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-title.png",
+      "source": "bb2-remix/app/MEDIA/IMAGES/title.png",
+      "sourceSHA256": "fb7bbdbdfa45362ba25ff49a3fc19f5b16ffb07b24a414c3c9d4b4adb902a09e",
+      "resourceSHA256": "fb7bbdbdfa45362ba25ff49a3fc19f5b16ffb07b24a414c3c9d4b4adb902a09e",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    }
+  ]
+}

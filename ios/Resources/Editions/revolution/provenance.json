@@ -1,0 +1,142 @@
+{
+  "edition": "revolution",
+  "campaignSource": {
+    "path": "bb2-revolution/app/media/WORLD/world.dat",
+    "sha256": "eae4c7d157165261c9d1afb00dc13f00711c9cb91b2e5023f51dd2e6e1e56bd2",
+    "bytes": 418668
+  },
+  "resources": [
+    {
+      "resource": "BB2-bricks.png",
+      "source": "bb2-revolution/app/media/images/bricks.png",
+      "sourceSHA256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a",
+      "resourceSHA256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        480,
+        256
+      ]
+    },
+    {
+      "resource": "BB2-paddle.png",
+      "source": "bb2-revolution/app/media/images/paddle.png",
+      "sourceSHA256": "7eb28b01a8a68e27082685127c3d690bf4ebb322260a4f49c50440ca71c06901",
+      "resourceSHA256": "7eb28b01a8a68e27082685127c3d690bf4ebb322260a4f49c50440ca71c06901",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "resource": "BB2-ball.png",
+      "source": "bb2-revolution/app/media/images/ball.png",
+      "sourceSHA256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a",
+      "resourceSHA256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        16,
+        80
+      ]
+    },
+    {
+      "resource": "BB2-powerup.png",
+      "source": "bb2-revolution/app/media/images/powerup.png",
+      "sourceSHA256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b",
+      "resourceSHA256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        512,
+        1536
+      ]
+    },
+    {
+      "resource": "BB2-background-1.png",
+      "source": "bb2-revolution/app/media/BACKDROPS/en/1.png",
+      "sourceSHA256": "cb02caa09a32d5684089f6553ca2aacb27b031097e57d4c50f193b9f0680102c",
+      "resourceSHA256": "cb02caa09a32d5684089f6553ca2aacb27b031097e57d4c50f193b9f0680102c",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-2.png",
+      "source": "bb2-revolution/app/media/BACKDROPS/en/2.png",
+      "sourceSHA256": "112578ad19807a37f09f712d329ff7f79ec61ccbd3fdfaaa4be3c17bcbb53bd9",
+      "resourceSHA256": "112578ad19807a37f09f712d329ff7f79ec61ccbd3fdfaaa4be3c17bcbb53bd9",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-4.png",
+      "source": "bb2-revolution/app/media/BACKDROPS/en/4.png",
+      "sourceSHA256": "074eb9923d45ad68c69c3fe914bba9957c3c5a2b1c6d4d786ad6576189f3ca4e",
+      "resourceSHA256": "074eb9923d45ad68c69c3fe914bba9957c3c5a2b1c6d4d786ad6576189f3ca4e",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-5.png",
+      "source": "bb2-revolution/app/media/BACKDROPS/en/5.png",
+      "sourceSHA256": "d1c1aae419a2bf72d90ed13ead01d205b919d554b79f527cb3755955ad41ec10",
+      "resourceSHA256": "d1c1aae419a2bf72d90ed13ead01d205b919d554b79f527cb3755955ad41ec10",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-6.png",
+      "source": "bb2-revolution/app/media/BACKDROPS/en/6.png",
+      "sourceSHA256": "c2243996ec36e40df18a94cce5772240da47a0c5254ba8bb269feb6c160b349a",
+      "resourceSHA256": "c2243996ec36e40df18a94cce5772240da47a0c5254ba8bb269feb6c160b349a",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-7.png",
+      "source": "bb2-revolution/app/media/BACKDROPS/en/7.png",
+      "sourceSHA256": "ccce63daeb677ce3c1a595ce1f2c97d48a705f638a4dfb56e3612d03529abdff",
+      "resourceSHA256": "ccce63daeb677ce3c1a595ce1f2c97d48a705f638a4dfb56e3612d03529abdff",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-9.png",
+      "source": "bb2-revolution/app/media/BACKDROPS/en/9.png",
+      "sourceSHA256": "2a32c1227bb8f60c631b915c55b718c6cdd38a548063d18cd8ee5592eb9676bc",
+      "resourceSHA256": "2a32c1227bb8f60c631b915c55b718c6cdd38a548063d18cd8ee5592eb9676bc",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-title.png",
+      "source": "bb2-revolution/app/media/images/title.png",
+      "sourceSHA256": "5d3f2ff93f8dcc179a4c9916682df3df05bc0dd5be93b6721bbb7a7c2e2d4bc1",
+      "resourceSHA256": "5d3f2ff93f8dcc179a4c9916682df3df05bc0dd5be93b6721bbb7a7c2e2d4bc1",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    }
+  ]
+}

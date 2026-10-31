@@ -1,0 +1,107 @@
+[
+  {
+    "event": "power20",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_x2.wav",
+    "sha256": "127f57c394f30385aaed0571d3e522a2623cbf848814e561503affdb75de525f"
+  },
+  {
+    "event": "power21",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_x3.wav",
+    "sha256": "72313ac954decfcfe278b4cfc9c1d76c4da9ee68c9f0c6b4d23c458ecc9e811c"
+  },
+  {
+    "event": "power22",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_bigball.wav",
+    "sha256": "1b7663cb06eb86c2dbec20c13e6bfebf5b8973d0bc1292527dda38808108f7fc"
+  },
+  {
+    "event": "power23",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_explosion.wav",
+    "sha256": "4a0ad301833c4d788ad7476f66e82d867756dfe4a5be1e1ccab4bc4fbdd91a0d"
+  },
+  {
+    "event": "power24",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_flash.wav",
+    "sha256": "6f6e4e67bf6f87e96f1e30afd11f12eda96e26181ae00cb5a1b8f45618a64ee7"
+  },
+  {
+    "event": "power25",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_8_ball.wav",
+    "sha256": "37793fc0d9e51627342a559bbede04a7fdc4dadafded805ff1629ee9711765d7"
+  },
+  {
+    "event": "power26",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_vision.wav",
+    "sha256": "56fdac467b1b0db50db6228d661767bd9b4d8db5dadd8800a8ba742031a36dce"
+  },
+  {
+    "event": "power27",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_replicate.wav",
+    "sha256": "6992f89a5435636a90344ecf5dd99c961ca7b78694cf5287ee0ee2c3612be7f1"
+  },
+  {
+    "event": "power28",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_inertia.wav",
+    "sha256": "ea461520c6fad93263002bd3c8d43f0d5ff1bad034d38d611cc03e2577c7b00d"
+  },
+  {
+    "event": "power29",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_lazer.wav",
+    "sha256": "c4c731e4814a8339fdb791007d8ce02bd679a47e5dbd1fa86ea20e89eff03d6a"
+  },
+  {
+    "event": "power30",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_zap_enemies_fire.wav",
+    "sha256": "eaff66afbf7b6b945f03830d2f28b8cd5a4652174caadf54bd6e82f5f5cc0bd4"
+  },
+  {
+    "event": "power31",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_blasterball.wav",
+    "sha256": "2c78ec212c9195361799255852ce29536e87bd83ef2151333766f6605246ebd1"
+  },
+  {
+    "event": "power33",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_hoover_loop.wav",
+    "sha256": "fea02416a77f40082023c9c8b0fb355812633716effe4bf903820029cd336e31"
+  },
+  {
+    "event": "power34",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_twin.wav",
+    "sha256": "80e722efaea6939572ec9a6e9ed5916251579cd93363c25a548ac7df6db54e42"
+  },
+  {
+    "event": "power35",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_phantom.wav",
+    "sha256": "bfb3d4d39db5c237eb154118aa36ac816fcd812f15fe9ef2b70808e27c377887"
+  },
+  {
+    "event": "power36",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_attach.wav",
+    "sha256": "328a12a3202a29b8ad4365856e4075c06ddb168ceab09da0d2c9940b00e1e6bf"
+  },
+  {
+    "event": "power37",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_catcher_activate.wav",
+    "sha256": "b94b438328e8ea6bf199de248a736c6cc7451f63ccad37e927909329cc913431"
+  },
+  {
+    "event": "power38",
+    "source": "research/bb3-decoded/data/sound/powerups/pu_night.wav",
+    "sha256": "b9837270ecdded1ef769df9e159c7846a9d3324dc0c5ba02342f6155aef3364f"
+  },
+  {
+    "event": "wall",
+    "source": "research/bb3-decoded/data/sound/hitSounds/hit_wall.wav",
+    "sha256": "a6c1f613940eeb3910e9db8f9e1ebed593a701e3084cfe547804dcc8ebd6494c"
+  },
+  {
+    "event": "enemy",
+    "source": "research/bb3-decoded/data/sound/hitSounds/destroy_enemy.wav",
+    "sha256": "be6901fcdc31d0052bcecabafd60e57b73ff44584aa99e7077d7be0df04a82e3"
+  },
+  {
+    "event": "secret",
+    "source": "research/bb3-decoded/data/sound/hitSounds/brick_secret.wav",
+    "sha256": "bc3852c8ca0e84203f47c169c779e54436f4362199a2e8281c480eaa67d879a8"
+  }
+]

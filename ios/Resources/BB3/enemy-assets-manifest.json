@@ -1,0 +1,513 @@
+{
+  "assets": {
+    "door_panel_0": {
+      "decal": "world_top_trapdoors",
+      "shader": "world_top_trapdoors",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/world/trapdoors_metalic.jpg",
+      "alpha": "bitmaps/world/trapdoors_metalic_a.jpg",
+      "frame": 0,
+      "grid": [
+        2,
+        2
+      ],
+      "sha256": "8855773f33b8173dabc960979e6f98ad470ffb3a9b9ac5587d12141bffb79584"
+    },
+    "door_panel_1": {
+      "decal": "world_top_trapdoors",
+      "shader": "world_top_trapdoors",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/world/trapdoors_metalic.jpg",
+      "alpha": "bitmaps/world/trapdoors_metalic_a.jpg",
+      "frame": 1,
+      "grid": [
+        2,
+        2
+      ],
+      "sha256": "2458ff8472a5a14ca71961f9e3de2748e5c2abe8e087b8117c4acf048d6ea5f5"
+    },
+    "door_panel_2": {
+      "decal": "world_top_trapdoors",
+      "shader": "world_top_trapdoors",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/world/trapdoors_metalic.jpg",
+      "alpha": "bitmaps/world/trapdoors_metalic_a.jpg",
+      "frame": 2,
+      "grid": [
+        2,
+        2
+      ],
+      "sha256": "1173abe26ef241665328fa601209ad296a8a1b4afb70eb3c68cadc8efb70660b"
+    },
+    "door_panel_3": {
+      "decal": "world_top_trapdoors",
+      "shader": "world_top_trapdoors",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/world/trapdoors_metalic.jpg",
+      "alpha": "bitmaps/world/trapdoors_metalic_a.jpg",
+      "frame": 3,
+      "grid": [
+        2,
+        2
+      ],
+      "sha256": "13c51abd57601562e6721e9e5b94c7c59209879167a6bb5d2813ddde9482a083"
+    },
+    "enemy_snowflake_layer_0": {
+      "decal": "enemy_snowflake",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "6d2d06e9699566c4f9513fd2819db39bec85d1217ccd33f779fa35257d2b0e7d"
+    },
+    "enemy_snowflake_layer_1": {
+      "decal": "enemy_snowflake_01",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 1,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "86dd60baa84b52a37879f32565ffe2612ed15877725e07fee57c3df2ff35fdac"
+    },
+    "enemy_snowflake_layer_2": {
+      "decal": "enemy_snowflake_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 1,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "00a9d1ab4a46981a3a74b92084fd0a07d92d04e2d0e6d6bc208d27b4b5ac69d8"
+    },
+    "enemy_snowflake_layer_3": {
+      "decal": "enemy_snowflake_shadow_02",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "3b53fe6cbef34561243e73adf12dee6e6a761c493aae6bf01f86c40451c58f30"
+    },
+    "enemy_pumpkin_layer_0": {
+      "decal": "enemy_002",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 10,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "ec7d46ad33a4e8d33ecfacb99ce1d6f21de7743945044ae20bad0718ca203f66"
+    },
+    "enemy_pumpkin_layer_2": {
+      "decal": "enemy_pumpkin_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 9,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "d36f90bd801e82acc1d55716c23ce74a390b6ffa88eda85db43f1937fb9cc529"
+    },
+    "enemy_pumpkin_layer_3": {
+      "decal": "enemy_pumkin_rot",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 9,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "64dc507258ec7d50e984a487ca32c951247b6aface3bc4d1307837c3053a7e30"
+    },
+    "enemy_leaf_layer_0": {
+      "decal": "enemy_autumn",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "e9166897ca530bd9aecd2b41890b162efb304d390c85efe93cb00e30e2125a36"
+    },
+    "enemy_leaf_layer_1": {
+      "decal": "enemy_autumn_02",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "9b05a1773d5352d5a0d864a1fea9c94781cd04605554d87e1f165a8771bbf14a"
+    },
+    "enemy_leaf_layer_2": {
+      "decal": "enemy_autumn_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "675372a782a859f1ff115bc02a57fbb2d0e41dc910bcda572cd6af589cc61991"
+    },
+    "enemy_leaf_layer_3": {
+      "decal": "enemy_autumn_shadow_02",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "5d84654bd9074fd8fb74c4a0614290b9c3f6d6368a1d09298d6fcb42e36f550f"
+    },
+    "enemy_vortex_layer_0": {
+      "decal": "enemy_vortex01",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 3,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "eaf6977c00e11acb65ddf9bd75b0afd93cce206704f34ed57488bfc7ad7f1549"
+    },
+    "enemy_vortex_layer_1": {
+      "decal": "fxs_vortex_01",
+      "shader": "fxs_vortex_01",
+      "sourceBlend": "weightedadd",
+      "conversion": "opaque source",
+      "color": "bitmaps/effects/fx_enemy_vortex_01.jpg",
+      "alpha": "",
+      "frame": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "sha256": "7f553200bb08a5988d04e3e77dc27044785523258396f5491a0afff021e87215"
+    },
+    "enemy_vortex_layer_3": {
+      "decal": "enemy_vortex_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 3,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "dcaa8cf43767dbbae7f7a7727fc69a995f940a5e495121a5a97f2f5bbb55cb60"
+    },
+    "enemy_vortex_layer_4": {
+      "decal": "enemy_vortex_02",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 15,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "e2a529528fa7b1425db916c1f364184f6a830ac6da641d6014f6ee7bee12fb65"
+    },
+    "enemy_electric_ball_layer_0": {
+      "decal": "enemy_electric_ball",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 4,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "164781b075e8a9446eda55f04f971846f7bfbb6d8f314f53c3accf969d00a92b"
+    },
+    "enemy_electric_ball_layer_1": {
+      "decal": "enemy_electric_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 4,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "2beb1bc30aed4219dc8bc6acdf664d7bc313a098a098de79133f95fbf1a96de1"
+    },
+    "enemy_connector_layer_0": {
+      "decal": "enemy_connector",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 5,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "b2b3fffbf68f08192864d638f43c243c751efc11957aee6bd5d0486114f801f4"
+    },
+    "enemy_connector_layer_2": {
+      "decal": "enemy_connector_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 5,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "546d53c135c885c7f110769916c570204c1e38a5a915b8119108178495cf8d70"
+    },
+    "enemy_shielded_layer_0": {
+      "decal": "enemy_shielded",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 2,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "bf8a6ce81b5f1bbbfc144eb0408952fe2267ff91ff4a6a0aaec3123f306316c6"
+    },
+    "enemy_shielded_layer_3": {
+      "decal": "enemy_shielded_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 2,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "e638e448f7be49a75bcdd26b4fb940db80598b46f88222fe256dbc144ff60de1"
+    },
+    "enemy_cherry_layer_0": {
+      "decal": "enemy_cherry",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 6,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "fa84be51e85107864e7d1e024a68121eaaa1cbb789989c7dc4f396120f30f9c3"
+    },
+    "enemy_cherry_layer_1": {
+      "decal": "enemy_cherry_loop",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 13,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "fc099dc5aa7439992ea744c39a515253386dc350133bf5fc87d110ce73637976"
+    },
+    "enemy_cherry_layer_3": {
+      "decal": "enemy_cherry_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 6,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "86d07abb846f5e20bae0b444e2206787fc0993f5261eb99fe59857867f6687ce"
+    },
+    "enemy_cloud_layer_0": {
+      "decal": "enemy_cloud_rot",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 11,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "6b8a9d63b58c7038c24334cb59078ed476a8a7b610a1c4a70aca801cc3bedb4d"
+    },
+    "enemy_cloud_layer_1": {
+      "decal": "enemy_cloud_rot02",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 12,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "d009776afce09dc75276edf5775a77b9ae3497731346a5426c2ea32bf85b665c"
+    },
+    "enemy_cloud_layer_2": {
+      "decal": "fxs_cloud_01",
+      "shader": "fxs_cloud_01",
+      "sourceBlend": "weightedadd",
+      "conversion": "opaque source",
+      "color": "bitmaps/enemies/fx_enemy_cloud01.jpg",
+      "alpha": "",
+      "frame": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "sha256": "6797b6651f18e668fbfaf457f867e353b42c7b91661fd32422fbd95451a750f9"
+    },
+    "enemy_cloud_layer_3": {
+      "decal": "enemy_cloud_shadow",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 10,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "8d1ed85c3e8c1a7bd57cc34dba35f48b94d22a3de1c298aa0b9d50a491f1f4cb"
+    },
+    "enemy_cloud_layer_4": {
+      "decal": "enemy_cloud_shadow_02",
+      "shader": "ENEMIES_SHADOWS",
+      "sourceBlend": "multiply",
+      "conversion": "multiply grayscale converted to black with inverse-luminance alpha",
+      "color": "bitmaps/enemies/enemies_shadow.jpg",
+      "alpha": "",
+      "frame": 10,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "8d1ed85c3e8c1a7bd57cc34dba35f48b94d22a3de1c298aa0b9d50a491f1f4cb"
+    },
+    "cherry_explode_layer_0": {
+      "decal": "enemy_cherry_explode",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 14,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "43dd3fd7a7be016aa1db6592b222e02b1edb7e17a65e7298fcc56cd2bc0dde21"
+    },
+    "enemy_shadowvortex_layer_1": {
+      "decal": "fx_blackhole_whirlpool",
+      "shader": "fxs_blackhole_whirlpool",
+      "sourceBlend": "weightedadd",
+      "conversion": "opaque source",
+      "color": "bitmaps/effects/fxs_enemy_blackhole.jpg",
+      "alpha": "",
+      "frame": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "sha256": "320b861eeda354e75149285a2c94aead0dce007ddc1ed7ad4008f58ad8d14988"
+    },
+    "enemy_shadowvortex_layer_2": {
+      "decal": "enemy_vortex01",
+      "shader": "ENEMIES",
+      "sourceBlend": "blend",
+      "conversion": "original alpha mask",
+      "color": "bitmaps/enemies/enemies.jpg",
+      "alpha": "bitmaps/enemies/enemies_alpha.jpg",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "sha256": "6d2d06e9699566c4f9513fd2819db39bec85d1217ccd33f779fa35257d2b0e7d"
+    }
+  },
+  "source": "Decoded original BB3 templates enemy/decal/shader/scriptedfx",
+  "limits": [
+    "Enemy movement world-to-screen scale and sinusoidal path adapted to mobile; native AI parity is not established",
+    "Door script uses relative panel displacement .26 to .8 and callback at script time35; conversion to seconds is an adaptation"
+  ]
+}

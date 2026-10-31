@@ -1,0 +1,82 @@
+{
+  "1:Default": {
+    "HitStatesPoints": "7",
+    "HitPerState": "4",
+    "Score": "10000",
+    "UpperLimit": "3.5400",
+    "LowerLimit": "-16.0000"
+  },
+  "1:Recycled": {
+    "HitStatesPoints": "7",
+    "HitPerState": "4",
+    "Score": "10000",
+    "UpperLimit": "5.0000",
+    "LowerLimit": "-10.0000"
+  },
+  "2:Default": {
+    "HitStates": "9",
+    "HitsPerState": "2",
+    "Score": "10000",
+    "MoveAmplitude": "(0.7000 1.2000)",
+    "MoveAngleSpeed": "(50.0000 80.0000)"
+  },
+  "2:Recycled": {
+    "HitStates": "9",
+    "HitsPerState": "2",
+    "Score": "10000",
+    "MoveAmplitude": "(6.0000 2.5000)",
+    "MoveAngleSpeed": "(30.0000 65.0000)"
+  },
+  "3:Default": {
+    "HitPoints": "20",
+    "Score": "10000",
+    "Speed": "0.0500",
+    "ExtensionAtackWait": "(1.0000 3.0000)",
+    "ExtensionSpeed": "20.0000",
+    "ContractionSpeed": "3.0000"
+  },
+  "3:Recycled": {
+    "HitPoints": "30",
+    "Score": "10000",
+    "Speed": "0.1200",
+    "ExtensionAtackWait": "(1.0000 2.0000)",
+    "ExtensionSpeed": "35.0000",
+    "ContractionSpeed": "4.0000"
+  },
+  "4:Default": {
+    "HitStates": "8",
+    "HitsPerState": "2",
+    "Score": "10000",
+    "ActiveGenerators": "2",
+    "MaxTotalBubbles": "4",
+    "BubbleSize": "(4.0000 9.0000 15.0000)"
+  },
+  "4:Recycled": {
+    "HitStates": "8",
+    "HitsPerState": "2",
+    "Score": "10000",
+    "ActiveGenerators": "4",
+    "MaxTotalBubbles": "12",
+    "BubbleSize": "(2.0000 5.0000 10.0000)"
+  },
+  "5:Default": {
+    "HitStates": "8",
+    "HitsPerState": "2",
+    "Score": "10000",
+    "MoveAmplitude": "(8.0000 4.0000)",
+    "MoveAngleSpeed": "(20.0000 30.0000)",
+    "ShieldOffTime": "6.0000",
+    "BallAccelFactor": "1.4500",
+    "BallBossRepel": "15000.0000"
+  },
+  "5:Recycled": {
+    "HitStates": "8",
+    "HitsPerState": "2",
+    "Score": "10000",
+    "MoveAmplitude": "(9.0000 5.0000)",
+    "MoveAngleSpeed": "(30.0000 40.0000)",
+    "ShieldOffTime": "5.0000",
+    "BallAccelFactor": "1.5000",
+    "BallBossRepel": "30000.0000"
+  }
+}

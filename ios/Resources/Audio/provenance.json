@@ -1,0 +1,884 @@
+[
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/laser.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/laser.wav",
+    "sourceSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "outputSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/shrink.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/shrink.wav",
+    "sourceSHA256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547",
+    "outputSHA256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/die.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/die.wav",
+    "sourceSHA256": "6fb4003408b67c93b48099e608cd09d700143133e726677d5d997c7dfbfb1ace",
+    "outputSHA256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0",
+    "transform": "Decode original MP3-in-WAV to PCM16 WAV for AVAudioPlayer; sample rate/channels retained"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/slow.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/slow.wav",
+    "sourceSHA256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997",
+    "outputSHA256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/bloop.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/bloop.wav",
+    "sourceSHA256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c",
+    "outputSHA256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/stickyoff.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/stickyoff.wav",
+    "sourceSHA256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153",
+    "outputSHA256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/grow.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/grow.wav",
+    "sourceSHA256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930",
+    "outputSHA256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/bosshit.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/bosshit.wav",
+    "sourceSHA256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359",
+    "outputSHA256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/hitbarrier.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/hitbarrier.wav",
+    "sourceSHA256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4",
+    "outputSHA256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/blast.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/blast.wav",
+    "sourceSHA256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529",
+    "outputSHA256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/gunout.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/gunout.wav",
+    "sourceSHA256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c",
+    "outputSHA256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/barrier.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/barrier.wav",
+    "sourceSHA256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf",
+    "outputSHA256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/pdestroy.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/pdestroy.wav",
+    "sourceSHA256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78",
+    "outputSHA256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/1up.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/1up.wav",
+    "sourceSHA256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e",
+    "outputSHA256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/flourish1.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/flourish1.wav",
+    "sourceSHA256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598",
+    "outputSHA256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/stickylaunch.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/stickylaunch.wav",
+    "sourceSHA256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301",
+    "outputSHA256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/flourish3.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/flourish3.wav",
+    "sourceSHA256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af",
+    "outputSHA256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/flourish2.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/flourish2.wav",
+    "sourceSHA256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701",
+    "outputSHA256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/metal.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/metal.wav",
+    "sourceSHA256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067",
+    "outputSHA256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/break.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/break.wav",
+    "sourceSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "outputSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/gunin.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/gunin.wav",
+    "sourceSHA256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b",
+    "outputSHA256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/critter.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/critter.wav",
+    "sourceSHA256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812",
+    "outputSHA256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/stickyon.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/stickyon.wav",
+    "sourceSHA256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702",
+    "outputSHA256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/bighit.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/bighit.wav",
+    "sourceSHA256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f",
+    "outputSHA256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/bhit.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/bhit.wav",
+    "sourceSHA256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021",
+    "outputSHA256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/w1.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/w1.wav",
+    "sourceSHA256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525",
+    "outputSHA256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/bbreak.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/bbreak.wav",
+    "sourceSHA256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59",
+    "outputSHA256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/w3.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/w3.wav",
+    "sourceSHA256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897",
+    "outputSHA256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/buildup.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/buildup.wav",
+    "sourceSHA256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc",
+    "outputSHA256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/w2.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/w2.wav",
+    "sourceSHA256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9",
+    "outputSHA256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/fast.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/fast.wav",
+    "sourceSHA256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731",
+    "outputSHA256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/e1.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/e1.wav",
+    "sourceSHA256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c",
+    "outputSHA256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/e3.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/e3.wav",
+    "sourceSHA256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d",
+    "outputSHA256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/e2.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/e2.wav",
+    "sourceSHA256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584",
+    "outputSHA256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/blasterball.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/blasterball.wav",
+    "sourceSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "outputSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/e5.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/e5.wav",
+    "sourceSHA256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6",
+    "outputSHA256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/gameover.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/gameover.wav",
+    "sourceSHA256": "0573b926ce70725a9aae277e9befba86c35e686222724013770c19989e6dbdc7",
+    "outputSHA256": "40a17c1bec7e04b32c4bbfb06c369af8fa7bd70253536087129756699457caab",
+    "transform": "Decode original MP3-in-WAV to PCM16 WAV for AVAudioPlayer; sample rate/channels retained"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/phit.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/phit.wav",
+    "sourceSHA256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234",
+    "outputSHA256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/e4.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/e4.wav",
+    "sourceSHA256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037",
+    "outputSHA256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/SOUNDS/stagestart.wav",
+    "output": "blasterball/ios/Resources/Audio/revolution/stagestart.wav",
+    "sourceSHA256": "491f0d3453b2b381b0702297cfa5f520dd7cb82fc70fd32cd67bb18fb1228c62",
+    "outputSHA256": "491f0d3453b2b381b0702297cfa5f520dd7cb82fc70fd32cd67bb18fb1228c62",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/MUSIC/1.ogg",
+    "output": "blasterball/ios/Resources/Audio/revolution/music1.m4a",
+    "sourceSHA256": "b3d4b6c3466c5f03bffff60399a7d80aef76d5493c06f3c41db1c84e7d67b5bd",
+    "outputSHA256": "e3deb06e6c1d76c32b32fc83d51aa872867c8ebc374f76a4806011b7d6944cc6",
+    "transform": "Ogg Vorbis to AAC192k for iOS AVAudioPlayer; original retained"
+  },
+  {
+    "source": "blasterball/research/bb2-revolution/app/media/MUSIC/2.ogg",
+    "output": "blasterball/ios/Resources/Audio/revolution/music2.m4a",
+    "sourceSHA256": "10c3b3d3ee2a2530c1dc0002bd16f9c191265cdb6ab06cada2fa7b39a1062596",
+    "outputSHA256": "5642b3363d600503b0012d430d080004fd3bc49d70a876f40c39766b0dc07126",
+    "transform": "Ogg Vorbis to AAC192k for iOS AVAudioPlayer; original retained"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/laser.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/laser.wav",
+    "sourceSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "outputSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/shrink.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/shrink.wav",
+    "sourceSHA256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547",
+    "outputSHA256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/die.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/die.wav",
+    "sourceSHA256": "6fb4003408b67c93b48099e608cd09d700143133e726677d5d997c7dfbfb1ace",
+    "outputSHA256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0",
+    "transform": "Decode original MP3-in-WAV to PCM16 WAV for AVAudioPlayer; sample rate/channels retained"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/slow.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/slow.wav",
+    "sourceSHA256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997",
+    "outputSHA256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/bloop.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/bloop.wav",
+    "sourceSHA256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c",
+    "outputSHA256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/stickyoff.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/stickyoff.wav",
+    "sourceSHA256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153",
+    "outputSHA256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/grow.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/grow.wav",
+    "sourceSHA256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930",
+    "outputSHA256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/bosshit.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/bosshit.wav",
+    "sourceSHA256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359",
+    "outputSHA256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/hitbarrier.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/hitbarrier.wav",
+    "sourceSHA256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4",
+    "outputSHA256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/blast.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/blast.wav",
+    "sourceSHA256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529",
+    "outputSHA256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/gunout.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/gunout.wav",
+    "sourceSHA256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c",
+    "outputSHA256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/barrier.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/barrier.wav",
+    "sourceSHA256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf",
+    "outputSHA256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/pdestroy.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/pdestroy.wav",
+    "sourceSHA256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78",
+    "outputSHA256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/1up.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/1up.wav",
+    "sourceSHA256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e",
+    "outputSHA256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/flourish1.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/flourish1.wav",
+    "sourceSHA256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598",
+    "outputSHA256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/stickylaunch.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/stickylaunch.wav",
+    "sourceSHA256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301",
+    "outputSHA256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/flourish3.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/flourish3.wav",
+    "sourceSHA256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af",
+    "outputSHA256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/flourish2.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/flourish2.wav",
+    "sourceSHA256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701",
+    "outputSHA256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/metal.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/metal.wav",
+    "sourceSHA256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067",
+    "outputSHA256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/break.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/break.wav",
+    "sourceSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "outputSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/gunin.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/gunin.wav",
+    "sourceSHA256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b",
+    "outputSHA256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/critter.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/critter.wav",
+    "sourceSHA256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812",
+    "outputSHA256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/stickyon.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/stickyon.wav",
+    "sourceSHA256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702",
+    "outputSHA256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/bighit.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/bighit.wav",
+    "sourceSHA256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f",
+    "outputSHA256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/bhit.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/bhit.wav",
+    "sourceSHA256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021",
+    "outputSHA256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/w1.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/w1.wav",
+    "sourceSHA256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525",
+    "outputSHA256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/bbreak.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/bbreak.wav",
+    "sourceSHA256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59",
+    "outputSHA256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/w3.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/w3.wav",
+    "sourceSHA256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897",
+    "outputSHA256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/buildup.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/buildup.wav",
+    "sourceSHA256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc",
+    "outputSHA256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/w2.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/w2.wav",
+    "sourceSHA256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9",
+    "outputSHA256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/fast.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/fast.wav",
+    "sourceSHA256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731",
+    "outputSHA256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/e1.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/e1.wav",
+    "sourceSHA256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c",
+    "outputSHA256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/e3.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/e3.wav",
+    "sourceSHA256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d",
+    "outputSHA256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/e2.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/e2.wav",
+    "sourceSHA256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584",
+    "outputSHA256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/blasterball.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/blasterball.wav",
+    "sourceSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "outputSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/e5.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/e5.wav",
+    "sourceSHA256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6",
+    "outputSHA256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/gameover.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/gameover.wav",
+    "sourceSHA256": "57dbdca9fc824e247778c81ebea7fea4669fd7419db7093c922a4318cc3fdf3d",
+    "outputSHA256": "f3818c4de4b749323828ef8109a54483817264179a61a0bed2dcdb62271e7308",
+    "transform": "Decode original MP3-in-WAV to PCM16 WAV for AVAudioPlayer; sample rate/channels retained"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/phit.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/phit.wav",
+    "sourceSHA256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234",
+    "outputSHA256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/e4.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/e4.wav",
+    "sourceSHA256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037",
+    "outputSHA256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/SOUNDS/stagestart.wav",
+    "output": "blasterball/ios/Resources/Audio/remix/stagestart.wav",
+    "sourceSHA256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3",
+    "outputSHA256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/MUSIC/1.ogg",
+    "output": "blasterball/ios/Resources/Audio/remix/music1.m4a",
+    "sourceSHA256": "893dfa3c8f624853dedbf2579e372422f04d4907c900d2af8613d5d4ed024575",
+    "outputSHA256": "b5a2ba96d699e6b6c33702ed256c683a7ad78e866e2bd6d28973560fc684f2c7",
+    "transform": "Ogg Vorbis to AAC192k for iOS AVAudioPlayer; original retained"
+  },
+  {
+    "source": "blasterball/research/bb2-remix/app/MEDIA/MUSIC/2.ogg",
+    "output": "blasterball/ios/Resources/Audio/remix/music2.m4a",
+    "sourceSHA256": "cd6cf52c418ac7eaac650a05f28a86fc191f669660cca9644b00471868cdf2f9",
+    "outputSHA256": "42aa49d616bce4f66867cf52f4ebc471039ab4f8c8b743bdb236cc2ca953d379",
+    "transform": "Ogg Vorbis to AAC192k for iOS AVAudioPlayer; original retained"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/laser.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/laser.wav",
+    "sourceSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "outputSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/shrink.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/shrink.wav",
+    "sourceSHA256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547",
+    "outputSHA256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/die.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/die.wav",
+    "sourceSHA256": "6fb4003408b67c93b48099e608cd09d700143133e726677d5d997c7dfbfb1ace",
+    "outputSHA256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0",
+    "transform": "Decode original MP3-in-WAV to PCM16 WAV for AVAudioPlayer; sample rate/channels retained"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/slow.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/slow.wav",
+    "sourceSHA256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997",
+    "outputSHA256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/bloop.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/bloop.wav",
+    "sourceSHA256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c",
+    "outputSHA256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/stickyoff.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/stickyoff.wav",
+    "sourceSHA256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153",
+    "outputSHA256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/grow.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/grow.wav",
+    "sourceSHA256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930",
+    "outputSHA256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/bosshit.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/bosshit.wav",
+    "sourceSHA256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359",
+    "outputSHA256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/hitbarrier.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/hitbarrier.wav",
+    "sourceSHA256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4",
+    "outputSHA256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/blast.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/blast.wav",
+    "sourceSHA256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529",
+    "outputSHA256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/gunout.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/gunout.wav",
+    "sourceSHA256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c",
+    "outputSHA256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/barrier.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/barrier.wav",
+    "sourceSHA256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf",
+    "outputSHA256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/pdestroy.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/pdestroy.wav",
+    "sourceSHA256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78",
+    "outputSHA256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/1up.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/1up.wav",
+    "sourceSHA256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e",
+    "outputSHA256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/flourish1.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/flourish1.wav",
+    "sourceSHA256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598",
+    "outputSHA256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/stickylaunch.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/stickylaunch.wav",
+    "sourceSHA256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301",
+    "outputSHA256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/flourish3.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/flourish3.wav",
+    "sourceSHA256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af",
+    "outputSHA256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/flourish2.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/flourish2.wav",
+    "sourceSHA256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701",
+    "outputSHA256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/metal.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/metal.wav",
+    "sourceSHA256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067",
+    "outputSHA256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/break.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/break.wav",
+    "sourceSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "outputSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/gunin.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/gunin.wav",
+    "sourceSHA256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b",
+    "outputSHA256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/critter.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/critter.wav",
+    "sourceSHA256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812",
+    "outputSHA256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/stickyon.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/stickyon.wav",
+    "sourceSHA256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702",
+    "outputSHA256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/bighit.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/bighit.wav",
+    "sourceSHA256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f",
+    "outputSHA256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/bhit.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/bhit.wav",
+    "sourceSHA256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021",
+    "outputSHA256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/w1.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/w1.wav",
+    "sourceSHA256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525",
+    "outputSHA256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/bbreak.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/bbreak.wav",
+    "sourceSHA256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59",
+    "outputSHA256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/w3.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/w3.wav",
+    "sourceSHA256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897",
+    "outputSHA256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/buildup.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/buildup.wav",
+    "sourceSHA256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc",
+    "outputSHA256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/w2.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/w2.wav",
+    "sourceSHA256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9",
+    "outputSHA256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/fast.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/fast.wav",
+    "sourceSHA256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731",
+    "outputSHA256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/e1.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/e1.wav",
+    "sourceSHA256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c",
+    "outputSHA256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/e3.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/e3.wav",
+    "sourceSHA256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d",
+    "outputSHA256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/e2.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/e2.wav",
+    "sourceSHA256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584",
+    "outputSHA256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/blasterball.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/blasterball.wav",
+    "sourceSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "outputSHA256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/e5.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/e5.wav",
+    "sourceSHA256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6",
+    "outputSHA256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/gameover.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/gameover.wav",
+    "sourceSHA256": "57dbdca9fc824e247778c81ebea7fea4669fd7419db7093c922a4318cc3fdf3d",
+    "outputSHA256": "f3818c4de4b749323828ef8109a54483817264179a61a0bed2dcdb62271e7308",
+    "transform": "Decode original MP3-in-WAV to PCM16 WAV for AVAudioPlayer; sample rate/channels retained"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/phit.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/phit.wav",
+    "sourceSHA256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234",
+    "outputSHA256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/e4.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/e4.wav",
+    "sourceSHA256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037",
+    "outputSHA256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/SOUNDS/stagestart.wav",
+    "output": "blasterball/ios/Resources/Audio/holidays/stagestart.wav",
+    "sourceSHA256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3",
+    "outputSHA256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3",
+    "transform": "none"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/MUSIC/1.ogg",
+    "output": "blasterball/ios/Resources/Audio/holidays/music1.m4a",
+    "sourceSHA256": "57d8fadc0038e0facaaeee96b001e2ec65125741d84c5e72fa4e1812cb92c3b7",
+    "outputSHA256": "4f5083afc3987dea98e677539bbeae4094dbd11140a753e0b7099d22ce06b15e",
+    "transform": "Ogg Vorbis to AAC192k for iOS AVAudioPlayer; original retained"
+  },
+  {
+    "source": "blasterball/research/bb2-holidays/app/media/MUSIC/2.ogg",
+    "output": "blasterball/ios/Resources/Audio/holidays/music2.m4a",
+    "sourceSHA256": "e0273e788eb2fbd879cfacea53dd24254ee5363652e159380b5ac36696981f12",
+    "outputSHA256": "f79d841020eca947adda9a9428eca817f46c5e563740b27cbafa3a699bb7d329",
+    "transform": "Ogg Vorbis to AAC192k for iOS AVAudioPlayer; original retained"
+  }
+]

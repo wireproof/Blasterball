@@ -1,0 +1,143 @@
+{
+  "boss_boss2_body_01": {
+    "source": {
+      "decal": "boss2_body_01",
+      "color": "bitmaps/enemies/boss2_01.jpg",
+      "alpha": "bitmaps/enemies/boss2_01_a.jpg",
+      "frame": 0
+    },
+    "sha256": "62d3893db4eb41fc911aa41166dbc9bf615f3e6ffeba1a75ea15c75ee8a50017"
+  },
+  "boss_boss2_body_01_recycle": {
+    "source": {
+      "decal": "boss2_body_01_recycle",
+      "color": "bitmaps/enemies/boss2_01_recycle.jpg",
+      "alpha": "bitmaps/enemies/boss2_01_a.jpg",
+      "frame": 0
+    },
+    "sha256": "7f8c87074565e779665e666590ffb23cedf51577fd954aebd5792a0dbe014154"
+  },
+  "boss_boss3_body": {
+    "source": {
+      "decal": "boss3_body",
+      "color": "bitmaps/enemies/boss3_body.jpg",
+      "alpha": "bitmaps/enemies/boss3_body_a.jpg",
+      "frame": 0
+    },
+    "sha256": "aa6849da7ec29caa1954714f21abca50b968cbf59c08d625c79ed223a227c7f8"
+  },
+  "boss_boss3_body_recycle": {
+    "source": {
+      "decal": "boss3_body_recycle",
+      "color": "bitmaps/enemies/boss3_body_recycle.jpg",
+      "alpha": "bitmaps/enemies/boss3_body_a.jpg",
+      "frame": 0
+    },
+    "sha256": "3f9879258078926ee7a6390afd0eee4889040fe60c27c34a8c97ddf0a4b421c0"
+  },
+  "boss_boss4_body": {
+    "source": {
+      "decal": "boss4_body",
+      "color": "bitmaps/enemies/boss_4_body.jpg",
+      "alpha": "bitmaps/enemies/boss_4_body_a.jpg",
+      "frame": 0
+    },
+    "sha256": "02500d0e6c69cfb6c2c412ad99c8a9c6d4895fe2497ab7127253f34d9cbd4423"
+  },
+  "boss_boss4_pipe": {
+    "source": {
+      "decal": "boss4_pipe",
+      "color": "bitmaps/enemies/boss4_pipe.jpg",
+      "alpha": "bitmaps/enemies/boss4_pipe_a.jpg",
+      "frame": 0
+    },
+    "sha256": "87bfc6d6c2a13d5c3dc71237b3b5052e9ef8a51e998fa0f54adde6098407f044"
+  },
+  "boss_boss5_body": {
+    "source": {
+      "decal": "boss5_body",
+      "color": "bitmaps/enemies/boss5_body.jpg",
+      "alpha": "bitmaps/enemies/boss5_body_a.jpg",
+      "frame": 0
+    },
+    "sha256": "58a6e5361658928f97d379b3b513907d10942f52b8ff23801cae8a17149ac3c2"
+  },
+  "boss_boss5_body_recycle": {
+    "source": {
+      "decal": "boss5_body_recycle",
+      "color": "bitmaps/enemies/boss5_body_recycle.jpg",
+      "alpha": "bitmaps/enemies/boss5_body_a.jpg",
+      "frame": 0
+    },
+    "sha256": "1a8a3567e6cabfcb7cd3778077d8d0ce0f8f690908d17b242c5a13976a4822d5"
+  },
+  "boss_boss5_ring": {
+    "source": {
+      "decal": "boss5_ring",
+      "color": "bitmaps/enemies/boss5_ring.jpg",
+      "alpha": "bitmaps/enemies/boss5_ring_a.jpg",
+      "frame": 0
+    },
+    "sha256": "2ee6bbad4bdd10a950fdae43510fd30e0b2210fae843bade220c727ec166a65d"
+  },
+  "boss_boss5_fuse": {
+    "source": {
+      "decal": "boss5_fuse",
+      "color": "bitmaps/enemies/boss5_fuse.jpg",
+      "alpha": "bitmaps/enemies/boss5_fuse_a.jpg",
+      "frame": 0
+    },
+    "sha256": "77136ea2f202c150198ac9349211606c9fce6cf471304b5cbe1c4c399c5b98fb"
+  },
+  "boss_boss3_plasma_ball": {
+    "source": {
+      "decal": "boss3_plasma_ball",
+      "color": "bitmaps/effects/fxs_boss_3.jpg",
+      "alpha": "",
+      "frame": 0
+    },
+    "sha256": "172c2c5fdcb0caa3b478d36f2b96b670fa2e9272f9167b66bf304f4709ac0af8"
+  },
+  "boss_Boss1WheelsLeft": {
+    "source": {
+      "decal": "Boss1WheelsLeft",
+      "color": "bitmaps/enemies/boss1_roller.jpg",
+      "alpha": "bitmaps/enemies/boss1_roller_a.jpg",
+      "frame": 0
+    },
+    "sha256": "a8833020245f77e7439415158deb7a1f6789d7676442e12e3dea83947eac9056"
+  },
+  "boss_Boss1Glows": {
+    "source": {
+      "decal": "Boss1Glows",
+      "color": "bitmaps/enemies/boss1_glows.jpg",
+      "alpha": "",
+      "frame": 0
+    },
+    "sha256": "e6e2660e33fcdd25d33980cd7bdf3b659ec0cee09f7791644d71f619ec6d6d97"
+  },
+  "boss1_body": {
+    "source": {
+      "color": "art/models/bosses/boss1_body.jpg",
+      "alpha": "art/models/bosses/boss1_body_a.jpg",
+      "limitation": "Original model texture used in flat mobile composition, not reconstructed skeletal mesh"
+    },
+    "sha256": "605f4d85da8be8f077c6774f84f7dbf2c1d0d5d65c0945c86ea66432a03eab64"
+  },
+  "boss1_leg": {
+    "source": {
+      "color": "art/models/bosses/boss1_leg.jpg",
+      "alpha": "art/models/bosses/boss1_leg_a.jpg",
+      "limitation": "Original model texture used in flat mobile composition, not reconstructed skeletal mesh"
+    },
+    "sha256": "aabe87c18099bed05bf409255fc1099190163431ffea10b704db4c9b8d1e5651"
+  },
+  "boss1_knee": {
+    "source": {
+      "color": "art/models/bosses/boss1_knee.jpg",
+      "alpha": "art/models/bosses/boss1_knee_a.jpg",
+      "limitation": "Original model texture used in flat mobile composition, not reconstructed skeletal mesh"
+    },
+    "sha256": "ce911abc744d495df89bae26ce933f171f0897af525bbb2b4090617f25c68688"
+  }
+}

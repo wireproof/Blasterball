@@ -1,0 +1,10 @@
+{
+  "source": "blasterball/research/bb3-decoded/data/art/bitmaps/interface/mainmenu_title.png",
+  "resource": "BB3-title.png",
+  "sha256": "27d238693c10bcc15a3b38c4ce2f049aa4fc6d2152701a3e5db14606e0e20620",
+  "operation": "byte-identical copy",
+  "dimensions": [
+    1024,
+    512
+  ]
+}

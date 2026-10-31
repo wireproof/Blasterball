@@ -1,0 +1,23 @@
+{
+  "aliases": {
+    "stagestart": "eventSounds/Level_Start.wav",
+    "phit": "hitSounds/hit_paddle.wav",
+    "bhit": "hitSounds/hit_brick_2hitbrick.wav",
+    "bbreak": "hitSounds/hit_brick.wav",
+    "die": "eventSounds/Level_Fail.wav",
+    "gameover": "eventSounds/Level_Fail.wav",
+    "break": "hitSounds/brick_explode.wav",
+    "slow": "powerups/pu_slowdown.wav",
+    "shrink": "powerups/pu_mini.wav",
+    "grow": "powerups/pu_grow.wav",
+    "1up": "powerups/pu_extraball.wav",
+    "fast": "powerups/pu_speedup.wav",
+    "x2": "powerups/pu_x2.wav",
+    "x3": "powerups/pu_x3.wav"
+  },
+  "music": {
+    "music1.m4a": "music/Track_01.ogg",
+    "music2.m4a": "music/Track_02.ogg"
+  },
+  "note": "Original source recordings. Gameover aliases Level_Fail; campaign track assignment not proven."
+}

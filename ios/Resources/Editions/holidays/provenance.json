@@ -1,0 +1,142 @@
+{
+  "edition": "holidays",
+  "campaignSource": {
+    "path": "bb2-holidays/app/media/WORLD/world.dat",
+    "sha256": "bea9b7e3d3387527507735edd6e7bf14ea37a8be6e69ca04f2b54acc133d93eb",
+    "bytes": 418244
+  },
+  "resources": [
+    {
+      "resource": "BB2-bricks.png",
+      "source": "bb2-holidays/app/media/images/bricks.png",
+      "sourceSHA256": "bbdeacf90f6fba781ddae4bf184986944d289c522c30d43f78f6382000747131",
+      "resourceSHA256": "bbdeacf90f6fba781ddae4bf184986944d289c522c30d43f78f6382000747131",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        480,
+        256
+      ]
+    },
+    {
+      "resource": "BB2-paddle.png",
+      "source": "bb2-holidays/app/media/images/paddle.png",
+      "sourceSHA256": "5c5e7784bae0bf2b358209b4f5d7a32a188dbf66451f8be94be19a841dcc0ebd",
+      "resourceSHA256": "5c5e7784bae0bf2b358209b4f5d7a32a188dbf66451f8be94be19a841dcc0ebd",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        1156,
+        576
+      ]
+    },
+    {
+      "resource": "BB2-ball.png",
+      "source": "bb2-holidays/app/media/images/ball.png",
+      "sourceSHA256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a",
+      "resourceSHA256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        16,
+        80
+      ]
+    },
+    {
+      "resource": "BB2-powerup.png",
+      "source": "bb2-holidays/app/media/images/powerup.png",
+      "sourceSHA256": "ed3b1c7934909c5d6fc4491890f73fb21139aa1b1ea5c5f1758cc906d6b19687",
+      "resourceSHA256": "ed3b1c7934909c5d6fc4491890f73fb21139aa1b1ea5c5f1758cc906d6b19687",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        544,
+        1536
+      ]
+    },
+    {
+      "resource": "BB2-background-2.png",
+      "source": "bb2-holidays/app/media/BACKDROPS/en/2.jpg",
+      "sourceSHA256": "e780a5cfc12e767c44e2a951d97840bb3b1bc59bcd04536728ee23ddc3de60a2",
+      "resourceSHA256": "3b4075dad61f334d0491b723714ed7f563a7d093557c88021b4d3fa5960323ca",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-3.png",
+      "source": "bb2-holidays/app/media/BACKDROPS/en/3.jpg",
+      "sourceSHA256": "287e82bd0074c80e8c6a4b13798bac9fd9e6d3879bd26379ed5932633425cc59",
+      "resourceSHA256": "e82c16d383dcf42dab7d83dd40614e3cd4dedc33bd3401fedbc794955cfa8297",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-4.png",
+      "source": "bb2-holidays/app/media/BACKDROPS/en/4.jpg",
+      "sourceSHA256": "067093bdfbfddf22bc579349c55563c5a5a5ba1885d4a751c8aeb4538bb811be",
+      "resourceSHA256": "195e85dee57eace2b52b95e757d81f117fcd332c9ebe908705323d448e9abed6",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-5.png",
+      "source": "bb2-holidays/app/media/BACKDROPS/en/5.jpg",
+      "sourceSHA256": "911946635a30023497aea4e862f95fcdda322fb6451d9310cbf9ccd77447872c",
+      "resourceSHA256": "140ed7eb0b2a360f4633aa61c5ca9ba46082ac059e30887e2844d2f5249434c1",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-7.png",
+      "source": "bb2-holidays/app/media/BACKDROPS/en/7.jpg",
+      "sourceSHA256": "57cb13d309b0ea9b0583e018ca6401f202e57f1a178bfe5064f05f06ddd0bc7a",
+      "resourceSHA256": "9f008844dec725f0cc5e126e75c182921ee701fb3b79826a760998e643df092e",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-8.png",
+      "source": "bb2-holidays/app/media/BACKDROPS/en/8.jpg",
+      "sourceSHA256": "3fcab8f1f0c1ce50b67c70dd563cbf4703986548912ef6dda1ea9f31d2917595",
+      "resourceSHA256": "fdbde054c9709a2204846eee3718bd8d6761fc7daa57796e07e7b27f5af3dced",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-background-9.png",
+      "source": "bb2-holidays/app/media/BACKDROPS/en/9.jpg",
+      "sourceSHA256": "a1437c07270f61253affa38bcaccb9ca6cf501a40432b5bea30417c0032de5ac",
+      "resourceSHA256": "0ecff8c33fcfd6097b9918ada7f2166b9cc6007b2a9a5a8ee5fb09fb25dfb3c9",
+      "operation": "JPEG decoded to lossless PNG; exact decoded RGB pixel comparison passed",
+      "dimensions": [
+        640,
+        480
+      ]
+    },
+    {
+      "resource": "BB2-title.png",
+      "source": "bb2-holidays/app/media/images/en/title.png",
+      "sourceSHA256": "4c29dd0c7d7a02583f80a3888a8931267a3d64c2f7b8c21b13cd613195bc6071",
+      "resourceSHA256": "4c29dd0c7d7a02583f80a3888a8931267a3d64c2f7b8c21b13cd613195bc6071",
+      "operation": "byte-identical copy",
+      "dimensions": [
+        640,
+        480
+      ]
+    }
+  ]
+}

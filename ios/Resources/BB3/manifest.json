@@ -1,0 +1,2197 @@
+{
+  "sourceSHA256": "b3bd7a771a516358110b216ed42254fd204bd79473feea63c7874c4059fb826d",
+  "assets": {
+    "background_bg_lightBluewaves": {
+      "background": "bg_lightBluewaves",
+      "mesh": "meshdecal_lightblue",
+      "shader": "meshdecal_lightBluebg",
+      "color": "bitmaps/visualizers/waves_lightblue_02.jpg",
+      "sha256": "cef9524ad016212e3e2c37f090d6ac66bed3618e77281e4cb99e5ef815cded09"
+    },
+    "brick_square_brick_28": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 12,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_28",
+      "sha256": "7daf0a4ec8c2cf97a56f20c4d000ea63cf8a9e44db71356782af6333555bcff4"
+    },
+    "brick_Triangular2x2": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 1,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "Triangular2x2",
+      "sha256": "cea4ef508f93275d1b658c6ce5bbab122eede6a3ed74d2d9ad4f7ec40d03ca60"
+    },
+    "brick_Triangular2x2_FLIP": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "Triangular2x2_FLIP",
+      "sha256": "6d7678d2baecc0d2ecfb5dc0f639475529f2a41f90dbbc60c2561ff25b09088a"
+    },
+    "brick_square_brick_29": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 13,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_29",
+      "sha256": "7a3ccf029aa5ad267ccaa857c11aeee82a771bf9c83a240aa8d83b70eb0ced21"
+    },
+    "brick_brick_18_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 18,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_18_vert",
+      "sha256": "57c3dc0bb22d2b50eeddcb16c201f8f8cf5e379d6c52d4ec9fce7fc8533d11bd"
+    },
+    "brick_square_brick_00": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_00",
+      "sha256": "3823dc8830da66964e4f081f9d4ea56acbf44859e6b3d368249400f5dd9a4386"
+    },
+    "brick_brick_18": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 18,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_18",
+      "sha256": "a2bac09c7c3bd2f9071302124e3635554fada01d8ff4e796e472aed6887e43b7"
+    },
+    "brick_brick_20": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 20,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_20",
+      "sha256": "08bef7d47135b158e1c241f3e01cfdf7f51496201f6ab0e8f1b6a1d443191a01"
+    },
+    "brick_brick_20_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 20,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_20_vert",
+      "sha256": "5a536bce4676fe5aaba38fd29aeea04b78091df2d4bfa6a8ecc6651071f21633"
+    },
+    "brick_square_brick_01": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 1,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_01",
+      "sha256": "c8ecf98a20f5128ec96196b8a471dc780e363bfd5a0996ff6c60972f32423b10"
+    },
+    "background_bg_test_002": {
+      "background": "bg_test_002",
+      "mesh": "meshdecal_test_002",
+      "shader": "meshdecal_bg_002",
+      "color": "bitmaps/visualizers/waves_greenblue.jpg",
+      "sha256": "969e57d6693acaf3d8dd8826d43ba27736a86ee718f63c59658038db4ea787c1"
+    },
+    "brick_brick_08": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 8,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_08",
+      "sha256": "4720c52cfd869c5f467286059259b3e0d3d3594d3fa91f55fd88abd58312eb96"
+    },
+    "brick_brick_03_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 3,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_03_vert",
+      "sha256": "f4a188285b73f89ea99828dc4f8f1f541cca00820f47086c0bdfd952f236921a"
+    },
+    "brick_brick_09_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 9,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_09_vert",
+      "sha256": "b2d31d8babec25f541187ec33bc0a8077f14acfd42d6573fcd2cbec22f32ab42"
+    },
+    "brick_brick_29": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 29,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_29",
+      "sha256": "5c633c3e1ee7a7f54ac8d87d1775cac1ee4540117dfc81394604c0f94b68bc18"
+    },
+    "brick_brick_00": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 0,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_00",
+      "sha256": "ce7e097162cbf331607b7d9c113aa4abaab67f3a7538c8589d4013562c3769e4"
+    },
+    "brick_brick_01": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 1,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_01",
+      "sha256": "6b328868faac839997551f63ff81a21199f6c793f085ab2fbbb4fe5a7ff35df7"
+    },
+    "brick_brick_30": {
+      "decal": "bricks_special_2x1",
+      "shader": "bricks_special_2x1",
+      "color": "bitmaps/world/special_brick_2x1.jpg",
+      "alpha": "bitmaps/world/special_brick_2x1_a.png",
+      "frame": 3,
+      "grid": [
+        2,
+        2
+      ],
+      "template": "brick_30",
+      "sha256": "4c321ddc9aa62df7947c39c3e7c4bb3f1111ce26dc0baf7f69c7cd30930c0161"
+    },
+    "background_bg_bluewaves_v2": {
+      "background": "bg_bluewaves_v2",
+      "mesh": "meshdecal_bluebg_v2",
+      "shader": "meshdecal_bluebg",
+      "color": "bitmaps/visualizers/waves_lightblue.jpg",
+      "sha256": "8305dd14d44170ccf440cc98b060b6f20b7ec93e06cd2993c5b04cbff2850c5e"
+    },
+    "brick_brick_Blaster_ball": {
+      "decal": "bricks_special_02",
+      "shader": "bricks_special_02",
+      "color": "bitmaps/world/special_brick_2x2_02.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_02_alpha.png",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_Blaster_ball",
+      "sha256": "3634e594199749eeca86dd659e4c3905d1e995ba8a337417093ef6629f9af1a4"
+    },
+    "brick_square_brick_04": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 4,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_04",
+      "sha256": "54f4e83a58343f16ae05489bd69e312f8fcf3de19aec6d168412f769b0bafda3"
+    },
+    "brick_square_brick_03": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 3,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_03",
+      "sha256": "4e81343fe52785e09e1eda6a41d429c3dacc6e617dbd7bc9adab314ba89bd367"
+    },
+    "brick_brick_gravity_repel": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 10,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_gravity_repel",
+      "sha256": "42b17ad85eadb8f922027bc47067804add2da4d710b544de42ee98a366eefec1"
+    },
+    "brick_brick_secret": {
+      "decal": "bricks_special_02",
+      "shader": "bricks_special_02",
+      "color": "bitmaps/world/special_brick_2x2_02.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_02_alpha.png",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_secret",
+      "sha256": "8631ff3cbe88d12281b23d0fc6278eff3fa1f74baea7d993499777675b94c93c"
+    },
+    "brick_square_brick_02": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 2,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_02",
+      "sha256": "25a9f702fc42e7f6b17ea204a7ad144d5a93c216cfa196481d75cc6898cc5b80"
+    },
+    "brick_brick_unbrakeable": {
+      "decal": "bricks_special_2x1",
+      "shader": "bricks_special_2x1",
+      "color": "bitmaps/world/special_brick_2x1.jpg",
+      "alpha": "bitmaps/world/special_brick_2x1_a.png",
+      "frame": 0,
+      "grid": [
+        2,
+        2
+      ],
+      "template": "brick_unbrakeable",
+      "sha256": "9d9fafd32ff6570c1c506c0fc4f7475b05b21a116ba5c5c5679c099c7c6633f3"
+    },
+    "background_bg_yellowaves": {
+      "background": "bg_yellowaves",
+      "mesh": "meshdecal_lightYellow",
+      "shader": "meshdecal_lightYellow",
+      "color": "bitmaps/visualizers/waves_lightyellow.jpg",
+      "sha256": "0b4888b55c70f2d04e869f1fdae8e7eef2671ab6e00e587cef7152822ead4b2b"
+    },
+    "brick_brick_02": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 2,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_02",
+      "sha256": "0a361a8aba01f391ac88ee0503f53176d175ae0477dda3e83aaa58a3b72de33e"
+    },
+    "brick_brick_03": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 3,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_03",
+      "sha256": "a3e2531833a6da8c775e4a3908c773014c881c995a9adb52f859847efa0f7eb8"
+    },
+    "brick_brick_05": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 5,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_05",
+      "sha256": "8df46eda91a0cc9d9fb64e1c0f1dfb840eae1a641321a40c37fe3122c4f3ae66"
+    },
+    "brick_brick_04": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 4,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_04",
+      "sha256": "82d5be0121739f85aa65d7bf07ce6a03bda88f7d936a10ef4248f34a053e097e"
+    },
+    "brick_brick_two_hit_stone": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 30,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_two_hit_stone",
+      "sha256": "3ce2d1dc7293664b810ed620f28820b3891ee2a12ae34e0996788c20cab726b9"
+    },
+    "brick_brick_unbrakeable_2x2": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 12,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_unbrakeable_2x2",
+      "sha256": "ee576e6950cef1a174e4fbb21dad932d24f492783d8d81139d1363444af51652"
+    },
+    "brick_brick_26": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 26,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_26",
+      "sha256": "974b92bb648555d0ab641c502adabacdb95e0da4286354c6c71a01ccd9c9594c"
+    },
+    "brick_brick_23": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 23,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_23",
+      "sha256": "982e89ae854d2959ff6059374321a0f394c6c5c568cd6e02e8798830d695abdd"
+    },
+    "brick_brick_16_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 16,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_16_vert",
+      "sha256": "c12c9305f618d24de730ca21524ab7430a796f443fecf4098d1095edf50a8f2a"
+    },
+    "brick_brick_22": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 22,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_22",
+      "sha256": "b95e34bff81ac95d15e4314f49805bcec99a3d99d58c332502370e66f79de185"
+    },
+    "brick_brick_two_hit_stone_2x2": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 15,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_two_hit_stone_2x2",
+      "sha256": "1af5faa28b118d81621d70013f448dd28b2ccd2258765cb92e9db4d339b89443"
+    },
+    "background_bg_test_005": {
+      "background": "bg_test_005",
+      "mesh": "meshdecal_test_005",
+      "shader": "meshdecal_bg_005",
+      "color": "bitmaps/visualizers/waves_purple.jpg",
+      "sha256": "39618f35a38585c7a2788ffc5be19c7851f65001e288558171f13c2c059dea70"
+    },
+    "brick_square_brick_17": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 1,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_17",
+      "sha256": "b3f7960621979f0a0fa1ef65ad96a255df2b24a12f4fded518fe66b65018b1cf"
+    },
+    "brick_square_brick_18": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 2,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_18",
+      "sha256": "63c81e1f75064cb865028d0527352190cab8184f6d812ee66f1fceb9b3466eaf"
+    },
+    "brick_square_brick_19": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 3,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_19",
+      "sha256": "b9ccb3d7ce9c2e8602e1d0841bebdb55ce72d3d05eb3ee8d306f795e41112e5b"
+    },
+    "brick_brick_24": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 24,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_24",
+      "sha256": "6ce8eeab3ca6653f95e6bd6310d5a52ba8d4a86f19aa2a97fa394e034b273147"
+    },
+    "brick_brick_gravity_attract": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 11,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_gravity_attract",
+      "sha256": "bbc02b420ef910f52cc6f19f42163dd931f647e90134ce7c938e727386331da2"
+    },
+    "background_bg_bluewaves": {
+      "background": "bg_bluewaves",
+      "mesh": "meshdecal_bluebg",
+      "shader": "meshdecal_bluebg",
+      "color": "bitmaps/visualizers/waves_lightblue.jpg",
+      "sha256": "8305dd14d44170ccf440cc98b060b6f20b7ec93e06cd2993c5b04cbff2850c5e"
+    },
+    "background_bg_lightGreen": {
+      "background": "bg_lightGreen",
+      "mesh": "meshdecal_lightGreen",
+      "shader": "meshdecal_lightGreen",
+      "color": "bitmaps/visualizers/waves_lightgreen.jpg",
+      "sha256": "a382602a526dd24e25de6c67600b6de5b99c704bebef2727cf4a2323c800749c"
+    },
+    "brick_brick_30_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 30,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_30_vert",
+      "sha256": "89f730d291acd2b2f4a17f831adc79c040dc3fc52f123176563446b8e4d1a688"
+    },
+    "background_bg_test_006": {
+      "background": "bg_test_006",
+      "mesh": "meshdecal_test_006",
+      "shader": "meshdecal_bg_006",
+      "color": "bitmaps/visualizers/waves_red.jpg",
+      "sha256": "471517b2e0acfcb4fb64f0bdf9dd9f8b35f2bb1c6b86331c3c536de8dc297a6c"
+    },
+    "brick_square_brick_16": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_16",
+      "sha256": "11ae9bba5f107a9f04d4c13cd152027791e35d5f2ff6d9dcbbe24a2a01075e3c"
+    },
+    "brick_brick_21": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 21,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_21",
+      "sha256": "9456d5d0d41ed9de1c941a8628be9a9abf8e46b7d37b51d632c1e55ed31d37c8"
+    },
+    "brick_brick_19": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 19,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_19",
+      "sha256": "b86572be63d021f09248dbb11cee532dfaa8a7b7e5f6ddb735264574918eb27b"
+    },
+    "brick_brick_17": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 17,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_17",
+      "sha256": "d15805c38c04a49cc66aeb6cbaae440251cefeedc6c5951f7eebcd3f3f9b18a6"
+    },
+    "brick_brick_21_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 21,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_21_vert",
+      "sha256": "42a2ca6bd9d4ef460d4d0b2b10b029cba2c38b4cd06fc15330fd079547311807"
+    },
+    "brick_brick_19_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 19,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_19_vert",
+      "sha256": "902a6875fccde6a951f5a7b3b8ccc731971c17379ebe99c97ff6e79cfd703996"
+    },
+    "brick_brick_17_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 17,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_17_vert",
+      "sha256": "03883ad7f4b8c88e464f349e93075a063492b4d514f996d388159addc8a5c12a"
+    },
+    "brick_brick_13_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 13,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_13_vert",
+      "sha256": "d8e7ae7f387a777ca87db288163c49da3b03f692da0b6fa0b91dc8a902e85a41"
+    },
+    "brick_brick_15_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 15,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_15_vert",
+      "sha256": "885e67dac058283bfcb790dcf7c22472ceeb11a9261383bc6a131d672dbe2370"
+    },
+    "brick_brick_25": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 25,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_25",
+      "sha256": "22022b04f881aa2b00372ec26d7e32e5d1b73156ae650fa8a6ceb85fe9cd4bca"
+    },
+    "background_bg_lightPurple": {
+      "background": "bg_lightPurple",
+      "mesh": "meshdecal_lightPurple",
+      "shader": "meshdecal_lightPurple",
+      "color": "bitmaps/visualizers/waves_lightpurple.jpg",
+      "sha256": "17575e5bdcf30b7c0c4ea1df8aefa3b25bbc3c88afd8ea8bda661ca9c8b7875c"
+    },
+    "brick_Triangular2x2_FLIP_unbrake": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 2,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "Triangular2x2_FLIP_unbrake",
+      "sha256": "9be2504d980bcf3ec410c0cad42bbba2ffb28f760c574b959a862538da88c1d3"
+    },
+    "brick_Triangular2x2_unbrake": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 3,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "Triangular2x2_unbrake",
+      "sha256": "9a9f5524b7bf8c52850eeeaa7a0062e9de3e4dd98023d0757b5ec4cfe1da4ed6"
+    },
+    "brick_brick_nuke": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 6,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_nuke",
+      "sha256": "47a92ca247f3146db729506d5bc93050439eaf603d07a0b46a6c97db601432eb"
+    },
+    "brick_brick_16": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 16,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_16",
+      "sha256": "f54e86909cd58586e4cd2b68af24dad9b31d8b01f13fab3958e7d040cb80db35"
+    },
+    "brick_brick_15": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 15,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_15",
+      "sha256": "0c9db11abe7c14a9ddcee942bf94a1e9a2862a53513be10692bb8144e11228e1"
+    },
+    "brick_brick_14": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 14,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_14",
+      "sha256": "f967a3c8dd495966e5bfc85eccfa0469ce949e8f687126435d0b5db3af3df296"
+    },
+    "brick_brick_13": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 13,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_13",
+      "sha256": "e7d64b26ee3db11d57bfbf74c01174edb1c630c4b98689027c69b10273644c5d"
+    },
+    "brick_brick_14_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 14,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_14_vert",
+      "sha256": "f2c90d5a29c8ed4a2cedf4288375f55451129c0254873537bb9e5c1012bd38bc"
+    },
+    "background_bg_test_003": {
+      "background": "bg_test_003",
+      "mesh": "meshdecal_test_003",
+      "shader": "meshdecal_bg_003",
+      "color": "bitmaps/visualizers/waves_green.jpg",
+      "sha256": "6b71b0cca4d8dcfa119aa9cf3208dd5311d80a6c4177cc6fbc7a2217b73cb936"
+    },
+    "brick_square_brick_05": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 5,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_05",
+      "sha256": "677336361973b525a77dab44fb2fa724c9df38e1170b01aca7f905c0faa08f17"
+    },
+    "brick_square_brick_20": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 4,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_20",
+      "sha256": "0dfe901dcded1bfed48dc19db23004c1882216df1ef9eb2f36e00a825b67c12b"
+    },
+    "brick_brick_speedup": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 4,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_speedup",
+      "sha256": "c98ae779576a26e9a7df68d8c758b157692844edf466aba68a4f9832e13cad95"
+    },
+    "background_bg_abstract_red": {
+      "background": "bg_abstract_red",
+      "mesh": "meshdecal_abstract_red",
+      "shader": "meshdecal_abstract_red",
+      "color": "bitmaps/visualizers/abstract_red.jpg",
+      "sha256": "df54b16d68352f04eebdd2f513484e09eab78f6a2605d43b7c03ffd1671c6f9d"
+    },
+    "brick_brick_12": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 12,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_12",
+      "sha256": "f98eae2c563186407260a85d2232120627b27879f4185df031a9957ebc17e005"
+    },
+    "brick_brick_09": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 9,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_09",
+      "sha256": "ea308dd3fc3e727ca6321e25e8b24a35f6fdd2610323955417a1c13d6c436453"
+    },
+    "brick_brick_10": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 10,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_10",
+      "sha256": "9ac87860b876d59d986d1e526724f963f0f6cc68f828a30b5d1dd8a74247d437"
+    },
+    "brick_brick_11": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 11,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_11",
+      "sha256": "6b46f12e0df02c95c49e49ee009aadd92a0fe8d99848df0baecbbbdfb86df7d3"
+    },
+    "background_bg_test_001": {
+      "background": "bg_test_001",
+      "mesh": "meshdecal_test_001",
+      "shader": "meshdecal_bg_001",
+      "color": "bitmaps/visualizers/waves_bluegray.jpg",
+      "sha256": "396e07197b47ec7a6a3edec050e0d8232f35bf630e3f68e09b35aad22da5d91a"
+    },
+    "brick_square_brick_31": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 15,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_31",
+      "sha256": "affb56c16260d75e82c9f55e832fabf5c6b4d0b7687d0631f68f84c70cf4f68d"
+    },
+    "brick_square_brick_15": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 15,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_15",
+      "sha256": "f7f943ba55af2c16db66fcf769211cf497bfa5bdabe90c62170c933e6dd5ea46"
+    },
+    "brick_brick_explosive": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_explosive",
+      "sha256": "8ea1cd907fe779991c883149b6a99ac4d22c82c3a392081bbdb5673f8c0f64ab"
+    },
+    "brick_brick_00_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 0,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_00_vert",
+      "sha256": "a40e8f8bb2ed6aed90fe300d22b3ae17a61ebf600c23326c9edc232acad8313f"
+    },
+    "background_bg_lightBluewaves_v2": {
+      "background": "bg_lightBluewaves_v2",
+      "mesh": "meshdecal_lightblue_v2",
+      "shader": "meshdecal_lightBluebg",
+      "color": "bitmaps/visualizers/waves_lightblue_02.jpg",
+      "sha256": "cef9524ad016212e3e2c37f090d6ac66bed3618e77281e4cb99e5ef815cded09"
+    },
+    "background_bg_test_004": {
+      "background": "bg_test_004",
+      "mesh": "meshdecal_test_004",
+      "shader": "meshdecal_bg_004",
+      "color": "bitmaps/visualizers/waves_brown.jpg",
+      "sha256": "911112e34cb36cd0316557bd26cf2dddb649467adb436c822246c61ce4cc2bb4"
+    },
+    "brick_brick_phantom_2x2": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 9,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_phantom_2x2",
+      "sha256": "4e92f06c9a2331b6ed0aee255e0036e19b07beffd8cfec8eb6589e0450143539"
+    },
+    "brick_brick_04_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 4,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_04_vert",
+      "sha256": "f0f400ec1bff601e125ac6ecce2d19b41d5423983ef9391b2798ae780e9a513f"
+    },
+    "brick_brick_extraball": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_extraball",
+      "sha256": "b3826afaa1a16782c264e881800b37b12e466967525fe90829568324d3d2f6ea"
+    },
+    "background_bg_test_007": {
+      "background": "bg_test_007",
+      "mesh": "meshdecal_test_007",
+      "shader": "meshdecal_bg_007",
+      "color": "bitmaps/visualizers/waves_yelloworange.jpg",
+      "sha256": "be5b65d9014077c17341c9e064fbed0ac21d06ff6837780582c23c37e8343a7e"
+    },
+    "brick_brick_chain": {
+      "decal": "bricks_special_02",
+      "shader": "bricks_special_02",
+      "color": "bitmaps/world/special_brick_2x2_02.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_02_alpha.png",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_chain",
+      "sha256": "ec53b4d59b656ccf0c4bb10ff691adcb2173b235a8c033fb033af8de45902ec0"
+    },
+    "brick_square_brick_14": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 14,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_14",
+      "sha256": "c5064288706f80355a096ababe59d08d40f7ce097bebed2318bd7060d39de06c"
+    },
+    "brick_square_brick_13": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 13,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_13",
+      "sha256": "75c06e3619851e5e393562dc537182af0a14b6d59daa51022d76212c25dcc998"
+    },
+    "background_bg_abstract_green": {
+      "background": "bg_abstract_green",
+      "mesh": "meshdecal_abstract_green",
+      "shader": "meshdecal_abstract_green",
+      "color": "bitmaps/visualizers/abstract_green.jpg",
+      "sha256": "ce0d599b68c0b71a796f4896a5c2570a5a497d976196a40b4ea95475bb61d2d5"
+    },
+    "brick_brick_06": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 6,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_06",
+      "sha256": "57840fae7d6c312843f5f70ab78df36b6fc8de49595d64ee1e17b062e3776aeb"
+    },
+    "brick_brick_07": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 7,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_07",
+      "sha256": "35c6809ea4f97a5681fae578d411eb76fbf804960d310cff8652fdeb30235331"
+    },
+    "brick_brick_27": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 27,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_27",
+      "sha256": "76a447b9fbcfc05c19afb64bfbed32d7f98113dacd2d52dbf2e87eb36081e4bd"
+    },
+    "brick_brick_28": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 28,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_28",
+      "sha256": "8e801ab0aa9c6724d250ac69914cd0901a8797f56f7af9b68c8285da50b75336"
+    },
+    "brick_brick_plague": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 14,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_plague",
+      "sha256": "5d659a434487f34b67884ec50d4d4f2484b36680459caeeb8a6fbe11f15f1580"
+    },
+    "background_bg_abstract_orange": {
+      "background": "bg_abstract_orange",
+      "mesh": "meshdecal_abstract_orange",
+      "shader": "meshdecal_abstract_orange",
+      "color": "bitmaps/visualizers/abstract_orange.jpg",
+      "sha256": "c0e0a25a4eb1bf5d4b88872913b1ee58fdbcc50e0a8486f71f593956d3beba6d"
+    },
+    "brick_brick_22_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 22,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_22_vert",
+      "sha256": "b9082b1b098ae2ceeed43e9a34f9159093c329f13bb243f5ee99354e73308a46"
+    },
+    "brick_brick_23_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 23,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_23_vert",
+      "sha256": "92822dfbcc8780cea625b0d3b511cc65076c03c2f4f6c87f3e1ea853853596a5"
+    },
+    "brick_brick_24_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 24,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_24_vert",
+      "sha256": "daff8b6b02ad740e796f82e249fda55779e8edaf9add158f2ef6319a2835c30e"
+    },
+    "brick_brick_25_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 25,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_25_vert",
+      "sha256": "3a993f169c1c3747742e81ad1a1dc38957aae9e0071c1343465e6fc61a806276"
+    },
+    "brick_brick_26_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 26,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_26_vert",
+      "sha256": "b1805815b723c458e3337ba86b9da5e6fc1c9fcfd9acc6d7bb47e888f0e6ce0a"
+    },
+    "brick_square_brick_25": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 9,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_25",
+      "sha256": "e75fe622f37ee8d84f7471f0379675e545e8e5b5ef88164b7815d1fb01c35704"
+    },
+    "brick_square_brick_30": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 14,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_30",
+      "sha256": "0a8a9b3a2facc6a834f8bc65885d17060247be70cbcff8dea8386b48ff382edc"
+    },
+    "background_bg_abstract_blue": {
+      "background": "bg_abstract_blue",
+      "mesh": "meshdecal_abstract_blue",
+      "shader": "meshdecal_abstract_blue",
+      "color": "bitmaps/visualizers/abstract_blue.jpg",
+      "sha256": "b5b9ffcc231b4ddf5a499af2e024043140f02a4312ea76105da204d393a439c3"
+    },
+    "brick_square_brick_08": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_08",
+      "sha256": "723970cd443cab907d89e41d58c7aed1be50c8654ca0d50f85c01b162c96d9d8"
+    },
+    "brick_square_brick_09": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 9,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_09",
+      "sha256": "c8be68bb5f9c21f49f00f5ab6b694e51d15566e1f157efbc164aae1bf1a1a5ef"
+    },
+    "brick_square_brick_10": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 10,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_10",
+      "sha256": "c98e4ee57c84c2cb6bafd5bd74d8517d751190e1f375e08b06daa95aed78a4b5"
+    },
+    "brick_square_brick_11": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 11,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_11",
+      "sha256": "693262e2cc64b6a6108a66325733888492db83ec11bc27e7e354257a77ecdd76"
+    },
+    "brick_brick_31": {
+      "decal": "Bricks",
+      "shader": "Bricks",
+      "color": "bitmaps/world/bricks.jpg",
+      "alpha": "bitmaps/world/bricks_alpha.png",
+      "frame": 31,
+      "grid": [
+        4,
+        8
+      ],
+      "template": "brick_31",
+      "sha256": "3fdf23156b23165f7b9e5cc31870dabbfb9db0c62e297bee583385c1e3f9feef"
+    },
+    "brick_brick_05_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 5,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_05_vert",
+      "sha256": "4110fce3dc9a17a856baec2b82fb194264e3c302db3da5a9001cf95256cbe160"
+    },
+    "brick_brick_07_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 7,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_07_vert",
+      "sha256": "d9660385b037f2bda285a8dc2937b3e052fd77d720003e7604a2ec609e0a43a4"
+    },
+    "brick_brick_08_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 8,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_08_vert",
+      "sha256": "2b34983d6e607fa6b8cc47739cd09eb0526debb0af488cc9d4e6d2eb79cf7780"
+    },
+    "brick_square_brick_07": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_07",
+      "sha256": "9c74c7d0907b1d3222a964908971850ac07559cd0a46434dc1499f4f03c40831"
+    },
+    "brick_brick_gold": {
+      "decal": "bricks_special_01",
+      "shader": "bricks_special_01",
+      "color": "bitmaps/world/special_brick_2x2_01.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_01_alpha.png",
+      "frame": 13,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_gold",
+      "sha256": "90f4f83563dda159d9b458bdd4d448e2e6dff521032472c6abcf28befa34f830"
+    },
+    "brick_square_brick_27": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 11,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_27",
+      "sha256": "4ef6286fc6d20cb18e8096002b1633d4a01726b640c38d4750197db6689e0e25"
+    },
+    "brick_square_brick_26": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 10,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_26",
+      "sha256": "b95948beffc09f002ae445b935d113ffc8911bf974fe01619864ec5d8162f621"
+    },
+    "brick_square_brick_24": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_24",
+      "sha256": "bd731508acd6d3ff3eecc7677e146f029fa808e437cec6d5aa89c1aabb234c9f"
+    },
+    "brick_square_brick_06": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 6,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_06",
+      "sha256": "3bd2a379b192a00ef0f524b1c0854b9d8ed25e893250d7e9f47accc43cc0fbfa"
+    },
+    "brick_brick_hardside": {
+      "decal": "bricks_special_2x1",
+      "shader": "bricks_special_2x1",
+      "color": "bitmaps/world/special_brick_2x1.jpg",
+      "alpha": "bitmaps/world/special_brick_2x1_a.png",
+      "frame": 1,
+      "grid": [
+        2,
+        2
+      ],
+      "template": "brick_hardside",
+      "sha256": "e6de2e80fec72707e7ec96bd8dea0356590832e21441c9b950d150929ba3fb87"
+    },
+    "brick_square_brick_21": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 5,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_21",
+      "sha256": "84dc839331916fab58e4190bd8209a2d30d07617539bd4e8e1a3343bcd54b315"
+    },
+    "brick_brick_02_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 2,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_02_vert",
+      "sha256": "20b08c6993781e57b4ac58b31ae90527efa4b45051fa44bfa8e7f5b9ab36d5c4"
+    },
+    "brick_square_brick_22": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 6,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_22",
+      "sha256": "ca4287ce1a83d81d6dd28f73fa2ecc50f40678701ef528c958abb5910cf4712d"
+    },
+    "brick_square_brick_23": {
+      "decal": "square_bricks_02",
+      "shader": "square_bricks_02",
+      "color": "bitmaps/world/square_bricks02.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_23",
+      "sha256": "cc72af9bca8508751842822992917379ceec65b5c7a513b394e2b363eab808ff"
+    },
+    "brick_square_brick_12": {
+      "decal": "square_bricks_01",
+      "shader": "square_bricks_01",
+      "color": "bitmaps/world/square_bricks01.jpg",
+      "alpha": "bitmaps/world/square_bricks_alpha.png",
+      "frame": 12,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "square_brick_12",
+      "sha256": "2b8458a3e4b6c5d784e6c28402bd08fd1db979be5fb4943f10fe96a383831491"
+    },
+    "brick_brick_01_vert": {
+      "decal": "Bricks_vertical",
+      "shader": "Bricks_vertical",
+      "color": "bitmaps/world/bricks_vertical.jpg",
+      "alpha": "bitmaps/world/bricks_vertical_alpha.png",
+      "frame": 1,
+      "grid": [
+        8,
+        4
+      ],
+      "template": "brick_01_vert",
+      "sha256": "08c76294e56976de3c9c0d3d6a7f1007ea600ee53882366021df76f744043f2d"
+    },
+    "brick_brick_hardside_darkside": {
+      "decal": "bricks_special_2x1",
+      "shader": "bricks_special_2x1",
+      "color": "bitmaps/world/special_brick_2x1.jpg",
+      "alpha": "bitmaps/world/special_brick_2x1_a.png",
+      "frame": 2,
+      "grid": [
+        2,
+        2
+      ],
+      "template": "brick_hardside_darkside",
+      "sha256": "b7fe08071ce6a13db5624cf52695c3acef904e2d2d1d53a7a793d95d0c9d06a7"
+    },
+    "brick_brick_hardside_2x2": {
+      "decal": "bricks_special_02",
+      "shader": "bricks_special_02",
+      "color": "bitmaps/world/special_brick_2x2_02.jpg",
+      "alpha": "bitmaps/world/special_brick_2x2_02_alpha.png",
+      "frame": 9,
+      "grid": [
+        4,
+        4
+      ],
+      "template": "brick_hardside_2x2",
+      "sha256": "3bd525d51048e28984b6301152a0a184291af4cadef1b214d4eb20fdbef9c7a8"
+    },
+    "background_bg_cloud_blue": {
+      "background": "bg_cloud_blue",
+      "mesh": "meshdecal_cloud_blue",
+      "shader": "meshdecal_cloud_blue",
+      "color": "bitmaps/visualizers/clouds_blue.jpg",
+      "sha256": "902985829bf5136c28503f85221184166f84e021db4f93085c35d3e71ca23432"
+    },
+    "ball": {
+      "decal": "pla_ball",
+      "shader": "pla_ball",
+      "color": "bitmaps/player/pla_ball.jpg",
+      "alpha": "bitmaps/player/pla_ball_a.jpg",
+      "frame": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "sha256": "5f50885ec3ad3deddf9283ac314ac54ad1ed01a545efc85c994151128882d28f"
+    },
+    "paddle_end": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 0,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "64c3a2f79414273687d119b53de5311c32e7c9e7bc4c037ca8998a6d02ef8eb5"
+    },
+    "paddle_center": {
+      "decal": "PaddleCenter",
+      "shader": "PaddleCenter",
+      "color": "bitmaps/player/pla_center.jpg",
+      "alpha": "bitmaps/player/pla_center_a.jpg",
+      "frame": 0,
+      "grid": [
+        1,
+        1
+      ],
+      "sha256": "f787527895f5ad23679ae5f64549f56114de7f8586d0cf1529c4aee92be8cb6d"
+    },
+    "paddle_end_0": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 0,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "64c3a2f79414273687d119b53de5311c32e7c9e7bc4c037ca8998a6d02ef8eb5"
+    },
+    "paddle_end_1": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 1,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "93f814c29dc04bd0168cb00d915438299193bef108595311290db95874a2d137"
+    },
+    "paddle_end_2": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 2,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "a5080d3bf49918e5fdb4652ab3eb8dc88e0d550a55384482226d06257e41240e"
+    },
+    "paddle_end_3": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 3,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "10a1f2fd05fd15b7bb96d2297f9a6eda3e060b59ab6842fc957c2cf843681c31"
+    },
+    "paddle_end_4": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 4,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "f1bd5faf883dc4903587e04bcdb76d1bafe34567966eb394a02c3ae35acfa523"
+    },
+    "paddle_end_5": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 5,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "de201d7bfc4a02da9235b876ec34281ce5bc7e065a2695232362bb5405a4946d"
+    },
+    "paddle_end_6": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 6,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "1166c0aa1a5c4aa49cf48f37c14ef6152b9e6843d4563868abfecb768aab0e4f"
+    },
+    "paddle_end_7": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 7,
+      "grid": [
+        2,
+        4
+      ],
+      "sha256": "0fa47d436eb49242a1b8d5cd32e276c525abcb7c97589f699985bb693ce7c55e"
+    },
+    "left_side_blue": {
+      "color": "bitmaps/world/left_side_blue.png",
+      "sha256": "8df2142c3c3bc0ffab35b996b1debdf9786c810a5daef2a4eaccc543c4a8004e"
+    },
+    "left_side_blue_w": {
+      "color": "bitmaps/world/left_side_blue_w.png",
+      "sha256": "67bb510c798195dcb01d2d0530ea034eb9af990ba1d16879bc28e783f9d44942"
+    },
+    "top_bar": {
+      "color": "bitmaps/world/top_bar.jpg",
+      "sha256": "e09549d46549ec17d4ad4ab42069628e47178cd5d8ab9d156635cbf24e0e16de"
+    },
+    "vista_top": {
+      "color": "bitmaps/world/vista_top.jpg",
+      "sha256": "103a4fb4a3fa1b46b52ca3fbfa357eca3ab05592e8e8de5bdeaf689d851f8c7a"
+    },
+    "vista_left": {
+      "color": "bitmaps/world/vista_left.jpg",
+      "sha256": "bcd0524c68a1e7325cceddafba1aa505ae162069ca6a5729502044365a18dbeb"
+    },
+    "vista_left_extension": {
+      "color": "bitmaps/world/vista_left_extension.jpg",
+      "sha256": "cebe0e515a8458081a11522752982a6106ddae9daf62bce418f5c39daf9baf2e"
+    },
+    "paddle_0": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 0,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "19c2e4a02befe15ebca52ffa9225d6f9c37af0dd6d07a9e1d26df127001d0d92"
+    },
+    "paddle_1": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 1,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "bc079b715ee1fa581c34de36cf5427a5907d5bb0a80431508ce120dacb232a31"
+    },
+    "paddle_2": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 2,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "0540d004603594640d508faa6f0bb0883f2ba46cafe536daa399263932383e01"
+    },
+    "paddle_3": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 3,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "b351c7b5fff83b3accae734a074512181db6f2a42b8c384aaaa645f4e1a4f6a2"
+    },
+    "paddle_4": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 4,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "fe642044fd8b470e8680d503eaf7062218667cec0b16929cf2094f28f8c10064"
+    },
+    "paddle_5": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 5,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "b8e1f1b2af523b0598b8930d2353e2cd8c5737e7673879b7d47e5e215f13ca36"
+    },
+    "paddle_6": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 6,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "ee18ba22940a2806d0fa6759e624d8dc360632d51d32ba76156968cb28a85e9a"
+    },
+    "paddle_7": {
+      "decal": "Paddle",
+      "shader": "Paddle",
+      "color": "bitmaps/player/pla_sequence_paddle.jpg",
+      "alpha": "bitmaps/player/pla_sequence_paddle_a.jpg",
+      "frame": 7,
+      "grid": [
+        2,
+        4
+      ],
+      "composition": "Original center with original mirrored endcaps; template relative scales .70/.33/.33",
+      "sha256": "316400b8d8df6c28e5b71f4880811b3be82fe2fb5a662429f9f4e10519172a08"
+    },
+    "powerup_1Up": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "1Up",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "c94119b125eb3f945a7fe5d67f624ac334249dc058902473393d41a0de097f1d"
+    },
+    "powerup_8Ball": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 1,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "8Ball",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "272c8fd6e4ea5eae973874000157c4231ec075564a07c7c2cd3941b249bc6da8"
+    },
+    "powerup_Attach": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 5,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Attach",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "47010629b30336a4a570aadba73c4bc9bce2e98f91ba67534a16691fc6cdb7d0"
+    },
+    "powerup_BigBall": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 2,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "BigBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "3697f2bf8a090741b5af24e1e552051e977cf494567b579467ad16443609f260"
+    },
+    "powerup_BlasterBall": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 0,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "BlasterBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "e88199b9f49870006da1a95490e1e2a9d45d8c52613dd0ce0142152759a85f0e"
+    },
+    "powerup_Catcher": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 4,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Catcher",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "2d9a66886730772ca8cdf89b9f78008c8bd6c5e8cde57f6778aa031d3b91afa0"
+    },
+    "powerup_EnergyBall": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 2,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "EnergyBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "7a2acc1c2dc7f7dd790270e0d28dab3109c05886c5fe7bc3ff6e00f1e976183d"
+    },
+    "powerup_ExplosiveBall": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 3,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "ExplosiveBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "49b56086466c730a4aa503625b1a2c6b6586b7f005327dcfbadf7bf975a44fe6"
+    },
+    "powerup_FastBall": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 4,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "FastBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "7e1c14820eb648a9f985331fba23ba14f513543040d7472759d0246de7ec0c2f"
+    },
+    "powerup_Flash": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 5,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Flash",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "3069f027644dd9aef9b26de42a51ab0cb7cd0a2c316d81ab0d2ff3c7e5317531"
+    },
+    "powerup_GrowPaddle": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 6,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "GrowPaddle",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "c47c7e1be88b54c98d63dad43d7f541f003ab8c9d2b8e6a4ae2fa067e6055f96"
+    },
+    "powerup_Hovering": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Hovering",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "10e5db31de5fc0d4842175362a4dda012cadfdbbb531a206489a28e3038cdd87"
+    },
+    "powerup_InertialPaddle": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "InertialPaddle",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "8d0dc394d5c7584832cb7208c3288ce3d10e1dd4f0cf5195c1a308cbdf58e0f1"
+    },
+    "powerup_Laser": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 7,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Laser",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "e0ef0637aa931f0f7c8c67e03eeae6ec868278aae25c5b201e245d4cf84f2cfb"
+    },
+    "powerup_NightBall": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 3,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "NightBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "cba348e0ed0f9f584516bf483a862212c7b308386096d08d070333a28070f6d6"
+    },
+    "powerup_PhantomPaddle": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 15,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "PhantomPaddle",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "6824e4bcb2835ae20f509607e683dba23f46984978ad59ba16f1cf420860ae5e"
+    },
+    "powerup_ReplicateBall": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 8,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "ReplicateBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "d91c98e7ecc5dd086316ff3faa1cbc2e210a1149929603e2076313e1c7f5b9d4"
+    },
+    "powerup_Scorex2": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 9,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Scorex2",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "4790b2e0ba821e5367e8427fb4950fb6b261f54588e81c9b14802875159ab7c4"
+    },
+    "powerup_Scorex3": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 10,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Scorex3",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "28b45c101db77ddb9af97ed69084ac6225094c71c05b366dcf117d23c9ee57f9"
+    },
+    "powerup_SlowBall": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 11,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "SlowBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "e330ee1e98d1b123f35d9eef3ee5f2ac2f9545461f194c9b103f5afddf440d35"
+    },
+    "powerup_SmallPaddle": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 12,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "SmallPaddle",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "a18664aa5c1c5ecda75361b66dcb53a7ef9873ef0df9f4f8ca44d0ba1623c808"
+    },
+    "powerup_SplitBall": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 13,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "SplitBall",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "42e0072d9798e2cbb39d6a8b888dbec124d18880d1b6903345ed74220391724b"
+    },
+    "powerup_TwinPaddles": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 6,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "TwinPaddles",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "7afb24b8100570014c35e8a8e3cecd5e68efe54f0b5cd2bb6cd5e811ce065214"
+    },
+    "powerup_Vision": {
+      "decal": "powerups_letters_01",
+      "shader": "powerup_letters_01",
+      "color": "bitmaps/world/powerup_letters01.jpg",
+      "alpha": "bitmaps/world/powerup_letters01_alpha.png",
+      "frame": 14,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Vision",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "488f0bed91dc3054e13cd0d3f8001ed9886c1f40a79e1f34d31eb66b22406316"
+    },
+    "powerup_Zap": {
+      "decal": "powerups_letters_02",
+      "shader": "powerup_letters_02",
+      "color": "bitmaps/world/powerup_letters02.jpg",
+      "alpha": "bitmaps/world/powerup_letters02_alpha.png",
+      "frame": 1,
+      "grid": [
+        4,
+        4
+      ],
+      "powerup": "Zap",
+      "composition": "Original letter overlay over original rotating pickup frame0",
+      "sha256": "10e317a2adac109de7206833333e96e2435cf609992f0427cd00eeb3a46f12c9"
+    }
+  },
+  "limits": [
+    "All100NORMAL and10HIDDEN templates; native campaign order and dark-mode routing remain unverified",
+    "Rotation is original field2; quarter-turn interpretation inferred from reference image",
+    "Background source is original; original mesh wave deformation not reconstructed",
+    "Special effects and moving enemies require runtime implementation; source values preserved"
+  ]
+}
