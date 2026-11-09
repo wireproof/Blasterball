@@ -12,7 +12,7 @@ struct Cell: Codable {
 }
 struct Stage: Decodable { let index, levelType, background: Int; let critterSpawns: [Int]; let cells: [Cell]; var backgroundArt:String?=nil; var sourceName:String?=nil, sourceSettings:[String:String]?=nil; var hidden:Bool?=nil }
 struct Campaign: Decodable { let levels: [Stage] }
-struct SavedRun: Codable { let stage, score, lives: Int; let hits: [String:Int]; var multiplier:Int?=nil; var returnStage:Int?=nil; var tokens:[MultiplierToken]?=nil }
+struct SavedRun: Codable { let stage, score, lives: Int; let hits: [String:Int]; var multiplier:Int?=nil; var returnStage:Int?=nil; var tokens:[MultiplierToken]?=nil;var placed:[Cell]?=nil }
 struct MultiplierToken:Codable { var value:Int; var seconds:Double }
 enum StageLoadError: Error { case missingResource, invalidGrid }
 
@@ -28,14 +28,14 @@ final class BlasterballSceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
-        let navigation=GameNavigationController(rootViewController:GameController())
-        navigation.setNavigationBarHidden(true,animated:false)
-        window.rootViewController = navigation
+        // Gameplay owns the full window. A navigation-controller root can reserve
+        // Duo's side-bar column even while its navigation bar is hidden.
+        window.rootViewController = GameController()
         self.window = window
         window.makeKeyAndVisible()
     }
     func sceneWillResignActive(_ scene: UIScene) {
-        ((window?.rootViewController as? UINavigationController)?.topViewController as? GameController)?.backgroundPause()
+        (window?.rootViewController as? GameController)?.backgroundPause()
     }
 }
 
@@ -171,9 +171,19 @@ final class LibraryController: UITableViewController {
 
 struct DisplayLayout {
     let frame:CGRect, thumb:CGRect, compact:Bool
-    var extendedFrame:CGRect { CGRect(x:frame.minX,y:frame.minY,width:frame.width,height:thumb.maxY-frame.minY) }
+    var laptop:Bool=false
+    var extendedFrame:CGRect { if laptop { return frame }; return CGRect(x:frame.minX,y:frame.minY,width:frame.width,height:thumb.maxY-frame.minY) }
     static func make(bounds:CGRect,safe:UIEdgeInsets,closed:Bool?,mode:String="auto")->DisplayLayout {
         let available=bounds.inset(by:safe)
+        if mode == "laptop" {
+            // A closed cover must use its full safe width. Keep the PC aspect ratio
+            // and move the deck down instead of narrowing the game to half-height.
+            let fullWidthCover=closed == true
+            let split=fullWidthCover ? max(bounds.midY,available.minY+available.width*3/4+8):bounds.midY
+            let height=max(1,split-available.minY-8)
+            let width=fullWidthCover ? available.width:min(available.width,height*4/3)
+            return DisplayLayout(frame:CGRect(x:available.midX-width/2,y:available.minY,width:width,height:width*3/4),thumb:CGRect(x:available.minX,y:split+8,width:available.width,height:max(1,available.maxY-split-8)),compact:false,laptop:true)
+        }
         let compact=bounds.height > bounds.width // Portrait uses an adaptive arena; landscape uses PC composition.
         let thumbHeight=min(96,max(64,available.height*0.1))
         let frame=CGRect(x:available.minX,y:available.minY,width:available.width,height:max(1,available.height-thumbHeight))
@@ -203,6 +213,9 @@ final class GameController: UIViewController {
     lazy var nativeLibrary=UIBarButtonItem(image:UIImage(systemName:"square.grid.2x2"),style:.plain,target:self,action:#selector(openLibrary))
     var nativeRail=false
     var hingeClosed:Bool?
+    var hingePartial=false
+    var laptopActive=false
+    let controlDeck=LaptopDeck()
     var layoutRefresh:DispatchWorkItem?
     var railLayoutTimer:Timer?
     var initialPresentation=false
@@ -236,9 +249,15 @@ final class GameController: UIViewController {
         steering.accessibilityLabel="Paddle steering area. Slide to steer; release to launch."
         steeringHint.text=nil; steeringHint.textColor = .lightGray
         steeringHint.font = .systemFont(ofSize:12); steeringHint.textAlignment = .center; steeringHint.isUserInteractionEnabled=false
-        steering.addSubview(steeringHint); view.addSubview(steering)
+        steering.addSubview(steeringHint); view.addSubview(controlDeck); view.addSubview(steering)
         steering.steer={ [weak self] point in
             guard let self=self,self.gameView.bounds.width>0 else { return }
+            if self.laptopActive {
+                let fraction=(point.x-self.steering.frame.minX)/max(1,self.steering.bounds.width)
+                self.scene.movePaddle(fraction:fraction)
+                self.controlDeck.fraction=(self.scene.paddle.position.x-self.scene.geometry.left)/(self.scene.geometry.right-self.scene.geometry.left)
+                return
+            }
             let x=(point.x-self.gameView.frame.minX)/self.gameView.frame.width*self.scene.size.width
             self.scene.movePaddle(fraction:(x-self.scene.geometry.left)/(self.scene.geometry.right-self.scene.geometry.left))
         }
@@ -247,7 +266,7 @@ final class GameController: UIViewController {
         if #available(iOS 27.1, *) {
             view.addInteraction(UIHingeInteraction { [weak self] _, update in
                 guard let self=self,let hinge=update.hinge else { return }
-                if hinge.status != .unknown { self.hingeClosed=hinge.status == .closed }
+                if hinge.status != .unknown { self.hingeClosed=hinge.status == .closed; self.hingePartial=hinge.status == .partiallyOpen }
                 self.layoutRefresh?.cancel()
                 let work=DispatchWorkItem { [weak self] in self?.view.setNeedsLayout(); self?.view.layoutIfNeeded() }
                 self.layoutRefresh=work; DispatchQueue.main.asyncAfter(deadline:.now()+0.25,execute:work)
@@ -260,34 +279,66 @@ final class GameController: UIViewController {
         super.viewDidLayoutSubviews()
         var edge=false
         let preference=UserDefaults.standard.string(forKey:"wireproof.bb2.display") ?? "auto"
+        let laptopRequested=preference == "laptop" || view.bounds.height > view.bounds.width
         let pc=view.bounds.width > view.bounds.height
-        if #available(iOS 27.1, *) { edge=traitCollection.verticalBarEdge != .unspecified && !pc }
+        var coverTrait=false
+        if #available(iOS 27.1, *) {
+            coverTrait=traitCollection.verticalBarEdge != .unspecified
+            edge=navigationController != nil && coverTrait && !pc && !laptopRequested
+        }
         if nativeRail != edge {
             nativeRail=edge
             navigationController?.setNavigationBarHidden(!edge,animated:false)
             navigationController?.setToolbarHidden(true,animated:false)
             setNeedsStatusBarAppearanceUpdate()
         }
-        var closed=pc ? false:(edge ? true:hingeClosed)
-        var mode=pc ? "pc":preference
+        var closed=pc ? false:(coverTrait ? true:hingeClosed)
+        var mode=laptopRequested ? "laptop" : (pc ? "pc":preference)
         #if targetEnvironment(simulator)
+        if ProcessInfo.processInfo.arguments.contains("--preview-laptop") { mode="laptop" }
         if ProcessInfo.processInfo.arguments.contains("--preview-closed") { closed=true; mode="right" }
+        if ProcessInfo.processInfo.arguments.contains("--preview-cover-laptop") { closed=true; mode="laptop" }
         if ProcessInfo.processInfo.arguments.contains("--preview-pc") { closed=false; mode="pc" }
         #endif
         var safe=view.safeAreaInsets
+        if closed == true && !edge,let window=view.window {
+            // Use the physical window's safe horizontal span, not an obsolete
+            // navigation-controller rail inset after hiding the cover toolbar.
+            let windowSafe=view.convert(window.bounds.inset(by:window.safeAreaInsets),from:window)
+            safe.left=max(0,windowSafe.minX-view.bounds.minX)
+            safe.right=max(0,view.bounds.maxX-windowSafe.maxX)
+        }
         // Hidden system bars can leave an obsolete side inset after unfolding.
         // Fullscreen landscape draws through that region; the steering strip retains bottom protection.
-        if pc { safe.left=0; safe.right=0 }
+        if pc || laptopRequested { safe.left=0; safe.right=0 }
         let layout=DisplayLayout.make(bounds:view.bounds,safe:safe,closed:closed,mode:mode)
+        #if targetEnvironment(simulator)
+        if ProcessInfo.processInfo.arguments.contains("--verify-layout"),let window=view.window {
+            let result:[String:Any] = ["windowWidth":window.bounds.width,"contentWidth":view.bounds.width,"gameWidth":layout.frame.width,"deckWidth":layout.thumb.width,"gameX":layout.frame.minX,"deckX":layout.thumb.minX,"laptop":layout.laptop,"directRoot":window.rootViewController === self,"fullWindowContent":abs(view.bounds.width-window.bounds.width)<0.5,"fullWidthDeck":abs(layout.thumb.width-view.bounds.width)<0.5]
+            if let dir=FileManager.default.urls(for:.documentDirectory,in:.userDomainMask).first,let data=try? JSONSerialization.data(withJSONObject:result,options:.prettyPrinted) {try? data.write(to:dir.appendingPathComponent("layout-check.json"))}
+        }
+        #endif
         let frame=layout.frame, compact=layout.compact
         gameView.frame=layout.extendedFrame
-        scene.artworkBottomInset=layout.thumb.height
+        laptopActive=layout.laptop
+        scene.artworkBottomInset=layout.laptop ? 0:layout.thumb.height
+        controlDeck.isHidden = !layout.laptop
+        controlDeck.frame=layout.thumb
+        controlDeck.setNeedsDisplay()
         steering.frame=layout.thumb; steeringHint.frame=steering.bounds
         // The steering overlay must never intercept the UIKit pause control.
         view.bringSubviewToFront(menu)
         scene.nativeSidebar=edge && compact
         scene.configureViewport(viewSize:layout.extendedFrame.size,safeInsets:.zero,classic:!compact)
         scene.fitRoundSprites()
+        if layout.laptop {
+            let scale=gameView.frame.width/scene.size.width
+            let left=gameView.frame.minX+scene.geometry.left*scale
+            let width=(scene.geometry.right-scene.geometry.left)*scale
+            steering.frame=CGRect(x:left,y:layout.thumb.minY,width:width,height:layout.thumb.height)
+            controlDeck.controlRange=CGRect(x:left-controlDeck.frame.minX,y:0,width:width,height:layout.thumb.height)
+            controlDeck.fraction=(scene.paddle.position.x-scene.geometry.left)/(scene.geometry.right-scene.geometry.left)
+        }
         menu.isHidden=edge
         railScroll.isHidden = !edge
         layoutRailReadout()
@@ -373,6 +424,16 @@ final class GameController: UIViewController {
             #if targetEnvironment(simulator)
             if let i=args.firstIndex(of:"--preview-stage"),i+1<args.count,let stage=Int(args[i+1]) {scene.start(index:stage)}
             if args.contains("--preview-ports") { scene.previewPorts() }
+            if args.contains("--preview-explosion") {scene.enemyExplosion(at:CGPoint(x:scene.geometry.center,y:scene.geometry.ceiling-100))}
+            if args.contains("--preview-enemy-effects") {
+                scene.testing=true;scene.launched=false
+                scene.run(.repeatForever(.sequence([.wait(forDuration:1.5),.run { [weak scene] in
+                    guard let scene=scene else {return}
+                    let y=scene.paddleY+130*scene.geometry.unit
+                    scene.enemyExplosion(at:CGPoint(x:scene.geometry.center-75*scene.geometry.unit,y:y))
+                    if scene.edition != .bb3 {scene.exploderBurst(at:CGPoint(x:scene.geometry.center+40*scene.geometry.unit,y:y))}
+                }])))
+            }
             if args.contains("--preview-celebration") { scene.testing=true; scene.finished=true;scene.cleared=true;scene.showCelebration(campaignComplete:true) }
             if args.contains("--verify-pause") {
                 DispatchQueue.main.asyncAfter(deadline:.now()+1) { [weak self] in
@@ -426,6 +487,11 @@ final class GameController: UIViewController {
         sheet.addAction(UIAlertAction(title:"Resume",style:.cancel){ [weak self] _ in self?.scene.setPaused(false) })
         sheet.addAction(UIAlertAction(title:"Restart stage",style:.default){ [weak self] _ in guard let self=self else{return}; self.scene.start(index:self.scene.stageIndex) })
         sheet.addAction(UIAlertAction(title:"Choose stage",style:.default){ [weak self] _ in DispatchQueue.main.async { self?.selectStage() } })
+        sheet.addAction(UIAlertAction(title:laptopActive ? "Display: Automatic (portrait uses deck)" : "Display: Laptop mode",style:.default){ [weak self] _ in
+            guard let self=self else {return}
+            UserDefaults.standard.set(self.laptopActive ? "auto":"laptop",forKey:"wireproof.bb2.display")
+            self.view.setNeedsLayout(); self.scene.setPaused(false)
+        })
         sheet.addAction(UIAlertAction(title:"Change game",style:.default){ [weak self] _ in DispatchQueue.main.async { self?.showLibrary() } })
         sheet.addAction(UIAlertAction(title:GameAudio.shared.enabled ? "Sound: On — turn off" : "Sound: Off — turn on",style:.default){ [weak self] _ in GameAudio.shared.enabled.toggle(); self?.scene.setPaused(false) })
         presentSheet(sheet)
@@ -481,6 +547,8 @@ struct OriginalEnemySpec:Decodable {
 final class LiveCritter {
     let node:SKSpriteNode, kind:Int; var velocity:CGVector; var age:CGFloat=0
     var third:OriginalEnemySpec?;var emerged=false
+    var behaviorClock:CGFloat=0;var fragmentColor:Int=0
+    var pausedMotion=false;var directionCycles=0;var heading:CGFloat=0;var turn:CGFloat=0
     var collisionRadius:CGFloat=12
     var scoreValue:Int {third?.score ?? 10}
     init(node:SKSpriteNode,kind:Int,velocity:CGVector,third:OriginalEnemySpec?=nil) { self.node=node;self.kind=kind;self.velocity=velocity;self.third=third }
@@ -495,6 +563,7 @@ final class GameScene: SKScene {
     var animationTime:TimeInterval = 0
     var animationTick = -1
     var paddle = SKShapeNode(), balls:[LiveBall] = [], bricks:[LiveBrick] = [], drops:[Drop] = []
+    var placedCells:[Cell]=[]
     var hits:[String:Int] = [:], lastTime:TimeInterval = 0, paddleWidth:CGFloat = 66, ballSpeed:CGFloat = 285
     var artworkBottomInset:CGFloat=0
     var viewportSize=CGSize(width:390,height:844), viewportInsets=UIEdgeInsets.zero
@@ -691,16 +760,21 @@ final class GameScene: SKScene {
             stat("LIVES",String(lives),x:600,y:size.height*0.66)
             stat("MULT","×\(scoreMultiplier)",x:600,y:size.height*0.48)
         } else if geometry.classic {
-            for x in [CGFloat(0),CGFloat(530)] {
-                let panel=SKShapeNode(rectOf:CGSize(width:106,height:size.height*0.78),cornerRadius:6)
-                panel.position=CGPoint(x:x+55,y:size.height*0.61);panel.fillColor=UIColor(red:0.015,green:0.035,blue:0.06,alpha:1);panel.strokeColor=UIColor(white:1,alpha:0.12);root.addChild(panel)
+            // The source backdrop contains the original headings, life icon and logos.
+            // Back only the changing numbers, leaving the surrounding artwork visible.
+            func readout(_ value:String,x:CGFloat,y:CGFloat,width:CGFloat=94) {
+                let yy=y*size.height/480
+                let plate=SKShapeNode(rectOf:CGSize(width:width,height:25),cornerRadius:5)
+                plate.position=CGPoint(x:x,y:yy);plate.fillColor=UIColor(white:0,alpha:0.55);plate.strokeColor = .clear;root.addChild(plate)
+                let text=SKLabelNode(fontNamed:"Menlo-Bold");text.text=value;text.fontSize=17;text.fontColor = .white;text.verticalAlignmentMode = .center;text.position=plate.position
+                if text.frame.width>width-6 {text.xScale=(width-6)/text.frame.width};root.addChild(text)
             }
-            stat("STAGE",String(stageIndex+1),x:55,y:size.height*0.92,width:92)
-            stat("LIVES",String(lives),x:55,y:size.height*0.77,width:92)
+            readout(String(stageIndex+1),x:55,y:394)
+            readout(String(lives),x:89,y:340,width:34)
+            readout(bestScore.formatted(),x:585,y:394)
+            readout(score.formatted(),x:585,y:298)
             stat("MULT","×\(scoreMultiplier)",x:55,y:size.height*0.62,width:92)
-            stat("BEST",bestScore.formatted(),x:585,y:size.height*0.92,width:92)
-            stat("SCORE",score.formatted(),x:585,y:size.height*0.77,width:92)
-            for (i,power) in activePowerups.enumerated() {stat("POWER",power,x:585,y:size.height*0.60-CGFloat(i)*45,width:92)}
+            for (i,power) in activePowerups.enumerated() {stat("POWER",power,x:585,y:size.height*0.51-CGFloat(i)*43,width:92)}
         } else if !nativeSidebar {
             let rows=[("STAGE",String(stageIndex+1)),("SCORE",score.formatted()),("BEST",bestScore.formatted()),("LIVES",String(lives)),("MULT","×\(scoreMultiplier)")]
             for (i,row) in rows.enumerated() {stat(row.0,row.1,x:475,y:size.height-45-CGFloat(i)*65,width:90)}
@@ -721,11 +795,13 @@ final class GameScene: SKScene {
     }
     func start(index:Int,resume:SavedRun?=nil,keepRun:Bool=false) {
         guard loaded, campaign.indices.contains(index) else { return }
+        placedCells=resume?.placed ?? []
         removeAllChildren(); removeAllActions(); stageIndex=index; bricks=[]; balls=[]; drops=[]; hits=resume?.hits ?? [:]; thirdTime=0; thirdTimers=[:];secretFound=false;hiddenReturnStage=resume?.returnStage;laserClock=0;targetPaddleX=nil;enemyGenerationClock=0
         if let resume=resume { score=max(0,resume.score); lives=min(99,max(1,resume.lives)) } else if !keepRun { score=0; lives=3 }
         launched=false; finished=false; cleared=false; lastTime=0; bigBall=false; explosiveBall=false; multiplierTokens=resume?.tokens ?? []; multiplier=multiplierTokens.isEmpty ? 1:multiplierTokens.reduce(0){$0+$1.value}; critters=[]; portNodes=[]; portIndex=nil; paddleWidth=66*geometry.unit; ballSpeed=edition == .bb3 ? thirdBaseSpeed:285*geometry.unit; setPaused(false); makeChrome()
         if !testing { GameAudio.shared.setStage(index,boss:edition == .bb3 && (campaign[index].sourceSettings?["BossIndex"] ?? "0") != "0") }; sound("start")
-        for cell in campaign[index].cells where cell.art != nil || cell.type != 0 {
+        let replacedKeys=Set(placedCells.map{$0.key})
+        for cell in campaign[index].cells.filter({!replacedKeys.contains($0.key)})+placedCells where cell.art != nil || cell.type != 0 {
             let remaining=hits[cell.key] ?? (cell.hits ?? (cell.type == 7 ? 2:1))
             guard remaining > 0 || (cell.art != nil ? (cell.hits ?? 1)<=0:cell.type == 8) else { continue }
             let r=geometry.brickRect(cell)
@@ -756,7 +832,7 @@ final class GameScene: SKScene {
     func setPaused(_ paused:Bool) { frozen=paused; onPause?(paused); if !testing { GameAudio.shared.setPaused(paused) }; if paused { save() } }
     func save() {
         guard loaded,!testing else { return }
-        if let d=try? JSONEncoder().encode(SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens)) { UserDefaults.standard.set(d,forKey:saveKey) }
+        if let d=try? JSONEncoder().encode(SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens,placed:placedCells)) { UserDefaults.standard.set(d,forKey:saveKey) }
     }
     var bestScore:Int { max(score,UserDefaults.standard.integer(forKey:"wireproof.bb2.highscore.\(edition.rawValue)")) }
     var thirdBaseSpeed:CGFloat { CGFloat(Double(campaign[stageIndex].sourceSettings?["BallInitSpeed"] ?? "25") ?? 25)*10*geometry.unit }
@@ -860,8 +936,8 @@ final class GameScene: SKScene {
                 if !hard {hit(brick)} else {sound("metal")}
                 if explosiveBall { for nearby in Array(bricks) where hypot(nearby.rect.midX-brick.rect.midX,nearby.rect.midY-brick.rect.midY)<55*geometry.unit { hit(nearby) } }
             }
-            if let critter=critters.first(where:{hypot($0.node.position.x-b.node.position.x,$0.node.position.y-b.node.position.y)<radius+12*geometry.unit}) {
-                b.velocity.dy *= -1;critter.node.removeFromParent();critters.removeAll{$0 === critter};score += critter.scoreValue*scoreMultiplier;impact(at:critter.node.position);sound("enemy");updateHUD()
+            if let critter=critters.first(where:{(edition == .bb3 || ($0.kind != 3 && $0.emerged)) && hypot($0.node.position.x-b.node.position.x,$0.node.position.y-b.node.position.y)<radius+$0.collisionRadius}) {
+                b.velocity.dy *= -1;destroyCritter(critter,ballHit:true)
             }
             if let boss=boss {
                 let result=boss.collide(b,radius:radius)
@@ -928,7 +1004,7 @@ final class GameScene: SKScene {
         if let boss=boss,boss.advance(dt,geometry:geometry,paddleX:paddle.position.x,paddleWidth:paddleWidth) {balls.forEach{$0.node.removeFromParent()};balls=[];boss.resetProjectiles();loseLife();return}
         if laserClock>=0.45 && (thirdTimers[29] != nil || thirdTimers[30] != nil) {
             laserClock=0
-            if thirdTimers[30] != nil {for critter in critters {score += critter.scoreValue*scoreMultiplier;impact(at:critter.node.position);critter.node.removeFromParent()};critters=[];updateHUD()}
+            if thirdTimers[30] != nil {for critter in critters {score += critter.scoreValue*scoreMultiplier;enemyExplosion(at:critter.node.position);critter.node.removeFromParent()};critters=[];updateHUD()}
             for x in [paddle.position.x-paddleWidth*0.35,paddle.position.x+paddleWidth*0.35] {
                 let targets=bricks.filter{$0.breakable && $0.rect.minX<=x && $0.rect.maxX>=x && thirdBrickSolid($0)}.sorted{$0.rect.minY<$1.rect.minY}
                 let end=targets.first?.rect.minY ?? geometry.ceiling
@@ -976,7 +1052,7 @@ final class GameScene: SKScene {
         for fraction in fractions {
             let node=SKSpriteNode(texture:edition == .bb3 ? nil:OriginalArt.door(0));if edition == .bb3 {node.color = .clear}
             node.size=CGSize(width:67*scale,height:23*scale)
-            node.position=CGPoint(x:geometry.left+fraction*(geometry.right-geometry.left),y:size.height-12*scale);node.zPosition=12;addChild(node);portNodes.append(node)
+            node.position=CGPoint(x:geometry.left+fraction*(geometry.right-geometry.left),y:size.height-12.5*scale);node.zPosition=12;addChild(node);portNodes.append(node)
             if edition == .bb3 {
                 let opening=SKSpriteNode(color:UIColor(white:0.015,alpha:1),size:CGSize(width:57*scale,height:15*scale));opening.name="opening";opening.zPosition = -1;node.addChild(opening)
                 for (name,frame,x,flip) in [("left",2,CGFloat(-12),false),("right",0,CGFloat(12),true),("capLeft",3,CGFloat(-34),false),("capRight",3,CGFloat(34),true)] {
@@ -1032,27 +1108,44 @@ final class GameScene: SKScene {
             if portClock>=1.8 {portIndex=nil;if edition != .bb3 {portNodes[port].texture=OriginalArt.door(0)}}
         } else if !allowed.isEmpty && critters.count<maximum {
             let shouldOpen:Bool
+            enemyGenerationClock += dt
             if edition == .bb3 {
-                enemyGenerationClock += dt
                 let interval=CGFloat(Double(campaign[stageIndex].sourceSettings?["EnemiesGenerationTime"] ?? "10") ?? 10)
                 shouldOpen=enemyGenerationClock>=max(1,interval)
-            } else {shouldOpen = !testing && Double.random(in:0..<1)<1-pow(1-0.0005,Double(dt)*60)}
+            } else {
+                // Keep the original random chance, but bound empty-arena waits.
+                shouldOpen = enemyGenerationClock>=12 || (!testing && Double.random(in:0..<1)<1-pow(1-0.0005,Double(dt)*60))
+            }
             if shouldOpen {portIndex=Int.random(in:0...1);portClock=0;portDidSpawn=false;enemyGenerationClock=0}
         }
-        for critter in critters {
+        for critter in Array(critters) where critter.node.parent != nil {
             critter.age += dt
+            if edition != .bb3 && critter.kind == 3 {
+                advanceFragment(critter,dt:dt)
+                continue
+            }
             if critter.node.position.y<size.height-30*geometry.unit && !critter.emerged {
                 critter.emerged=true
                 let speed:CGFloat=critter.third.map{CGFloat($0.speed)*10} ?? ([0:30,1:80,2:50,4:60,5:20][critter.kind] ?? 30)
                 critter.velocity=CGVector(dx:(critter.kind == 5 && edition != .bb3 ? 0:(Bool.random() ? 1:-1)*speed*0.707*geometry.unit),dy:-speed*0.707*geometry.unit)
             }
+            if edition != .bb3 && critter.emerged {advanceCritterBehavior(critter,dt:dt)}
+            guard critter.node.parent != nil else {continue}
+            let oldPosition=critter.node.position
             critter.node.position.x += critter.velocity.dx*dt;critter.node.position.y += critter.velocity.dy*dt
+            if edition != .bb3 && bricks.contains(where:{$0.rect.insetBy(dx:-critter.collisionRadius,dy:-critter.collisionRadius).contains(critter.node.position)}) {
+                critter.node.position=oldPosition;critter.velocity.dx *= -1;critter.velocity.dy *= -1;critter.heading=atan2(critter.velocity.dy,critter.velocity.dx)
+                if critter.kind != 0 {critter.behaviorClock=0}
+            }
+            if critter.node.position.y>geometry.ceiling-critter.collisionRadius && critter.emerged {critter.node.position.y=geometry.ceiling-critter.collisionRadius;critter.velocity.dy = -abs(critter.velocity.dy)}
             if critter.node.position.x<geometry.left+16*geometry.unit {critter.node.position.x=geometry.left+16*geometry.unit;critter.velocity.dx=abs(critter.velocity.dx)}
             if critter.node.position.x>geometry.right-16*geometry.unit {critter.node.position.x=geometry.right-16*geometry.unit;critter.velocity.dx = -abs(critter.velocity.dx)}
             if let spec=critter.third {
                 for layer in spec.layers {critter.node.childNode(withName:"enemy-layer-\(layer.slot)")?.zRotation=CGFloat(layer.rotationDegrees)*CGFloat.pi/180*critter.age}
             } else {critter.node.texture=OriginalArt.critter(critter.kind,frame:Int(critter.age/0.05)%16)}
-            if critter.node.position.y < -20 || (abs(critter.node.position.y-paddleY)<16*geometry.unit && abs(critter.node.position.x-paddle.position.x)<paddleWidth/2+12*geometry.unit) {critter.node.removeFromParent()}
+            if abs(critter.node.position.y-paddleY)<16*geometry.unit && abs(critter.node.position.x-paddle.position.x)<paddleWidth/2+12*geometry.unit {
+                destroyCritter(critter,ballHit:false)
+            } else if critter.node.position.y < -20 {critter.node.removeFromParent()}
         }
         critters.removeAll{$0.node.parent == nil}
     }
@@ -1092,8 +1185,21 @@ final class GameScene: SKScene {
     func portSmokeChecks()->[String:Bool] {
         var checks:[String:Bool]=[:]
         setupPorts();critters.forEach{$0.node.removeFromParent()};critters=[]
+        enemyGenerationClock=0
+        // Exercise the scheduler, not just manually forced door animations.
+        for _ in 0..<300 { advancePorts(0.05) }
+        checks["automatic_enemy_spawn_within_15_seconds"] = !critters.isEmpty
+        checks["automatic_enemy_enters_arena"] = critters.contains{$0.emerged && $0.node.position.y<geometry.ceiling}
+        critters.forEach{$0.node.removeFromParent()};critters=[];enemyGenerationClock=0;setupPorts()
+        enemyExplosion(at:CGPoint(x:geometry.center,y:geometry.ceiling-70))
+        checks["enemy_destruction_has_visible_animation"]=childNode(withName:"enemy-explosion")?.children.isEmpty == false
+        childNode(withName:"enemy-explosion")?.removeFromParent()
         checks["ports_have_eligible_enemies"] = !eligibleCritterKinds().isEmpty
         checks["two_port_nodes"]=portNodes.count==2
+        if edition != .bb3,let image=OriginalArt.door(7)?.cgImage(),let pixels=OriginalArt.rgba(image) {
+            checks["door_native_opaque_aperture"]=stride(from:3,to:pixels.count,by:4).allSatisfy{pixels[$0]==255}
+            checks["no_synthetic_door_backing"]=portNodes.allSatisfy{$0.childNode(withName:"door-stage-backing")==nil}
+        }
         for port in 0..<2 {
             portIndex=port;portClock=0;portDidSpawn=false
             advancePorts(0.2)
@@ -1108,7 +1214,161 @@ final class GameScene: SKScene {
         }
         checks["enemy_art_visible"]=critters.allSatisfy{$0.third == nil ? $0.node.texture != nil: !$0.node.children.isEmpty}
         critters.forEach{$0.node.removeFromParent()};critters=[];enemyGenerationClock=0;setupPorts()
+        if let kind=eligibleCritterKinds().first {
+            let beforeLives=lives
+            spawnCritter(kind,port:0)
+            critters.last?.node.position=paddle.position
+            advancePorts(0)
+            checks["paddle_enemy_contact_removes_enemy"]=critters.isEmpty
+            checks["paddle_enemy_contact_explodes"]=childNode(withName:"enemy-explosion") != nil
+            checks["ordinary_enemy_contact_preserves_lives"]=lives==beforeLives
+            children.filter{$0.name=="enemy-explosion"}.forEach{$0.removeFromParent()}
+        }
+        if edition != .bb3 {
+            spawnCritter(2,port:0);let breaker=critters.last!
+            destroyCritter(breaker,ballHit:true)
+            checks["breaker_splits_four_fragments"]=critters.filter{$0.kind==3}.count==4
+            checks["breaker_fragments_have_original_art"]=critters.filter{$0.kind==3}.allSatisfy{$0.node.texture != nil && $0.collisionRadius==6*geometry.unit}
+            critters.forEach{$0.node.removeFromParent()};critters=[]
+            spawnCritter(2,port:0);destroyCritter(critters.last!,ballHit:false)
+            checks["paddle_breaker_contact_does_not_split"]=critters.isEmpty
+            spawnCritter(1,port:0);let darter=critters.last!;advanceCritterBehavior(darter,dt:0.01)
+            checks["darter_enters_pause"]=darter.pausedMotion
+            darter.behaviorClock=0;advanceCritterBehavior(darter,dt:0.01)
+            checks["darter_resumes_new_direction"] = !darter.pausedMotion && darter.directionCycles==1
+            darter.node.removeFromParent();critters=[]
+            spawnCritter(5,port:0);let layer=critters.last!
+            let candidate=Cell(row:20,column:6,type:5,property:0,powerup:0,critter:0)
+            let rect=geometry.brickRect(candidate);layer.node.position=CGPoint(x:rect.midX,y:rect.midY)
+            checks["bricklayer_creates_real_brick"]=placeLayerBrick(layer) && bricks.contains{$0.raw.key==candidate.key}
+            checks["bricklayer_added_brick_saved"]=placedCells.contains{$0.key==candidate.key}
+            bricks.filter{$0.raw.key==candidate.key}.forEach{$0.node.removeFromParent()};bricks.removeAll{$0.raw.key==candidate.key};placedCells.removeAll{$0.key==candidate.key};hits.removeValue(forKey:candidate.key);critters=[]
+
+            spawnCritter(4,port:0);critters.last!.node.position=CGPoint(x:geometry.left+80*geometry.unit,y:paddle.position.y+60*geometry.unit);destroyCritter(critters.last!,ballHit:true)
+            checks["exploder_has_original_green_particles"]=childNode(withName:"exploder-particles")?.children.count == exploderPattern().count && !exploderPattern().isEmpty
+            checks["exploder_has_no_synthetic_ring"]=childNode(withName:"exploder-radius") == nil
+            checks["ordinary_burst_has_no_added_sparks"]=children.filter{$0.name=="enemy-explosion"}.allSatisfy{$0.children.count==1 && $0.childNode(withName:"original-burst") != nil}
+            checks["exploder_particles_remain_round"]=childNode(withName:"exploder-particles")?.children.allSatisfy {abs($0.yScale-roundYScale)<0.001} == true
+            checks["exploder_particles_have_finite_lifetime"]=abs((childNode(withName:"exploder-particles")?.action(forKey:"lifetime")?.duration ?? 0)-1.0)<0.001
+            children.filter{$0.name=="enemy-explosion" || $0.name=="exploder-particles"}.forEach{$0.removeFromParent()}
+        }
         return checks
+    }
+    func advanceCritterBehavior(_ critter:LiveCritter,dt:CGFloat) {
+        guard [1,2,4,5].contains(critter.kind) else {return}
+        critter.behaviorClock -= dt
+        if critter.behaviorClock<=0 {
+            critter.pausedMotion.toggle()
+            if critter.pausedMotion {
+                critter.behaviorClock=critter.kind==5 ? CGFloat.random(in:0.2...1.2):(critter.kind==4 ? CGFloat.random(in:2...3):CGFloat.random(in:2...4))
+            } else {
+                critter.directionCycles += 1
+                critter.heading=critter.kind==5 ? CGFloat(Int.random(in:0..<4))*CGFloat.pi/2:CGFloat.random(in:0...(2*CGFloat.pi))
+                critter.turn=Bool.random() ? 1:-1
+                critter.behaviorClock=critter.kind==5 || critter.kind==4 ? CGFloat.random(in:2...5):CGFloat.random(in:5...9)
+            }
+        }
+        if critter.pausedMotion {critter.velocity.dx *= exp(-10*dt);critter.velocity.dy *= exp(-10*dt)}
+        else {
+            if critter.kind==1 {critter.heading += critter.turn*100*CGFloat.pi/180*dt}
+            let acceleration:CGFloat=critter.kind==1 ? 20:(critter.kind==2 ? 30:40)
+            let maximum:CGFloat=critter.kind==1 ? 80:(critter.kind==2 ? 50:(critter.kind==4 ? 60:20))
+            let speed=min(maximum*geometry.unit,hypot(critter.velocity.dx,critter.velocity.dy)+acceleration*geometry.unit*dt)
+            critter.velocity=CGVector(dx:cos(critter.heading)*speed,dy:sin(critter.heading)*speed)
+        }
+        if critter.kind==5 && critter.directionCycles>4 { _ = placeLayerBrick(critter) }
+    }
+    @discardableResult func placeLayerBrick(_ critter:LiveCritter)->Bool {
+        let column=Int(((critter.node.position.x-geometry.gridLeft)/max(0.01,30*geometry.unit)-0.5).rounded())
+        let top:CGFloat=geometry.classic ? 435+geometry.artworkExtension:geometry.ceiling
+        let row=Int(((top-critter.node.position.y)/max(0.01,16*geometry.unit)-0.5).rounded())
+        guard (0..<13).contains(column),(1..<22).contains(row) else {return false}
+        let cell=Cell(row:row,column:column,type:5,property:0,powerup:0,critter:0)
+        let rect=geometry.brickRect(cell)
+        guard abs(rect.midX-critter.node.position.x)<5*geometry.unit,abs(rect.midY-critter.node.position.y)<5*geometry.unit,!bricks.contains(where:{$0.rect.intersects(rect)}) else {return false}
+        let node=shape(rect,.clear,corner:0);originalSurface(node,texture:OriginalArt.brick(5),size:rect.size);node.zPosition=1;addChild(node)
+        bricks.append(LiveBrick(node:node,rect:rect,raw:cell,hits:1));placedCells.removeAll{$0.key==cell.key};placedCells.append(cell);hits[cell.key]=1
+        enemyExplosion(at:critter.node.position);sound("enemy");critter.node.removeFromParent();save();return true
+    }
+    func destroyCritter(_ critter:LiveCritter,ballHit:Bool) {
+        guard critter.node.parent != nil else {return}
+        let position=critter.node.position
+        critter.node.removeFromParent();critters.removeAll{$0 === critter}
+        sound("enemy")
+        if ballHit || edition == .bb3 {score += critter.scoreValue*scoreMultiplier}
+        if edition != .bb3 && ballHit && critter.kind == 2 {
+            for i in 0..<4 {
+                let texture=OriginalArt.texture("BB2-broken",rect:CGRect(x:i*32,y:0,width:32,height:32),maskRect:CGRect(x:i*32,y:32,width:32,height:32),trimAlpha:true)
+                let node=SKSpriteNode(texture:texture);node.size=CGSize(width:12*geometry.unit,height:12*geometry.unit);node.yScale=roundYScale;node.position=position;node.zPosition=10;addChild(node)
+                let angle=CGFloat.pi/4+CGFloat(i)*CGFloat.pi/2+CGFloat.random(in:(-CGFloat.pi/12)...(CGFloat.pi/12))
+                let fragment=LiveCritter(node:node,kind:3,velocity:CGVector(dx:cos(angle)*180*geometry.unit,dy:sin(angle)*180*geometry.unit))
+                fragment.emerged=true;fragment.collisionRadius=6*geometry.unit;fragment.fragmentColor=i;critters.append(fragment)
+            }
+            enemyExplosion(at:position)
+        } else if edition != .bb3 && ballHit && critter.kind == 4 {
+            exploderBurst(at:position)
+            for brick in Array(bricks) where hypot(brick.rect.midX-position.x,brick.rect.midY-position.y)<64*geometry.unit {hit(brick)}
+        } else {enemyExplosion(at:position)}
+        updateHUD()
+    }
+    func advanceFragment(_ fragment:LiveCritter,dt:CGFloat) {
+        let r=fragment.collisionRadius
+        fragment.node.position.x += fragment.velocity.dx*dt;fragment.node.position.y += fragment.velocity.dy*dt
+        if fragment.node.position.x<geometry.left+r {fragment.node.position.x=geometry.left+r;fragment.velocity.dx=abs(fragment.velocity.dx)}
+        if fragment.node.position.x>geometry.right-r {fragment.node.position.x=geometry.right-r;fragment.velocity.dx = -abs(fragment.velocity.dx)}
+        if fragment.node.position.y>geometry.ceiling-r {fragment.node.position.y=geometry.ceiling-r;fragment.velocity.dy = -abs(fragment.velocity.dy)}
+        if let brick=bricks.first(where:{$0.rect.insetBy(dx:-r,dy:-r).contains(fragment.node.position)}) {
+            if brick.raw.type != 13 {hit(brick)}
+            destroyCritter(fragment,ballHit:false)
+        } else if abs(fragment.node.position.y-paddleY)<r+5*geometry.unit && abs(fragment.node.position.x-paddle.position.x)<paddleWidth/2+r {destroyCritter(fragment,ballHit:false)}
+        else if fragment.node.position.y < -r {fragment.node.removeFromParent()}
+    }
+    func enemyExplosion(at position:CGPoint) {
+        let root=SKNode();root.name="enemy-explosion";root.position=position;root.zPosition=20;root.yScale=roundYScale;addChild(root)
+        if edition != .bb3 {
+            let frames=(0..<16).compactMap { OriginalArt.texture("BB2-explode",rect:CGRect(x:($0%4)*32,y:($0/4)*32,width:32,height:32)) }
+            if let first=frames.first {
+                let burst=SKSpriteNode(texture:first);burst.name="original-burst";burst.blendMode = .add;burst.size=CGSize(width:32*geometry.unit,height:32*geometry.unit);root.addChild(burst)
+                burst.run(.animate(with:frames,timePerFrame:0.02))
+            }
+        } else if let texture=OriginalArt.third("enemy_explosion") {
+            let burst=SKSpriteNode(texture:texture);burst.blendMode = .add;burst.size=CGSize(width:68*geometry.unit,height:68*geometry.unit);root.addChild(burst)
+            burst.run(.group([.scale(to:1.7,duration:0.45),.fadeOut(withDuration:0.55),.rotate(byAngle:0.8,duration:0.55)]))
+        }
+        if edition == .bb3 { for i in 0..<12 {
+            let spark=SKSpriteNode(texture:OriginalArt.ball());spark.blendMode = .add;spark.size=CGSize(width:5*geometry.unit,height:5*geometry.unit);root.addChild(spark)
+            let angle=CGFloat(i)*CGFloat.pi/6
+            spark.run(.group([.moveBy(x:cos(angle)*42*geometry.unit,y:sin(angle)*42*geometry.unit,duration:0.5),.fadeOut(withDuration:0.5)]))
+        }
+        }
+        root.run(.sequence([.wait(forDuration:edition == .bb3 ? 0.6:0.32),.removeFromParent()]))
+    }
+    // Native effect2: ring mask (pattern2), green spark atlas (variant3), one-second effect1 particles.
+    func exploderPattern()->[CGPoint] {
+        guard let image=OriginalArt.source("BB2-ring-pattern"),image.width==16,image.height==16,let pixels=OriginalArt.rgba(image) else {return []}
+        return (0..<256).compactMap { index in
+            let p=index*4
+            return pixels[p]>0 || pixels[p+1]>0 || pixels[p+2]>0 ? CGPoint(x:CGFloat(index%16-8)/2,y:CGFloat(8-index/16)/2):nil
+        }
+    }
+    func exploderBurst(at position:CGPoint) {
+        let root=SKNode();root.name="exploder-particles";root.position=position;root.zPosition=20;addChild(root)
+        let frames=(0..<4).compactMap {OriginalArt.texture("BB2-gspark",rect:CGRect(x:$0*64,y:0,width:64,height:64))}
+        guard let first=frames.first else {root.removeFromParent();return}
+        let speed=CGFloat.random(in:40...65),angle=CGFloat.random(in:(-CGFloat.pi/6)...(CGFloat.pi/6))
+        for point in exploderPattern() {
+            let dx=cos(angle)*point.x+sin(angle)*point.y,dy=cos(angle)*point.y-sin(angle)*point.x
+            let vx=(dx*speed+CGFloat.random(in:-10...10))*geometry.unit
+            let vy=(dy*speed+CGFloat.random(in:20...40)+5)*geometry.unit
+            let gravity=200*geometry.unit
+            let spark=SKSpriteNode(texture:first);spark.name="original-green-spark";spark.blendMode = .add
+            spark.size=CGSize(width:64*geometry.unit,height:64*geometry.unit);spark.yScale=roundYScale;root.addChild(spark)
+            spark.run(.customAction(withDuration:1) {node,elapsed in
+                node.position=CGPoint(x:vx*elapsed,y:vy*elapsed-gravity*elapsed*elapsed/2)
+                (node as? SKSpriteNode)?.texture=frames.randomElement()
+            })
+        }
+        root.run(.sequence([.wait(forDuration:1),.removeFromParent()]),withKey:"lifetime")
     }
     func impact(at position:CGPoint) {
         guard !testing else { return }
@@ -1254,11 +1514,11 @@ final class GameScene: SKScene {
         testing=true
         var checks:[String:Bool]=["edition_loaded":loaded]
         guard loaded else { writeSmoke(checks); return }
-        let original=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens), originalViewport=viewportSize, originalInsets=viewportInsets
+        let original=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens,placed:placedCells), originalViewport=viewportSize, originalInsets=viewportInsets
         let originalClassic=geometry.classic, originalArtworkInset=artworkBottomInset
         artworkBottomInset=0
         let firstCount=campaign[0].cells.filter{$0.type != 0}.count
-        start(index:0);checks.merge(portSmokeChecks()){_,new in new};checks.merge(celebrationSmokeChecks()){_,new in new};checks.merge(circleSmokeChecks()){_,new in new}; checks["stage1_original_brick_count"]=bricks.count == firstCount
+        start(index:0);checks.merge(portSmokeChecks()){_,new in new};start(index:0);checks.merge(celebrationSmokeChecks()){_,new in new};checks.merge(circleSmokeChecks()){_,new in new}; checks["stage1_original_brick_count"]=bricks.count == firstCount
         var twoHitFound=false
         for index in campaign.indices {
             start(index:index)
@@ -1299,7 +1559,7 @@ final class GameScene: SKScene {
         start(index:0); for b in bricks.filter({$0.breakable}) { while b.hits > 0 { hit(b) } }; launchOrContinue(); checks["progression"]=stageIndex == 1 && !finished
         start(index:0)
         if let target=bricks.first(where:{$0.breakable}) {
-            while target.hits > 0 { hit(target) }; let snapshot=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens)
+            while target.hits > 0 { hit(target) }; let snapshot=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens,placed:placedCells)
             start(index:0,resume:snapshot); checks["resume_destroyed_brick"] = !bricks.contains{$0.raw.key == target.raw.key}
         }
         start(index:0); checks["restart_resets"]=bricks.count == firstCount && lives == 3 && score == 0
@@ -1344,6 +1604,16 @@ final class GameScene: SKScene {
         checks["compact_right_panel_reserved"]=asymmetric.right == 405 && asymmetric.size.width == 530
         checks["animation_atlases_complete"]=(0..<17).allSatisfy{OriginalArt.brick(1,frame:$0) != nil} && (0..<8).allSatisfy{OriginalArt.paddle(frame:$0) != nil} && powerups.keys.allSatisfy{ id in (0..<16).allSatisfy{OriginalArt.drop(id,frame:$0) != nil} }
         checks["compact_arena_centered"]=abs(asymmetric.center-210)<0.01
+        let laptop=DisplayLayout.make(bounds:CGRect(x:0,y:0,width:900,height:1280),safe:.zero,closed:false,mode:"laptop")
+        checks["laptop_pc_upper_half"] = laptop.laptop && !laptop.compact && laptop.frame.maxY < 640
+        checks["laptop_input_lower_half"] = laptop.thumb.minY > 640 && laptop.thumb.maxY == 1280
+        checks["laptop_art_does_not_cover_controls"] = laptop.extendedFrame == laptop.frame
+        let fullCover=DisplayLayout.make(bounds:CGRect(x:0,y:0,width:900,height:1280),safe:UIEdgeInsets(top:20,left:12,bottom:34,right:16),closed:true,mode:"laptop")
+        checks["cover_laptop_full_safe_width"] = fullCover.frame.minX == 12 && fullCover.frame.maxX == 884
+        checks["cover_laptop_pc_aspect"] = abs(fullCover.frame.height/fullCover.frame.width-0.75)<0.001
+        checks["cover_laptop_deck_below_game"] = fullCover.thumb.minY >= fullCover.frame.maxY+8 && fullCover.thumb.maxY == 1246
+        let phoneLaptop=DisplayLayout.make(bounds:CGRect(x:0,y:0,width:393,height:852),safe:.zero,closed:nil,mode:"laptop")
+        checks["ordinary_phone_laptop_unchanged"] = phoneLaptop.frame.width == 393 && phoneLaptop.thumb.minY == 434
         let bounds=CGRect(x:0,y:0,width:1280,height:900)
         let open=DisplayLayout.make(bounds:bounds,safe:.zero,closed:false)
         let closed=DisplayLayout.make(bounds:bounds,safe:.zero,closed:true)
@@ -1367,11 +1637,11 @@ final class GameScene: SKScene {
     func runThirdSmokeTest() {
         testing=true
         guard loaded else { writeSmoke(["bb3_loaded":false]); return }
-        let original=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens)
+        let original=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens,placed:placedCells)
         var checks:[String:Bool]=["bb3_loaded":loaded,"bb3_distinct_save":saveKey != GameEdition.revolution.saveKey,"bb3_original_art":campaign.allSatisfy { $0.cells.allSatisfy { $0.art.flatMap { OriginalArt.third($0) } != nil } }]
         checks.merge(BB3BossEncounter.validation()){_,new in new}
         start(index:0)
-        checks.merge(portSmokeChecks()){_,new in new};checks.merge(celebrationSmokeChecks()){_,new in new};checks.merge(circleSmokeChecks()){_,new in new}
+        checks.merge(portSmokeChecks()){_,new in new};start(index:0);checks.merge(celebrationSmokeChecks()){_,new in new};checks.merge(circleSmokeChecks()){_,new in new}
         checks["full_template_inventory"]=campaign.count==110 && campaign.filter{$0.hidden==true}.count==10
         for i in campaign.indices { start(index:i); checks["stage_\(i)_bricks"]=bricks.count == campaign[i].cells.count; checks["stage_\(i)_bounds"]=bricks.allSatisfy { $0.rect.minX >= geometry.left-0.01 && $0.rect.maxX <= geometry.right+0.01 && $0.rect.minY>paddleY } }
         start(index:0)
@@ -1415,7 +1685,7 @@ final class GameScene: SKScene {
             }
         }
         start(index:0);secretFound=true;cleared=true;launchOrContinue();checks["secret_routes_hidden"]=campaign[stageIndex].hidden==true && hiddenReturnStage==1
-        let secretSave=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens)
+        let secretSave=SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens,placed:placedCells)
         start(index:secretSave.stage,resume:secretSave);checks["secret_return_saved"]=hiddenReturnStage==1
         cleared=true;launchOrContinue();checks["secret_returns_campaign"]=stageIndex==1 && hiddenReturnStage==nil
         start(index:original.stage,resume:original);writeSmoke(checks);testing=false

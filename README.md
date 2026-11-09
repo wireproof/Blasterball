@@ -8,7 +8,7 @@ A personal, unofficial UIKit and SpriteKit reconstruction of Blasterball for iPh
 
 ## Current build
 
-Version **0.6.4, build 17** includes BB2 and BB3 work, a pause menu, adaptive presentation, and original game resources. BB3 campaign fidelity and some audio behavior remain in progress. This build was installed on Duo without being launched; physical gameplay and layout are not verified for this build. See [release notes](ios/RELEASE-0.6.4.md) for the recorded scope.
+Version **0.7.9, build 27** includes full-width Duo cover gameplay, a laptop control deck aligned with the playfield, revised enemy effects, and BB2/BB3 game resources. The owner confirmed the cover-screen fix on Duo. See [release notes](ios/RELEASE-0.7.9.md) for validation and remaining limits.
 
 ## Build and install
 
@@ -16,4 +16,4 @@ The iOS project and source are in [`ios/`](ios/). Open `ios/Blasterball.xcodepro
 
 ## Credits
 
-This is an independent personal project, not an official WildTangent release. Original game artwork, audio, and names belong to their respective owners. This repository is private because it contains original game resources.
+This is an independent personal project, not an official WildTangent release. Original game artwork, audio, and names belong to their respective owners. This public repository contains original game resources. Their inclusion does not grant redistribution rights or a license from their owners.

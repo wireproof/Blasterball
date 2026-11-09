@@ -59,9 +59,9 @@
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>text.json</string>
+			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>Resources/campaign.json</string>
+			<string>LaptopDeck.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -70,9 +70,9 @@
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>folder</string>
+			<string>text.json</string>
 			<key>path</key>
-			<string>Resources/Editions</string>
+			<string>Resources/campaign.json</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -83,7 +83,7 @@
 			<key>lastKnownFileType</key>
 			<string>folder</string>
 			<key>path</key>
-			<string>Resources/Campaigns</string>
+			<string>Resources/Editions</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -94,7 +94,7 @@
 			<key>lastKnownFileType</key>
 			<string>folder</string>
 			<key>path</key>
-			<string>Resources/Audio</string>
+			<string>Resources/Campaigns</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -105,11 +105,22 @@
 			<key>lastKnownFileType</key>
 			<string>folder</string>
 			<key>path</key>
-			<string>Resources/Menu</string>
+			<string>Resources/Audio</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
 		<key>00000000000000000000000A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder</string>
+			<key>path</key>
+			<string>Resources/Menu</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>00000000000000000000000B</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXFileReference</string>
@@ -120,7 +131,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>00000000000000000000000B</key>
+		<key>00000000000000000000000C</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXFileReference</string>
@@ -131,7 +142,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>00000000000000000000000C</key>
+		<key>00000000000000000000000D</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXFileReference</string>
@@ -144,76 +155,62 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>00000000000000000000000D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>children</key>
-			<array>
-				<string>00000000000000000000000C</string>
-			</array>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>00000000000000000000000E</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>children</key>
 			<array>
-				<string>000000000000000000000004</string>
-				<string>000000000000000000000001</string>
-				<string>000000000000000000000003</string>
-				<string>000000000000000000000002</string>
-				<string>000000000000000000000005</string>
-				<string>000000000000000000000007</string>
-				<string>000000000000000000000006</string>
-				<string>000000000000000000000008</string>
-				<string>000000000000000000000009</string>
-				<string>00000000000000000000000A</string>
-				<string>00000000000000000000000B</string>
 				<string>00000000000000000000000D</string>
 			</array>
+			<key>name</key>
+			<string>Products</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
 		<key>00000000000000000000000F</key>
 		<dict>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>fileRef</key>
-			<string>000000000000000000000001</string>
+			<string>PBXGroup</string>
+			<key>children</key>
+			<array>
+				<string>000000000000000000000004</string>
+				<string>000000000000000000000005</string>
+				<string>000000000000000000000001</string>
+				<string>000000000000000000000003</string>
+				<string>000000000000000000000002</string>
+				<string>000000000000000000000006</string>
+				<string>000000000000000000000008</string>
+				<string>000000000000000000000007</string>
+				<string>000000000000000000000009</string>
+				<string>00000000000000000000000A</string>
+				<string>00000000000000000000000B</string>
+				<string>00000000000000000000000C</string>
+				<string>00000000000000000000000E</string>
+			</array>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>000000000000000000000010</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>fileRef</key>
-			<string>000000000000000000000003</string>
+			<string>000000000000000000000001</string>
 		</dict>
 		<key>000000000000000000000011</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>fileRef</key>
-			<string>000000000000000000000004</string>
+			<string>000000000000000000000003</string>
 		</dict>
 		<key>000000000000000000000012</key>
 		<dict>
 			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>buildActionMask</key>
-			<integer>2147483647</integer>
-			<key>files</key>
-			<array>
-				<string>00000000000000000000000F</string>
-				<string>000000000000000000000010</string>
-				<string>000000000000000000000011</string>
-			</array>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<integer>0</integer>
+			<string>PBXBuildFile</string>
+			<key>fileRef</key>
+			<string>000000000000000000000004</string>
 		</dict>
 		<key>000000000000000000000013</key>
 		<dict>
@@ -225,9 +222,18 @@
 		<key>000000000000000000000014</key>
 		<dict>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>fileRef</key>
-			<string>000000000000000000000007</string>
+			<string>PBXSourcesBuildPhase</string>
+			<key>buildActionMask</key>
+			<integer>2147483647</integer>
+			<key>files</key>
+			<array>
+				<string>000000000000000000000010</string>
+				<string>000000000000000000000011</string>
+				<string>000000000000000000000012</string>
+				<string>000000000000000000000013</string>
+			</array>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<integer>0</integer>
 		</dict>
 		<key>000000000000000000000015</key>
 		<dict>
@@ -248,14 +254,14 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>fileRef</key>
-			<string>000000000000000000000009</string>
+			<string>000000000000000000000007</string>
 		</dict>
 		<key>000000000000000000000018</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>fileRef</key>
-			<string>000000000000000000000002</string>
+			<string>000000000000000000000009</string>
 		</dict>
 		<key>000000000000000000000019</key>
 		<dict>
@@ -267,23 +273,37 @@
 		<key>00000000000000000000001A</key>
 		<dict>
 			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>fileRef</key>
+			<string>000000000000000000000002</string>
+		</dict>
+		<key>00000000000000000000001B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>fileRef</key>
+			<string>00000000000000000000000B</string>
+		</dict>
+		<key>00000000000000000000001C</key>
+		<dict>
+			<key>isa</key>
 			<string>PBXResourcesBuildPhase</string>
 			<key>buildActionMask</key>
 			<integer>2147483647</integer>
 			<key>files</key>
 			<array>
-				<string>000000000000000000000013</string>
-				<string>000000000000000000000014</string>
 				<string>000000000000000000000015</string>
 				<string>000000000000000000000016</string>
 				<string>000000000000000000000017</string>
 				<string>000000000000000000000018</string>
 				<string>000000000000000000000019</string>
+				<string>00000000000000000000001A</string>
+				<string>00000000000000000000001B</string>
 			</array>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<integer>0</integer>
 		</dict>
-		<key>00000000000000000000001B</key>
+		<key>00000000000000000000001D</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -294,7 +314,7 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<integer>0</integer>
 		</dict>
-		<key>00000000000000000000001C</key>
+		<key>00000000000000000000001E</key>
 		<dict>
 			<key>isa</key>
 			<string>XCBuildConfiguration</string>
@@ -337,7 +357,7 @@
 				<string>YES</string>
 			</dict>
 		</dict>
-		<key>00000000000000000000001D</key>
+		<key>00000000000000000000001F</key>
 		<dict>
 			<key>isa</key>
 			<string>XCBuildConfiguration</string>
@@ -380,31 +400,31 @@
 				<string>YES</string>
 			</dict>
 		</dict>
-		<key>00000000000000000000001E</key>
+		<key>000000000000000000000020</key>
 		<dict>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 			<key>buildConfigurations</key>
 			<array>
-				<string>00000000000000000000001C</string>
-				<string>00000000000000000000001D</string>
+				<string>00000000000000000000001E</string>
+				<string>00000000000000000000001F</string>
 			</array>
 			<key>defaultConfigurationIsVisible</key>
 			<integer>0</integer>
 			<key>defaultConfigurationName</key>
 			<string>Release</string>
 		</dict>
-		<key>00000000000000000000001F</key>
+		<key>000000000000000000000021</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXNativeTarget</string>
 			<key>buildConfigurationList</key>
-			<string>00000000000000000000001E</string>
+			<string>000000000000000000000020</string>
 			<key>buildPhases</key>
 			<array>
-				<string>000000000000000000000012</string>
-				<string>00000000000000000000001B</string>
-				<string>00000000000000000000001A</string>
+				<string>000000000000000000000014</string>
+				<string>00000000000000000000001D</string>
+				<string>00000000000000000000001C</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -415,11 +435,11 @@
 			<key>productName</key>
 			<string>Blasterball</string>
 			<key>productReference</key>
-			<string>00000000000000000000000C</string>
+			<string>00000000000000000000000D</string>
 			<key>productType</key>
 			<string>com.apple.product-type.application</string>
 		</dict>
-		<key>000000000000000000000020</key>
+		<key>000000000000000000000022</key>
 		<dict>
 			<key>isa</key>
 			<string>XCBuildConfiguration</string>
@@ -439,7 +459,7 @@
 				<string>-Onone</string>
 			</dict>
 		</dict>
-		<key>000000000000000000000021</key>
+		<key>000000000000000000000023</key>
 		<dict>
 			<key>isa</key>
 			<string>XCBuildConfiguration</string>
@@ -459,21 +479,21 @@
 				<string>-O</string>
 			</dict>
 		</dict>
-		<key>000000000000000000000022</key>
+		<key>000000000000000000000024</key>
 		<dict>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 			<key>buildConfigurations</key>
 			<array>
-				<string>000000000000000000000020</string>
-				<string>000000000000000000000021</string>
+				<string>000000000000000000000022</string>
+				<string>000000000000000000000023</string>
 			</array>
 			<key>defaultConfigurationIsVisible</key>
 			<integer>0</integer>
 			<key>defaultConfigurationName</key>
 			<string>Release</string>
 		</dict>
-		<key>000000000000000000000023</key>
+		<key>000000000000000000000025</key>
 		<dict>
 			<key>isa</key>
 			<string>PBXProject</string>
@@ -483,7 +503,7 @@
 				<string>2710</string>
 				<key>TargetAttributes</key>
 				<dict>
-					<key>00000000000000000000001F</key>
+					<key>000000000000000000000021</key>
 					<dict>
 						<key>CreatedOnToolsVersion</key>
 						<string>27.1</string>
@@ -495,7 +515,7 @@
 				</dict>
 			</dict>
 			<key>buildConfigurationList</key>
-			<string>000000000000000000000022</string>
+			<string>000000000000000000000024</string>
 			<key>compatibilityVersion</key>
 			<string>Xcode 14.0</string>
 			<key>developmentRegion</key>
@@ -508,20 +528,20 @@
 				<string>Base</string>
 			</array>
 			<key>mainGroup</key>
-			<string>00000000000000000000000E</string>
+			<string>00000000000000000000000F</string>
 			<key>productRefGroup</key>
-			<string>00000000000000000000000D</string>
+			<string>00000000000000000000000E</string>
 			<key>projectDirPath</key>
 			<string></string>
 			<key>projectRoot</key>
 			<string></string>
 			<key>targets</key>
 			<array>
-				<string>00000000000000000000001F</string>
+				<string>000000000000000000000021</string>
 			</array>
 		</dict>
 	</dict>
 	<key>rootObject</key>
-	<string>000000000000000000000023</string>
+	<string>000000000000000000000025</string>
 </dict>
 </plist>

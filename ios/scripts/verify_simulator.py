@@ -3,7 +3,7 @@ from pathlib import Path
 import json, subprocess, sys, time, shutil, os
 root=Path(__file__).resolve().parents[1]
 simulator=sys.argv[1]
-app=root/'build/Simulator/Blasterball.app'
+app=Path(os.environ.get('BB_SIM_APP',str(root/'build/Simulator/Blasterball.app')))
 bundle='com.wireproof.blasterball.prototype'
 out=root/'build'/f'verification-{simulator}'
 out.mkdir(exist_ok=True)
