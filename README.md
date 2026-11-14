@@ -6,9 +6,16 @@ A personal, unofficial UIKit and SpriteKit reconstruction of Blasterball for iPh
 
 *Simulator image from build 9; the current development build may look different.*
 
-## Current build
+## Current public iOS prerelease
 
 Version **0.7.9, build 27** includes full-width Duo cover gameplay, a laptop control deck aligned with the playfield, revised enemy effects, and BB2/BB3 game resources. The owner confirmed the cover-screen fix on Duo. See [release notes](ios/RELEASE-0.7.9.md) for validation and remaining limits.
+
+## Newer development builds
+
+- **iOS 0.7.16 (build 34):** Adds an artwork launcher with glowing selection buttons. The installed version was verified on iPhone Duo and iPad. That verification did not include gameplay.
+- **macOS 0.7.15 (build 33):** The Mac Catalyst package archive checksum was verified; this does not verify launch or gameplay.
+
+Neither newer build is published here. The public iOS prerelease remains **0.7.9 (build 27)**.
 
 ## Build and install
 
