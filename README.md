@@ -1,26 +1,25 @@
 # Blasterball for iOS
 
-A personal, unofficial UIKit and SpriteKit reconstruction of Blasterball for iPhone, iPad, and Duo. The project brings together BB2 Revolution, Remix, and Holidays, with an evolving BB3 implementation, original artwork and audio, and layouts for different screen sizes.
+An experimental UIKit and SpriteKit reconstruction of Blasterball for iPhone and iPad, including adaptive iPhone Duo layouts. It includes Blasterball 2 Revolution, Remix and Holidays, plus an evolving Blasterball 3 implementation, with game artwork, sprites, animations and audio.
 
-![Earlier simulator build showing the game](docs/screenshots/simulator-build9.png)
+## Current release
 
-*Simulator image from build 9; the current development build may look different.*
+**0.7.17, build 35** includes illustrated game and edition selection screens, rounded border-only hover and touch highlights (including Settings), and a laptop paddle-control deck aligned with the playfield. The iOS app identifier is now `com.wireproof.blasterball`; its name and icon are unchanged.
 
-## Current public iOS prerelease
+This is a prerelease reconstruction. Gameplay mechanics and visual fidelity remain incomplete. The development-signed build35 was installed on iPhone Duo and iPad Pro with saved preferences and documents migrated and verified by file readback. Neither app was launched during delivery, so runtime save loading and current physical-device visuals remain unverified. Historical simulator checks are not a substitute for testing this release on a device.
 
-Version **0.7.9, build 27** includes full-width Duo cover gameplay, a laptop control deck aligned with the playfield, revised enemy effects, and BB2/BB3 game resources. The owner confirmed the cover-screen fix on Duo. See [release notes](ios/RELEASE-0.7.9.md) for validation and remaining limits.
+Changing from the previous `com.wireproof.blasterball.prototype` identifier creates a separate app container. The public IPA does not automatically transfer previous saves. Keep the old app and back up its data before migrating.
 
-## Newer development builds
+## Build
 
-- **iOS 0.7.16 (build 34):** Adds an artwork launcher with glowing selection buttons. The installed version was verified on iPhone Duo and iPad. That verification did not include gameplay.
-- **macOS 0.7.15 (build 33):** The Mac Catalyst package archive checksum was verified; this does not verify launch or gameplay.
+Open [`ios/Blasterball.xcodeproj`](ios/Blasterball.xcodeproj) in Xcode, select your signing team, and build for iPhone or iPad. The standalone source has no dependency on the development workspace's shared-source symlinks. `ios/build.sh simulator` builds the simulator app; `ios/build-xcode.sh` wraps the Xcode build.
 
-Neither newer build is published here. The public iOS prerelease remains **0.7.9 (build 27)**.
+The release IPA is **unsigned** and must be signed for your device. It corresponds to build35, with development signing and the embedded device provisioning profile removed. See [release notes](ios/RELEASE-0.7.17.md).
 
-## Build and install
+## Assets
 
-The iOS project and source are in [`ios/`](ios/). Open `ios/Blasterball.xcodeproj` in Xcode or inspect `ios/build.sh`; signing and an appropriate Apple development setup are required. The release IPA is provided for personal use and needs signing before installation.
+All current project assets are included: game resources and level data in `ios/Resources`, audio, BB2 and BB3 sprites, menu backgrounds, icon assets in `ios/Assets.xcassets`, and design artwork in `ios/Artwork`. [`ASSET-MANIFEST.json`](ASSET-MANIFEST.json) records their file hashes. Player saves, credentials and signing profiles are not included.
 
 ## Credits
 
-This is an independent personal project, not an official WildTangent release. Original game artwork, audio, and names belong to their respective owners. This public repository contains original game resources. Their inclusion does not grant redistribution rights or a license from their owners.
+This is an independent reconstruction, not an official WildTangent release. Original Blasterball names, artwork and audio are credited to their respective creators.

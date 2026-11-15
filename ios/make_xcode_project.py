@@ -26,7 +26,7 @@ def configs(target=False):
  out=[]
  for name in ['Debug','Release']:
   settings={'SDKROOT':'iphoneos','IPHONEOS_DEPLOYMENT_TARGET':'16.0','SWIFT_VERSION':'5.0','CLANG_ENABLE_MODULES':'YES','SWIFT_OPTIMIZATION_LEVEL':'-Onone' if name=='Debug' else '-O'}
-  if target:settings.update({'PRODUCT_NAME':'Blasterball','PRODUCT_BUNDLE_IDENTIFIER':'com.wireproof.blasterball.prototype','DEVELOPMENT_TEAM':'KTV9W3H439','CODE_SIGN_STYLE':'Automatic','INFOPLIST_FILE':'Info.plist','GENERATE_INFOPLIST_FILE':'NO','TARGETED_DEVICE_FAMILY':'1,2','ASSETCATALOG_COMPILER_APPICON_NAME':'AppIcon','LD_RUNPATH_SEARCH_PATHS':['$(inherited)','@executable_path/Frameworks'],'ENABLE_USER_SCRIPT_SANDBOXING':'YES'})
+  if target:settings.update({'PRODUCT_NAME':'Blasterball','PRODUCT_BUNDLE_IDENTIFIER':'com.wireproof.blasterball','DEVELOPMENT_TEAM':'KTV9W3H439','CODE_SIGN_STYLE':'Automatic','INFOPLIST_FILE':'Info.plist','GENERATE_INFOPLIST_FILE':'NO','TARGETED_DEVICE_FAMILY':'1,2','ASSETCATALOG_COMPILER_APPICON_NAME':'AppIcon','LD_RUNPATH_SEARCH_PATHS':['$(inherited)','@executable_path/Frameworks'],'ENABLE_USER_SCRIPT_SANDBOXING':'YES'})
   out.append(add('XCBuildConfiguration',name=name,buildSettings=settings))
  return add('XCConfigurationList',buildConfigurations=out,defaultConfigurationIsVisible=0,defaultConfigurationName='Release')
 target=add('PBXNativeTarget',buildConfigurationList=configs(True),buildPhases=[sources,frameworks,resources],buildRules=[],dependencies=[],name='Blasterball',productName='Blasterball',productReference=product,productType='com.apple.product-type.application')

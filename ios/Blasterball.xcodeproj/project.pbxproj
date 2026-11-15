@@ -335,7 +335,7 @@
 				<key>PRODUCT_NAME</key>
 				<string>Blasterball</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.wireproof.blasterball.prototype</string>
+				<string>com.wireproof.blasterball</string>
 				<key>DEVELOPMENT_TEAM</key>
 				<string>KTV9W3H439</string>
 				<key>CODE_SIGN_STYLE</key>
@@ -378,7 +378,7 @@
 				<key>PRODUCT_NAME</key>
 				<string>Blasterball</string>
 				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.wireproof.blasterball.prototype</string>
+				<string>com.wireproof.blasterball</string>
 				<key>DEVELOPMENT_TEAM</key>
 				<string>KTV9W3H439</string>
 				<key>CODE_SIGN_STYLE</key>

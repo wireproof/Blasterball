@@ -7,15 +7,15 @@
 	<key>CFBundleExecutable</key>
 	<string>Blasterball</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.wireproof.blasterball.prototype</string>
+	<string>com.wireproof.blasterball</string>
 	<key>CFBundleName</key>
 	<string>Blasterball</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.7.9</string>
+	<string>0.7.17</string>
 	<key>CFBundleVersion</key>
-	<string>27</string>
+	<string>35</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>

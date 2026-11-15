@@ -30,7 +30,7 @@ if [ "$MODE" != simulator ]; then
   python3 - <<'PY'
 from pathlib import Path
 import zipfile,hashlib
-p=Path('build/Blasterball-0.6.0-build13.ipa')
+p=Path('build/Blasterball-0.7.17-build35-unsigned.ipa')
 with zipfile.ZipFile(p,'w',zipfile.ZIP_DEFLATED) as z:
     for f in sorted(Path('build/Payload').rglob('*')):
         if f.is_file(): z.write(f,f.relative_to('build'))

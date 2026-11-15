@@ -17,6 +17,52 @@ struct MultiplierToken:Codable { var value:Int; var seconds:Double }
 enum StageLoadError: Error { case missingResource, invalidGrid }
 
 @main class AppDelegate: UIResponder, UIApplicationDelegate {
+    #if targetEnvironment(macCatalyst)
+    override func buildMenu(with builder: UIMenuBuilder) {
+        super.buildMenu(with: builder)
+        guard builder.system == .main else { return }
+        let game = UIMenu(title: "Game", children: [
+            UIAction(title: "Pause / Resume") { [weak self] _ in self?.togglePause() },
+            UIAction(title: "Restart Stage") { [weak self] _ in self?.restartStage() },
+            UIAction(title: "Choose Stage…") { [weak self] _ in self?.chooseStage() },
+            UIAction(title: "Change Game…") { [weak self] _ in self?.changeGame() },
+            UIMenu(title: "", options: .displayInline, children: [
+                UIAction(title: "Toggle Sound") { [weak self] _ in self?.toggleSound() },
+                UIAction(title: "Toggle Laptop Mode") { [weak self] _ in self?.toggleLaptopMode() }
+            ])
+        ])
+        builder.insertSibling(game, beforeMenu: .window)
+    }
+
+    private var activeGame: GameController? {
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .compactMap { $0.rootViewController as? GameController }
+            .first { $0.scene.loaded && $0.presentedViewController == nil }
+    }
+
+    @objc private func togglePause() {
+        guard let scene = activeGame?.scene else { return }
+        scene.setPaused(!scene.frozen)
+    }
+
+    @objc private func restartStage() {
+        guard let scene = activeGame?.scene else { return }
+        scene.start(index: scene.stageIndex)
+    }
+
+    @objc private func chooseStage() { activeGame?.selectStage() }
+    @objc private func changeGame() { activeGame?.openLibrary() }
+    @objc private func toggleSound() { GameAudio.shared.enabled.toggle() }
+
+    @objc private func toggleLaptopMode() {
+        guard let game = activeGame else { return }
+        UserDefaults.standard.set(game.laptopActive ? "auto" : "laptop", forKey: "wireproof.bb2.display")
+        game.view.setNeedsLayout()
+    }
+    #endif
+
     func application(_ application: UIApplication, configurationForConnecting session: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         let configuration = UISceneConfiguration(name: "Blasterball", sessionRole: session.role)
         configuration.delegateClass = BlasterballSceneDelegate.self
@@ -95,7 +141,37 @@ enum OriginalArt {
     }
     // Editor and native REA: brick type t is opaque, top-row cell (t-1)*30,0,30,15.
     static func brick(_ type:Int,frame:Int=0)->SKTexture? { guard (1...14).contains(type) else { return nil }; return texture("BB2-bricks",rect:CGRect(x:(type-1)*30,y:(frame%17)*15,width:30,height:15)) }
-    static func door(_ frame:Int)->SKTexture? { texture("BB2-door",rect:CGRect(x:0,y:min(7,max(0,frame))*23,width:67,height:23)) }
+    static func door(_ frame: Int) -> SKTexture? {
+        let frame = min(7, max(0, frame))
+        let rect = CGRect(x: 0, y: frame * 23, width: 67, height: 23)
+        guard frame > 0 else { return texture("BB2-door", rect: rect) }
+
+        let key = "\(edition):door-aperture:\(frame)"
+        if let cached = textures[key] { return cached }
+        guard let crop = source("BB2-door")?.cropping(to: rect), var pixels = rgba(crop) else { return nil }
+
+        // The atlas fills the opening with solid black. Let the stage show through
+        // the opening while preserving the end caps and the sliding door artwork.
+        for y in 0..<crop.height {
+            for x in 6..<(crop.width - 6) {
+                let offset = (y * crop.width + x) * 4
+                if pixels[offset] == 0 && pixels[offset + 1] == 0 && pixels[offset + 2] == 0 {
+                    pixels[offset + 3] = 0
+                }
+            }
+        }
+        guard let provider = CGDataProvider(data: Data(pixels) as CFData),
+              let image = CGImage(width: crop.width, height: crop.height, bitsPerComponent: 8,
+                                  bitsPerPixel: 32, bytesPerRow: crop.width * 4,
+                                  space: CGColorSpaceCreateDeviceRGB(),
+                                  bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue),
+                                  provider: provider, decode: nil, shouldInterpolate: true,
+                                  intent: .defaultIntent) else { return nil }
+        let result = SKTexture(cgImage: image)
+        result.filteringMode = .linear
+        textures[key] = result
+        return result
+    }
     static func critter(_ kind:Int,frame:Int)->SKTexture? {
         let names=[0:"drifter",1:"darter",2:"breaker",4:"exploder",5:"layer"]
         guard let name=names[kind] else { return nil }
@@ -169,6 +245,193 @@ final class LibraryController: UITableViewController {
     }
 }
 
+// Keep the original menu art visible while outlining the active card.
+private final class ArcadeSelectionButton: UIButton {
+    private let halo = CAShapeLayer()
+    var cornerFraction: CGFloat = 0.16 { didSet { setNeedsLayout() } }
+    private var cardIsHovered = false
+    override var isHighlighted: Bool { didSet { refreshHalo() } }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        halo.fillColor = UIColor.clear.cgColor
+        halo.strokeColor = UIColor(red: 0.55, green: 1, blue: 1, alpha: 1).cgColor
+        halo.lineWidth = 2.5
+        halo.shadowColor = UIColor.cyan.cgColor
+        halo.shadowRadius = 8
+        halo.shadowOpacity = 0.8
+        halo.shadowOffset = .zero
+        halo.opacity = 0
+        layer.addSublayer(halo)
+        addGestureRecognizer(UIHoverGestureRecognizer(target: self, action: #selector(hover(_:))))
+    }
+
+    required init?(coder: NSCoder) { nil }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        halo.frame = bounds
+        let cardBounds = bounds.insetBy(dx: 3, dy: 3)
+        let radius = min(cardBounds.width, cardBounds.height) * cornerFraction
+        let outline = UIBezierPath(roundedRect: cardBounds, cornerRadius: radius).cgPath
+        halo.path = outline
+        // Cast light only from the border; a filled shadow would obscure the artwork.
+        halo.shadowPath = outline.copy(strokingWithWidth: halo.lineWidth, lineCap: .round,
+                                       lineJoin: .round, miterLimit: 1)
+        CATransaction.commit()
+    }
+
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let dx = max(0, (44 - bounds.width) / 2)
+        let dy = max(0, (44 - bounds.height) / 2)
+        return bounds.insetBy(dx: -dx, dy: -dy).contains(point)
+    }
+
+    @objc private func hover(_ gesture: UIHoverGestureRecognizer) {
+        cardIsHovered = gesture.state == .began || gesture.state == .changed
+        refreshHalo()
+    }
+
+    func clearHover() { cardIsHovered = false; refreshHalo() }
+
+    private func refreshHalo() {
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(UIAccessibility.isReduceMotionEnabled ? 0 : 0.12)
+        halo.opacity = cardIsHovered || isHighlighted ? 1 : 0
+        CATransaction.commit()
+    }
+}
+
+private final class ArcadeLibraryController: UIViewController {
+    enum Page { case games, editions }
+
+    private let artwork: UIImage
+    private let page: Page
+    private let imageView = UIImageView()
+    private var panels: [(button: ArcadeSelectionButton, region: CGRect)] = []
+    private let settings = ArcadeSelectionButton(frame: .zero)
+    var choose: ((GameEdition) -> Void)?
+    var cancel: (() -> Void)?
+
+    init(artwork: UIImage, page: Page = .games) {
+        self.artwork = artwork
+        self.page = page
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) { nil }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 0.015, green: 0.035, blue: 0.09, alpha: 1)
+        imageView.image = artwork
+        view.addSubview(imageView)
+        switch page {
+        case .games:
+            addPanel("Blasterball 2", region: CGRect(x: 0.022, y: 0.25, width: 0.472, height: 0.59)) { [weak self] in
+                self?.showEditions()
+            }
+            addPanel("Blasterball 3", region: CGRect(x: 0.506, y: 0.25, width: 0.472, height: 0.59)) { [weak self] in
+                self?.choose?(.bb3)
+            }
+        case .editions:
+            title = "Blasterball 2"
+            for (edition, x) in [(GameEdition.revolution, 0.02), (.remix, 0.344), (.holidays, 0.665)] {
+                addPanel(edition.title, region: CGRect(x: x, y: 0.27, width: 0.316, height: 0.56)) { [weak self] in
+                    self?.choose?(edition)
+                }
+            }
+        }
+        settings.cornerFraction = 0.28
+        configure(settings, label: "Settings", action: #selector(showSettings))
+        if cancel != nil {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                title: "Return to Game", style: .plain, target: self, action: #selector(returnToGame)
+            )
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.setNavigationBarHidden(page == .games && cancel == nil, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        panels.forEach { $0.button.clearHover() }
+        settings.clearHover()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let area = view.bounds.inset(by: view.safeAreaInsets)
+        let scale = min(area.width / artwork.size.width, area.height / artwork.size.height)
+        let width = artwork.size.width * scale
+        let height = artwork.size.height * scale
+        let frame = CGRect(x: area.midX - width / 2, y: area.midY - height / 2,
+                           width: width, height: height)
+        imageView.frame = frame
+        for panel in panels {
+            panel.button.frame = region(panel.region, in: frame)
+        }
+        let gear = page == .games
+            ? CGRect(x: 0.029, y: 0.882, width: 0.071, height: 0.088)
+            : CGRect(x: 0.027, y: 0.888, width: 0.071, height: 0.088)
+        settings.frame = region(gear, in: frame)
+    }
+
+    private func region(_ rect: CGRect, in frame: CGRect) -> CGRect {
+        CGRect(x: frame.minX + rect.minX * frame.width, y: frame.minY + rect.minY * frame.height,
+               width: rect.width * frame.width, height: rect.height * frame.height)
+    }
+
+    private func configure(_ button: UIButton, label: String, action: Selector) {
+        button.accessibilityLabel = label
+        button.addTarget(self, action: action, for: .touchUpInside)
+        view.addSubview(button)
+    }
+
+    private func addPanel(_ title: String, region: CGRect, action: @escaping () -> Void) {
+        let button = ArcadeSelectionButton(frame: .zero)
+        button.accessibilityLabel = title
+        button.addAction(UIAction { _ in action() }, for: .touchUpInside)
+        view.addSubview(button)
+        panels.append((button, region))
+    }
+
+    private func showEditions() {
+        if let url = Bundle.main.url(forResource: "ArcadeEditionSelection", withExtension: "png", subdirectory: "Menu"),
+           let artwork = UIImage(contentsOfFile: url.path) {
+            let editions = ArcadeLibraryController(artwork: artwork, page: .editions)
+            editions.choose = choose
+            navigationController?.pushViewController(editions, animated: true)
+        } else {
+            let editions = LibraryController(page: .editions)
+            editions.choose = choose
+            navigationController?.setNavigationBarHidden(false, animated: true)
+            navigationController?.pushViewController(editions, animated: true)
+        }
+    }
+
+    @objc private func returnToGame() { cancel?() }
+
+    @objc private func showSettings() {
+        let options = UIAlertController(title: "Blasterball Settings", message: nil, preferredStyle: .alert)
+        options.addAction(UIAlertAction(title: GameAudio.shared.enabled ? "Turn Sound Off" : "Turn Sound On", style: .default) { _ in
+            GameAudio.shared.enabled.toggle()
+        })
+        let laptop = UserDefaults.standard.string(forKey: "wireproof.bb2.display") == "laptop"
+        options.addAction(UIAlertAction(title: laptop ? "Use Automatic Display" : "Use Laptop Mode", style: .default) { _ in
+            UserDefaults.standard.set(laptop ? "auto" : "laptop", forKey: "wireproof.bb2.display")
+        })
+        options.addAction(UIAlertAction(title: "Done", style: .cancel))
+        present(options, animated: true)
+    }
+}
+
 struct DisplayLayout {
     let frame:CGRect, thumb:CGRect, compact:Bool
     var laptop:Bool=false
@@ -200,12 +463,57 @@ final class SteeringStrip:UIView {
     private func move(_ touches:Set<UITouch>) { if let t=touches.first { steer?(t.location(in:superview)) } }
 }
 
+// A small inset hardware switch, with a full-size touch target even on narrow sidebars.
+final class ArcadePauseButton: UIButton {
+    var blueEdition=false { didSet { setNeedsDisplay() } }
+    var plateWidth:CGFloat=72 { didSet { setNeedsDisplay() } }
+    override var isHighlighted:Bool { didSet { setNeedsDisplay() } }
+    override init(frame:CGRect) {
+        super.init(frame:frame)
+        isOpaque=false; backgroundColor = .clear
+        accessibilityLabel="Pause and game menu"
+        accessibilityTraits = .button
+    }
+    required init?(coder:NSCoder) { fatalError() }
+    override func draw(_ rect:CGRect) {
+        guard let c=UIGraphicsGetCurrentContext() else { return }
+        let w=min(110,max(24,min(plateWidth,bounds.width-4)))
+        let plate=CGRect(x:(bounds.width-w)/2,y:(bounds.height-34)/2,width:w,height:34)
+        let path=UIBezierPath(roundedRect:plate,cornerRadius:7)
+        c.saveGState()
+        c.setShadow(offset:CGSize(width:0,height:2),blur:3,color:UIColor.black.withAlphaComponent(0.8).cgColor)
+        UIColor.black.setFill();path.fill();c.restoreGState()
+        c.saveGState();path.addClip()
+        let top=blueEdition ? UIColor(red:0.24,green:0.45,blue:0.60,alpha:1):UIColor(red:0.44,green:0.40,blue:0.55,alpha:1)
+        let bottom=UIColor(red:0.04,green:0.06,blue:0.12,alpha:1)
+        if let gradient=CGGradient(colorsSpace:CGColorSpaceCreateDeviceRGB(),colors:[top.cgColor,bottom.cgColor] as CFArray,locations:[0,1]) {
+            c.drawLinearGradient(gradient,start:CGPoint(x:0,y:plate.minY),end:CGPoint(x:0,y:plate.maxY),options:[])
+        }
+        if isHighlighted {UIColor.black.withAlphaComponent(0.35).setFill();c.fill(plate)}
+        c.restoreGState()
+        UIColor(white:0.75,alpha:0.85).setStroke();path.lineWidth=1;path.stroke()
+        let inner=UIBezierPath(roundedRect:plate.insetBy(dx:2,dy:2),cornerRadius:5)
+        UIColor(white:0,alpha:0.65).setStroke();inner.lineWidth=1;inner.stroke()
+        let labeled=w>=86
+        let iconX=labeled ? plate.minX+13:plate.midX-7
+        let ink=isHighlighted ? UIColor.cyan:UIColor(white:0.94,alpha:1)
+        ink.setFill()
+        for x in [iconX,iconX+9] {UIBezierPath(roundedRect:CGRect(x:x,y:plate.midY-7,width:5,height:14),cornerRadius:1).fill()}
+        if labeled {
+            let text="PAUSE" as NSString
+            text.draw(at:CGPoint(x:iconX+23,y:plate.midY-6),withAttributes:[.font:UIFont.monospacedSystemFont(ofSize:10,weight:.bold),.foregroundColor:ink])
+        }
+        (blueEdition ? UIColor.cyan:UIColor(red:0.76,green:0.52,blue:1,alpha:1)).setFill()
+        UIBezierPath(roundedRect:CGRect(x:plate.midX-5,y:plate.maxY-5,width:10,height:1.5),cornerRadius:0.75).fill()
+    }
+}
+
 final class GameNavigationController: UINavigationController {
     override var childForStatusBarHidden:UIViewController? { topViewController }
 }
 final class GameController: UIViewController {
     let scene=GameScene(size:CGSize(width:390,height:844))
-    let menu=UIButton(type:.system), gameView=SKView()
+    let menu=ArcadePauseButton(frame:.zero), gameView=SKView()
     let steering=SteeringStrip(), steeringHint=UILabel()
     let railStatus=UILabel(), railScroll=UIScrollView()
     let railTokens=UIStackView()
@@ -224,7 +532,6 @@ final class GameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad(); overrideUserInterfaceStyle = .dark; view.backgroundColor = .black
         gameView.preferredFramesPerSecond=120; gameView.ignoresSiblingOrder=true; gameView.backgroundColor = .black; view.addSubview(gameView)
-        menu.setTitle("PAUSE",for:.normal); menu.titleLabel?.font = .systemFont(ofSize:13,weight:.bold)
         menu.tintColor = .cyan; menu.accessibilityLabel="Pause and game menu"; menu.addTarget(self,action:#selector(showPause),for:.touchUpInside); view.addSubview(menu)
         railStatus.numberOfLines=0; railStatus.font = .monospacedDigitSystemFont(ofSize:9,weight:.semibold)
         railStatus.textColor = .cyan; railStatus.textAlignment = .center
@@ -272,9 +579,22 @@ final class GameController: UIViewController {
                 self.layoutRefresh=work; DispatchQueue.main.asyncAfter(deadline:.now()+0.25,execute:work)
             })
         }
+        #if targetEnvironment(macCatalyst)
+        gameView.addGestureRecognizer(UIHoverGestureRecognizer(target: self, action: #selector(steerWithPointer(_:))))
+        #endif
         gameView.presentScene(scene)
         NotificationCenter.default.addObserver(self,selector:#selector(backgroundPause),name:UIApplication.willResignActiveNotification,object:nil)
     }
+    #if targetEnvironment(macCatalyst)
+    @objc private func steerWithPointer(_ gesture: UIHoverGestureRecognizer) {
+        guard gesture.state == .began || gesture.state == .changed, gameView.bounds.width > 0 else { return }
+        let x = gesture.location(in: gameView).x / gameView.bounds.width * scene.size.width
+        let width = scene.geometry.right - scene.geometry.left
+        guard width > 0 else { return }
+        scene.movePaddle(fraction: (x - scene.geometry.left) / width)
+    }
+    #endif
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         var edge=false
@@ -343,11 +663,15 @@ final class GameController: UIViewController {
         railScroll.isHidden = !edge
         layoutRailReadout()
         let scale=frame.width/scene.size.width
-        let panelX=scene.geometry.classic ? (scene.edition == .bb3 ? 560.0:530.0):420.0
-        menu.frame=CGRect(x:frame.minX+CGFloat(panelX)*scale,y:layout.extendedFrame.maxY-max(48,32*scale)-view.safeAreaInsets.bottom,width:(scene.edition == .bb3 && scene.geometry.classic ? 80:110)*scale,height:max(44,28*scale))
-        if scene.edition == .bb3 && scene.geometry.classic {
-            menu.frame=CGRect(x:frame.minX+570*scale,y:layout.extendedFrame.minY+layout.extendedFrame.height*0.76,width:60*scale,height:max(44,26*scale))
-        }
+        let panelLeft:CGFloat=scene.geometry.classic ? (scene.edition == .bb3 ? scene.geometry.right+14:530):420
+        let columnWidth=(scene.size.width-panelLeft)*scale
+        let centerX=frame.minX+(panelLeft+(scene.size.width-panelLeft)/2)*scale
+        let touchWidth=max(44,min(114,columnWidth))
+        menu.blueEdition=scene.edition == .bb3
+        menu.plateWidth=max(24,columnWidth-10)
+        let centerY=layout.extendedFrame.minY+layout.extendedFrame.height*(scene.geometry.classic ? 0.76:0.90)
+        menu.frame=CGRect(x:min(view.bounds.maxX-touchWidth,max(0,centerX-touchWidth/2)),y:centerY-22,width:touchWidth,height:44)
+
 
     }
     func refreshRailTypography() {
@@ -421,6 +745,11 @@ final class GameController: UIViewController {
             var edition=GameEdition.revolution
             if let i=args.firstIndex(of:"--edition"),i+1<args.count { edition=GameEdition(rawValue:args[i+1]) ?? .revolution }
             scene.testing=true; scene.loadEdition(edition); scene.runSmokeTest()
+            #if targetEnvironment(macCatalyst)
+            if args.contains("--preview-open-hatch") && edition != .bb3 {
+                scene.previewOpenHatch()
+            }
+            #endif
             #if targetEnvironment(simulator)
             if let i=args.firstIndex(of:"--preview-stage"),i+1<args.count,let stage=Int(args[i+1]) {scene.start(index:stage)}
             if args.contains("--preview-ports") { scene.previewPorts() }
@@ -461,9 +790,34 @@ final class GameController: UIViewController {
     @objc func openLibrary() { showLibrary() }
     func showLibrary() {
         scene.save(); scene.setPaused(true)
-        let picker=LibraryController(page:.games), nav=UINavigationController(); nav.modalPresentationStyle = .fullScreen; nav.overrideUserInterfaceStyle = .dark; nav.navigationBar.tintColor = .systemCyan; nav.viewControllers=[picker]
-        picker.choose={ [weak self,weak nav] edition in nav?.dismiss(animated:true) { self?.scene.loadEdition(edition) } }
-        if scene.loaded { picker.cancel={ [weak self,weak nav] in nav?.dismiss(animated:true) { self?.scene.setPaused(false) } } }
+        let nav = UINavigationController()
+        nav.modalPresentationStyle = .fullScreen
+        nav.overrideUserInterfaceStyle = .dark
+        nav.navigationBar.tintColor = .systemCyan
+        let choose: (GameEdition) -> Void = { [weak self, weak nav] edition in
+            nav?.dismiss(animated: true) { self?.scene.loadEdition(edition) }
+        }
+        let cancel: (() -> Void)? = scene.loaded ? { [weak self, weak nav] in
+            nav?.dismiss(animated: true) {
+                self?.view.setNeedsLayout()
+                self?.scene.setPaused(false)
+            }
+        } : nil
+
+        if let url = Bundle.main.url(forResource: "ArcadeGameSelection", withExtension: "png", subdirectory: "Menu"),
+           let artwork = UIImage(contentsOfFile: url.path) {
+            let picker = ArcadeLibraryController(artwork: artwork)
+            picker.choose = choose
+            picker.cancel = cancel
+            nav.viewControllers = [picker]
+            presentMenuController(nav)
+            return
+        }
+
+        let picker = LibraryController(page: .games)
+        picker.choose = choose
+        picker.cancel = cancel
+        nav.viewControllers = [picker]
         presentMenuController(nav)
     }
     @objc func backgroundPause() { scene.save(); scene.setPaused(true) }
@@ -483,7 +837,12 @@ final class GameController: UIViewController {
         guard presentedViewController == nil else { return }
         guard scene.loaded else { showLibrary(); return }
         scene.setPaused(true)
-        let sheet=UIAlertController(title:scene.edition == .bb3 ? "Blasterball 3": "Blasterball 2 · \(scene.edition.title)",message:"Stage \(scene.stageIndex+1) of \(scene.campaign.count)",preferredStyle:.actionSheet)
+        #if targetEnvironment(macCatalyst)
+        let style = UIAlertController.Style.alert
+        #else
+        let style = UIAlertController.Style.actionSheet
+        #endif
+        let sheet=UIAlertController(title:scene.edition == .bb3 ? "Blasterball 3": "Blasterball 2 · \(scene.edition.title)",message:"Stage \(scene.stageIndex+1) of \(scene.campaign.count)",preferredStyle:style)
         sheet.addAction(UIAlertAction(title:"Resume",style:.cancel){ [weak self] _ in self?.scene.setPaused(false) })
         sheet.addAction(UIAlertAction(title:"Restart stage",style:.default){ [weak self] _ in guard let self=self else{return}; self.scene.start(index:self.scene.stageIndex) })
         sheet.addAction(UIAlertAction(title:"Choose stage",style:.default){ [weak self] _ in DispatchQueue.main.async { self?.selectStage() } })
@@ -497,11 +856,75 @@ final class GameController: UIViewController {
         presentSheet(sheet)
     }
     func selectStage() {
+        #if targetEnvironment(macCatalyst)
+        guard scene.loaded else { return }
+        scene.setPaused(true)
+        let picker = StagePicker(title: "\(scene.edition.title) stages", stages: scene.campaign)
+        let navigation = UINavigationController(rootViewController: picker)
+        navigation.modalPresentationStyle = .formSheet
+        navigation.preferredContentSize = CGSize(width: 390, height: 430)
+        navigation.isModalInPresentation = true
+        picker.onChoose = { [weak self, weak navigation] index in
+            navigation?.dismiss(animated: true) { self?.scene.start(index: index) }
+        }
+        picker.onCancel = { [weak self, weak navigation] in
+            navigation?.dismiss(animated: true) { self?.scene.setPaused(false) }
+        }
+        presentMenuController(navigation)
+        #else
         let sheet=UIAlertController(title:"\(scene.edition.title) stages",message:"Selecting a stage starts a fresh run.",preferredStyle:.actionSheet)
         for (i,stage) in scene.campaign.enumerated() { sheet.addAction(UIAlertAction(title:String(format:"Stage %02d · %d bricks",i+1,stage.cells.filter{$0.type != 0 || $0.art != nil}.count),style:.default){ [weak self] _ in self?.scene.start(index:i) }) }
         sheet.addAction(UIAlertAction(title:"Resume",style:.cancel){ [weak self] _ in self?.scene.setPaused(false) }); presentSheet(sheet)
+        #endif
     }
 }
+
+#if targetEnvironment(macCatalyst)
+private final class StagePicker: UITableViewController {
+    private let stages: [Stage]
+    var onChoose: ((Int) -> Void)?
+    var onCancel: (() -> Void)?
+
+    init(title: String, stages: [Stage]) {
+        self.stages = stages
+        super.init(style: .insetGrouped)
+        self.title = title
+    }
+
+    required init?(coder: NSCoder) { nil }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.prompt = "Selecting a stage starts a fresh run."
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Resume", style: .done, target: self, action: #selector(resume)
+        )
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Stage")
+    }
+
+    @objc private func resume() { onCancel?() }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        stages.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
+        let stage = stages[indexPath.row]
+        let count = stage.cells.filter { $0.type != 0 || $0.art != nil }.count
+        var content = cell.defaultContentConfiguration()
+        content.text = String(format: "Stage %02d", indexPath.row + 1)
+        content.secondaryText = "\(count) bricks"
+        cell.contentConfiguration = content
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onChoose?(indexPath.row)
+    }
+}
+#endif
+
 
 struct BoardGeometry {
     var classic:Bool
@@ -717,19 +1140,36 @@ final class GameScene: SKScene {
             let bg=SKSpriteNode(texture:texture);bg.size=size;bg.position=CGPoint(x:size.width/2,y:size.height/2);bg.zPosition = -2;root.addChild(bg)
         }
         let left=geometry.left,right=geometry.right
-        for (x,flip) in [(left-7,true),(right+7,false)] {
-            if let texture=OriginalArt.thirdCrop("vista_left",CGRect(x:235,y:194,width:21,height:700)) {
-                let rail=SKSpriteNode(texture:texture);rail.size=CGSize(width:14,height:size.height-18);rail.position=CGPoint(x:x,y:(size.height-18)/2);if flip {rail.xScale = -1};root.addChild(rail)
+        for (x, flip) in [(left - 7, true), (right + 7, false)] {
+            if let texture = OriginalArt.thirdCrop("vista_left", CGRect(x: 235, y: 194, width: 21, height: 700)) {
+                let rail = SKSpriteNode(texture: texture)
+                rail.size = CGSize(width: 14, height: size.height - 18)
+                rail.position = CGPoint(x: x, y: (size.height - 18) / 2)
+                rail.xScale = flip ? -1 : 1
+                rail.zPosition = 1
+                root.addChild(rail)
             }
         }
-        if let texture=OriginalArt.third("top_bar") { let bar=SKSpriteNode(texture:texture);bar.size=CGSize(width:right-left+28,height:18);bar.position=CGPoint(x:geometry.center,y:size.height-9);root.addChild(bar) }
+        if let texture = OriginalArt.third("top_bar") { let bar=SKSpriteNode(texture:texture);bar.size=CGSize(width:right-left+28,height:18);bar.position=CGPoint(x:geometry.center,y:size.height-9);root.addChild(bar) }
         if geometry.classic {
-            for x in [CGFloat(0),CGFloat(560)] {
-                let backing=SKSpriteNode(color:UIColor(red:0.03,green:0.30,blue:0.55,alpha:1),size:CGSize(width:80,height:size.height))
-                backing.position=CGPoint(x:x+40,y:size.height/2);root.addChild(backing)
-                // Only the actual instrument panel, excluding white atlas padding and the arena rail.
-                if let texture=OriginalArt.thirdCrop("left_side_blue",CGRect(x:53,y:262,width:130,height:578)) {
-                    let side=SKSpriteNode(texture:texture);side.size=CGSize(width:58,height:size.height*0.76);side.position=CGPoint(x:x+40,y:size.height*0.43);root.addChild(side)
+            // The recovered side art includes the arena rail. Crop up to the rail and
+            // use the matching blue extension to fill the space above the panel.
+            let panel = OriginalArt.thirdCrop("left_side_blue", CGRect(x: 53, y: 262, width: 131, height: 599))
+            let extensionArt = OriginalArt.thirdCrop("left_side_blue_w", CGRect(x: 30, y: 262, width: 68, height: 599))
+            for (x, flip) in [(left / 2, false), ((right + size.width) / 2, true)] {
+                if let extensionArt {
+                    let backing = SKSpriteNode(texture: extensionArt)
+                    backing.size = CGSize(width: left, height: size.height)
+                    backing.position = CGPoint(x: x, y: size.height / 2)
+                    backing.zPosition = -1
+                    root.addChild(backing)
+                }
+                if let panel {
+                    let side = SKSpriteNode(texture: panel)
+                    side.size = CGSize(width: left - 14, height: size.height * 0.82)
+                    side.position = CGPoint(x: x + (flip ? 7 : -7), y: side.size.height / 2)
+                    side.xScale = flip ? -1 : 1
+                    root.addChild(side)
                 }
             }
         } else if !nativeSidebar {
@@ -754,11 +1194,13 @@ final class GameScene: SKScene {
             }
         }
         if geometry.classic && edition == .bb3 {
-            stat("BEST",bestScore.formatted(),x:40,y:size.height*0.94)
-            stat("SCORE",score.formatted(),x:600,y:size.height*0.94)
-            stat("LEVEL",String(stageIndex+1),x:40,y:size.height*0.66)
-            stat("LIVES",String(lives),x:600,y:size.height*0.66)
-            stat("MULT","×\(scoreMultiplier)",x:600,y:size.height*0.48)
+            let leftColumn = (geometry.left - 14) / 2
+            let rightColumn = size.width - leftColumn
+            stat("BEST",bestScore.formatted(),x:leftColumn,y:size.height*0.94,width:56)
+            stat("SCORE",score.formatted(),x:rightColumn,y:size.height*0.94,width:56)
+            stat("LEVEL",String(stageIndex+1),x:leftColumn,y:size.height*0.66,width:56)
+            stat("LIVES",String(lives),x:rightColumn,y:size.height*0.66,width:56)
+            stat("MULT","×\(scoreMultiplier)",x:rightColumn,y:size.height*0.48,width:56)
         } else if geometry.classic {
             // The source backdrop contains the original headings, life icon and logos.
             // Back only the changing numbers, leaving the surrounding artwork visible.
@@ -1049,19 +1491,38 @@ final class GameScene: SKScene {
         portNodes.forEach{$0.removeFromParent()};portNodes=[];portIndex=nil;portClock=0
         let scale=(geometry.right-geometry.left)/(edition == .bb3 ? 480:390)
         let fractions:[CGFloat]=edition == .bb3 ? [0.23,0.77]:[(202-125)/390,(436-125)/390]
-        for fraction in fractions {
+        for (index, fraction) in fractions.enumerated() {
             let node=SKSpriteNode(texture:edition == .bb3 ? nil:OriginalArt.door(0));if edition == .bb3 {node.color = .clear}
             node.size=CGSize(width:67*scale,height:23*scale)
             node.position=CGPoint(x:geometry.left+fraction*(geometry.right-geometry.left),y:size.height-12.5*scale);node.zPosition=12;addChild(node);portNodes.append(node)
             if edition == .bb3 {
-                let opening=SKSpriteNode(color:UIColor(white:0.015,alpha:1),size:CGSize(width:57*scale,height:15*scale));opening.name="opening";opening.zPosition = -1;node.addChild(opening)
                 for (name,frame,x,flip) in [("left",2,CGFloat(-12),false),("right",0,CGFloat(12),true),("capLeft",3,CGFloat(-34),false),("capRight",3,CGFloat(34),true)] {
                     if let texture=OriginalArt.third("door_panel_\(frame)") {
                         let panel=SKSpriteNode(texture:texture);panel.name=name;panel.size=CGSize(width:50*scale,height:50*scale);panel.position.x=x*scale;panel.zPosition=name.hasPrefix("cap") ? 2:1;if flip {panel.xScale = -1};node.addChild(panel)
                     }
                 }
+            } else {
+                // The scenery atlas already contains closed hatches. Cover that
+                // artwork beneath the moving doors with the stage directly below.
+                let background = "BB2-background-\(campaign[stageIndex].background)"
+                let sourceX = (index == 0 ? 202 : 436) - 33.5
+                let rect = CGRect(x: sourceX.rounded(.down), y: 34, width: 67, height: 23)
+                if let texture = OriginalArt.texture(background, rect: rect) {
+                    let scenery = SKSpriteNode(texture: texture, size: node.size)
+                    scenery.name = "port-scenery"
+                    scenery.yScale = -1
+                    scenery.zPosition = -3
+                    scenery.isHidden = true
+                    node.addChild(scenery)
+                }
             }
         }
+    }
+
+    private func setDoorFrame(_ frame: Int, at port: Int) {
+        let node = portNodes[port]
+        node.texture = OriginalArt.door(frame)
+        node.childNode(withName: "port-scenery")?.isHidden = frame == 0
     }
     func spawnCritter(_ kind:Int,port:Int) {
         guard portNodes.indices.contains(port) else {return}
@@ -1103,9 +1564,9 @@ final class GameScene: SKScene {
                 let progress=min(1,max(0,portClock<0.4 ? portClock/0.4:(portClock<1.4 ? 1:1-(portClock-1.4)/0.4)))
                 portNodes[port].childNode(withName:"left")?.position.x=(-12-20*progress)*scale
                 portNodes[port].childNode(withName:"right")?.position.x=(12+20*progress)*scale
-            } else {portNodes[port].texture=OriginalArt.door(frame)}
+            } else { setDoorFrame(frame, at: port) }
             if portClock>=0.4 && !portDidSpawn {portDidSpawn=true;if let kind=allowed.randomElement(){spawnCritter(kind,port:port)}}
-            if portClock>=1.8 {portIndex=nil;if edition != .bb3 {portNodes[port].texture=OriginalArt.door(0)}}
+            if portClock>=1.8 {portIndex=nil;if edition != .bb3 { setDoorFrame(0, at: port) }}
         } else if !allowed.isEmpty && critters.count<maximum {
             let shouldOpen:Bool
             enemyGenerationClock += dt
@@ -1149,6 +1610,17 @@ final class GameScene: SKScene {
         }
         critters.removeAll{$0.node.parent == nil}
     }
+    #if targetEnvironment(macCatalyst)
+    func previewOpenHatch() {
+        guard loaded else { return }
+        testing = true
+        start(index: 6)
+        setDoorFrame(7, at: 1)
+        if let kind = eligibleCritterKinds().first { spawnCritter(kind, port: 1) }
+        critters.last?.node.position.y -= 12
+        setPaused(true)
+    }
+    #endif
     func previewPorts() {
         // Simulator inspection hook: deterministic entrances, no physical-device launch path.
         #if targetEnvironment(simulator)
@@ -1197,20 +1669,31 @@ final class GameScene: SKScene {
         checks["ports_have_eligible_enemies"] = !eligibleCritterKinds().isEmpty
         checks["two_port_nodes"]=portNodes.count==2
         if edition != .bb3,let image=OriginalArt.door(7)?.cgImage(),let pixels=OriginalArt.rgba(image) {
-            checks["door_native_opaque_aperture"]=stride(from:3,to:pixels.count,by:4).allSatisfy{pixels[$0]==255}
-            checks["no_synthetic_door_backing"]=portNodes.allSatisfy{$0.childNode(withName:"door-stage-backing")==nil}
+            let middle = (image.height / 2 * image.width + image.width / 2) * 4 + 3
+            let leftCap = image.height / 2 * image.width * 4 + 3
+            let rightCap = leftCap + (image.width - 1) * 4
+            checks["door_open_aperture_is_transparent"] = pixels[middle] == 0
+            checks["door_end_caps_stay_opaque"] = pixels[leftCap] == 255 && pixels[rightCap] == 255
+            checks["closed_hatches_hide_scenery"]=portNodes.allSatisfy{$0.childNode(withName:"port-scenery")?.isHidden == true}
         }
         for port in 0..<2 {
             portIndex=port;portClock=0;portDidSpawn=false
             advancePorts(0.2)
             if edition == .bb3 {checks["port_\(port)_panels_open"]=(portNodes[port].childNode(withName:"left")?.position.x ?? 0)<(-12*(geometry.right-geometry.left)/480)}
             advancePorts(0.21)
+            if edition != .bb3 {
+                checks["port_\(port)_open_hatch_covers_baked_art"] =
+                    portNodes[port].childNode(withName: "port-scenery")?.isHidden == false
+            }
             checks["port_\(port)_spawn_after_open"]=critters.count==port+1 && abs((critters.last?.node.position.x ?? -999)-portNodes[port].position.x)<1
             checks["port_\(port)_spawn_at_top"]=(critters.last?.node.position.y ?? 0)>geometry.ceiling-5*geometry.unit
             advancePorts(1.4)
             checks["port_\(port)_closes"]=portIndex==nil
             if edition == .bb3 {checks["port_\(port)_panels_closed"]=abs((portNodes[port].childNode(withName:"left")?.position.x ?? 999)+12*(geometry.right-geometry.left)/480)<0.01}
-            else {checks["port_\(port)_closed_art"]=portNodes[port].texture === OriginalArt.door(0)}
+            else {
+                checks["port_\(port)_closed_art"] = portNodes[port].texture === OriginalArt.door(0)
+                    && portNodes[port].childNode(withName: "port-scenery")?.isHidden == true
+            }
         }
         checks["enemy_art_visible"]=critters.allSatisfy{$0.third == nil ? $0.node.texture != nil: !$0.node.children.isEmpty}
         critters.forEach{$0.node.removeFromParent()};critters=[];enemyGenerationClock=0;setupPorts()
