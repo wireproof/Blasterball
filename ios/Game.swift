@@ -579,21 +579,26 @@ final class GameController: UIViewController {
                 self.layoutRefresh=work; DispatchQueue.main.asyncAfter(deadline:.now()+0.25,execute:work)
             })
         }
-        #if targetEnvironment(macCatalyst)
-        gameView.addGestureRecognizer(UIHoverGestureRecognizer(target: self, action: #selector(steerWithPointer(_:))))
-        #endif
+        // Trackpad/mouse motion steers without a pressed button on iPadOS too.
+        // Both surfaces share game-view coordinates so the paddle stays under x.
+        for surface in [gameView as UIView, steering] {
+            let hover = UIHoverGestureRecognizer(target: self, action: #selector(steerWithPointer(_:)))
+            hover.cancelsTouchesInView = false
+            surface.addGestureRecognizer(hover)
+        }
         gameView.presentScene(scene)
         NotificationCenter.default.addObserver(self,selector:#selector(backgroundPause),name:UIApplication.willResignActiveNotification,object:nil)
     }
-    #if targetEnvironment(macCatalyst)
     @objc private func steerWithPointer(_ gesture: UIHoverGestureRecognizer) {
         guard gesture.state == .began || gesture.state == .changed, gameView.bounds.width > 0 else { return }
         let x = gesture.location(in: gameView).x / gameView.bounds.width * scene.size.width
         let width = scene.geometry.right - scene.geometry.left
         guard width > 0 else { return }
         scene.movePaddle(fraction: (x - scene.geometry.left) / width)
+        if laptopActive {
+            controlDeck.fraction = (scene.paddle.position.x - scene.geometry.left) / width
+        }
     }
-    #endif
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

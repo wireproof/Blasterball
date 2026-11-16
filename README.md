@@ -4,9 +4,9 @@ An experimental UIKit and SpriteKit reconstruction of Blasterball for iPhone and
 
 ## Current release
 
-**0.7.17, build 35** includes illustrated game and edition selection screens, rounded border-only hover and touch highlights (including Settings), and a laptop paddle-control deck aligned with the playfield. The iOS app identifier is now `com.wireproof.blasterball`; its name and icon are unchanged.
+**0.7.18, build 36** fixes iPad trackpad steering: the paddle follows horizontal pointer movement without holding a click, over the game or lower control area. It also includes illustrated game and edition selection screens, rounded border-only hover and touch highlights (including Settings), and a laptop paddle-control deck aligned with the playfield. The iOS app identifier is now `com.wireproof.blasterball`; its name and icon are unchanged.
 
-This is a prerelease reconstruction. Gameplay mechanics and visual fidelity remain incomplete. The development-signed build35 was installed on iPhone Duo and iPad Pro with saved preferences and documents migrated and verified by file readback. Neither app was launched during delivery, so runtime save loading and current physical-device visuals remain unverified. Historical simulator checks are not a substitute for testing this release on a device.
+This is a prerelease reconstruction. Gameplay mechanics and visual fidelity remain incomplete. The development-signed build36 was installed on iPhone Duo and iPad Pro with saved preferences and documents migrated and verified by file readback. Neither app was launched during delivery, so runtime save loading and current physical-device visuals remain unverified. Historical simulator checks are not a substitute for testing this release on a device.
 
 Changing from the previous `com.wireproof.blasterball.prototype` identifier creates a separate app container. The public IPA does not automatically transfer previous saves. Keep the old app and back up its data before migrating.
 
@@ -14,7 +14,7 @@ Changing from the previous `com.wireproof.blasterball.prototype` identifier crea
 
 Open [`ios/Blasterball.xcodeproj`](ios/Blasterball.xcodeproj) in Xcode, select your signing team, and build for iPhone or iPad. The standalone source has no dependency on the development workspace's shared-source symlinks. `ios/build.sh simulator` builds the simulator app; `ios/build-xcode.sh` wraps the Xcode build.
 
-The release IPA is **unsigned** and must be signed for your device. It corresponds to build35, with development signing and the embedded device provisioning profile removed. See [release notes](ios/RELEASE-0.7.17.md).
+The release IPA is **unsigned** and must be signed for your device. It corresponds to build36, with development signing and the embedded device provisioning profile removed. See [release notes](ios/RELEASE-0.7.18.md).
 
 ## Assets
 
