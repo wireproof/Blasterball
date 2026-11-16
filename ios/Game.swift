@@ -526,19 +526,21 @@ final class GameController: UIViewController {
     let controlDeck=LaptopDeck()
     var layoutRefresh:DispatchWorkItem?
     var railLayoutTimer:Timer?
+    var gameplayPresented=false
     var initialPresentation=false
     override var prefersStatusBarHidden:Bool { !nativeRail }
     override var supportedInterfaceOrientations:UIInterfaceOrientationMask { .allButUpsideDown }
     override func viewDidLoad() {
         super.viewDidLoad(); overrideUserInterfaceStyle = .dark; view.backgroundColor = .black
         gameView.preferredFramesPerSecond=120; gameView.ignoresSiblingOrder=true; gameView.backgroundColor = .black; view.addSubview(gameView)
-        menu.tintColor = .cyan; menu.accessibilityLabel="Pause and game menu"; menu.addTarget(self,action:#selector(showPause),for:.touchUpInside); view.addSubview(menu)
+        menu.tintColor = .cyan; menu.accessibilityLabel="Pause and game menu"; menu.addTarget(self,action:#selector(showPause),for:.touchUpInside); view.addSubview(menu); menu.isHidden=true
         railStatus.numberOfLines=0; railStatus.font = .monospacedDigitSystemFont(ofSize:9,weight:.semibold)
         railStatus.textColor = .cyan; railStatus.textAlignment = .center
         railStatus.frame=CGRect(x:0,y:0,width:52,height:176)
         railStatus.accessibilityLabel="Stage, score, high score, lives, multiplier and active powerups"
         nativePause.accessibilityLabel="Pause and game menu"; nativeLibrary.accessibilityLabel="Choose game"
-        navigationItem.rightBarButtonItems=[nativePause,nativeLibrary]
+        navigationItem.rightBarButtonItems=[nativeLibrary]
+        nativePause.isEnabled=false
         railScroll.backgroundColor = .black; railScroll.showsVerticalScrollIndicator=false
         railScroll.addSubview(railStatus)
         railTokens.axis = .vertical; railTokens.spacing=5; railScroll.addSubview(railTokens)
@@ -546,6 +548,15 @@ final class GameController: UIViewController {
         railScroll.isHidden=true
         toolbarItems=[]
         navigationController?.setToolbarHidden(true,animated:false)
+        scene.onPresentationChange = { [weak self] ready in
+            guard let self=self else { return }
+            self.gameplayPresented=ready
+            self.menu.isHidden = !ready || self.nativeRail
+            self.nativePause.isEnabled=ready
+            self.navigationItem.rightBarButtonItems=ready ? [self.nativePause,self.nativeLibrary] : [self.nativeLibrary]
+            self.railScroll.isHidden = !ready || !self.nativeRail
+            self.view.setNeedsLayout()
+        }
         scene.onStatus={ [weak self] _ in
             guard let self=self else { return }
             self.refreshRailTypography()
@@ -664,8 +675,8 @@ final class GameController: UIViewController {
             controlDeck.controlRange=CGRect(x:left-controlDeck.frame.minX,y:0,width:width,height:layout.thumb.height)
             controlDeck.fraction=(scene.paddle.position.x-scene.geometry.left)/(scene.geometry.right-scene.geometry.left)
         }
-        menu.isHidden=edge
-        railScroll.isHidden = !edge
+        menu.isHidden=edge || !gameplayPresented
+        railScroll.isHidden = !edge || !gameplayPresented
         layoutRailReadout()
         let scale=frame.width/scene.size.width
         let panelLeft:CGFloat=scene.geometry.classic ? (scene.edition == .bb3 ? scene.geometry.right+14:530):420
@@ -744,12 +755,15 @@ final class GameController: UIViewController {
         }
     }
     override func viewDidAppear(_ animated:Bool) {
-        super.viewDidAppear(animated);refreshRailTimer();railScroll.isHidden = !nativeRail; guard !initialPresentation else { return }; initialPresentation=true
+        super.viewDidAppear(animated);refreshRailTimer();railScroll.isHidden = !nativeRail || !gameplayPresented; guard !initialPresentation else { return }; initialPresentation=true
         let args=ProcessInfo.processInfo.arguments
         if args.contains("--smoke-test") {
             var edition=GameEdition.revolution
             if let i=args.firstIndex(of:"--edition"),i+1<args.count { edition=GameEdition(rawValue:args[i+1]) ?? .revolution }
-            scene.testing=true; scene.loadEdition(edition); scene.runSmokeTest()
+            let pauseHiddenBeforeLoad=menu.isHidden
+            scene.testing=true; scene.loadEdition(edition)
+            let pauseHiddenBeforeFirstFrame=menu.isHidden
+            scene.runSmokeTest()
             #if targetEnvironment(macCatalyst)
             if args.contains("--preview-open-hatch") && edition != .bb3 {
                 scene.previewOpenHatch()
@@ -778,7 +792,7 @@ final class GameController: UIViewController {
                     let hittable=target === self.menu || target?.isDescendant(of:self.menu)==true
                     if hittable {self.menu.sendActions(for:.touchUpInside)}
                     DispatchQueue.main.asyncAfter(deadline:.now()+0.6) {
-                        let result:[String:Any]=["hittable":hittable,"hitView":String(describing:type(of:target)),"paused":self.scene.frozen,"menuPresented":self.presentedViewController is UIAlertController]
+                        let result:[String:Any]=["hiddenBeforeLoad":pauseHiddenBeforeLoad,"hiddenBeforeFirstFrame":pauseHiddenBeforeFirstFrame,"hittable":hittable,"hitView":String(describing:type(of:target)),"paused":self.scene.frozen,"menuPresented":self.presentedViewController is UIAlertController]
                         if let data=try? JSONSerialization.data(withJSONObject:result,options:.prettyPrinted),let dir=FileManager.default.urls(for:.documentDirectory,in:.userDomainMask).first {try? data.write(to:dir.appendingPathComponent("pause-check.json"))}
                     }
                 }
@@ -984,6 +998,9 @@ final class LiveCritter {
 struct Drop { let node:SKShapeNode; let kind:Int }
 
 final class GameScene: SKScene {
+    var onPresentationChange:((Bool)->Void)?
+    private var presentationGeneration=0
+    private var awaitingPresentation=false
     var onStatus:((String)->Void)?, onPause:((Bool)->Void)?
     var frozen = false, launched = false, finished = false, cleared = false, loaded = false
     var campaign:[Stage] = [], stageIndex = 0, lives = 3, score = 0
@@ -1062,7 +1079,21 @@ final class GameScene: SKScene {
         prompt.position=CGPoint(x:geometry.center,y:paddleY+65*geometry.unit)
         effectLabel.position=CGPoint(x:geometry.center,y:paddleY+35*geometry.unit)
     }
+    override func didFinishUpdate() {
+        guard awaitingPresentation else { return }
+        awaitingPresentation=false
+        let generation=presentationGeneration
+        // Reveal UIKit controls on the next main-loop turn after SpriteKit's
+        // first complete scene update, not while the loading view is black.
+        DispatchQueue.main.async { [weak self] in
+            guard let self=self,self.presentationGeneration==generation else { return }
+            self.onPresentationChange?(true)
+        }
+    }
     func loadEdition(_ chosen:GameEdition) {
+        presentationGeneration += 1
+        awaitingPresentation=false
+        onPresentationChange?(false)
         save(); setPaused(true); loaded=false; removeAllChildren(); balls=[]; bricks=[]; drops=[]
         edition=chosen; OriginalArt.edition=chosen.rawValue
         GameAudio.shared.configure(edition:chosen.rawValue)
@@ -1083,6 +1114,7 @@ final class GameScene: SKScene {
         } catch {
             backgroundColor = .black; prompt.text="Edition data could not be loaded"; prompt.fontSize=16; prompt.position=CGPoint(x:size.width/2,y:size.height/2); addChild(prompt); finished=true; onStatus?("Choose another game from the menu")
         }
+        awaitingPresentation=true
     }
     func shape(_ rect:CGRect,_ color:UIColor,corner:CGFloat=2)->SKShapeNode {
         let n=SKShapeNode(rectOf:rect.size,cornerRadius:corner); n.position=CGPoint(x:rect.midX,y:rect.midY); n.fillColor=color; n.strokeColor=color.withAlphaComponent(0.7); n.lineWidth=0.6; return n
