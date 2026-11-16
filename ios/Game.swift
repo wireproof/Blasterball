@@ -1,5 +1,7 @@
 import UIKit
 import SpriteKit
+import CoreImage
+import UniformTypeIdentifiers
 
 struct Cell: Codable {
     let row, column, type, property, powerup, critter:Int
@@ -85,11 +87,21 @@ final class BlasterballSceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-// Unmodified game pixels: crop verified atlas cells, then let SpriteKit interpolate display scaling.
+// Verified original atlas cells, with cached faithful enhancement for Revolution.
 enum OriginalArt {
     static var edition = "revolution"
     static var images:[String:CGImage] = [:]
     static var textures:[String:SKTexture] = [:]
+    private static let remasterContext=CIContext(options:[.cacheIntermediates:false])
+    // Faithful, cached reconstruction: original RGB/alpha and atlas geometry remain authoritative.
+    // Run only when a texture is first loaded, never in the animation/physics loops.
+    static func sharpenedRevolution(_ image:CGImage,name:String)->CGImage {
+        guard edition=="revolution",name=="BB2-bricks" || name=="BB2-paddle" || name.hasPrefix("BB2-background-") else {return image}
+        let input=CIImage(cgImage:image)
+        let scaled=input.applyingFilter("CILanczosScaleTransform",parameters:[kCIInputScaleKey:2.0,kCIInputAspectRatioKey:1.0])
+        let sharp=scaled.applyingFilter("CISharpenLuminance",parameters:[kCIInputSharpnessKey:0.25])
+        return remasterContext.createCGImage(sharp,from:CGRect(x:0,y:0,width:image.width*2,height:image.height*2)) ?? image
+    }
     static func source(_ name:String)->CGImage? {
         let key="\(edition):\(name)"
         if let image=images[key] { return image }
@@ -137,7 +149,7 @@ enum OriginalArt {
             for y in 0..<height { for x in 0..<width where pixels[(y*width+x)*4+3] > 0 { minX=min(minX,x); maxX=max(maxX,x); minY=min(minY,y); maxY=max(maxY,y) } }
             if maxX >= minX, maxY >= minY, let trimmed=crop.cropping(to:CGRect(x:minX,y:minY,width:maxX-minX+1,height:maxY-minY+1)) { crop=trimmed }
         }
-        let texture=SKTexture(cgImage:crop); texture.filteringMode = .linear; textures[key]=texture; return texture
+        let texture=SKTexture(cgImage:sharpenedRevolution(crop,name:name)); texture.filteringMode = .linear; textures[key]=texture; return texture
     }
     // Editor and native REA: brick type t is opaque, top-row cell (t-1)*30,0,30,15.
     static func brick(_ type:Int,frame:Int=0)->SKTexture? { guard (1...14).contains(type) else { return nil }; return texture("BB2-bricks",rect:CGRect(x:(type-1)*30,y:(frame%17)*15,width:30,height:15)) }
@@ -312,6 +324,7 @@ private final class ArcadeLibraryController: UIViewController {
     private let imageView = UIImageView()
     private var panels: [(button: ArcadeSelectionButton, region: CGRect)] = []
     private let settings = ArcadeSelectionButton(frame: .zero)
+    var customPlay: ((CustomLevel)->Void)?
     var choose: ((GameEdition) -> Void)?
     var cancel: (() -> Void)?
 
@@ -407,6 +420,7 @@ private final class ArcadeLibraryController: UIViewController {
            let artwork = UIImage(contentsOfFile: url.path) {
             let editions = ArcadeLibraryController(artwork: artwork, page: .editions)
             editions.choose = choose
+            editions.customPlay = customPlay
             navigationController?.pushViewController(editions, animated: true)
         } else {
             let editions = LibraryController(page: .editions)
@@ -426,6 +440,9 @@ private final class ArcadeLibraryController: UIViewController {
         let laptop = UserDefaults.standard.string(forKey: "wireproof.bb2.display") == "laptop"
         options.addAction(UIAlertAction(title: laptop ? "Use Automatic Display" : "Use Laptop Mode", style: .default) { _ in
             UserDefaults.standard.set(laptop ? "auto" : "laptop", forKey: "wireproof.bb2.display")
+        })
+        options.addAction(UIAlertAction(title:"Level Editor / Custom Levels",style:.default){[weak self] _ in
+            guard let self=self else{return};let editor=LevelEditorController();editor.play=self.customPlay;self.navigationController?.pushViewController(editor,animated:true)
         })
         options.addAction(UIAlertAction(title: "Done", style: .cancel))
         present(options, animated: true)
@@ -772,6 +789,14 @@ final class GameController: UIViewController {
             #if targetEnvironment(simulator)
             if let i=args.firstIndex(of:"--preview-stage"),i+1<args.count,let stage=Int(args[i+1]) {scene.start(index:stage)}
             if args.contains("--preview-ports") { scene.previewPorts() }
+            if args.contains("--stress-test") {
+                scene.start(index:0);scene.testing=true;scene.launchOrContinue()
+                for brick in scene.bricks {brick.hits=100000}
+                while scene.balls.count<32 {scene.applyPowerup(1)}
+                scene.applyPowerup(edition == .bb3 ? 29:7)
+                scene.stressFrames=300;scene.stressIntervals=[];scene.stressPeakNodes=0
+                for i in 0..<8 {if let kind=scene.eligibleCritterKinds().first {scene.spawnCritter(kind,port:i%2);scene.critters.last?.node.position=CGPoint(x:scene.geometry.left+CGFloat(i+1)*(scene.geometry.right-scene.geometry.left)/9,y:scene.geometry.ceiling-100);scene.critters.last?.emerged=true}}
+            }
             if args.contains("--preview-explosion") {scene.enemyExplosion(at:CGPoint(x:scene.geometry.center,y:scene.geometry.ceiling-100))}
             if args.contains("--preview-enemy-effects") {
                 scene.testing=true;scene.launched=false
@@ -799,7 +824,13 @@ final class GameController: UIViewController {
             }
             if args.contains("--preview-multipliers") {scene.applyPowerup(scene.edition == .bb3 ? 20:10);scene.applyPowerup(scene.edition == .bb3 ? 21:11)}
             #endif
-        } else { showLibrary() }
+        } else {
+            #if targetEnvironment(simulator)
+            if args.contains("--preview-editor") {let editor=LevelEditorController();let nav=UINavigationController(rootViewController:editor);nav.modalPresentationStyle = .fullScreen;present(nav,animated:false)} else {showLibrary()}
+            #else
+            showLibrary()
+            #endif
+        }
         #if targetEnvironment(simulator)
         if args.contains("--preview-landscape"),#available(iOS 16.0, *) {
             view.window?.windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations:.landscapeRight))
@@ -827,6 +858,7 @@ final class GameController: UIViewController {
            let artwork = UIImage(contentsOfFile: url.path) {
             let picker = ArcadeLibraryController(artwork: artwork)
             picker.choose = choose
+            picker.customPlay = { [weak self,weak nav] level in nav?.dismiss(animated:true){self?.scene.loadCustom(level)} }
             picker.cancel = cancel
             nav.viewControllers = [picker]
             presentMenuController(nav)
@@ -975,7 +1007,8 @@ final class LiveBall {
 }
 final class LiveBrick {
     let node: SKShapeNode, raw: Cell; var rect: CGRect; var hits: Int
-    var breakable: Bool { raw.art != nil ? (raw.hits ?? 1)>0:raw.type != 8 }
+    var hiddenUntil:CGFloat=0
+    var breakable: Bool { raw.art != nil ? (raw.hits ?? 1)>0:raw.type != 8 && raw.type != 10 }
     init(node:SKShapeNode,rect:CGRect,raw:Cell,hits:Int) { self.node=node; self.rect=rect; self.raw=raw; self.hits=hits }
 }
 struct OriginalEnemySpec:Decodable {
@@ -1016,6 +1049,7 @@ final class GameScene: SKScene {
     var bigBall=false, explosiveBall=false
     var boss:BB3BossEncounter?
     var thirdTimers:[Int:CGFloat]=[:], thirdTime:CGFloat=0, laserClock:CGFloat=0, targetPaddleX:CGFloat?=nil
+    var effectVisualTick = -1
     var secretFound=false, hiddenReturnStage:Int?=nil
     var multiplier=1
     var multiplierTokens:[MultiplierToken]=[]
@@ -1026,10 +1060,14 @@ final class GameScene: SKScene {
     var paddleY:CGFloat { geometry.paddleY }
     var edition=GameEdition.revolution
     let prompt = SKLabelNode(fontNamed:"HelveticaNeue-Medium"), effectLabel = SKLabelNode(fontNamed:"HelveticaNeue-Bold")
-    var saveKey:String { edition.saveKey }
+    var customLevelID:UUID?
+    var saveKey:String { customLevelID.map{"wireproof.blasterball.custom."+$0.uuidString} ?? edition.saveKey }
     var testing = false
+    var stressFrames=0,stressPeakNodes=0
+    var stressIntervals:[Double]=[]
     var powerups:[Int:(String,UIColor)] {
         var values:[Int:(String,UIColor)] = [1:("×3",.systemCyan),3:("S",.systemBlue),6:("−",.systemPink),8:("+",.systemGreen),9:("1UP",.systemYellow),15:("F",.systemOrange),10:("×2",.systemYellow),11:("×3",.systemYellow)]
+        if edition != .bb3 { values.merge([2:("BLASTER",.red),4:("ATTACH",.green),5:("CATCHER",.cyan),7:("LASER",.red),12:("FLASH",.white),13:("TWIN",.cyan),14:("PHANTOM",.purple),16:("8 WAY",.cyan)]) {_,new in new} }
         if edition == .bb3 { values.merge([20:("×2",.systemYellow),21:("×3",.systemYellow),22:("BIG",.systemCyan),23:("BOMB",.systemRed),24:("FLASH",.white),25:("8 BALL",.cyan),26:("VISION",.cyan),27:("REPLICATE",.cyan),28:("INERTIA",.orange),29:("LASER",.red),30:("ZAP",.cyan),31:("BLASTER",.orange),32:("ENERGY",.yellow),33:("HOVER",.cyan),34:("TWIN",.cyan),35:("PHANTOM",.purple),36:("ATTACH",.green),37:("CATCHER",.green),38:("NIGHT",.purple)]) {_,new in new} }; return values
     }
     override func didMove(to view:SKView) { frozen=true; backgroundColor = .black }
@@ -1080,6 +1118,7 @@ final class GameScene: SKScene {
         effectLabel.position=CGPoint(x:geometry.center,y:paddleY+35*geometry.unit)
     }
     override func didFinishUpdate() {
+        if hudDirty {hudDirty=false;refreshHUD()}
         guard awaitingPresentation else { return }
         awaitingPresentation=false
         let generation=presentationGeneration
@@ -1095,6 +1134,7 @@ final class GameScene: SKScene {
         awaitingPresentation=false
         onPresentationChange?(false)
         save(); setPaused(true); loaded=false; removeAllChildren(); balls=[]; bricks=[]; drops=[]
+        customLevelID=nil
         edition=chosen; OriginalArt.edition=chosen.rawValue
         GameAudio.shared.configure(edition:chosen.rawValue)
         do {
@@ -1115,6 +1155,13 @@ final class GameScene: SKScene {
             backgroundColor = .black; prompt.text="Edition data could not be loaded"; prompt.fontSize=16; prompt.position=CGPoint(x:size.width/2,y:size.height/2); addChild(prompt); finished=true; onStatus?("Choose another game from the menu")
         }
         awaitingPresentation=true
+    }
+    func loadCustom(_ level:CustomLevel) {
+        guard (try? level.validated()) != nil else {return}
+        loadEdition(.revolution)
+        guard loaded else{return}
+        pendingSave?.cancel();pendingSave=nil;customLevelID=level.id;campaign=[level.stage]
+        start(index:0) // Play-testing always starts the current edited layout fresh.
     }
     func shape(_ rect:CGRect,_ color:UIColor,corner:CGFloat=2)->SKShapeNode {
         let n=SKShapeNode(rectOf:rect.size,cornerRadius:corner); n.position=CGPoint(x:rect.midX,y:rect.midY); n.fillColor=color; n.strokeColor=color.withAlphaComponent(0.7); n.lineWidth=0.6; return n
@@ -1308,12 +1355,21 @@ final class GameScene: SKScene {
         originalSurface(n,texture:OriginalArt.ball(),size:CGSize(width:radius*2,height:radius*2));n.childNode(withName:"surface")?.yScale=roundYScale;n.childNode(withName:"shadow")?.yScale=roundYScale
         addChild(n); balls.append(LiveBall(node:n,velocity:velocity))
     }
-    func setPaused(_ paused:Bool) { frozen=paused; onPause?(paused); if !testing { GameAudio.shared.setPaused(paused) }; if paused { save() } }
-    func save() {
+    func setPaused(_ paused:Bool) { frozen=paused; onPause?(paused); if !testing { GameAudio.shared.setPaused(paused) }; if paused { save(immediate:true) } }
+    private var pendingSave:DispatchWorkItem?
+    func save(immediate:Bool=false) {
         guard loaded,!testing else { return }
+        if immediate {pendingSave?.cancel();pendingSave=nil;persistRun();return}
+        guard pendingSave == nil else {return}
+        let work=DispatchWorkItem { [weak self] in self?.pendingSave=nil;self?.persistRun() }
+        pendingSave=work;DispatchQueue.main.asyncAfter(deadline:.now()+0.25,execute:work)
+    }
+    private func persistRun() {
+        guard loaded,!testing else {return}
+        if !testing && score>UserDefaults.standard.integer(forKey:"wireproof.bb2.highscore.\(customLevelID?.uuidString ?? edition.rawValue)") { UserDefaults.standard.set(score,forKey:"wireproof.bb2.highscore.\(customLevelID?.uuidString ?? edition.rawValue)") }
         if let d=try? JSONEncoder().encode(SavedRun(stage:stageIndex,score:score,lives:lives,hits:hits,multiplier:multiplier,returnStage:hiddenReturnStage,tokens:multiplierTokens,placed:placedCells)) { UserDefaults.standard.set(d,forKey:saveKey) }
     }
-    var bestScore:Int { max(score,UserDefaults.standard.integer(forKey:"wireproof.bb2.highscore.\(edition.rawValue)")) }
+    var bestScore:Int { max(score,UserDefaults.standard.integer(forKey:"wireproof.bb2.highscore.\(customLevelID?.uuidString ?? edition.rawValue)")) }
     var thirdBaseSpeed:CGFloat { CGFloat(Double(campaign[stageIndex].sourceSettings?["BallInitSpeed"] ?? "25") ?? 25)*10*geometry.unit }
     var activePowerups:[String] {
         var names:[String]=[]
@@ -1322,7 +1378,7 @@ final class GameScene: SKScene {
         if bigBall { names.append("BIG BALL") }; if explosiveBall { names.append("EXPLOSIVE") }
         if width > 70 { names.append("GROW") } else if width < 60 { names.append("MINI") }
         if speed < 250 { names.append("SLOW") } else if speed > 320 { names.append("FAST") }
-        if edition == .bb3 {for id in thirdTimers.keys.sorted() where id>=25 {if let name=powerups[id]?.0 {names.append(name)}}}
+        for id in thirdTimers.keys.sorted() where id>=25 {if let name=powerups[id]?.0 ?? [29:"LASER",31:"BLASTER",36:"ATTACH",37:"CATCHER",34:"TWIN",35:"PHANTOM"][id] {names.append(name)}}
         return names
     }
     // Native BB2 multipliers sum up to five timed tokens; empty means 1x.
@@ -1330,8 +1386,9 @@ final class GameScene: SKScene {
     var railReadout:String {
         String(format:"STAGE\n%03d\nSCORE\n%07d\nHIGH\n%07d\nLIVES  %02d\nMULT  ×%d\nPOWER\n",stageIndex+1,score,bestScore,lives,scoreMultiplier)+(activePowerups.isEmpty ? "—":activePowerups.joined(separator:"\n"))
     }
-    func updateHUD() {
-        if !testing { UserDefaults.standard.set(bestScore,forKey:"wireproof.bb2.highscore.\(edition.rawValue)") }
+    private var hudDirty=false
+    func updateHUD() {if testing && stressFrames==0 {refreshHUD()} else {hudDirty=true}}
+    private func refreshHUD() {
         updateReadouts(); onStatus?(railReadout)
     }
     func movePaddle(fraction:CGFloat) {
@@ -1348,7 +1405,7 @@ final class GameScene: SKScene {
             if stageIndex+1<campaign.count && campaign[stageIndex+1].hidden != true {start(index:stageIndex+1,keepRun:true)} else {start(index:0)}
             return
         }
-        if edition == .bb3 && launched {for b in balls where b.velocity.dx==0 && b.velocity.dy==0 {b.velocity=CGVector(dx:ballSpeed*0.25,dy:ballSpeed*0.9682458)};return}
+        if launched {for b in balls where b.velocity.dx==0 && b.velocity.dy==0 {b.velocity=CGVector(dx:ballSpeed*0.25,dy:ballSpeed*0.9682458)};return}
         if cleared { if stageIndex+1 < campaign.count { start(index:stageIndex+1,keepRun:true) } else { start(index:0) }; return }
         guard !finished,!launched else { return }; launched=true; prompt.text=""; sound("launch")
         for b in balls { b.velocity=CGVector(dx:ballSpeed*0.25,dy:ballSpeed*0.9682458) }
@@ -1358,10 +1415,20 @@ final class GameScene: SKScene {
     override func touchesMoved(_ touches:Set<UITouch>,with event:UIEvent?) { move(touches) }
     override func touchesEnded(_ touches:Set<UITouch>,with event:UIEvent?) { launchOrContinue() }
     override func update(_ time:TimeInterval) {
+        if stressFrames>0 {
+            if lastTime>0 {stressIntervals.append(time-lastTime)}
+            stressFrames -= 1
+            if stressFrames%30==0 {var count=0;enumerateChildNodes(withName:"//*"){_,_ in count += 1};stressPeakNodes=max(stressPeakNodes,count)}
+            if stressFrames==0 {
+                let result:[String:Any]=["edition":edition.rawValue,"frames":stressIntervals.count,"meanFrameSeconds":stressIntervals.reduce(0,+)/Double(max(1,stressIntervals.count)),"worstFrameSeconds":stressIntervals.max() ?? 0,"peakNodes":stressPeakNodes,"balls":balls.count,"scope":"Simulator mixed-load observation; not a physical-device FPS guarantee"]
+                if let data=try? JSONSerialization.data(withJSONObject:result,options:.prettyPrinted){try? data.write(to:FileManager.default.urls(for:.documentDirectory,in:.userDomainMask)[0].appendingPathComponent("stress-test.json"))}
+            }
+        }
         let dt=lastTime == 0 ? 0:min(time-lastTime,0.05); lastTime=time
         guard !frozen,!finished else { return }
         animationTime += dt
         animateOriginalSprites()
+        if edition != .bb3 {renderSecondPowers()}
         guard launched else { return }
         let steps=max(1,Int(ceil(dt*240))); for _ in 0..<steps { advance(CGFloat(dt)/CGFloat(steps)); if !launched || finished { break } }
     }
@@ -1369,11 +1436,6 @@ final class GameScene: SKScene {
     func animateOriginalSprites() {
         let tick=Int(animationTime/0.075)
         guard tick != animationTick else { return }; animationTick=tick
-        for brick in bricks where brick.raw.art == nil {
-            let type=brick.raw.type == 7 && brick.hits == 1 ? 9:brick.raw.type
-            let frame=0 // Later atlas rows include damage states, not a universal idle loop.
-            (brick.node.childNode(withName:"surface") as? SKSpriteNode)?.texture=OriginalArt.brick(type,frame:frame < 17 ? frame:0)
-        }
         (paddle.childNode(withName:"surface") as? SKSpriteNode)?.texture=OriginalArt.paddle(frame:Int(animationTime/0.1)%8)
         for drop in drops { (drop.node.childNode(withName:"surface") as? SKSpriteNode)?.texture=OriginalArt.drop(drop.kind,frame:tick%16) }
         for node in [paddle] + drops.map({$0.node}) {
@@ -1389,18 +1451,20 @@ final class GameScene: SKScene {
             if next != multiplier || Int(animationTime*2) != Int((animationTime-Double(dt))*2) { multiplier=next;updateHUD() }
         }
         advancePorts(dt)
-        if edition == .bb3 {advanceThird(dt)}
+        if edition == .bb3 {advanceThird(dt)} else {advanceSecond(dt)}
         for b in balls {
             if edition == .bb3 {applyThirdGravity(b,dt:dt)}
+            if b.velocity == .zero {b.node.position=CGPoint(x:paddle.position.x,y:paddleY+13*geometry.unit);continue}
+            if stressFrames>0 && b.node.position.y<radius {b.node.position.y=radius;b.velocity.dy=abs(b.velocity.dy)}
             let old=b.node.position; b.node.position.x += b.velocity.dx*dt; b.node.position.y += b.velocity.dy*dt
             if b.node.position.x < geometry.left+radius { b.node.position.x=geometry.left+radius; b.velocity.dx=abs(b.velocity.dx); sound("wall") }
             if b.node.position.x > geometry.right-radius { b.node.position.x=geometry.right-radius; b.velocity.dx = -abs(b.velocity.dx); sound("wall") }
             if b.node.position.y > geometry.ceiling-radius { b.node.position.y=geometry.ceiling-radius; b.velocity.dy = -abs(b.velocity.dy); sound("wall") }
             let top=paddleY+5*geometry.unit+radius
-            if b.velocity.dy < 0,old.y >= top,b.node.position.y <= top,abs(b.node.position.x-paddle.position.x) < paddleWidth/2+radius {
+            if b.velocity.dy < 0,old.y >= top,b.node.position.y <= top,abs(b.node.position.x-paddle.position.x) < paddleWidth/2+radius, !(edition != .bb3 && thirdTimers[34] != nil && abs(b.node.position.x-paddle.position.x)<paddleWidth*0.12) {
                 b.node.position.y=top; sound("paddle"); let aim=max(-0.95,min(0.95,(b.node.position.x-paddle.position.x)/(paddleWidth/2+radius)))
                 b.velocity.dx=aim*ballSpeed*0.85; b.velocity.dy=sqrt(max(1,ballSpeed*ballSpeed-b.velocity.dx*b.velocity.dx))
-                if edition == .bb3 && thirdTimers[36] != nil {b.velocity = .zero}
+                if thirdTimers[36] != nil {b.velocity = .zero}
                 if edition == .bb3 && thirdTimers[27] != nil && balls.count<16 {addBall(at:b.node.position,velocity:CGVector(dx:-b.velocity.dx,dy:b.velocity.dy))}
             }
             if let brick=bricks.first(where:{thirdBrickSolid($0) && contactNormal($0,at:b.node.position) != nil}) {
@@ -1409,10 +1473,10 @@ final class GameScene: SKScene {
                     let dot=b.velocity.dx*normal.dx+b.velocity.dy*normal.dy
                     if dot<0 {b.velocity.dx -= 2*dot*normal.dx;b.velocity.dy -= 2*dot*normal.dy}
                 } else if old.y <= e.minY || old.y >= e.maxY { b.velocity.dy *= -1 } else { b.velocity.dx *= -1 }
-                let pierce=edition == .bb3 && (thirdTimers[31] != nil || thirdTimers[32] != nil) && brick.breakable
+                let pierce=(thirdTimers[31] != nil || thirdTimers[32] != nil) && brick.breakable
                 if pierce {b.velocity=CGVector(dx:(b.node.position.x-old.x)/max(dt,0.001),dy:(b.node.position.y-old.y)/max(dt,0.001))} else {b.node.position=old}
                 let hard=brick.raw.special == "HARDSIDE" && old.y>brick.rect.midY
-                if !hard {hit(brick)} else {sound("metal")}
+                if !hard {hit(brick);if pierce {while brick.hits>0 && bricks.contains(where:{$0===brick}) {hit(brick)}}} else {sound("metal")}
                 if explosiveBall { for nearby in Array(bricks) where hypot(nearby.rect.midX-brick.rect.midX,nearby.rect.midY-brick.rect.midY)<55*geometry.unit { hit(nearby) } }
             }
             if let critter=critters.first(where:{(edition == .bb3 || ($0.kind != 3 && $0.emerged)) && hypot($0.node.position.x-b.node.position.x,$0.node.position.y-b.node.position.y)<radius+$0.collisionRadius}) {
@@ -1423,7 +1487,7 @@ final class GameScene: SKScene {
                 if result.collided {hits["__boss"]=boss.health;score += result.points*scoreMultiplier;checkClear();updateHUD();save()}
             }
             b.trailClock += dt
-            if b.trailClock > 0.009 { b.trailClock=0; let trail=SKShapeNode(circleOfRadius:3.2*geometry.unit); trail.position=b.node.position; trail.fillColor = .cyan; trail.strokeColor = .clear; trail.alpha=0.65; trail.zPosition=3; addChild(trail); trail.run(.sequence([.group([.fadeOut(withDuration:0.22),.scale(to:0.1,duration:0.22)]),.removeFromParent()])) }
+            if b.trailClock > max(0.016,CGFloat(balls.count)*0.004) { b.trailClock=0; let trail=SKShapeNode(circleOfRadius:3.2*geometry.unit); trail.position=b.node.position; trail.fillColor = .cyan; trail.strokeColor = .clear; trail.alpha=0.65; trail.zPosition=3; addChild(trail); trail.run(.sequence([.group([.fadeOut(withDuration:0.22),.scale(to:0.1,duration:0.22)]),.removeFromParent()])) }
         }
         let lost=balls.filter{$0.node.position.y < 0}; for b in lost { b.node.removeFromParent() }; balls.removeAll{$0.node.position.y < 0}
         if balls.isEmpty && !finished { loseLife() } else if !lost.isEmpty { updateHUD() }
@@ -1432,23 +1496,80 @@ final class GameScene: SKScene {
             else if d.node.position.y < 0 { d.node.removeFromParent() }
         }; drops.removeAll{$0.node.parent == nil}
     }
+    func renderSecondPowers() {
+        let twin=thirdTimers[34] != nil
+        paddle.childNode(withName:"surface")?.isHidden=twin;paddle.childNode(withName:"shadow")?.isHidden=twin
+        let root:SKNode
+        if let old=childNode(withName:"second-paddle-powers") {root=old} else {root=SKNode();root.name="second-paddle-powers";root.zPosition=5;addChild(root)}
+        for (name,visible,x,width,alpha) in [("left",twin,paddle.position.x-paddleWidth*0.32,paddleWidth*0.36,CGFloat(1)),("right",twin,paddle.position.x+paddleWidth*0.32,paddleWidth*0.36,CGFloat(1)),("ghost",thirdTimers[35] != nil,phantomX,paddleWidth,CGFloat(0.4))] {
+            let sprite=(root.childNode(withName:name) as? SKSpriteNode) ?? SKSpriteNode()
+            if sprite.parent==nil {sprite.name=name;root.addChild(sprite)}
+            sprite.isHidden = !visible
+            if visible {sprite.texture=OriginalArt.paddle(frame:Int(animationTime/0.1)%8);sprite.position=CGPoint(x:x,y:paddleY);sprite.size=CGSize(width:width,height:14*geometry.unit);sprite.alpha=alpha}
+        }
+        let catcher=(root.childNode(withName:"catcher") as? SKSpriteNode) ?? SKSpriteNode(color:.cyan,size:.zero)
+        if catcher.parent==nil {catcher.name="catcher";root.addChild(catcher)}
+        catcher.isHidden=thirdTimers[37]==nil;catcher.position=CGPoint(x:geometry.center,y:geometry.artworkExtension+4);catcher.size=CGSize(width:geometry.right-geometry.left,height:2*geometry.unit)
+    }
+    // BB2 uses the same timer keys as the shared HUD, but its original pickup IDs.
+    private var phantomX:CGFloat=0
+    func advanceSecond(_ dt:CGFloat) {
+        thirdTime += dt;laserClock += dt
+        for id in Array(thirdTimers.keys) {thirdTimers[id,default:0] -= dt;if thirdTimers[id,default:0]<=0 {thirdTimers.removeValue(forKey:id);updateHUD()}}
+        for brick in bricks where brick.raw.type == 10 {brick.node.alpha=thirdBrickSolid(brick) ? 1:0}
+        if thirdTimers[35] != nil {
+            phantomX += (paddle.position.x-phantomX)*min(1,dt*5)
+            for ball in balls where ball.velocity.dy<0 && abs(ball.node.position.y-paddleY)<12*geometry.unit && abs(ball.node.position.x-phantomX)<paddleWidth/2 {
+                ball.node.position.y=paddleY+13*geometry.unit;ball.velocity.dy=abs(ball.velocity.dy);sound("paddle")
+            }
+        } else {phantomX=paddle.position.x}
+        if thirdTimers[37] != nil,let ball=balls.first(where:{$0.velocity.dy<0 && $0.node.position.y<geometry.artworkExtension+8}) {
+            ball.node.position.y=geometry.artworkExtension+8;ball.velocity.dy=abs(ball.velocity.dy);thirdTimers.removeValue(forKey:37);sound("paddle");updateHUD()
+        }
+        if thirdTimers[29] != nil && laserClock>=0.2 {
+            laserClock=0
+            for x in [paddle.position.x-paddleWidth*0.35,paddle.position.x+paddleWidth*0.35] {
+                let brick=bricks.filter{thirdBrickSolid($0) && $0.rect.minX<=x && $0.rect.maxX>=x && $0.rect.minY>paddleY}.min{$0.rect.minY<$1.rect.minY}
+                let enemy=critters.filter{$0.emerged && abs($0.node.position.x-x)<$0.collisionRadius && $0.node.position.y>paddleY}.min{$0.node.position.y<$1.node.position.y}
+                var end=brick?.rect.minY ?? geometry.ceiling
+                if let enemy=enemy,enemy.node.position.y<end {end=enemy.node.position.y;destroyCritter(enemy,ballHit:false)} else if let brick=brick {hit(brick)}
+                let beam=SKSpriteNode(color:.red,size:CGSize(width:2*geometry.unit,height:max(1,end-paddleY)))
+                beam.position=CGPoint(x:x,y:(end+paddleY)/2);beam.zPosition=8;addChild(beam);beam.run(.sequence([.fadeOut(withDuration:0.1),.removeFromParent()]))
+            }
+        }
+    }
     func thirdBrickSolid(_ brick:LiveBrick)->Bool {
-        if edition != .bb3 {return true}
-        if brick.raw.special == "PHANTOM" {return Int(thirdTime/3.5)%2==0}
+        if edition != .bb3 {return thirdTime>=brick.hiddenUntil}
+        if brick.raw.special == "PHANTOM" {return thirdTime>=brick.hiddenUntil}
         if brick.raw.special == "SECRET" {return thirdTime.truncatingRemainder(dividingBy:17)<5}
         return true
     }
     func thirdBrickDestroyed(_ brick:LiveBrick) {
         switch brick.raw.special {
-        case "EXPLOSIVE","NUKE","CHAIN","PLAGUE":
+        case "EXPLOSIVE","NUKE":
             let cells:CGFloat=brick.raw.special == "NUKE" ? 10:(brick.raw.special == "CHAIN" ? 2.5:5)
             let range=cells*16*geometry.unit
             for other in Array(bricks) where other.breakable && hypot(other.rect.midX-brick.rect.midX,other.rect.midY-brick.rect.midY)<=range {hit(other)}
+        case "PLAGUE","CHAIN":spawnThirdBricks(from:brick,line:brick.raw.special == "CHAIN")
         case "SPEEDUP":setSpeed(thirdBaseSpeed*1.4);thirdTimers[15]=3
         case "BLASTERBALL":applyPowerup(31)
         case "EXTRABALL":applyPowerup(1)
         case "SECRET":secretFound=true;effectLabel.text="SECRET STAGE FOUND";sound("secret")
         default:break
+        }
+    }
+    func spawnThirdBricks(from source:LiveBrick,line:Bool) {
+        guard let sx=source.raw.x,let sy=source.raw.y else{return}
+        let offsets:[(Int,Int)]=line ? (-4...4).filter{$0 != 0}.map{($0,0)} : (-1...1).flatMap{y in (-1...1).filter{$0 != 0 || y != 0}.map{($0,y)}}
+        for (dx,dy) in offsets {
+            let x=sx+Double(dx)*32,y=sy+Double(dy)*32
+            guard x>=0,x+32<=480,y>=0,y+32<=320 else{continue}
+            var cell=Cell(row:1000+placedCells.count,column:0,type:0,property:0,powerup:0,critter:0)
+            cell.x=x;cell.y=y;cell.width=32;cell.height=32;cell.shape="rect";cell.art="BB3/brick_square_brick_28";cell.hits=1;cell.score=100;cell.special="NONE"
+            let rect=geometry.brickRect(cell)
+            guard !bricks.contains(where:{$0.rect.intersects(rect.insetBy(dx:0.1,dy:0.1))}) else{continue}
+            let node=shape(rect,.clear,corner:0);originalSurface(node,texture:OriginalArt.third(cell.art!),size:rect.size);node.zPosition=1;addChild(node)
+            bricks.append(LiveBrick(node:node,rect:rect,raw:cell,hits:1));placedCells.append(cell);hits[cell.key]=1
         }
     }
     func applyThirdGravity(_ ball:LiveBall,dt:CGFloat) {
@@ -1479,27 +1600,32 @@ final class GameScene: SKScene {
         if let target=targetPaddleX,thirdTimers[28] != nil {paddle.position.x += (target-paddle.position.x)*min(1,dt*5);paddle.position.x=min(geometry.right-paddleWidth/2,max(geometry.left+paddleWidth/2,paddle.position.x))}
         let hover:CGFloat=thirdTimers[33] != nil ? 35*geometry.unit:0
         paddle.position.y=paddleY+hover
-        for brick in bricks where brick.raw.special == "PHANTOM" || brick.raw.special == "SECRET" {brick.node.alpha=thirdBrickSolid(brick) ? 1:0.12}
+        for brick in bricks where brick.raw.special == "PHANTOM" || brick.raw.special == "SECRET" {brick.node.alpha=thirdBrickSolid(brick) ? 1:0}
         if let boss=boss,boss.advance(dt,geometry:geometry,paddleX:paddle.position.x,paddleWidth:paddleWidth) {balls.forEach{$0.node.removeFromParent()};balls=[];boss.resetProjectiles();loseLife();return}
         if laserClock>=0.45 && (thirdTimers[29] != nil || thirdTimers[30] != nil) {
             laserClock=0
-            if thirdTimers[30] != nil {for critter in critters {score += critter.scoreValue*scoreMultiplier;enemyExplosion(at:critter.node.position);critter.node.removeFromParent()};critters=[];updateHUD()}
+
             for x in [paddle.position.x-paddleWidth*0.35,paddle.position.x+paddleWidth*0.35] {
-                let targets=bricks.filter{$0.breakable && $0.rect.minX<=x && $0.rect.maxX>=x && thirdBrickSolid($0)}.sorted{$0.rect.minY<$1.rect.minY}
-                let end=targets.first?.rect.minY ?? geometry.ceiling
+                let targets=bricks.filter{$0.rect.minX<=x && $0.rect.maxX>=x && thirdBrickSolid($0)}.sorted{$0.rect.minY<$1.rect.minY}
+                var end=targets.first?.rect.minY ?? geometry.ceiling
+                let enemy=critters.filter{$0.emerged && abs($0.node.position.x-x)<$0.collisionRadius && $0.node.position.y>paddleY && $0.node.position.y<end}.min{$0.node.position.y<$1.node.position.y}
+                if let enemy=enemy {end=enemy.node.position.y}
                 let path=CGMutablePath();path.move(to:CGPoint(x:x,y:paddle.position.y+8));path.addLine(to:CGPoint(x:x,y:end));let beam=SKShapeNode(path:path);beam.strokeColor = .cyan;beam.lineWidth=2*geometry.unit;beam.zPosition=8;addChild(beam);beam.run(.sequence([.fadeOut(withDuration:0.15),.removeFromParent()]))
-                if let target=targets.first {hit(target)}
+                if let enemy=enemy {destroyCritter(enemy,ballHit:false)} else if let target=targets.first {hit(target)}
             }
         }
-        childNode(withName:"third-effects")?.removeFromParent();let effects=SKNode();effects.name="third-effects";effects.zPosition=4;addChild(effects)
-        if thirdTimers[38] != nil {let shade=SKSpriteNode(color:.black,size:size);shade.position=CGPoint(x:size.width/2,y:size.height/2);shade.alpha=0.65;effects.addChild(shade)}
-        if thirdTimers[26] != nil,let b=balls.first {for i in 1...10 {let dot=SKShapeNode(circleOfRadius:1.5*geometry.unit);dot.position=CGPoint(x:b.node.position.x+b.velocity.dx*CGFloat(i)*0.06,y:b.node.position.y+b.velocity.dy*CGFloat(i)*0.06);dot.fillColor = .cyan;dot.strokeColor = .clear;effects.addChild(dot)}}
+        let refreshEffects=effectVisualTick != Int(animationTime*30)
+        if refreshEffects {effectVisualTick=Int(animationTime*30);childNode(withName:"third-effects")?.removeFromParent()}
+        let effects=SKNode()
+        if refreshEffects && thirdTimers.keys.contains(where:{[26,34,35,37,38].contains($0)}) {effects.name="third-effects";effects.zPosition=4;addChild(effects)}
+        if refreshEffects && thirdTimers[38] != nil {let shade=SKSpriteNode(color:.black,size:size);shade.position=CGPoint(x:size.width/2,y:size.height/2);shade.alpha=0.65;effects.addChild(shade)}
+        if refreshEffects && thirdTimers[26] != nil,let b=balls.first {for i in 1...10 {let dot=SKShapeNode(circleOfRadius:1.5*geometry.unit);dot.position=CGPoint(x:b.node.position.x+b.velocity.dx*CGFloat(i)*0.06,y:b.node.position.y+b.velocity.dy*CGFloat(i)*0.06);dot.fillColor = .cyan;dot.strokeColor = .clear;effects.addChild(dot)}}
         if thirdTimers[34] != nil || thirdTimers[35] != nil {
-            for offset:CGFloat in [-85,85] {let x=min(geometry.right-paddleWidth/2,max(geometry.left+paddleWidth/2,paddle.position.x+offset*geometry.unit));let ghost=SKSpriteNode(texture:OriginalArt.paddle());ghost.size=CGSize(width:paddleWidth,height:14*geometry.unit);ghost.position=CGPoint(x:x,y:paddleY);ghost.alpha=thirdTimers[35] != nil ? 0.4:1;effects.addChild(ghost)
+            for offset:CGFloat in [-85,85] {let x=min(geometry.right-paddleWidth/2,max(geometry.left+paddleWidth/2,paddle.position.x+offset*geometry.unit));if refreshEffects {let ghost=SKSpriteNode(texture:OriginalArt.paddle());ghost.size=CGSize(width:paddleWidth,height:14*geometry.unit);ghost.position=CGPoint(x:x,y:paddleY);ghost.alpha=thirdTimers[35] != nil ? 0.4:1;effects.addChild(ghost)}
                 for b in balls where b.velocity.dy<0 && abs(b.node.position.y-paddleY)<12*geometry.unit && abs(b.node.position.x-x)<paddleWidth/2 {b.velocity.dy=abs(b.velocity.dy);b.node.position.y=paddleY+13*geometry.unit}
             }
         }
-        if thirdTimers[37] != nil {let bar=SKSpriteNode(color:.cyan,size:CGSize(width:geometry.right-geometry.left,height:2));bar.position=CGPoint(x:geometry.center,y:geometry.artworkExtension+3);effects.addChild(bar);for b in balls where b.velocity.dy<0 && b.node.position.y<geometry.artworkExtension+8 {b.node.position.y=geometry.artworkExtension+8;b.velocity.dy=abs(b.velocity.dy)}}
+        if thirdTimers[37] != nil {if refreshEffects {let bar=SKSpriteNode(color:.cyan,size:CGSize(width:geometry.right-geometry.left,height:2));bar.position=CGPoint(x:geometry.center,y:geometry.artworkExtension+3);effects.addChild(bar)};for b in balls where b.velocity.dy<0 && b.node.position.y<geometry.artworkExtension+8 {b.node.position.y=geometry.artworkExtension+8;b.velocity.dy=abs(b.velocity.dy)}}
         if hover>0 {for b in balls where b.velocity.dy<0 && abs(b.node.position.y-paddle.position.y)<10*geometry.unit && abs(b.node.position.x-paddle.position.x)<paddleWidth/2 {b.node.position.y=paddle.position.y+12*geometry.unit;b.velocity.dy=abs(b.velocity.dy)}}
     }
     func contactNormal(_ brick:LiveBrick,at point:CGPoint)->CGVector? {
@@ -1643,7 +1769,8 @@ final class GameScene: SKScene {
             } else {critter.node.texture=OriginalArt.critter(critter.kind,frame:Int(critter.age/0.05)%16)}
             if abs(critter.node.position.y-paddleY)<16*geometry.unit && abs(critter.node.position.x-paddle.position.x)<paddleWidth/2+12*geometry.unit {
                 destroyCritter(critter,ballHit:false)
-            } else if critter.node.position.y < -20 {critter.node.removeFromParent()}
+            } else if critter.third?.type == "CHERRY_EXPLODE" && critter.node.position.y<critter.collisionRadius {critter.node.position.y=critter.collisionRadius;critter.velocity.dy=abs(critter.velocity.dy)}
+            else if critter.node.position.y < -20 {critter.node.removeFromParent()}
         }
         critters.removeAll{$0.node.parent == nil}
     }
@@ -1815,6 +1942,13 @@ final class GameScene: SKScene {
         let position=critter.node.position
         critter.node.removeFromParent();critters.removeAll{$0 === critter}
         sound("enemy")
+        if edition == .bb3 && critter.third?.type == "CHERRY",let kind=OriginalEnemySpec.all.firstIndex(where:{$0.type=="CHERRY_EXPLODE"}) {
+            for i in 0..<4 {spawnCritter(kind,port:0);if let fragment=critters.last {fragment.node.position=position;fragment.emerged=true;let angle=CGFloat.pi/4+CGFloat(i)*CGFloat.pi/2;fragment.velocity=CGVector(dx:cos(angle)*120*geometry.unit,dy:sin(angle)*120*geometry.unit)}}
+        }
+        if edition == .bb3 && critter.third?.type == "PUMPKIN" {
+            for brick in Array(bricks) where hypot(brick.rect.midX-position.x,brick.rect.midY-position.y)<64*geometry.unit {hit(brick)}
+            for other in Array(critters) where hypot(other.node.position.x-position.x,other.node.position.y-position.y)<64*geometry.unit {destroyCritter(other,ballHit:false)}
+        }
         if ballHit || edition == .bb3 {score += critter.scoreValue*scoreMultiplier}
         if edition != .bb3 && ballHit && critter.kind == 2 {
             for i in 0..<4 {
@@ -1828,7 +1962,7 @@ final class GameScene: SKScene {
         } else if edition != .bb3 && ballHit && critter.kind == 4 {
             exploderBurst(at:position)
             for brick in Array(bricks) where hypot(brick.rect.midX-position.x,brick.rect.midY-position.y)<64*geometry.unit {hit(brick)}
-        } else {enemyExplosion(at:position)}
+        } else {enemyExplosion(at:position,bomb:critter.third?.type == "PUMPKIN")}
         updateHUD()
     }
     func advanceFragment(_ fragment:LiveCritter,dt:CGFloat) {
@@ -1843,7 +1977,7 @@ final class GameScene: SKScene {
         } else if abs(fragment.node.position.y-paddleY)<r+5*geometry.unit && abs(fragment.node.position.x-paddle.position.x)<paddleWidth/2+r {destroyCritter(fragment,ballHit:false)}
         else if fragment.node.position.y < -r {fragment.node.removeFromParent()}
     }
-    func enemyExplosion(at position:CGPoint) {
+    func enemyExplosion(at position:CGPoint,bomb:Bool=false) {
         let root=SKNode();root.name="enemy-explosion";root.position=position;root.zPosition=20;root.yScale=roundYScale;addChild(root)
         if edition != .bb3 {
             let frames=(0..<16).compactMap { OriginalArt.texture("BB2-explode",rect:CGRect(x:($0%4)*32,y:($0/4)*32,width:32,height:32)) }
@@ -1851,9 +1985,17 @@ final class GameScene: SKScene {
                 let burst=SKSpriteNode(texture:first);burst.name="original-burst";burst.blendMode = .add;burst.size=CGSize(width:32*geometry.unit,height:32*geometry.unit);root.addChild(burst)
                 burst.run(.animate(with:frames,timePerFrame:0.02))
             }
-        } else if let texture=OriginalArt.third("enemy_explosion") {
-            let burst=SKSpriteNode(texture:texture);burst.blendMode = .add;burst.size=CGSize(width:68*geometry.unit,height:68*geometry.unit);root.addChild(burst)
-            burst.run(.group([.scale(to:1.7,duration:0.45),.fadeOut(withDuration:0.55),.rotate(byAngle:0.8,duration:0.55)]))
+        } else if bomb {
+            let frames=(0..<16).compactMap{OriginalArt.third("fxs_explosion02_\($0)")}
+            if let first=frames.first {let burst=SKSpriteNode(texture:first);burst.name="pumpkin-original-burst";burst.blendMode = .add;burst.size=CGSize(width:90*geometry.unit,height:90*geometry.unit);root.addChild(burst);burst.run(.animate(with:frames,timePerFrame:0.6/16))}
+        } else {
+            // Original SCFX spacexplosion has a flash and two expanding rings.
+            // World units and script ticks are converted to the mobile scene here.
+            for i in 0..<3 {
+                let sprite=SKSpriteNode(texture:OriginalArt.third(i==0 ? "fxs_spacexplosion01_0":"fxs_spacexplosion02_0"))
+                sprite.blendMode = .add;sprite.name="space-layer-\(i)";sprite.size=CGSize(width:60*geometry.unit,height:60*geometry.unit);sprite.setScale(i==0 ? 1.5:0.1);sprite.alpha=i==2 ? 0.4:1;root.addChild(sprite)
+                sprite.run(.sequence([.wait(forDuration:i==2 ? 0.125:0),.group([.scale(to:i==0 ? 2:4,duration:0.6),.fadeOut(withDuration:0.6)])]))
+            }
         }
         if edition == .bb3 { for i in 0..<12 {
             let spark=SKSpriteNode(texture:OriginalArt.ball());spark.blendMode = .add;spark.size=CGSize(width:5*geometry.unit,height:5*geometry.unit);root.addChild(spark)
@@ -1861,7 +2003,7 @@ final class GameScene: SKScene {
             spark.run(.group([.moveBy(x:cos(angle)*42*geometry.unit,y:sin(angle)*42*geometry.unit,duration:0.5),.fadeOut(withDuration:0.5)]))
         }
         }
-        root.run(.sequence([.wait(forDuration:edition == .bb3 ? 0.6:0.32),.removeFromParent()]))
+        root.run(.sequence([.wait(forDuration:edition == .bb3 ? 0.8:0.32),.removeFromParent()]))
     }
     // Native effect2: ring mask (pattern2), green spark atlas (variant3), one-second effect1 particles.
     func exploderPattern()->[CGPoint] {
@@ -1891,7 +2033,7 @@ final class GameScene: SKScene {
         root.run(.sequence([.wait(forDuration:1),.removeFromParent()]),withKey:"lifetime")
     }
     func impact(at position:CGPoint) {
-        guard !testing else { return }
+        guard !testing || stressFrames>0 else { return }
         for i in 0..<6 {
             let spark=SKShapeNode(circleOfRadius:1.4*geometry.unit); spark.position=position
             spark.fillColor = .white; spark.strokeColor = .cyan; spark.glowWidth=1; spark.zPosition=8; addChild(spark)
@@ -1899,9 +2041,15 @@ final class GameScene: SKScene {
             spark.run(.sequence([.group([.moveBy(x:cos(angle)*18*geometry.unit,y:sin(angle)*18*geometry.unit,duration:0.18),.fadeOut(withDuration:0.18)]),.removeFromParent()]))
         }
     }
+    private var hitDepth=0
     func hit(_ b:LiveBrick) {
         guard bricks.contains(where:{$0 === b}) else {return}
+        hitDepth += 1
+        defer {hitDepth -= 1;if hitDepth==0 {checkClear();updateHUD();save()}}
         impact(at:b.node.position)
+        if (edition != .bb3 && b.raw.type == 10) || b.raw.special == "PHANTOM" {
+            b.hiddenUntil=thirdTime+CGFloat(Double(b.raw.specialSettings?["PhantomTime"] ?? "3.5") ?? 3.5);b.node.alpha=0;sound("metal");return
+        }
         guard b.breakable else { sound("metal"); return }
         b.hits -= 1; hits[b.raw.key]=b.hits
         if b.hits > 0 { if edition != .bb3 && b.raw.type != 10 { score += 10*scoreMultiplier;updateHUD() }; sound("metal"); if b.raw.art == nil { damagedSurface(b.node) }; save(); return }
@@ -1910,6 +2058,20 @@ final class GameScene: SKScene {
         let drop=edition == .bb3 ? thirdPowerup(b.raw.powerupName):b.raw.powerup
         if powerups[drop] != nil && (testing || Double.random(in:0..<100) < (b.raw.powerupProbability ?? 100)) { spawnDrop(drop,at:b.node.position) }
         if edition == .bb3 {thirdBrickDestroyed(b)}
+        else if b.raw.type == 11 {
+            enemyExplosion(at:b.node.position)
+            for other in Array(bricks) where abs(other.raw.column-b.raw.column)<=1 && abs(other.raw.row-b.raw.row)<=1 {hit(other)}
+        } else if b.raw.type == 12 {
+            for row in max(0,b.raw.row-1)...min(19,b.raw.row+1) {
+                for column in max(0,b.raw.column-1)...min(12,b.raw.column+1) where row != b.raw.row || column != b.raw.column {
+                    let cell=Cell(row:row,column:column,type:5,property:0,powerup:0,critter:0)
+                    guard !bricks.contains(where:{$0.raw.key==cell.key}) else {continue}
+                    let rect=geometry.brickRect(cell),node=shape(geometry.brickRect(cell),.clear,corner:0)
+                    originalSurface(node,texture:OriginalArt.brick(5),size:rect.size);node.zPosition=1;addChild(node)
+                    bricks.append(LiveBrick(node:node,rect:rect,raw:cell,hits:1));placedCells.removeAll{$0.key==cell.key};placedCells.append(cell);hits[cell.key]=1
+                }
+            }
+        }
         checkClear(); updateHUD(); save()
     }
     func thirdPowerup(_ name:String?)->Int {
@@ -1951,10 +2113,22 @@ final class GameScene: SKScene {
     func applyPowerup(_ kind:Int) {
         switch kind {
         case 1:
-            guard let b=balls.first else { return }
-            for offset:CGFloat in [-0.5,0.5] where balls.count < 6 {
-                let angle=atan2(b.velocity.dy,b.velocity.dx)+offset
-                addBall(at:b.node.position,velocity:CGVector(dx:cos(angle)*ballSpeed,dy:sin(angle)*ballSpeed))
+            for b in Array(balls) {
+                for offset:CGFloat in [-0.5,0.5] where balls.count < 32 {
+                    let angle=atan2(b.velocity.dy,b.velocity.dx)+offset
+                    addBall(at:b.node.position,velocity:CGVector(dx:cos(angle)*ballSpeed,dy:sin(angle)*ballSpeed))
+                }
+            }
+        case 2: thirdTimers[31]=10
+        case 4: thirdTimers[36]=15
+        case 5: thirdTimers[37]=30
+        case 7: thirdTimers[29]=15
+        case 13: thirdTimers[34]=15
+        case 14: thirdTimers[35]=15
+        case 12: for critter in Array(critters) where critter.emerged {destroyCritter(critter,ballHit:false)}
+        case 16:
+            for ball in Array(balls) {
+                for i in 1..<8 where balls.count<32 {let angle=atan2(ball.velocity.dy,ball.velocity.dx)+CGFloat(i)*CGFloat.pi/4;addBall(at:ball.node.position,velocity:CGVector(dx:cos(angle)*ballSpeed,dy:sin(angle)*ballSpeed))}
             }
         case 3: setSpeed(edition == .bb3 ? thirdBaseSpeed*0.7:215*geometry.unit);if edition == .bb3 {thirdTimers[3]=6;thirdTimers.removeValue(forKey:15)}
         case 15: setSpeed(edition == .bb3 ? thirdBaseSpeed*1.25:370*geometry.unit);if edition == .bb3 {thirdTimers[15]=6;thirdTimers.removeValue(forKey:3)}
@@ -1969,7 +2143,7 @@ final class GameScene: SKScene {
             for ball in balls { (ball.node.childNode(withName:"surface") as? SKSpriteNode)?.size=CGSize(width:radius*2,height:radius*2) }
         case 23: explosiveBall=true;thirdTimers[23]=8
         case 24:
-            for brick in Array(bricks).filter({$0.breakable}) {hit(brick)}
+            for critter in Array(critters) where critter.emerged {destroyCritter(critter,ballHit:false)}
         case 25:
             let origin=balls.first?.node.position ?? paddle.position
             while balls.count<8 {let angle=CGFloat(balls.count)*CGFloat.pi/4;addBall(at:origin,velocity:CGVector(dx:cos(angle)*ballSpeed,dy:max(0.3,abs(sin(angle)))*ballSpeed))}
@@ -1995,7 +2169,7 @@ final class GameScene: SKScene {
         updateHUD(); save()
     }
     func checkClear() {
-        guard !cleared else {return}
+        guard hitDepth==0,!cleared else {return}
         if !bricks.contains(where:{$0.breakable}) && boss?.defeated != false {
             finished=true; cleared=true
             let complete=edition == .bb3 ? (stageIndex==99 && hiddenReturnStage==nil):stageIndex==campaign.count-1
@@ -2039,6 +2213,7 @@ final class GameScene: SKScene {
         artworkBottomInset=0
         let firstCount=campaign[0].cells.filter{$0.type != 0}.count
         start(index:0);checks.merge(portSmokeChecks()){_,new in new};start(index:0);checks.merge(celebrationSmokeChecks()){_,new in new};checks.merge(circleSmokeChecks()){_,new in new}; checks["stage1_original_brick_count"]=bricks.count == firstCount
+        checks.merge(secondMechanicChecks()){_,new in new};start(index:0)
         var twoHitFound=false
         for index in campaign.indices {
             start(index:index)
@@ -2096,8 +2271,8 @@ final class GameScene: SKScene {
         spawnDrop(8,at:CGPoint(x:paddle.position.x,y:paddleY+geometry.unit)); advance(0)
         checks["falling_drop_collected"]=abs(paddleWidth-94*geometry.unit)<0.01 && drops.isEmpty
         lives=1; balls.forEach{$0.node.position.y = -20}; advance(0); checks["game_over"]=lives == 0 && finished && !cleared
-        if let t=OriginalArt.brick(7) { checks["original_brick_dimensions"]=t.size() == CGSize(width:30,height:15) }
-        if let t=OriginalArt.backdrop(campaign[0].background) { checks["original_arena_crop"]=t.size() == CGSize(width:420,height:480) }
+        if let t=OriginalArt.brick(7) { checks["original_brick_aspect_and_render_resolution"]=t.size() == (edition == .revolution ? CGSize(width:60,height:30):CGSize(width:30,height:15)) }
+        if let t=OriginalArt.backdrop(campaign[0].background) { checks["original_arena_crop_and_render_resolution"]=t.size() == (edition == .revolution ? CGSize(width:840,height:960):CGSize(width:420,height:480)) }
         for (key,texture) in [("paddle_mask",OriginalArt.paddle()),("ball_mask",OriginalArt.ball()),("drop_mask",OriginalArt.drop(1))] {
             if let texture=texture,let pixels=OriginalArt.rgba(texture.cgImage()) { let alphas=stride(from:3,to:pixels.count,by:4).map{pixels[$0]}; checks[key]=alphas.contains(0) && alphas.contains(255) }
         }
@@ -2154,6 +2329,36 @@ final class GameScene: SKScene {
         configureViewport(viewSize:originalViewport,safeInsets:originalInsets,classic:originalClassic); start(index:original.stage,resume:original)
         writeSmoke(checks); testing=false
     }
+    func secondMechanicChecks()->[String:Bool] {
+        var checks:[String:Bool]=[:]
+        func fixture(_ type:Int,_ column:Int,_ power:Int=0)->LiveBrick {
+            let cell=Cell(row:8,column:column,type:type,property:0,powerup:power,critter:0),rect=geometry.brickRect(Cell(row:8,column:column,type:type,property:0,powerup:power,critter:0))
+            let node=shape(rect,.clear,corner:0);addChild(node)
+            let brick=LiveBrick(node:node,rect:rect,raw:cell,hits:type==7 ? 2:1);bricks.append(brick);return brick
+        }
+        start(index:0);bricks.forEach{$0.node.removeFromParent()};bricks=[]
+        let phantom=fixture(10,1),explosive=fixture(11,5),neighbor=fixture(7,6)
+        hit(phantom);checks["phantom_hidden_and_indestructible"] = !phantom.breakable && !thirdBrickSolid(phantom) && bricks.contains{$0===phantom}
+        advanceSecond(3.6);checks["phantom_returns"]=thirdBrickSolid(phantom) && phantom.node.alpha==1
+        hit(explosive);checks["explosion_normal_damage"]=neighbor.hits==1
+        let plague=fixture(12,9);hit(plague);checks["plague_spawns_neighbors"]=placedCells.count==8 && !cleared
+        let laser=fixture(1,3,7);hit(laser);checks["laser_drops_from_brick"]=drops.contains{$0.kind==7}
+        applyPowerup(7);paddle.position.x=neighbor.rect.midX+paddleWidth*0.35;advanceSecond(0.21)
+        checks["laser_hits_brick"] = !bricks.contains{$0===neighbor}
+        checks["laser_in_sidebar"]=activePowerups.contains("LASER")
+        start(index:0);applyPowerup(16);checks["eight_way_bb2"]=balls.count==8
+        applyPowerup(4);checks["attach_bb2"]=thirdTimers[36] != nil
+        applyPowerup(5);checks["catcher_bb2"]=thirdTimers[37] != nil
+        checks.merge(LevelEditorController().regressionChecks()){_,new in new}
+        let custom=CustomLevel(cells:[Cell(row:0,column:0,type:1,property:0,powerup:7,critter:0)])
+        let encoded=try? JSONEncoder().encode(custom)
+        checks["custom_level_roundtrip"]=encoded.flatMap{try? JSONDecoder().decode(CustomLevel.self,from:$0).validated()}?.cells.first?.powerup==7
+        var invalid=custom;invalid.cells.append(custom.cells[0]);checks["custom_rejects_duplicate_cells"]=(try? invalid.validated())==nil
+        invalid=custom;invalid.cells[0].art="../../private";checks["custom_rejects_resource_paths"]=(try? invalid.validated())==nil
+        invalid=custom;invalid.background=3;checks["custom_rejects_missing_background"]=(try? invalid.validated())==nil
+        let normalKey=saveKey;customLevelID=custom.id;checks["custom_save_isolated"]=saveKey != normalKey;customLevelID=nil
+        return checks
+    }
     func runThirdSmokeTest() {
         testing=true
         guard loaded else { writeSmoke(["bb3_loaded":false]); return }
@@ -2163,6 +2368,25 @@ final class GameScene: SKScene {
         start(index:0)
         checks.merge(portSmokeChecks()){_,new in new};start(index:0);checks.merge(celebrationSmokeChecks()){_,new in new};checks.merge(circleSmokeChecks()){_,new in new}
         checks["full_template_inventory"]=campaign.count==110 && campaign.filter{$0.hidden==true}.count==10
+        start(index:0)
+        if let cherry=OriginalEnemySpec.all.firstIndex(where:{$0.type=="CHERRY"}) {
+            spawnCritter(cherry,port:0);if let enemy=critters.last {destroyCritter(enemy,ballHit:false)}
+            checks["cherry_paddle_fragments"]=critters.filter{$0.third?.type=="CHERRY_EXPLODE"}.count==4
+            applyPowerup(24);checks["flash_clears_visible_enemies"]=critters.isEmpty
+        }
+        checks["pumpkin_original_frames"]=(0..<16).allSatisfy{OriginalArt.third("fxs_explosion02_\($0)") != nil}
+        if let index=campaign.firstIndex(where:{$0.cells.contains{$0.special=="PHANTOM"}}) {
+            start(index:index);if let brick=bricks.first(where:{$0.raw.special=="PHANTOM"}) {hit(brick);checks["bb3_phantom_hides_on_hit"] = !thirdBrickSolid(brick) && bricks.contains{$0===brick};thirdTime=brick.hiddenUntil+0.01;checks["bb3_phantom_returns"]=thirdBrickSolid(brick)}
+        }
+        for special in ["PLAGUE","CHAIN"] {
+            if let index=campaign.firstIndex(where:{$0.cells.contains{$0.special==special}}) {
+                start(index:index);if let source=bricks.first(where:{$0.raw.special==special}) {
+                    bricks.filter{$0 !== source}.forEach{$0.node.removeFromParent()};bricks=[source]
+                    hit(source);checks["bb3_\(special.lowercased())_creates_bricks"] = !placedCells.isEmpty && !cleared
+                }
+            }
+        }
+
         for i in campaign.indices { start(index:i); checks["stage_\(i)_bricks"]=bricks.count == campaign[i].cells.count; checks["stage_\(i)_bounds"]=bricks.allSatisfy { $0.rect.minX >= geometry.left-0.01 && $0.rect.maxX <= geometry.right+0.01 && $0.rect.minY>paddleY } }
         start(index:0)
         if let triangle=bricks.first(where:{$0.raw.shape == "triangle"}) {
@@ -2217,4 +2441,110 @@ final class GameScene: SKScene {
             try? data.write(to:dir.appendingPathComponent("smoke-test-\(edition.rawValue).json"),options:.atomic)
         }
     }
+}
+
+// Versioned portable custom levels; imported files never reference arbitrary resources or paths.
+struct CustomLevel:Codable {
+    var formatVersion=1
+    var id=UUID()
+    var name="My Level"
+    var background=1
+    var cells:[Cell]=[]
+    static let supportedPowers=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    func validated() throws -> CustomLevel {
+        guard formatVersion==1,!name.trimmingCharacters(in:.whitespacesAndNewlines).isEmpty,name.count<=80,[1,2,4,5,6,7,9].contains(background),cells.count<=260,Set(cells.map{$0.key}).count==cells.count,
+            cells.allSatisfy({(0..<20).contains($0.row) && (0..<13).contains($0.column) && (1...12).contains($0.type) && $0.property==0 && Self.supportedPowers.contains($0.powerup) && $0.critter==0 && $0.art==nil && $0.x==nil && $0.y==nil && $0.special==nil && $0.width==nil && $0.height==nil && $0.hits==nil && $0.score==nil && $0.shape==nil && $0.rotation==nil && $0.polygon==nil && $0.specialSettings==nil && $0.powerupName==nil && $0.powerupProbability==nil}),cells.contains(where:{$0.type != 8 && $0.type != 10}) else {throw NSError(domain:"CustomLevel",code:1,userInfo:[NSLocalizedDescriptionKey:"Use a name, a valid background, and at least one breakable brick. This editor supports the 13 × 20 Blasterball 2 grid."])}
+        return self
+    }
+    var stage:Stage {Stage(index:0,levelType:0,background:background,critterSpawns:[0,1,2,4,5],cells:cells)}
+    static var directory:URL {FileManager.default.urls(for:.documentDirectory,in:.userDomainMask)[0].appendingPathComponent("Custom Levels",isDirectory:true)}
+    func store() throws {
+        _ = try validated();try FileManager.default.createDirectory(at:Self.directory,withIntermediateDirectories:true)
+        let encoder=JSONEncoder();encoder.outputFormatting=[.prettyPrinted,.sortedKeys]
+        try encoder.encode(self).write(to:Self.directory.appendingPathComponent(id.uuidString+".json"),options:.atomic)
+    }
+    static func read(_ url:URL)throws->CustomLevel {
+        let size=try url.resourceValues(forKeys:[.fileSizeKey]).fileSize ?? 0
+        guard size<=262144 else {throw NSError(domain:"CustomLevel",code:2,userInfo:[NSLocalizedDescriptionKey:"The level file is too large (maximum 256 KB)."])}
+        let data=try Data(contentsOf:url,options:.mappedIfSafe)
+        guard data.count<=262144 else {throw NSError(domain:"CustomLevel",code:2,userInfo:[NSLocalizedDescriptionKey:"The level file exceeds 256 KB."])}
+        return try JSONDecoder().decode(CustomLevel.self,from:data).validated()
+    }
+}
+private final class LevelGridView:UIView {
+    var cells:[Cell]=[] {didSet{setNeedsDisplay()}}
+    var paint:((Int,Int)->Void)?
+    let colors:[UIColor]=[.clear,.systemRed,.systemBlue,.systemGreen,.systemYellow,.systemPurple,.systemOrange,.lightGray,.darkGray,.gray,.systemTeal,.systemPink,.brown]
+    override init(frame:CGRect) {super.init(frame:frame);backgroundColor=UIColor(white:0.04,alpha:1);addGestureRecognizer(UITapGestureRecognizer(target:self,action:#selector(tapped(_:))))}
+    required init?(coder:NSCoder){nil}
+    @objc func tapped(_ gesture:UITapGestureRecognizer){let p=gesture.location(in:self);let c=Int(p.x/bounds.width*13),r=Int(p.y/bounds.height*20);if (0..<13).contains(c),(0..<20).contains(r){paint?(r,c)}}
+    override func draw(_ rect:CGRect) {
+        guard let ctx=UIGraphicsGetCurrentContext() else{return};let w=bounds.width/13,h=bounds.height/20
+        for r in 0..<20 {for c in 0..<13 {
+            let box=CGRect(x:CGFloat(c)*w+1,y:CGFloat(r)*h+1,width:w-2,height:h-2)
+            let cell=cells.first{$0.row==r && $0.column==c}
+            ctx.setFillColor((cell.map{colors[$0.type]} ?? UIColor(white:0.12,alpha:1)).cgColor);ctx.fill(box)
+            if let cell=cell {
+                let mark=cell.powerup>0 ? "\(cell.powerup)" : [7:"2",8:"H",10:"P",11:"E",12:"+" ][cell.type] ?? ""
+                (mark as NSString).draw(at:CGPoint(x:box.minX+3,y:box.minY+2),withAttributes:[.font:UIFont.boldSystemFont(ofSize:min(12,h-3)),.foregroundColor:UIColor.white])
+            }
+        }}
+    }
+}
+final class LevelEditorController:UIViewController,UIDocumentPickerDelegate,UIScrollViewDelegate {
+    var play:((CustomLevel)->Void)?
+    private var level=CustomLevel(),brickType=1,power=0
+    private var undoCells:[[Cell]]=[]
+    private let grid=LevelGridView(frame:CGRect(x:0,y:0,width:390,height:600)),scroll=UIScrollView(),nameField=UITextField(),tools=UIStackView()
+    override func viewDidLoad(){
+        super.viewDidLoad();title="Custom Levels · BB2";view.backgroundColor = .systemBackground;overrideUserInterfaceStyle = .dark
+        navigationController?.setNavigationBarHidden(false,animated:false)
+        nameField.text=level.name;nameField.borderStyle = .roundedRect;nameField.placeholder="Level name";nameField.accessibilityLabel="Level name"
+        let brush=UIButton(type:.system);brush.setTitle("Brick",for:.normal);brush.showsMenuAsPrimaryAction=true
+        let names=["Erase","Red","Blue","Green","Yellow","Purple","Orange","Two-hit","Hard","Damaged","Phantom","Exploding","Plague"]
+        brush.menu=UIMenu(children:names.enumerated().map{index,name in UIAction(title:name){[weak self,weak brush] _ in self?.brickType=index;brush?.setTitle(name,for:.normal)}})
+        let drop=UIButton(type:.system);drop.setTitle("Drop: None",for:.normal);drop.showsMenuAsPrimaryAction=true
+        let powerNames=["None","Divide","Blasterball","Slow","Attach","Catcher","Mini","Laser","Grow","Extra life","2×","3×","Flash","Twin","Phantom paddle","Fast","Eight-way"]
+        drop.menu=UIMenu(children:powerNames.enumerated().map{index,name in UIAction(title:name){[weak self,weak drop] _ in self?.power=index;drop?.setTitle("Drop: "+name,for:.normal)}})
+        let background=UIButton(type:.system);background.setTitle("Background 1",for:.normal);background.showsMenuAsPrimaryAction=true
+        background.menu=UIMenu(children:[1,2,4,5,6,7,9].map{number in UIAction(title:"Background \(number)"){[weak self,weak background] _ in self?.level.background=number;background?.setTitle("Background \(number)",for:.normal)}})
+        tools.axis = .horizontal;tools.distribution = .fillEqually;[brush,drop,background].forEach{tools.addArrangedSubview($0)}
+        scroll.delegate=self;scroll.minimumZoomScale=1;scroll.maximumZoomScale=3;scroll.addSubview(grid);scroll.contentSize=grid.bounds.size
+        [nameField,tools,scroll].forEach{$0.translatesAutoresizingMaskIntoConstraints=false;view.addSubview($0)}
+        NSLayoutConstraint.activate([nameField.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor,constant:8),nameField.leadingAnchor.constraint(equalTo:view.leadingAnchor,constant:16),nameField.trailingAnchor.constraint(equalTo:view.trailingAnchor,constant:-16),nameField.heightAnchor.constraint(equalToConstant:40),tools.topAnchor.constraint(equalTo:nameField.bottomAnchor,constant:8),tools.leadingAnchor.constraint(equalTo:nameField.leadingAnchor),tools.trailingAnchor.constraint(equalTo:nameField.trailingAnchor),tools.heightAnchor.constraint(equalToConstant:44),scroll.topAnchor.constraint(equalTo:tools.bottomAnchor,constant:8),scroll.leadingAnchor.constraint(equalTo:view.leadingAnchor,constant:16),scroll.trailingAnchor.constraint(equalTo:view.trailingAnchor,constant:-16),scroll.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor,constant:-8)])
+        grid.paint={[weak self] row,column in guard let self=self else{return};self.undoCells.append(self.level.cells);if self.undoCells.count>100{self.undoCells.removeFirst()};self.level.cells.removeAll{$0.row==row && $0.column==column};if self.brickType>0{self.level.cells.append(Cell(row:row,column:column,type:self.brickType,property:0,powerup:self.power,critter:0))};self.grid.cells=self.level.cells}
+        navigationItem.rightBarButtonItems=[UIBarButtonItem(title:"Play",style:.done,target:self,action:#selector(playLevel)),UIBarButtonItem(title:"Files",style:.plain,target:self,action:#selector(files)),UIBarButtonItem(title:"Undo",style:.plain,target:self,action:#selector(undoPaint))]
+    }
+    override func viewDidLayoutSubviews(){super.viewDidLayoutSubviews();if scroll.zoomScale==1{let width=max(260,min(650,scroll.bounds.width));grid.frame=CGRect(x:0,y:0,width:width,height:width*320/390);scroll.contentSize=grid.bounds.size}}
+    func viewForZooming(in scrollView:UIScrollView)->UIView?{grid}
+    @objc private func undoPaint(){if let cells=undoCells.popLast(){level.cells=cells;grid.cells=cells}}
+    private func save()throws {level.name=nameField.text ?? "";try level.store()}
+    private func error(_ error:Error){let alert=UIAlertController(title:"Level could not be saved or loaded",message:error.localizedDescription,preferredStyle:.alert);alert.addAction(UIAlertAction(title:"OK",style:.default));present(alert,animated:true)}
+    @objc private func playLevel(){do{try save();play?(level)}catch{self.error(error)}}
+    @objc private func files(){
+        let menu=UIAlertController(title:"Custom Levels",message:"Tap cells to paint. Pinch to zoom. Numbers on bricks identify their power-up drops.",preferredStyle:.alert)
+        menu.addAction(UIAlertAction(title:"Save",style:.default){[weak self] _ in do{try self?.save()}catch{self?.error(error)}})
+        menu.addAction(UIAlertAction(title:"Export JSON",style:.default){[weak self] _ in guard let self=self else{return};do{try self.save();self.present(UIDocumentPickerViewController(forExporting:[CustomLevel.directory.appendingPathComponent(self.level.id.uuidString+".json")],asCopy:true),animated:true)}catch{self.error(error)}})
+        menu.addAction(UIAlertAction(title:"Import JSON",style:.default){[weak self] _ in let picker=UIDocumentPickerViewController(forOpeningContentTypes:[.json],asCopy:true);picker.delegate=self;self?.present(picker,animated:true)})
+        menu.addAction(UIAlertAction(title:"Open Saved Level",style:.default){[weak self] _ in self?.openSaved()})
+        menu.addAction(UIAlertAction(title:"New Level",style:.default){[weak self] _ in guard let self=self else{return};let confirm=UIAlertController(title:"Start a new level?",message:"Save or export first to keep your current edits.",preferredStyle:.alert);confirm.addAction(UIAlertAction(title:"Cancel",style:.cancel));confirm.addAction(UIAlertAction(title:"New Level",style:.destructive){_ in self.level=CustomLevel();self.nameField.text=self.level.name;self.grid.cells=[];self.undoCells=[]});self.present(confirm,animated:true)})
+        menu.addAction(UIAlertAction(title:"Cancel",style:.cancel));present(menu,animated:true)
+    }
+    private func openSaved(){let menu=UIAlertController(title:"Open Saved Level",message:nil,preferredStyle:.alert);let urls=(try? FileManager.default.contentsOfDirectory(at:CustomLevel.directory,includingPropertiesForKeys:nil)) ?? [];for url in urls.sorted(by:{$0.lastPathComponent<$1.lastPathComponent}) {if let level=try? CustomLevel.read(url){menu.addAction(UIAlertAction(title:level.name,style:.default){[weak self] _ in self?.load(level)})}};menu.addAction(UIAlertAction(title:"Cancel",style:.cancel));present(menu,animated:true)}
+    func regressionChecks()->[String:Bool] {
+        loadViewIfNeeded();var checks:[String:Bool]=[:]
+        grid.paint?(2,3);checks["editor_paints_cell"]=level.cells.count==1 && level.cells[0].column==3
+        undoPaint();checks["editor_undo"]=level.cells.isEmpty
+        grid.paint?(2,3);power=7;grid.paint?(2,3);checks["editor_replaces_drop"]=level.cells.count==1 && level.cells[0].powerup==7
+        nameField.text="Editor regression"
+        let url=CustomLevel.directory.appendingPathComponent(level.id.uuidString+".json")
+        defer {try? FileManager.default.removeItem(at:url)}
+        do {
+            try save();let saved=try CustomLevel.read(url);checks["editor_file_roundtrip"]=saved.name=="Editor regression" && saved.cells.first?.powerup==7
+            var played=false;play={value in played=value.id==saved.id};playLevel();checks["editor_play_callback"]=played
+        } catch {checks["editor_file_roundtrip"]=false}
+        return checks
+    }
+    private func load(_ level:CustomLevel){self.level=level;nameField.text=level.name;grid.cells=level.cells;undoCells=[]}
+    func documentPicker(_ controller:UIDocumentPickerViewController,didPickDocumentsAt urls:[URL]){guard let url=urls.first else{return};let access=url.startAccessingSecurityScopedResource();defer{if access{url.stopAccessingSecurityScopedResource()}};do{var imported=try CustomLevel.read(url);imported.id=UUID();try imported.store();load(imported)}catch{self.error(error)}}
 }

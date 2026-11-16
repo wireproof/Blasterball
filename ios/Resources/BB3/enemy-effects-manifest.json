@@ -1,0 +1,98 @@
+{
+  "fxs_explosion02": {
+    "source": "art/bitmaps/effects/fxs_explosion02.jpg",
+    "source_sha256": "5b755becff2bceddcd28d1b50dfb06c58831283ba6443159b15df82026d6a5f7",
+    "blend": "add",
+    "seconds": 0.6,
+    "frames": [
+      {
+        "file": "fxs_explosion02_0.png",
+        "sha256": "e36f3c38babd1e70d64f3ba7583590efd7c4beb4c2c12d76dc3f2e546759047e"
+      },
+      {
+        "file": "fxs_explosion02_1.png",
+        "sha256": "39acc4a58a3279a2ba50a1b96e5055e43e1a1d418cb5b0f9860231320452b9eb"
+      },
+      {
+        "file": "fxs_explosion02_2.png",
+        "sha256": "1ca7f3d89be50f9291eec5c7037ca5c1e9f368501dd2fd27591f96a4393c9c55"
+      },
+      {
+        "file": "fxs_explosion02_3.png",
+        "sha256": "00e58c2110fe2dbbc4b3d5de47b7e863917999f229989d46b10d8aa125dd71a9"
+      },
+      {
+        "file": "fxs_explosion02_4.png",
+        "sha256": "1ceee302e3c03c146cd6d0aa1e963bea1005b9d2cb2075c9fbe3c9491f8b3d4c"
+      },
+      {
+        "file": "fxs_explosion02_5.png",
+        "sha256": "23c2c720c3c46ce846b8a4730eb85bbf7306d4aabf2e8bc3e609995109e3025f"
+      },
+      {
+        "file": "fxs_explosion02_6.png",
+        "sha256": "03f6c69d1d450b9d2ec71eb8f308c9fd97dbe94c370916f5cc1f9d265219753e"
+      },
+      {
+        "file": "fxs_explosion02_7.png",
+        "sha256": "c614c83cf8637d80aa85d933170bba8827f8a88d2e49685fdbc4b13645f61cfc"
+      },
+      {
+        "file": "fxs_explosion02_8.png",
+        "sha256": "b524eee67fa5b32252acf34b0bcea0a5a60f0ffe2dd3d5969889c32c0ae06571"
+      },
+      {
+        "file": "fxs_explosion02_9.png",
+        "sha256": "0541ff0e2be0b5cbdf10f3ff538e636f56e2462873c35f41428deab60ad579b9"
+      },
+      {
+        "file": "fxs_explosion02_10.png",
+        "sha256": "acb765be20c2c76e164308ecc0af0ef48ed9facb74824184b4fd32b25deb3d99"
+      },
+      {
+        "file": "fxs_explosion02_11.png",
+        "sha256": "f2abc4bf61452fa9e3ef891b36a7fff1626947726a435ef5778d0b00274c089c"
+      },
+      {
+        "file": "fxs_explosion02_12.png",
+        "sha256": "eef3126a64ee6023d0b2fad75e4edc8b03ca30a9fd625136ea36cd9d1a88f1a6"
+      },
+      {
+        "file": "fxs_explosion02_13.png",
+        "sha256": "acf548744b89fc028affe4fe678220433c8731f9eff0d741012d6f1391f8786a"
+      },
+      {
+        "file": "fxs_explosion02_14.png",
+        "sha256": "acf548744b89fc028affe4fe678220433c8731f9eff0d741012d6f1391f8786a"
+      },
+      {
+        "file": "fxs_explosion02_15.png",
+        "sha256": "acf548744b89fc028affe4fe678220433c8731f9eff0d741012d6f1391f8786a"
+      }
+    ]
+  },
+  "fxs_spacexplosion01": {
+    "source": "art/bitmaps/effects/fxs_spacexplosion01.jpg",
+    "source_sha256": "626c954fad32f58e0e256ff2200c7a038f56bb98ed1b67cdf7ab8c10f389fc02",
+    "blend": "weightedadd",
+    "seconds": 0.0,
+    "frames": [
+      {
+        "file": "fxs_spacexplosion01_0.png",
+        "sha256": "8b6beba2d81339a934e1be0f8848350b6637972f2067f2d7cc19251e71aa5660"
+      }
+    ]
+  },
+  "fxs_spacexplosion02": {
+    "source": "art/bitmaps/effects/fxs_spacexplosion02.jpg",
+    "source_sha256": "b141b773092e7faa2743b125a79a523e9ea6bf63113c176b79c7751fdca97afd",
+    "blend": "weightedadd",
+    "seconds": 0.0,
+    "frames": [
+      {
+        "file": "fxs_spacexplosion02_0.png",
+        "sha256": "ec7bd76840661c0b7504d6b8717aa4c2be833140adc19e79885078b869c02657"
+      }
+    ]
+  }
+}

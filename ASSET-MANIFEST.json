@@ -1,263 +1,779 @@
 {
-  "ios/Resources/campaign.json": {
-    "bytes": 497827,
-    "sha256": "025f25acb2d68268d9f88cad30f93fc9c575c888d5f8375b5c292bb5c08db2f9"
+  "ios/Resources/Audio/bb3/1up.wav": {
+    "bytes": 11936,
+    "sha256": "84f31cb26ac3c5ffbb00d96addd635077075eaba13e0013f3f5974a1894ce624"
   },
-  "ios/Resources/Backdrop.png": {
-    "bytes": 1735304,
-    "sha256": "8e78348b08bdb42af82e58f3d844893988d98bc41b16ba36610434819414ee97"
+  "ios/Resources/Audio/bb3/additional-events-manifest.json": {
+    "bytes": 3937,
+    "sha256": "294780087f303ee8b499cc63f488ae134cd64f45160ea9946b2cfcef9217aa1a"
   },
-  "ios/Resources/stage1.json": {
-    "bytes": 33226,
-    "sha256": "de484fa232c09b74f58bc7e91fad236d1765805b14483f1cd70ef72186b8f836"
+  "ios/Resources/Audio/bb3/additional-music-manifest.json": {
+    "bytes": 715,
+    "sha256": "d8014b15907da30ce1c7a2d7d654cdca25a9349428eed4059a38fe2003e290be"
   },
-  "ios/Resources/Original/provenance.json": {
-    "bytes": 4394,
-    "sha256": "ae215a74ef0e8c0c5989639fc15911a51e3b6f30a7bcfda8216ca4ebcb59b46b"
+  "ios/Resources/Audio/bb3/bbreak.wav": {
+    "bytes": 7328,
+    "sha256": "c9e4a1914f226c7d3aed3cf5752b35a7e68800909ffb6a6d7fb576b773bc0132"
   },
-  "ios/Resources/Original/BB2-paddle.png": {
-    "bytes": 75309,
-    "sha256": "7eb28b01a8a68e27082685127c3d690bf4ebb322260a4f49c50440ca71c06901"
+  "ios/Resources/Audio/bb3/bhit.wav": {
+    "bytes": 7328,
+    "sha256": "abc5474c92454a9503c250690881d9568f4956c573cacd49b68c5e14314a678b"
   },
-  "ios/Resources/Original/BB2-background-5.png": {
-    "bytes": 109742,
-    "sha256": "d1c1aae419a2bf72d90ed13ead01d205b919d554b79f527cb3755955ad41ec10"
+  "ios/Resources/Audio/bb3/break.wav": {
+    "bytes": 8352,
+    "sha256": "be29d38ab135c3fcd1523784ef5091a6b4007ac6c338a84cca3083fad0e81757"
   },
-  "ios/Resources/Original/BB2-bricks.png": {
-    "bytes": 25772,
-    "sha256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a"
+  "ios/Resources/Audio/bb3/die.wav": {
+    "bytes": 92762,
+    "sha256": "c59b3d49008c00b3aa2f92f4c6473f0bc1061124764538b8785a77bfefeec54a"
   },
-  "ios/Resources/Original/BB2-background-4.png": {
-    "bytes": 53767,
-    "sha256": "074eb9923d45ad68c69c3fe914bba9957c3c5a2b1c6d4d786ad6576189f3ca4e"
+  "ios/Resources/Audio/bb3/enemy.wav": {
+    "bytes": 6816,
+    "sha256": "be6901fcdc31d0052bcecabafd60e57b73ff44584aa99e7077d7be0df04a82e3"
   },
-  "ios/Resources/Original/BB2-background-6.png": {
-    "bytes": 53188,
-    "sha256": "c2243996ec36e40df18a94cce5772240da47a0c5254ba8bb269feb6c160b349a"
+  "ios/Resources/Audio/bb3/fast.wav": {
+    "bytes": 11936,
+    "sha256": "79250333495b77cc52ffc620e9f75ba924a0931a026992d1ecc7b652fc79b5d8"
   },
-  "ios/Resources/Original/BB2-background-7.png": {
-    "bytes": 92468,
-    "sha256": "ccce63daeb677ce3c1a595ce1f2c97d48a705f638a4dfb56e3612d03529abdff"
+  "ios/Resources/Audio/bb3/firework_explode.wav": {
+    "bytes": 13984,
+    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
   },
-  "ios/Resources/Original/BB2-powerup.png": {
-    "bytes": 172956,
-    "sha256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b"
+  "ios/Resources/Audio/bb3/firework_launch.wav": {
+    "bytes": 15520,
+    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
   },
-  "ios/Resources/Original/BB2-background-3.png": {
-    "bytes": 69465,
-    "sha256": "a52012bd16433198e58072e06e55464c677d4047648abe3a4e8ef8f41fe4c53e"
+  "ios/Resources/Audio/bb3/gameover.wav": {
+    "bytes": 92762,
+    "sha256": "c59b3d49008c00b3aa2f92f4c6473f0bc1061124764538b8785a77bfefeec54a"
   },
-  "ios/Resources/Original/BB2-background-2.png": {
-    "bytes": 104249,
-    "sha256": "112578ad19807a37f09f712d329ff7f79ec61ccbd3fdfaaa4be3c17bcbb53bd9"
+  "ios/Resources/Audio/bb3/grow.wav": {
+    "bytes": 8352,
+    "sha256": "7945236af1633eb88590cccf53209a448846292c1c6223c8049c5af0d51c9610"
   },
-  "ios/Resources/Original/BB2-background-1.png": {
-    "bytes": 100316,
-    "sha256": "cb02caa09a32d5684089f6553ca2aacb27b031097e57d4c50f193b9f0680102c"
+  "ios/Resources/Audio/bb3/loss.wav": {
+    "bytes": 6816,
+    "sha256": "be6901fcdc31d0052bcecabafd60e57b73ff44584aa99e7077d7be0df04a82e3"
   },
-  "ios/Resources/Original/BB2-ball.png": {
-    "bytes": 1591,
-    "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
+  "ios/Resources/Audio/bb3/manifest.json": {
+    "bytes": 793,
+    "sha256": "d9bdd325530bb9b7a73f08add3f0d033210028d0120d236b7cef9a83f0e8b47c"
   },
-  "ios/Resources/Original/BB2-background-9.png": {
-    "bytes": 59105,
-    "sha256": "2a32c1227bb8f60c631b915c55b718c6cdd38a548063d18cd8ee5592eb9676bc"
+  "ios/Resources/Audio/bb3/music0.m4a": {
+    "bytes": 999747,
+    "sha256": "d3a022542e86b5f4350af91d01ef52b88b8043547310813e862faa13d3d23108"
   },
-  "ios/Resources/Original/BB2-background-8.png": {
-    "bytes": 101669,
-    "sha256": "f7c62ebb451ac87591719c376541950c704533600d07fcfa297bd2ab8a56d555"
+  "ios/Resources/Audio/bb3/music1.m4a": {
+    "bytes": 1561571,
+    "sha256": "1fe174d397b4dfdbd945945188453b860066a455e1966d9e60d06008951a8e1a"
   },
-  "ios/Resources/BB3/powerup_SlowBall.png": {
-    "bytes": 8408,
-    "sha256": "e330ee1e98d1b123f35d9eef3ee5f2ac2f9545461f194c9b103f5afddf440d35"
+  "ios/Resources/Audio/bb3/music2.m4a": {
+    "bytes": 1666689,
+    "sha256": "6b2b20da8d2a4cf636646b5ddfb2f1c4a6f04f581f39eb11540e4ddcb901f313"
   },
-  "ios/Resources/BB3/brick_brick_20.png": {
-    "bytes": 2314,
-    "sha256": "08bef7d47135b158e1c241f3e01cfdf7f51496201f6ab0e8f1b6a1d443191a01"
+  "ios/Resources/Audio/bb3/music3.m4a": {
+    "bytes": 1897128,
+    "sha256": "0c445f9ebe5fd0e0c231c85875e583c35f63674f0fdf9dac7ec549f05d12d7cf"
+  },
+  "ios/Resources/Audio/bb3/phit.wav": {
+    "bytes": 7952,
+    "sha256": "2ae007cea9079707aef4738e53902e0febec7fe71555132823d32fb5a2d05b38"
+  },
+  "ios/Resources/Audio/bb3/power20.wav": {
+    "bytes": 10912,
+    "sha256": "127f57c394f30385aaed0571d3e522a2623cbf848814e561503affdb75de525f"
+  },
+  "ios/Resources/Audio/bb3/power21.wav": {
+    "bytes": 11936,
+    "sha256": "72313ac954decfcfe278b4cfc9c1d76c4da9ee68c9f0c6b4d23c458ecc9e811c"
+  },
+  "ios/Resources/Audio/bb3/power22.wav": {
+    "bytes": 7840,
+    "sha256": "1b7663cb06eb86c2dbec20c13e6bfebf5b8973d0bc1292527dda38808108f7fc"
+  },
+  "ios/Resources/Audio/bb3/power23.wav": {
+    "bytes": 13472,
+    "sha256": "4a0ad301833c4d788ad7476f66e82d867756dfe4a5be1e1ccab4bc4fbdd91a0d"
+  },
+  "ios/Resources/Audio/bb3/power24.wav": {
+    "bytes": 13512,
+    "sha256": "6f6e4e67bf6f87e96f1e30afd11f12eda96e26181ae00cb5a1b8f45618a64ee7"
+  },
+  "ios/Resources/Audio/bb3/power25.wav": {
+    "bytes": 14110,
+    "sha256": "37793fc0d9e51627342a559bbede04a7fdc4dadafded805ff1629ee9711765d7"
+  },
+  "ios/Resources/Audio/bb3/power26.wav": {
+    "bytes": 20640,
+    "sha256": "56fdac467b1b0db50db6228d661767bd9b4d8db5dadd8800a8ba742031a36dce"
+  },
+  "ios/Resources/Audio/bb3/power27.wav": {
+    "bytes": 9376,
+    "sha256": "6992f89a5435636a90344ecf5dd99c961ca7b78694cf5287ee0ee2c3612be7f1"
+  },
+  "ios/Resources/Audio/bb3/power28.wav": {
+    "bytes": 7936,
+    "sha256": "ea461520c6fad93263002bd3c8d43f0d5ff1bad034d38d611cc03e2577c7b00d"
+  },
+  "ios/Resources/Audio/bb3/power29.wav": {
+    "bytes": 3744,
+    "sha256": "c4c731e4814a8339fdb791007d8ce02bd679a47e5dbd1fa86ea20e89eff03d6a"
+  },
+  "ios/Resources/Audio/bb3/power30.wav": {
+    "bytes": 6816,
+    "sha256": "eaff66afbf7b6b945f03830d2f28b8cd5a4652174caadf54bd6e82f5f5cc0bd4"
+  },
+  "ios/Resources/Audio/bb3/power31.wav": {
+    "bytes": 11454,
+    "sha256": "2c78ec212c9195361799255852ce29536e87bd83ef2151333766f6605246ebd1"
+  },
+  "ios/Resources/Audio/bb3/power33.wav": {
+    "bytes": 28832,
+    "sha256": "fea02416a77f40082023c9c8b0fb355812633716effe4bf903820029cd336e31"
+  },
+  "ios/Resources/Audio/bb3/power34.wav": {
+    "bytes": 4768,
+    "sha256": "80e722efaea6939572ec9a6e9ed5916251579cd93363c25a548ac7df6db54e42"
+  },
+  "ios/Resources/Audio/bb3/power35.wav": {
+    "bytes": 11424,
+    "sha256": "bfb3d4d39db5c237eb154118aa36ac816fcd812f15fe9ef2b70808e27c377887"
+  },
+  "ios/Resources/Audio/bb3/power36.wav": {
+    "bytes": 7328,
+    "sha256": "328a12a3202a29b8ad4365856e4075c06ddb168ceab09da0d2c9940b00e1e6bf"
+  },
+  "ios/Resources/Audio/bb3/power37.wav": {
+    "bytes": 6838,
+    "sha256": "b94b438328e8ea6bf199de248a736c6cc7451f63ccad37e927909329cc913431"
+  },
+  "ios/Resources/Audio/bb3/power38.wav": {
+    "bytes": 4256,
+    "sha256": "b9837270ecdded1ef769df9e159c7846a9d3324dc0c5ba02342f6155aef3364f"
+  },
+  "ios/Resources/Audio/bb3/respawn.wav": {
+    "bytes": 25420,
+    "sha256": "c986a632ebaf3c4dbbb45fc1f83eb20196fa4dd4e74f43973d3d1982614e1de4"
+  },
+  "ios/Resources/Audio/bb3/secret.wav": {
+    "bytes": 7916,
+    "sha256": "bc3852c8ca0e84203f47c169c779e54436f4362199a2e8281c480eaa67d879a8"
+  },
+  "ios/Resources/Audio/bb3/shrink.wav": {
+    "bytes": 6304,
+    "sha256": "85413cd793687cd9a92d7015c48799e3821911a07653f8e96e05c6544ff84333"
+  },
+  "ios/Resources/Audio/bb3/slow.wav": {
+    "bytes": 11936,
+    "sha256": "322dab3503dd92cefdc0493c19f7010ac9e127a4247135338ec1c51ba1bf4bb6"
+  },
+  "ios/Resources/Audio/bb3/stagestart.wav": {
+    "bytes": 45302,
+    "sha256": "22a40c40019e910e31813acf7a76db54d1616dc35294aaf2ba6aa128acbbd94f"
+  },
+  "ios/Resources/Audio/bb3/wall.wav": {
+    "bytes": 8352,
+    "sha256": "a6c1f613940eeb3910e9db8f9e1ebed593a701e3084cfe547804dcc8ebd6494c"
+  },
+  "ios/Resources/Audio/bb3/x2.wav": {
+    "bytes": 10912,
+    "sha256": "127f57c394f30385aaed0571d3e522a2623cbf848814e561503affdb75de525f"
+  },
+  "ios/Resources/Audio/bb3/x3.wav": {
+    "bytes": 11936,
+    "sha256": "72313ac954decfcfe278b4cfc9c1d76c4da9ee68c9f0c6b4d23c458ecc9e811c"
+  },
+  "ios/Resources/Audio/holidays/1up.wav": {
+    "bytes": 12966,
+    "sha256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e"
+  },
+  "ios/Resources/Audio/holidays/barrier.wav": {
+    "bytes": 17666,
+    "sha256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf"
+  },
+  "ios/Resources/Audio/holidays/bbreak.wav": {
+    "bytes": 11344,
+    "sha256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59"
+  },
+  "ios/Resources/Audio/holidays/bhit.wav": {
+    "bytes": 7596,
+    "sha256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021"
+  },
+  "ios/Resources/Audio/holidays/bighit.wav": {
+    "bytes": 1316,
+    "sha256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f"
+  },
+  "ios/Resources/Audio/holidays/blast.wav": {
+    "bytes": 11860,
+    "sha256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529"
+  },
+  "ios/Resources/Audio/holidays/blasterball.wav": {
+    "bytes": 10946,
+    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
+  },
+  "ios/Resources/Audio/holidays/bloop.wav": {
+    "bytes": 1724,
+    "sha256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c"
+  },
+  "ios/Resources/Audio/holidays/bosshit.wav": {
+    "bytes": 3626,
+    "sha256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359"
+  },
+  "ios/Resources/Audio/holidays/break.wav": {
+    "bytes": 10946,
+    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
+  },
+  "ios/Resources/Audio/holidays/buildup.wav": {
+    "bytes": 5708,
+    "sha256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc"
+  },
+  "ios/Resources/Audio/holidays/critter.wav": {
+    "bytes": 1644,
+    "sha256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812"
+  },
+  "ios/Resources/Audio/holidays/die.wav": {
+    "bytes": 53096,
+    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
+  },
+  "ios/Resources/Audio/holidays/e1.wav": {
+    "bytes": 3272,
+    "sha256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c"
+  },
+  "ios/Resources/Audio/holidays/e2.wav": {
+    "bytes": 2552,
+    "sha256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584"
+  },
+  "ios/Resources/Audio/holidays/e3.wav": {
+    "bytes": 3992,
+    "sha256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d"
+  },
+  "ios/Resources/Audio/holidays/e4.wav": {
+    "bytes": 4712,
+    "sha256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037"
+  },
+  "ios/Resources/Audio/holidays/e5.wav": {
+    "bytes": 4952,
+    "sha256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6"
+  },
+  "ios/Resources/Audio/holidays/fast.wav": {
+    "bytes": 13538,
+    "sha256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731"
+  },
+  "ios/Resources/Audio/holidays/firework_explode.wav": {
+    "bytes": 13984,
+    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
+  },
+  "ios/Resources/Audio/holidays/firework_launch.wav": {
+    "bytes": 15520,
+    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
+  },
+  "ios/Resources/Audio/holidays/flourish1.wav": {
+    "bytes": 5824,
+    "sha256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598"
+  },
+  "ios/Resources/Audio/holidays/flourish2.wav": {
+    "bytes": 6492,
+    "sha256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701"
+  },
+  "ios/Resources/Audio/holidays/flourish3.wav": {
+    "bytes": 4914,
+    "sha256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af"
+  },
+  "ios/Resources/Audio/holidays/gameover.wav": {
+    "bytes": 113464,
+    "sha256": "f3818c4de4b749323828ef8109a54483817264179a61a0bed2dcdb62271e7308"
+  },
+  "ios/Resources/Audio/holidays/grow.wav": {
+    "bytes": 8794,
+    "sha256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930"
+  },
+  "ios/Resources/Audio/holidays/gunin.wav": {
+    "bytes": 9506,
+    "sha256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b"
+  },
+  "ios/Resources/Audio/holidays/gunout.wav": {
+    "bytes": 10272,
+    "sha256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c"
+  },
+  "ios/Resources/Audio/holidays/hitbarrier.wav": {
+    "bytes": 11904,
+    "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
+  },
+  "ios/Resources/Audio/holidays/laser.wav": {
+    "bytes": 1832,
+    "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
+  },
+  "ios/Resources/Audio/holidays/loss.wav": {
+    "bytes": 53096,
+    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
+  },
+  "ios/Resources/Audio/holidays/metal.wav": {
+    "bytes": 2558,
+    "sha256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067"
+  },
+  "ios/Resources/Audio/holidays/music1.m4a": {
+    "bytes": 1193191,
+    "sha256": "4f5083afc3987dea98e677539bbeae4094dbd11140a753e0b7099d22ce06b15e"
+  },
+  "ios/Resources/Audio/holidays/music2.m4a": {
+    "bytes": 1242425,
+    "sha256": "f79d841020eca947adda9a9428eca817f46c5e563740b27cbafa3a699bb7d329"
+  },
+  "ios/Resources/Audio/holidays/pdestroy.wav": {
+    "bytes": 1316,
+    "sha256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78"
+  },
+  "ios/Resources/Audio/holidays/phit.wav": {
+    "bytes": 11318,
+    "sha256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234"
+  },
+  "ios/Resources/Audio/holidays/shrink.wav": {
+    "bytes": 8794,
+    "sha256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547"
+  },
+  "ios/Resources/Audio/holidays/slow.wav": {
+    "bytes": 13538,
+    "sha256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997"
+  },
+  "ios/Resources/Audio/holidays/stagestart.wav": {
+    "bytes": 39606,
+    "sha256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3"
+  },
+  "ios/Resources/Audio/holidays/stickylaunch.wav": {
+    "bytes": 3756,
+    "sha256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301"
+  },
+  "ios/Resources/Audio/holidays/stickyoff.wav": {
+    "bytes": 5292,
+    "sha256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153"
+  },
+  "ios/Resources/Audio/holidays/stickyon.wav": {
+    "bytes": 4268,
+    "sha256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702"
+  },
+  "ios/Resources/Audio/holidays/w1.wav": {
+    "bytes": 2792,
+    "sha256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525"
+  },
+  "ios/Resources/Audio/holidays/w2.wav": {
+    "bytes": 3272,
+    "sha256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9"
+  },
+  "ios/Resources/Audio/holidays/w3.wav": {
+    "bytes": 8312,
+    "sha256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897"
+  },
+  "ios/Resources/Audio/provenance.json": {
+    "bytes": 45639,
+    "sha256": "2ebed40d6d5b08058b886a743ed976d2379038902f1ba5eb4cca60e5fdfb0d0f"
+  },
+  "ios/Resources/Audio/remix/1up.wav": {
+    "bytes": 12966,
+    "sha256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e"
+  },
+  "ios/Resources/Audio/remix/barrier.wav": {
+    "bytes": 17666,
+    "sha256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf"
+  },
+  "ios/Resources/Audio/remix/bbreak.wav": {
+    "bytes": 11344,
+    "sha256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59"
+  },
+  "ios/Resources/Audio/remix/bhit.wav": {
+    "bytes": 7596,
+    "sha256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021"
+  },
+  "ios/Resources/Audio/remix/bighit.wav": {
+    "bytes": 1316,
+    "sha256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f"
+  },
+  "ios/Resources/Audio/remix/blast.wav": {
+    "bytes": 11860,
+    "sha256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529"
+  },
+  "ios/Resources/Audio/remix/blasterball.wav": {
+    "bytes": 10946,
+    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
+  },
+  "ios/Resources/Audio/remix/bloop.wav": {
+    "bytes": 1724,
+    "sha256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c"
+  },
+  "ios/Resources/Audio/remix/bosshit.wav": {
+    "bytes": 3626,
+    "sha256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359"
+  },
+  "ios/Resources/Audio/remix/break.wav": {
+    "bytes": 10946,
+    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
+  },
+  "ios/Resources/Audio/remix/buildup.wav": {
+    "bytes": 5708,
+    "sha256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc"
+  },
+  "ios/Resources/Audio/remix/critter.wav": {
+    "bytes": 1644,
+    "sha256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812"
+  },
+  "ios/Resources/Audio/remix/die.wav": {
+    "bytes": 53096,
+    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
+  },
+  "ios/Resources/Audio/remix/e1.wav": {
+    "bytes": 3272,
+    "sha256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c"
+  },
+  "ios/Resources/Audio/remix/e2.wav": {
+    "bytes": 2552,
+    "sha256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584"
+  },
+  "ios/Resources/Audio/remix/e3.wav": {
+    "bytes": 3992,
+    "sha256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d"
+  },
+  "ios/Resources/Audio/remix/e4.wav": {
+    "bytes": 4712,
+    "sha256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037"
+  },
+  "ios/Resources/Audio/remix/e5.wav": {
+    "bytes": 4952,
+    "sha256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6"
+  },
+  "ios/Resources/Audio/remix/fast.wav": {
+    "bytes": 13538,
+    "sha256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731"
+  },
+  "ios/Resources/Audio/remix/firework_explode.wav": {
+    "bytes": 13984,
+    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
+  },
+  "ios/Resources/Audio/remix/firework_launch.wav": {
+    "bytes": 15520,
+    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
+  },
+  "ios/Resources/Audio/remix/flourish1.wav": {
+    "bytes": 5824,
+    "sha256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598"
+  },
+  "ios/Resources/Audio/remix/flourish2.wav": {
+    "bytes": 6492,
+    "sha256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701"
+  },
+  "ios/Resources/Audio/remix/flourish3.wav": {
+    "bytes": 4914,
+    "sha256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af"
+  },
+  "ios/Resources/Audio/remix/gameover.wav": {
+    "bytes": 113464,
+    "sha256": "f3818c4de4b749323828ef8109a54483817264179a61a0bed2dcdb62271e7308"
+  },
+  "ios/Resources/Audio/remix/grow.wav": {
+    "bytes": 8794,
+    "sha256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930"
+  },
+  "ios/Resources/Audio/remix/gunin.wav": {
+    "bytes": 9506,
+    "sha256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b"
+  },
+  "ios/Resources/Audio/remix/gunout.wav": {
+    "bytes": 10272,
+    "sha256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c"
+  },
+  "ios/Resources/Audio/remix/hitbarrier.wav": {
+    "bytes": 11904,
+    "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
+  },
+  "ios/Resources/Audio/remix/laser.wav": {
+    "bytes": 1832,
+    "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
+  },
+  "ios/Resources/Audio/remix/loss.wav": {
+    "bytes": 53096,
+    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
+  },
+  "ios/Resources/Audio/remix/metal.wav": {
+    "bytes": 2558,
+    "sha256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067"
+  },
+  "ios/Resources/Audio/remix/music1.m4a": {
+    "bytes": 391053,
+    "sha256": "b5a2ba96d699e6b6c33702ed256c683a7ad78e866e2bd6d28973560fc684f2c7"
+  },
+  "ios/Resources/Audio/remix/music2.m4a": {
+    "bytes": 583949,
+    "sha256": "42aa49d616bce4f66867cf52f4ebc471039ab4f8c8b743bdb236cc2ca953d379"
+  },
+  "ios/Resources/Audio/remix/pdestroy.wav": {
+    "bytes": 1316,
+    "sha256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78"
+  },
+  "ios/Resources/Audio/remix/phit.wav": {
+    "bytes": 11318,
+    "sha256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234"
+  },
+  "ios/Resources/Audio/remix/shrink.wav": {
+    "bytes": 8794,
+    "sha256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547"
+  },
+  "ios/Resources/Audio/remix/slow.wav": {
+    "bytes": 13538,
+    "sha256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997"
+  },
+  "ios/Resources/Audio/remix/stagestart.wav": {
+    "bytes": 39606,
+    "sha256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3"
+  },
+  "ios/Resources/Audio/remix/stickylaunch.wav": {
+    "bytes": 3756,
+    "sha256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301"
+  },
+  "ios/Resources/Audio/remix/stickyoff.wav": {
+    "bytes": 5292,
+    "sha256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153"
+  },
+  "ios/Resources/Audio/remix/stickyon.wav": {
+    "bytes": 4268,
+    "sha256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702"
+  },
+  "ios/Resources/Audio/remix/w1.wav": {
+    "bytes": 2792,
+    "sha256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525"
+  },
+  "ios/Resources/Audio/remix/w2.wav": {
+    "bytes": 3272,
+    "sha256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9"
+  },
+  "ios/Resources/Audio/remix/w3.wav": {
+    "bytes": 8312,
+    "sha256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897"
+  },
+  "ios/Resources/Audio/revolution/1up.wav": {
+    "bytes": 12966,
+    "sha256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e"
+  },
+  "ios/Resources/Audio/revolution/barrier.wav": {
+    "bytes": 17666,
+    "sha256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf"
+  },
+  "ios/Resources/Audio/revolution/bbreak.wav": {
+    "bytes": 11344,
+    "sha256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59"
+  },
+  "ios/Resources/Audio/revolution/bhit.wav": {
+    "bytes": 7596,
+    "sha256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021"
+  },
+  "ios/Resources/Audio/revolution/bighit.wav": {
+    "bytes": 1316,
+    "sha256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f"
+  },
+  "ios/Resources/Audio/revolution/blast.wav": {
+    "bytes": 11860,
+    "sha256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529"
+  },
+  "ios/Resources/Audio/revolution/blasterball.wav": {
+    "bytes": 10946,
+    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
+  },
+  "ios/Resources/Audio/revolution/bloop.wav": {
+    "bytes": 1724,
+    "sha256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c"
+  },
+  "ios/Resources/Audio/revolution/bosshit.wav": {
+    "bytes": 3626,
+    "sha256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359"
+  },
+  "ios/Resources/Audio/revolution/break.wav": {
+    "bytes": 10946,
+    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
+  },
+  "ios/Resources/Audio/revolution/buildup.wav": {
+    "bytes": 5708,
+    "sha256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc"
+  },
+  "ios/Resources/Audio/revolution/critter.wav": {
+    "bytes": 1644,
+    "sha256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812"
+  },
+  "ios/Resources/Audio/revolution/die.wav": {
+    "bytes": 53096,
+    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
+  },
+  "ios/Resources/Audio/revolution/e1.wav": {
+    "bytes": 3272,
+    "sha256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c"
+  },
+  "ios/Resources/Audio/revolution/e2.wav": {
+    "bytes": 2552,
+    "sha256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584"
+  },
+  "ios/Resources/Audio/revolution/e3.wav": {
+    "bytes": 3992,
+    "sha256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d"
+  },
+  "ios/Resources/Audio/revolution/e4.wav": {
+    "bytes": 4712,
+    "sha256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037"
+  },
+  "ios/Resources/Audio/revolution/e5.wav": {
+    "bytes": 4952,
+    "sha256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6"
+  },
+  "ios/Resources/Audio/revolution/fast.wav": {
+    "bytes": 13538,
+    "sha256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731"
+  },
+  "ios/Resources/Audio/revolution/firework_explode.wav": {
+    "bytes": 13984,
+    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
+  },
+  "ios/Resources/Audio/revolution/firework_launch.wav": {
+    "bytes": 15520,
+    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
+  },
+  "ios/Resources/Audio/revolution/flourish1.wav": {
+    "bytes": 5824,
+    "sha256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598"
+  },
+  "ios/Resources/Audio/revolution/flourish2.wav": {
+    "bytes": 6492,
+    "sha256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701"
+  },
+  "ios/Resources/Audio/revolution/flourish3.wav": {
+    "bytes": 4914,
+    "sha256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af"
+  },
+  "ios/Resources/Audio/revolution/gameover.wav": {
+    "bytes": 53070,
+    "sha256": "40a17c1bec7e04b32c4bbfb06c369af8fa7bd70253536087129756699457caab"
+  },
+  "ios/Resources/Audio/revolution/grow.wav": {
+    "bytes": 8794,
+    "sha256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930"
+  },
+  "ios/Resources/Audio/revolution/gunin.wav": {
+    "bytes": 9506,
+    "sha256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b"
+  },
+  "ios/Resources/Audio/revolution/gunout.wav": {
+    "bytes": 10272,
+    "sha256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c"
+  },
+  "ios/Resources/Audio/revolution/hitbarrier.wav": {
+    "bytes": 11904,
+    "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
+  },
+  "ios/Resources/Audio/revolution/laser.wav": {
+    "bytes": 1832,
+    "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
+  },
+  "ios/Resources/Audio/revolution/loss.wav": {
+    "bytes": 53096,
+    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
+  },
+  "ios/Resources/Audio/revolution/metal.wav": {
+    "bytes": 2558,
+    "sha256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067"
+  },
+  "ios/Resources/Audio/revolution/music1.m4a": {
+    "bytes": 402304,
+    "sha256": "e3deb06e6c1d76c32b32fc83d51aa872867c8ebc374f76a4806011b7d6944cc6"
+  },
+  "ios/Resources/Audio/revolution/music2.m4a": {
+    "bytes": 345941,
+    "sha256": "5642b3363d600503b0012d430d080004fd3bc49d70a876f40c39766b0dc07126"
+  },
+  "ios/Resources/Audio/revolution/pdestroy.wav": {
+    "bytes": 1316,
+    "sha256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78"
+  },
+  "ios/Resources/Audio/revolution/phit.wav": {
+    "bytes": 11318,
+    "sha256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234"
+  },
+  "ios/Resources/Audio/revolution/shrink.wav": {
+    "bytes": 8794,
+    "sha256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547"
+  },
+  "ios/Resources/Audio/revolution/slow.wav": {
+    "bytes": 13538,
+    "sha256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997"
+  },
+  "ios/Resources/Audio/revolution/stagestart.wav": {
+    "bytes": 9132,
+    "sha256": "491f0d3453b2b381b0702297cfa5f520dd7cb82fc70fd32cd67bb18fb1228c62"
+  },
+  "ios/Resources/Audio/revolution/stickylaunch.wav": {
+    "bytes": 3756,
+    "sha256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301"
+  },
+  "ios/Resources/Audio/revolution/stickyoff.wav": {
+    "bytes": 5292,
+    "sha256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153"
+  },
+  "ios/Resources/Audio/revolution/stickyon.wav": {
+    "bytes": 4268,
+    "sha256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702"
+  },
+  "ios/Resources/Audio/revolution/w1.wav": {
+    "bytes": 2792,
+    "sha256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525"
+  },
+  "ios/Resources/Audio/revolution/w2.wav": {
+    "bytes": 3272,
+    "sha256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9"
+  },
+  "ios/Resources/Audio/revolution/w3.wav": {
+    "bytes": 8312,
+    "sha256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897"
+  },
+  "ios/Resources/BB3/background_bg_abstract_blue.png": {
+    "bytes": 129892,
+    "sha256": "b5b9ffcc231b4ddf5a499af2e024043140f02a4312ea76105da204d393a439c3"
+  },
+  "ios/Resources/BB3/background_bg_abstract_green.png": {
+    "bytes": 122800,
+    "sha256": "ce0d599b68c0b71a796f4896a5c2570a5a497d976196a40b4ea95475bb61d2d5"
+  },
+  "ios/Resources/BB3/background_bg_abstract_orange.png": {
+    "bytes": 131692,
+    "sha256": "c0e0a25a4eb1bf5d4b88872913b1ee58fdbcc50e0a8486f71f593956d3beba6d"
+  },
+  "ios/Resources/BB3/background_bg_abstract_red.png": {
+    "bytes": 132419,
+    "sha256": "df54b16d68352f04eebdd2f513484e09eab78f6a2605d43b7c03ffd1671c6f9d"
   },
   "ios/Resources/BB3/background_bg_bluewaves.png": {
     "bytes": 151248,
     "sha256": "8305dd14d44170ccf440cc98b060b6f20b7ec93e06cd2993c5b04cbff2850c5e"
   },
-  "ios/Resources/BB3/brick_brick_08.png": {
-    "bytes": 2714,
-    "sha256": "4720c52cfd869c5f467286059259b3e0d3d3594d3fa91f55fd88abd58312eb96"
+  "ios/Resources/BB3/background_bg_bluewaves_v2.png": {
+    "bytes": 151248,
+    "sha256": "8305dd14d44170ccf440cc98b060b6f20b7ec93e06cd2993c5b04cbff2850c5e"
   },
-  "ios/Resources/BB3/campaign.json": {
-    "bytes": 9663857,
-    "sha256": "44ba913a709bc381f89ae49245f04f38f9b7a8320d5840240014153b1c753ab1"
+  "ios/Resources/BB3/background_bg_cloud_blue.png": {
+    "bytes": 106002,
+    "sha256": "902985829bf5136c28503f85221184166f84e021db4f93085c35d3e71ca23432"
   },
-  "ios/Resources/BB3/paddle_end_6.png": {
-    "bytes": 15526,
-    "sha256": "1166c0aa1a5c4aa49cf48f37c14ef6152b9e6843d4563868abfecb768aab0e4f"
+  "ios/Resources/BB3/background_bg_lightBluewaves.png": {
+    "bytes": 78883,
+    "sha256": "cef9524ad016212e3e2c37f090d6ac66bed3618e77281e4cb99e5ef815cded09"
   },
-  "ios/Resources/BB3/cherry_explode_layer_0.png": {
-    "bytes": 8056,
-    "sha256": "43dd3fd7a7be016aa1db6592b222e02b1edb7e17a65e7298fcc56cd2bc0dde21"
+  "ios/Resources/BB3/background_bg_lightBluewaves_v2.png": {
+    "bytes": 78883,
+    "sha256": "cef9524ad016212e3e2c37f090d6ac66bed3618e77281e4cb99e5ef815cded09"
   },
-  "ios/Resources/BB3/background_bg_test_007.png": {
-    "bytes": 125973,
-    "sha256": "be5b65d9014077c17341c9e064fbed0ac21d06ff6837780582c23c37e8343a7e"
+  "ios/Resources/BB3/background_bg_lightGreen.png": {
+    "bytes": 61183,
+    "sha256": "a382602a526dd24e25de6c67600b6de5b99c704bebef2727cf4a2323c800749c"
   },
-  "ios/Resources/BB3/left_side_blue_w.png": {
-    "bytes": 25273,
-    "sha256": "67bb510c798195dcb01d2d0530ea034eb9af990ba1d16879bc28e783f9d44942"
-  },
-  "ios/Resources/BB3/background_bg_test_006.png": {
-    "bytes": 79565,
-    "sha256": "471517b2e0acfcb4fb64f0bdf9dd9f8b35f2bb1c6b86331c3c536de8dc297a6c"
-  },
-  "ios/Resources/BB3/powerup_Vision.png": {
-    "bytes": 8487,
-    "sha256": "488f0bed91dc3054e13cd0d3f8001ed9886c1f40a79e1f34d31eb66b22406316"
-  },
-  "ios/Resources/BB3/paddle_end_7.png": {
-    "bytes": 15508,
-    "sha256": "0fa47d436eb49242a1b8d5cd32e276c525abcb7c97589f699985bb693ce7c55e"
-  },
-  "ios/Resources/BB3/brick_brick_09.png": {
-    "bytes": 2585,
-    "sha256": "ea308dd3fc3e727ca6321e25e8b24a35f6fdd2610323955417a1c13d6c436453"
-  },
-  "ios/Resources/BB3/left_side_blue.png": {
-    "bytes": 92748,
-    "sha256": "8df2142c3c3bc0ffab35b996b1debdf9786c810a5daef2a4eaccc543c4a8004e"
-  },
-  "ios/Resources/BB3/brick_brick_21.png": {
-    "bytes": 2448,
-    "sha256": "9456d5d0d41ed9de1c941a8628be9a9abf8e46b7d37b51d632c1e55ed31d37c8"
-  },
-  "ios/Resources/BB3/powerup_FastBall.png": {
-    "bytes": 8279,
-    "sha256": "7e1c14820eb648a9f985331fba23ba14f513543040d7472759d0246de7ec0c2f"
-  },
-  "ios/Resources/BB3/brick_brick_16_vert.png": {
-    "bytes": 3284,
-    "sha256": "c12c9305f618d24de730ca21524ab7430a796f443fecf4098d1095edf50a8f2a"
-  },
-  "ios/Resources/BB3/brick_brick_17_vert.png": {
-    "bytes": 3340,
-    "sha256": "03883ad7f4b8c88e464f349e93075a063492b4d514f996d388159addc8a5c12a"
-  },
-  "ios/Resources/BB3/brick_brick_22_vert.png": {
-    "bytes": 3246,
-    "sha256": "b9082b1b098ae2ceeed43e9a34f9159093c329f13bb243f5ee99354e73308a46"
-  },
-  "ios/Resources/BB3/brick_brick_23_vert.png": {
-    "bytes": 3280,
-    "sha256": "92822dfbcc8780cea625b0d3b511cc65076c03c2f4f6c87f3e1ea853853596a5"
-  },
-  "ios/Resources/BB3/brick_brick_23.png": {
-    "bytes": 2628,
-    "sha256": "982e89ae854d2959ff6059374321a0f394c6c5c568cd6e02e8798830d695abdd"
-  },
-  "ios/Resources/BB3/paddle_end.png": {
-    "bytes": 15569,
-    "sha256": "64c3a2f79414273687d119b53de5311c32e7c9e7bc4c037ca8998a6d02ef8eb5"
-  },
-  "ios/Resources/BB3/powerup_ReplicateBall.png": {
-    "bytes": 8391,
-    "sha256": "d91c98e7ecc5dd086316ff3faa1cbc2e210a1149929603e2076313e1c7f5b9d4"
-  },
-  "ios/Resources/BB3/paddle_end_5.png": {
-    "bytes": 15331,
-    "sha256": "de201d7bfc4a02da9235b876ec34281ce5bc7e065a2695232362bb5405a4946d"
-  },
-  "ios/Resources/BB3/background_bg_test_004.png": {
-    "bytes": 148492,
-    "sha256": "911112e34cb36cd0316557bd26cf2dddb649467adb436c822246c61ce4cc2bb4"
-  },
-  "ios/Resources/BB3/background_bg_test_005.png": {
-    "bytes": 146132,
-    "sha256": "39618f35a38585c7a2788ffc5be19c7851f65001e288558171f13c2c059dea70"
-  },
-  "ios/Resources/BB3/paddle_end_4.png": {
-    "bytes": 15418,
-    "sha256": "f1bd5faf883dc4903587e04bcdb76d1bafe34567966eb394a02c3ae35acfa523"
-  },
-  "ios/Resources/BB3/brick_brick_Blaster_ball.png": {
-    "bytes": 8518,
-    "sha256": "3634e594199749eeca86dd659e4c3905d1e995ba8a337417093ef6629f9af1a4"
-  },
-  "ios/Resources/BB3/powerup_1Up.png": {
-    "bytes": 8313,
-    "sha256": "c94119b125eb3f945a7fe5d67f624ac334249dc058902473393d41a0de097f1d"
-  },
-  "ios/Resources/BB3/boss-manifest.json": {
-    "bytes": 4679,
-    "sha256": "a07481422545a1eb864c26521ab39e9b3e21e1f08c7c892dc61765568f6219e0"
-  },
-  "ios/Resources/BB3/brick_brick_hardside.png": {
-    "bytes": 2450,
-    "sha256": "e6de2e80fec72707e7ec96bd8dea0356590832e21441c9b950d150929ba3fb87"
-  },
-  "ios/Resources/BB3/brick_brick_22.png": {
-    "bytes": 2606,
-    "sha256": "b95e34bff81ac95d15e4314f49805bcec99a3d99d58c332502370e66f79de185"
-  },
-  "ios/Resources/BB3/vista_top.png": {
-    "bytes": 642,
-    "sha256": "103a4fb4a3fa1b46b52ca3fbfa357eca3ab05592e8e8de5bdeaf689d851f8c7a"
-  },
-  "ios/Resources/BB3/ball.png": {
-    "bytes": 7141,
-    "sha256": "5f50885ec3ad3deddf9283ac314ac54ad1ed01a545efc85c994151128882d28f"
-  },
-  "ios/Resources/BB3/brick_brick_26.png": {
-    "bytes": 2618,
-    "sha256": "974b92bb648555d0ab641c502adabacdb95e0da4286354c6c71a01ccd9c9594c"
-  },
-  "ios/Resources/BB3/brick_brick_phantom_2x2.png": {
-    "bytes": 6986,
-    "sha256": "4e92f06c9a2331b6ed0aee255e0036e19b07beffd8cfec8eb6589e0450143539"
-  },
-  "ios/Resources/BB3/brick_brick_secret.png": {
-    "bytes": 8527,
-    "sha256": "8631ff3cbe88d12281b23d0fc6278eff3fa1f74baea7d993499777675b94c93c"
-  },
-  "ios/Resources/BB3/paddle_end_0.png": {
-    "bytes": 15569,
-    "sha256": "64c3a2f79414273687d119b53de5311c32e7c9e7bc4c037ca8998a6d02ef8eb5"
+  "ios/Resources/BB3/background_bg_lightPurple.png": {
+    "bytes": 61982,
+    "sha256": "17575e5bdcf30b7c0c4ea1df8aefa3b25bbc3c88afd8ea8bda661ca9c8b7875c"
   },
   "ios/Resources/BB3/background_bg_test_001.png": {
     "bytes": 131334,
     "sha256": "396e07197b47ec7a6a3edec050e0d8232f35bf630e3f68e09b35aad22da5d91a"
-  },
-  "ios/Resources/BB3/paddle_end_1.png": {
-    "bytes": 15563,
-    "sha256": "93f814c29dc04bd0168cb00d915438299193bef108595311290db95874a2d137"
-  },
-  "ios/Resources/BB3/brick_brick_01_vert.png": {
-    "bytes": 2953,
-    "sha256": "08c76294e56976de3c9c0d3d6a7f1007ea600ee53882366021df76f744043f2d"
-  },
-  "ios/Resources/BB3/brick_brick_00_vert.png": {
-    "bytes": 2883,
-    "sha256": "a40e8f8bb2ed6aed90fe300d22b3ae17a61ebf600c23326c9edc232acad8313f"
-  },
-  "ios/Resources/BB3/boss_boss4_pipe.png": {
-    "bytes": 5302,
-    "sha256": "87bfc6d6c2a13d5c3dc71237b3b5052e9ef8a51e998fa0f54adde6098407f044"
-  },
-  "ios/Resources/BB3/brick_brick_27.png": {
-    "bytes": 2609,
-    "sha256": "76a447b9fbcfc05c19afb64bfbed32d7f98113dacd2d52dbf2e87eb36081e4bd"
-  },
-  "ios/Resources/BB3/brick_brick_19.png": {
-    "bytes": 2508,
-    "sha256": "b86572be63d021f09248dbb11cee532dfaa8a7b7e5f6ddb735264574918eb27b"
-  },
-  "ios/Resources/BB3/brick_brick_31.png": {
-    "bytes": 1993,
-    "sha256": "3fdf23156b23165f7b9e5cc31870dabbfb9db0c62e297bee583385c1e3f9feef"
-  },
-  "ios/Resources/BB3/brick_brick_25.png": {
-    "bytes": 2530,
-    "sha256": "22022b04f881aa2b00372ec26d7e32e5d1b73156ae650fa8a6ceb85fe9cd4bca"
-  },
-  "ios/Resources/BB3/paddle_end_3.png": {
-    "bytes": 15351,
-    "sha256": "10a1f2fd05fd15b7bb96d2297f9a6eda3e060b59ab6842fc957c2cf843681c31"
   },
   "ios/Resources/BB3/background_bg_test_002.png": {
     "bytes": 148041,
@@ -267,113 +783,529 @@
     "bytes": 149519,
     "sha256": "6b71b0cca4d8dcfa119aa9cf3208dd5311d80a6c4177cc6fbc7a2217b73cb936"
   },
-  "ios/Resources/BB3/paddle_end_2.png": {
-    "bytes": 15243,
-    "sha256": "a5080d3bf49918e5fdb4652ab3eb8dc88e0d550a55384482226d06257e41240e"
+  "ios/Resources/BB3/background_bg_test_004.png": {
+    "bytes": 148492,
+    "sha256": "911112e34cb36cd0316557bd26cf2dddb649467adb436c822246c61ce4cc2bb4"
   },
-  "ios/Resources/BB3/brick_brick_24.png": {
-    "bytes": 2696,
-    "sha256": "6ce8eeab3ca6653f95e6bd6310d5a52ba8d4a86f19aa2a97fa394e034b273147"
+  "ios/Resources/BB3/background_bg_test_005.png": {
+    "bytes": 146132,
+    "sha256": "39618f35a38585c7a2788ffc5be19c7851f65001e288558171f13c2c059dea70"
   },
-  "ios/Resources/BB3/powerup_SplitBall.png": {
-    "bytes": 8437,
-    "sha256": "42e0072d9798e2cbb39d6a8b888dbec124d18880d1b6903345ed74220391724b"
+  "ios/Resources/BB3/background_bg_test_006.png": {
+    "bytes": 79565,
+    "sha256": "471517b2e0acfcb4fb64f0bdf9dd9f8b35f2bb1c6b86331c3c536de8dc297a6c"
   },
-  "ios/Resources/BB3/brick_brick_30.png": {
-    "bytes": 2279,
-    "sha256": "4c321ddc9aa62df7947c39c3e7c4bb3f1111ce26dc0baf7f69c7cd30930c0161"
+  "ios/Resources/BB3/background_bg_test_007.png": {
+    "bytes": 125973,
+    "sha256": "be5b65d9014077c17341c9e064fbed0ac21d06ff6837780582c23c37e8343a7e"
   },
-  "ios/Resources/BB3/brick_brick_18.png": {
-    "bytes": 2619,
-    "sha256": "a2bac09c7c3bd2f9071302124e3635554fada01d8ff4e796e472aed6887e43b7"
+  "ios/Resources/BB3/background_bg_yellowaves.png": {
+    "bytes": 49225,
+    "sha256": "0b4888b55c70f2d04e869f1fdae8e7eef2671ab6e00e587cef7152822ead4b2b"
+  },
+  "ios/Resources/BB3/ball.png": {
+    "bytes": 7141,
+    "sha256": "5f50885ec3ad3deddf9283ac314ac54ad1ed01a545efc85c994151128882d28f"
+  },
+  "ios/Resources/BB3/boss-config.json": {
+    "bytes": 1990,
+    "sha256": "1059037443882164c70d2d124304ba087da19fd3565df6a2035f50b16397076d"
+  },
+  "ios/Resources/BB3/boss-manifest.json": {
+    "bytes": 4679,
+    "sha256": "a07481422545a1eb864c26521ab39e9b3e21e1f08c7c892dc61765568f6219e0"
+  },
+  "ios/Resources/BB3/boss1_body.png": {
+    "bytes": 48462,
+    "sha256": "605f4d85da8be8f077c6774f84f7dbf2c1d0d5d65c0945c86ea66432a03eab64"
+  },
+  "ios/Resources/BB3/boss1_knee.png": {
+    "bytes": 9363,
+    "sha256": "ce911abc744d495df89bae26ce933f171f0897af525bbb2b4090617f25c68688"
+  },
+  "ios/Resources/BB3/boss1_leg.png": {
+    "bytes": 5010,
+    "sha256": "aabe87c18099bed05bf409255fc1099190163431ffea10b704db4c9b8d1e5651"
+  },
+  "ios/Resources/BB3/boss_Boss1Glows.png": {
+    "bytes": 8592,
+    "sha256": "e6e2660e33fcdd25d33980cd7bdf3b659ec0cee09f7791644d71f619ec6d6d97"
+  },
+  "ios/Resources/BB3/boss_Boss1WheelsLeft.png": {
+    "bytes": 8607,
+    "sha256": "a8833020245f77e7439415158deb7a1f6789d7676442e12e3dea83947eac9056"
+  },
+  "ios/Resources/BB3/boss_boss2_body_01.png": {
+    "bytes": 129822,
+    "sha256": "62d3893db4eb41fc911aa41166dbc9bf615f3e6ffeba1a75ea15c75ee8a50017"
+  },
+  "ios/Resources/BB3/boss_boss2_body_01_recycle.png": {
+    "bytes": 120351,
+    "sha256": "7f8c87074565e779665e666590ffb23cedf51577fd954aebd5792a0dbe014154"
+  },
+  "ios/Resources/BB3/boss_boss3_body.png": {
+    "bytes": 94432,
+    "sha256": "aa6849da7ec29caa1954714f21abca50b968cbf59c08d625c79ed223a227c7f8"
   },
   "ios/Resources/BB3/boss_boss3_body_recycle.png": {
     "bytes": 94560,
     "sha256": "3f9879258078926ee7a6390afd0eee4889040fe60c27c34a8c97ddf0a4b421c0"
   },
-  "ios/Resources/BB3/brick_brick_gravity_repel.png": {
-    "bytes": 8085,
-    "sha256": "42b17ad85eadb8f922027bc47067804add2da4d710b544de42ee98a366eefec1"
+  "ios/Resources/BB3/boss_boss3_plasma_ball.png": {
+    "bytes": 20578,
+    "sha256": "172c2c5fdcb0caa3b478d36f2b96b670fa2e9272f9167b66bf304f4709ac0af8"
   },
-  "ios/Resources/BB3/powerup_Laser.png": {
-    "bytes": 8281,
-    "sha256": "e0ef0637aa931f0f7c8c67e03eeae6ec868278aae25c5b201e245d4cf84f2cfb"
+  "ios/Resources/BB3/boss_boss4_body.png": {
+    "bytes": 41889,
+    "sha256": "02500d0e6c69cfb6c2c412ad99c8a9c6d4895fe2497ab7127253f34d9cbd4423"
   },
-  "ios/Resources/BB3/enemy_connector_layer_0.png": {
-    "bytes": 10849,
-    "sha256": "b2b3fffbf68f08192864d638f43c243c751efc11957aee6bd5d0486114f801f4"
+  "ios/Resources/BB3/boss_boss4_pipe.png": {
+    "bytes": 5302,
+    "sha256": "87bfc6d6c2a13d5c3dc71237b3b5052e9ef8a51e998fa0f54adde6098407f044"
   },
-  "ios/Resources/BB3/enemy_vortex_layer_0.png": {
-    "bytes": 9529,
-    "sha256": "eaf6977c00e11acb65ddf9bd75b0afd93cce206704f34ed57488bfc7ad7f1549"
+  "ios/Resources/BB3/boss_boss5_body.png": {
+    "bytes": 73500,
+    "sha256": "58a6e5361658928f97d379b3b513907d10942f52b8ff23801cae8a17149ac3c2"
   },
-  "ios/Resources/BB3/enemy_shielded_layer_0.png": {
-    "bytes": 5921,
-    "sha256": "bf8a6ce81b5f1bbbfc144eb0408952fe2267ff91ff4a6a0aaec3123f306316c6"
+  "ios/Resources/BB3/boss_boss5_body_recycle.png": {
+    "bytes": 71757,
+    "sha256": "1a8a3567e6cabfcb7cd3778077d8d0ce0f8f690908d17b242c5a13976a4822d5"
   },
-  "ios/Resources/BB3/brick_square_brick_17.png": {
-    "bytes": 5514,
-    "sha256": "b3f7960621979f0a0fa1ef65ad96a255df2b24a12f4fded518fe66b65018b1cf"
+  "ios/Resources/BB3/boss_boss5_fuse.png": {
+    "bytes": 10036,
+    "sha256": "77136ea2f202c150198ac9349211606c9fce6cf471304b5cbe1c4c399c5b98fb"
   },
-  "ios/Resources/BB3/brick_square_brick_03.png": {
-    "bytes": 5112,
-    "sha256": "4e81343fe52785e09e1eda6a41d429c3dacc6e617dbd7bc9adab314ba89bd367"
+  "ios/Resources/BB3/boss_boss5_ring.png": {
+    "bytes": 17345,
+    "sha256": "2ee6bbad4bdd10a950fdae43510fd30e0b2210fae843bade220c727ec166a65d"
   },
-  "ios/Resources/BB3/background_bg_lightPurple.png": {
-    "bytes": 61982,
-    "sha256": "17575e5bdcf30b7c0c4ea1df8aefa3b25bbc3c88afd8ea8bda661ca9c8b7875c"
+  "ios/Resources/BB3/brick_Triangular2x2.png": {
+    "bytes": 4869,
+    "sha256": "cea4ef508f93275d1b658c6ce5bbab122eede6a3ed74d2d9ad4f7ec40d03ca60"
   },
-  "ios/Resources/BB3/enemy_explosion.png": {
-    "bytes": 21545,
-    "sha256": "b7c448ce5e98da2122cb74572745bc8d344812fdbdbb4d7ec14a9b2508e482a5"
+  "ios/Resources/BB3/brick_Triangular2x2_FLIP.png": {
+    "bytes": 4803,
+    "sha256": "6d7678d2baecc0d2ecfb5dc0f639475529f2a41f90dbbc60c2561ff25b09088a"
+  },
+  "ios/Resources/BB3/brick_Triangular2x2_FLIP_unbrake.png": {
+    "bytes": 3812,
+    "sha256": "9be2504d980bcf3ec410c0cad42bbba2ffb28f760c574b959a862538da88c1d3"
+  },
+  "ios/Resources/BB3/brick_Triangular2x2_unbrake.png": {
+    "bytes": 3835,
+    "sha256": "9a9f5524b7bf8c52850eeeaa7a0062e9de3e4dd98023d0757b5ec4cfe1da4ed6"
+  },
+  "ios/Resources/BB3/brick_brick_00.png": {
+    "bytes": 2443,
+    "sha256": "ce7e097162cbf331607b7d9c113aa4abaab67f3a7538c8589d4013562c3769e4"
+  },
+  "ios/Resources/BB3/brick_brick_00_vert.png": {
+    "bytes": 2883,
+    "sha256": "a40e8f8bb2ed6aed90fe300d22b3ae17a61ebf600c23326c9edc232acad8313f"
+  },
+  "ios/Resources/BB3/brick_brick_01.png": {
+    "bytes": 2556,
+    "sha256": "6b328868faac839997551f63ff81a21199f6c793f085ab2fbbb4fe5a7ff35df7"
+  },
+  "ios/Resources/BB3/brick_brick_01_vert.png": {
+    "bytes": 2953,
+    "sha256": "08c76294e56976de3c9c0d3d6a7f1007ea600ee53882366021df76f744043f2d"
+  },
+  "ios/Resources/BB3/brick_brick_02.png": {
+    "bytes": 2701,
+    "sha256": "0a361a8aba01f391ac88ee0503f53176d175ae0477dda3e83aaa58a3b72de33e"
+  },
+  "ios/Resources/BB3/brick_brick_02_vert.png": {
+    "bytes": 3111,
+    "sha256": "20b08c6993781e57b4ac58b31ae90527efa4b45051fa44bfa8e7f5b9ab36d5c4"
+  },
+  "ios/Resources/BB3/brick_brick_03.png": {
+    "bytes": 2801,
+    "sha256": "a3e2531833a6da8c775e4a3908c773014c881c995a9adb52f859847efa0f7eb8"
+  },
+  "ios/Resources/BB3/brick_brick_03_vert.png": {
+    "bytes": 3179,
+    "sha256": "f4a188285b73f89ea99828dc4f8f1f541cca00820f47086c0bdfd952f236921a"
+  },
+  "ios/Resources/BB3/brick_brick_04.png": {
+    "bytes": 2807,
+    "sha256": "82d5be0121739f85aa65d7bf07ce6a03bda88f7d936a10ef4248f34a053e097e"
+  },
+  "ios/Resources/BB3/brick_brick_04_vert.png": {
+    "bytes": 3099,
+    "sha256": "f0f400ec1bff601e125ac6ecce2d19b41d5423983ef9391b2798ae780e9a513f"
+  },
+  "ios/Resources/BB3/brick_brick_05.png": {
+    "bytes": 2634,
+    "sha256": "8df46eda91a0cc9d9fb64e1c0f1dfb840eae1a641321a40c37fe3122c4f3ae66"
+  },
+  "ios/Resources/BB3/brick_brick_05_vert.png": {
+    "bytes": 2893,
+    "sha256": "4110fce3dc9a17a856baec2b82fb194264e3c302db3da5a9001cf95256cbe160"
+  },
+  "ios/Resources/BB3/brick_brick_06.png": {
+    "bytes": 2729,
+    "sha256": "57840fae7d6c312843f5f70ab78df36b6fc8de49595d64ee1e17b062e3776aeb"
+  },
+  "ios/Resources/BB3/brick_brick_07.png": {
+    "bytes": 2731,
+    "sha256": "35c6809ea4f97a5681fae578d411eb76fbf804960d310cff8652fdeb30235331"
   },
   "ios/Resources/BB3/brick_brick_07_vert.png": {
     "bytes": 3189,
     "sha256": "d9660385b037f2bda285a8dc2937b3e052fd77d720003e7604a2ec609e0a43a4"
   },
-  "ios/Resources/BB3/brick_brick_extraball.png": {
-    "bytes": 4556,
-    "sha256": "b3826afaa1a16782c264e881800b37b12e466967525fe90829568324d3d2f6ea"
+  "ios/Resources/BB3/brick_brick_08.png": {
+    "bytes": 2714,
+    "sha256": "4720c52cfd869c5f467286059259b3e0d3d3594d3fa91f55fd88abd58312eb96"
   },
-  "ios/Resources/BB3/powerup_GrowPaddle.png": {
-    "bytes": 8230,
-    "sha256": "c47c7e1be88b54c98d63dad43d7f541f003ab8c9d2b8e6a4ae2fa067e6055f96"
+  "ios/Resources/BB3/brick_brick_08_vert.png": {
+    "bytes": 3112,
+    "sha256": "2b34983d6e607fa6b8cc47739cd09eb0526debb0af488cc9d4e6d2eb79cf7780"
   },
-  "ios/Resources/BB3/brick_square_brick_02.png": {
-    "bytes": 4930,
-    "sha256": "25a9f702fc42e7f6b17ea204a7ad144d5a93c216cfa196481d75cc6898cc5b80"
+  "ios/Resources/BB3/brick_brick_09.png": {
+    "bytes": 2585,
+    "sha256": "ea308dd3fc3e727ca6321e25e8b24a35f6fdd2610323955417a1c13d6c436453"
   },
-  "ios/Resources/BB3/brick_square_brick_16.png": {
-    "bytes": 5413,
-    "sha256": "11ae9bba5f107a9f04d4c13cd152027791e35d5f2ff6d9dcbbe24a2a01075e3c"
+  "ios/Resources/BB3/brick_brick_09_vert.png": {
+    "bytes": 3065,
+    "sha256": "b2d31d8babec25f541187ec33bc0a8077f14acfd42d6573fcd2cbec22f32ab42"
   },
-  "ios/Resources/BB3/enemy_cloud_layer_4.png": {
-    "bytes": 1659,
-    "sha256": "8d1ed85c3e8c1a7bd57cc34dba35f48b94d22a3de1c298aa0b9d50a491f1f4cb"
+  "ios/Resources/BB3/brick_brick_10.png": {
+    "bytes": 2484,
+    "sha256": "9ac87860b876d59d986d1e526724f963f0f6cc68f828a30b5d1dd8a74247d437"
   },
-  "ios/Resources/BB3/enemy_vortex_layer_1.png": {
-    "bytes": 6836,
-    "sha256": "7f553200bb08a5988d04e3e77dc27044785523258396f5491a0afff021e87215"
+  "ios/Resources/BB3/brick_brick_11.png": {
+    "bytes": 2629,
+    "sha256": "6b46f12e0df02c95c49e49ee009aadd92a0fe8d99848df0baecbbbdfb86df7d3"
+  },
+  "ios/Resources/BB3/brick_brick_12.png": {
+    "bytes": 2560,
+    "sha256": "f98eae2c563186407260a85d2232120627b27879f4185df031a9957ebc17e005"
+  },
+  "ios/Resources/BB3/brick_brick_13.png": {
+    "bytes": 2614,
+    "sha256": "e7d64b26ee3db11d57bfbf74c01174edb1c630c4b98689027c69b10273644c5d"
+  },
+  "ios/Resources/BB3/brick_brick_13_vert.png": {
+    "bytes": 3138,
+    "sha256": "d8e7ae7f387a777ca87db288163c49da3b03f692da0b6fa0b91dc8a902e85a41"
+  },
+  "ios/Resources/BB3/brick_brick_14.png": {
+    "bytes": 2612,
+    "sha256": "f967a3c8dd495966e5bfc85eccfa0469ce949e8f687126435d0b5db3af3df296"
+  },
+  "ios/Resources/BB3/brick_brick_14_vert.png": {
+    "bytes": 3066,
+    "sha256": "f2c90d5a29c8ed4a2cedf4288375f55451129c0254873537bb9e5c1012bd38bc"
+  },
+  "ios/Resources/BB3/brick_brick_15.png": {
+    "bytes": 2566,
+    "sha256": "0c9db11abe7c14a9ddcee942bf94a1e9a2862a53513be10692bb8144e11228e1"
+  },
+  "ios/Resources/BB3/brick_brick_15_vert.png": {
+    "bytes": 3053,
+    "sha256": "885e67dac058283bfcb790dcf7c22472ceeb11a9261383bc6a131d672dbe2370"
+  },
+  "ios/Resources/BB3/brick_brick_16.png": {
+    "bytes": 2766,
+    "sha256": "f54e86909cd58586e4cd2b68af24dad9b31d8b01f13fab3958e7d040cb80db35"
+  },
+  "ios/Resources/BB3/brick_brick_16_vert.png": {
+    "bytes": 3284,
+    "sha256": "c12c9305f618d24de730ca21524ab7430a796f443fecf4098d1095edf50a8f2a"
+  },
+  "ios/Resources/BB3/brick_brick_17.png": {
+    "bytes": 2716,
+    "sha256": "d15805c38c04a49cc66aeb6cbaae440251cefeedc6c5951f7eebcd3f3f9b18a6"
+  },
+  "ios/Resources/BB3/brick_brick_17_vert.png": {
+    "bytes": 3340,
+    "sha256": "03883ad7f4b8c88e464f349e93075a063492b4d514f996d388159addc8a5c12a"
+  },
+  "ios/Resources/BB3/brick_brick_18.png": {
+    "bytes": 2619,
+    "sha256": "a2bac09c7c3bd2f9071302124e3635554fada01d8ff4e796e472aed6887e43b7"
+  },
+  "ios/Resources/BB3/brick_brick_18_vert.png": {
+    "bytes": 3227,
+    "sha256": "57c3dc0bb22d2b50eeddcb16c201f8f8cf5e379d6c52d4ec9fce7fc8533d11bd"
+  },
+  "ios/Resources/BB3/brick_brick_19.png": {
+    "bytes": 2508,
+    "sha256": "b86572be63d021f09248dbb11cee532dfaa8a7b7e5f6ddb735264574918eb27b"
+  },
+  "ios/Resources/BB3/brick_brick_19_vert.png": {
+    "bytes": 3093,
+    "sha256": "902a6875fccde6a951f5a7b3b8ccc731971c17379ebe99c97ff6e79cfd703996"
+  },
+  "ios/Resources/BB3/brick_brick_20.png": {
+    "bytes": 2314,
+    "sha256": "08bef7d47135b158e1c241f3e01cfdf7f51496201f6ab0e8f1b6a1d443191a01"
+  },
+  "ios/Resources/BB3/brick_brick_20_vert.png": {
+    "bytes": 2873,
+    "sha256": "5a536bce4676fe5aaba38fd29aeea04b78091df2d4bfa6a8ecc6651071f21633"
+  },
+  "ios/Resources/BB3/brick_brick_21.png": {
+    "bytes": 2448,
+    "sha256": "9456d5d0d41ed9de1c941a8628be9a9abf8e46b7d37b51d632c1e55ed31d37c8"
+  },
+  "ios/Resources/BB3/brick_brick_21_vert.png": {
+    "bytes": 3106,
+    "sha256": "42a2ca6bd9d4ef460d4d0b2b10b029cba2c38b4cd06fc15330fd079547311807"
+  },
+  "ios/Resources/BB3/brick_brick_22.png": {
+    "bytes": 2606,
+    "sha256": "b95e34bff81ac95d15e4314f49805bcec99a3d99d58c332502370e66f79de185"
+  },
+  "ios/Resources/BB3/brick_brick_22_vert.png": {
+    "bytes": 3246,
+    "sha256": "b9082b1b098ae2ceeed43e9a34f9159093c329f13bb243f5ee99354e73308a46"
+  },
+  "ios/Resources/BB3/brick_brick_23.png": {
+    "bytes": 2628,
+    "sha256": "982e89ae854d2959ff6059374321a0f394c6c5c568cd6e02e8798830d695abdd"
+  },
+  "ios/Resources/BB3/brick_brick_23_vert.png": {
+    "bytes": 3280,
+    "sha256": "92822dfbcc8780cea625b0d3b511cc65076c03c2f4f6c87f3e1ea853853596a5"
+  },
+  "ios/Resources/BB3/brick_brick_24.png": {
+    "bytes": 2696,
+    "sha256": "6ce8eeab3ca6653f95e6bd6310d5a52ba8d4a86f19aa2a97fa394e034b273147"
+  },
+  "ios/Resources/BB3/brick_brick_24_vert.png": {
+    "bytes": 3168,
+    "sha256": "daff8b6b02ad740e796f82e249fda55779e8edaf9add158f2ef6319a2835c30e"
+  },
+  "ios/Resources/BB3/brick_brick_25.png": {
+    "bytes": 2530,
+    "sha256": "22022b04f881aa2b00372ec26d7e32e5d1b73156ae650fa8a6ceb85fe9cd4bca"
+  },
+  "ios/Resources/BB3/brick_brick_25_vert.png": {
+    "bytes": 3138,
+    "sha256": "3a993f169c1c3747742e81ad1a1dc38957aae9e0071c1343465e6fc61a806276"
+  },
+  "ios/Resources/BB3/brick_brick_26.png": {
+    "bytes": 2618,
+    "sha256": "974b92bb648555d0ab641c502adabacdb95e0da4286354c6c71a01ccd9c9594c"
+  },
+  "ios/Resources/BB3/brick_brick_26_vert.png": {
+    "bytes": 3156,
+    "sha256": "b1805815b723c458e3337ba86b9da5e6fc1c9fcfd9acc6d7bb47e888f0e6ce0a"
+  },
+  "ios/Resources/BB3/brick_brick_27.png": {
+    "bytes": 2609,
+    "sha256": "76a447b9fbcfc05c19afb64bfbed32d7f98113dacd2d52dbf2e87eb36081e4bd"
+  },
+  "ios/Resources/BB3/brick_brick_28.png": {
+    "bytes": 2546,
+    "sha256": "8e801ab0aa9c6724d250ac69914cd0901a8797f56f7af9b68c8285da50b75336"
+  },
+  "ios/Resources/BB3/brick_brick_29.png": {
+    "bytes": 2548,
+    "sha256": "5c633c3e1ee7a7f54ac8d87d1775cac1ee4540117dfc81394604c0f94b68bc18"
+  },
+  "ios/Resources/BB3/brick_brick_30.png": {
+    "bytes": 2279,
+    "sha256": "4c321ddc9aa62df7947c39c3e7c4bb3f1111ce26dc0baf7f69c7cd30930c0161"
+  },
+  "ios/Resources/BB3/brick_brick_30_vert.png": {
+    "bytes": 2528,
+    "sha256": "89f730d291acd2b2f4a17f831adc79c040dc3fc52f123176563446b8e4d1a688"
+  },
+  "ios/Resources/BB3/brick_brick_31.png": {
+    "bytes": 1993,
+    "sha256": "3fdf23156b23165f7b9e5cc31870dabbfb9db0c62e297bee583385c1e3f9feef"
+  },
+  "ios/Resources/BB3/brick_brick_Blaster_ball.png": {
+    "bytes": 8518,
+    "sha256": "3634e594199749eeca86dd659e4c3905d1e995ba8a337417093ef6629f9af1a4"
+  },
+  "ios/Resources/BB3/brick_brick_chain.png": {
+    "bytes": 6535,
+    "sha256": "ec53b4d59b656ccf0c4bb10ff691adcb2173b235a8c033fb033af8de45902ec0"
   },
   "ios/Resources/BB3/brick_brick_explosive.png": {
     "bytes": 6311,
     "sha256": "8ea1cd907fe779991c883149b6a99ac4d22c82c3a392081bbdb5673f8c0f64ab"
   },
-  "ios/Resources/BB3/enemy_vortex_layer_3.png": {
-    "bytes": 2411,
-    "sha256": "dcaa8cf43767dbbae7f7a7727fc69a995f940a5e495121a5a97f2f5bbb55cb60"
+  "ios/Resources/BB3/brick_brick_extraball.png": {
+    "bytes": 4556,
+    "sha256": "b3826afaa1a16782c264e881800b37b12e466967525fe90829568324d3d2f6ea"
+  },
+  "ios/Resources/BB3/brick_brick_gold.png": {
+    "bytes": 8184,
+    "sha256": "90f4f83563dda159d9b458bdd4d448e2e6dff521032472c6abcf28befa34f830"
+  },
+  "ios/Resources/BB3/brick_brick_gravity_attract.png": {
+    "bytes": 7832,
+    "sha256": "bbc02b420ef910f52cc6f19f42163dd931f647e90134ce7c938e727386331da2"
+  },
+  "ios/Resources/BB3/brick_brick_gravity_repel.png": {
+    "bytes": 8085,
+    "sha256": "42b17ad85eadb8f922027bc47067804add2da4d710b544de42ee98a366eefec1"
+  },
+  "ios/Resources/BB3/brick_brick_hardside.png": {
+    "bytes": 2450,
+    "sha256": "e6de2e80fec72707e7ec96bd8dea0356590832e21441c9b950d150929ba3fb87"
+  },
+  "ios/Resources/BB3/brick_brick_hardside_2x2.png": {
+    "bytes": 3755,
+    "sha256": "3bd525d51048e28984b6301152a0a184291af4cadef1b214d4eb20fdbef9c7a8"
+  },
+  "ios/Resources/BB3/brick_brick_hardside_darkside.png": {
+    "bytes": 2394,
+    "sha256": "b7fe08071ce6a13db5624cf52695c3acef904e2d2d1d53a7a793d95d0c9d06a7"
+  },
+  "ios/Resources/BB3/brick_brick_nuke.png": {
+    "bytes": 5585,
+    "sha256": "47a92ca247f3146db729506d5bc93050439eaf603d07a0b46a6c97db601432eb"
+  },
+  "ios/Resources/BB3/brick_brick_phantom_2x2.png": {
+    "bytes": 6986,
+    "sha256": "4e92f06c9a2331b6ed0aee255e0036e19b07beffd8cfec8eb6589e0450143539"
+  },
+  "ios/Resources/BB3/brick_brick_plague.png": {
+    "bytes": 4601,
+    "sha256": "5d659a434487f34b67884ec50d4d4f2484b36680459caeeb8a6fbe11f15f1580"
+  },
+  "ios/Resources/BB3/brick_brick_secret.png": {
+    "bytes": 8527,
+    "sha256": "8631ff3cbe88d12281b23d0fc6278eff3fa1f74baea7d993499777675b94c93c"
+  },
+  "ios/Resources/BB3/brick_brick_speedup.png": {
+    "bytes": 6621,
+    "sha256": "c98ae779576a26e9a7df68d8c758b157692844edf466aba68a4f9832e13cad95"
+  },
+  "ios/Resources/BB3/brick_brick_two_hit_stone.png": {
+    "bytes": 1543,
+    "sha256": "3ce2d1dc7293664b810ed620f28820b3891ee2a12ae34e0996788c20cab726b9"
+  },
+  "ios/Resources/BB3/brick_brick_two_hit_stone_2x2.png": {
+    "bytes": 2699,
+    "sha256": "1af5faa28b118d81621d70013f448dd28b2ccd2258765cb92e9db4d339b89443"
+  },
+  "ios/Resources/BB3/brick_brick_unbrakeable.png": {
+    "bytes": 2040,
+    "sha256": "9d9fafd32ff6570c1c506c0fc4f7475b05b21a116ba5c5c5679c099c7c6633f3"
+  },
+  "ios/Resources/BB3/brick_brick_unbrakeable_2x2.png": {
+    "bytes": 3738,
+    "sha256": "ee576e6950cef1a174e4fbb21dad932d24f492783d8d81139d1363444af51652"
   },
   "ios/Resources/BB3/brick_square_brick_00.png": {
     "bytes": 4283,
     "sha256": "3823dc8830da66964e4f081f9d4ea56acbf44859e6b3d368249400f5dd9a4386"
   },
+  "ios/Resources/BB3/brick_square_brick_01.png": {
+    "bytes": 4673,
+    "sha256": "c8ecf98a20f5128ec96196b8a471dc780e363bfd5a0996ff6c60972f32423b10"
+  },
+  "ios/Resources/BB3/brick_square_brick_02.png": {
+    "bytes": 4930,
+    "sha256": "25a9f702fc42e7f6b17ea204a7ad144d5a93c216cfa196481d75cc6898cc5b80"
+  },
+  "ios/Resources/BB3/brick_square_brick_03.png": {
+    "bytes": 5112,
+    "sha256": "4e81343fe52785e09e1eda6a41d429c3dacc6e617dbd7bc9adab314ba89bd367"
+  },
+  "ios/Resources/BB3/brick_square_brick_04.png": {
+    "bytes": 4835,
+    "sha256": "54f4e83a58343f16ae05489bd69e312f8fcf3de19aec6d168412f769b0bafda3"
+  },
+  "ios/Resources/BB3/brick_square_brick_05.png": {
+    "bytes": 4352,
+    "sha256": "677336361973b525a77dab44fb2fa724c9df38e1170b01aca7f905c0faa08f17"
+  },
+  "ios/Resources/BB3/brick_square_brick_06.png": {
+    "bytes": 4731,
+    "sha256": "3bd2a379b192a00ef0f524b1c0854b9d8ed25e893250d7e9f47accc43cc0fbfa"
+  },
+  "ios/Resources/BB3/brick_square_brick_07.png": {
+    "bytes": 4935,
+    "sha256": "9c74c7d0907b1d3222a964908971850ac07559cd0a46434dc1499f4f03c40831"
+  },
+  "ios/Resources/BB3/brick_square_brick_08.png": {
+    "bytes": 4792,
+    "sha256": "723970cd443cab907d89e41d58c7aed1be50c8654ca0d50f85c01b162c96d9d8"
+  },
+  "ios/Resources/BB3/brick_square_brick_09.png": {
+    "bytes": 4650,
+    "sha256": "c8be68bb5f9c21f49f00f5ab6b694e51d15566e1f157efbc164aae1bf1a1a5ef"
+  },
+  "ios/Resources/BB3/brick_square_brick_10.png": {
+    "bytes": 4513,
+    "sha256": "c98e4ee57c84c2cb6bafd5bd74d8517d751190e1f375e08b06daa95aed78a4b5"
+  },
+  "ios/Resources/BB3/brick_square_brick_11.png": {
+    "bytes": 4723,
+    "sha256": "693262e2cc64b6a6108a66325733888492db83ec11bc27e7e354257a77ecdd76"
+  },
+  "ios/Resources/BB3/brick_square_brick_12.png": {
+    "bytes": 4958,
+    "sha256": "2b8458a3e4b6c5d784e6c28402bd08fd1db979be5fb4943f10fe96a383831491"
+  },
+  "ios/Resources/BB3/brick_square_brick_13.png": {
+    "bytes": 4980,
+    "sha256": "75c06e3619851e5e393562dc537182af0a14b6d59daa51022d76212c25dcc998"
+  },
   "ios/Resources/BB3/brick_square_brick_14.png": {
     "bytes": 4675,
     "sha256": "c5064288706f80355a096ababe59d08d40f7ce097bebed2318bd7060d39de06c"
   },
-  "ios/Resources/BB3/enemy_shielded_layer_3.png": {
-    "bytes": 1414,
-    "sha256": "e638e448f7be49a75bcdd26b4fb940db80598b46f88222fe256dbc144ff60de1"
+  "ios/Resources/BB3/brick_square_brick_15.png": {
+    "bytes": 4716,
+    "sha256": "f7f943ba55af2c16db66fcf769211cf497bfa5bdabe90c62170c933e6dd5ea46"
+  },
+  "ios/Resources/BB3/brick_square_brick_16.png": {
+    "bytes": 5413,
+    "sha256": "11ae9bba5f107a9f04d4c13cd152027791e35d5f2ff6d9dcbbe24a2a01075e3c"
+  },
+  "ios/Resources/BB3/brick_square_brick_17.png": {
+    "bytes": 5514,
+    "sha256": "b3f7960621979f0a0fa1ef65ad96a255df2b24a12f4fded518fe66b65018b1cf"
+  },
+  "ios/Resources/BB3/brick_square_brick_18.png": {
+    "bytes": 5378,
+    "sha256": "63c81e1f75064cb865028d0527352190cab8184f6d812ee66f1fceb9b3466eaf"
+  },
+  "ios/Resources/BB3/brick_square_brick_19.png": {
+    "bytes": 5143,
+    "sha256": "b9ccb3d7ce9c2e8602e1d0841bebdb55ce72d3d05eb3ee8d306f795e41112e5b"
+  },
+  "ios/Resources/BB3/brick_square_brick_20.png": {
+    "bytes": 4818,
+    "sha256": "0dfe901dcded1bfed48dc19db23004c1882216df1ef9eb2f36e00a825b67c12b"
+  },
+  "ios/Resources/BB3/brick_square_brick_21.png": {
+    "bytes": 4928,
+    "sha256": "84dc839331916fab58e4190bd8209a2d30d07617539bd4e8e1a3343bcd54b315"
+  },
+  "ios/Resources/BB3/brick_square_brick_22.png": {
+    "bytes": 5208,
+    "sha256": "ca4287ce1a83d81d6dd28f73fa2ecc50f40678701ef528c958abb5910cf4712d"
+  },
+  "ios/Resources/BB3/brick_square_brick_23.png": {
+    "bytes": 5434,
+    "sha256": "cc72af9bca8508751842822992917379ceec65b5c7a513b394e2b363eab808ff"
+  },
+  "ios/Resources/BB3/brick_square_brick_24.png": {
+    "bytes": 5287,
+    "sha256": "bd731508acd6d3ff3eecc7677e146f029fa808e437cec6d5aa89c1aabb234c9f"
+  },
+  "ios/Resources/BB3/brick_square_brick_25.png": {
+    "bytes": 5083,
+    "sha256": "e75fe622f37ee8d84f7471f0379675e545e8e5b5ef88164b7815d1fb01c35704"
+  },
+  "ios/Resources/BB3/brick_square_brick_26.png": {
+    "bytes": 5193,
+    "sha256": "b95948beffc09f002ae445b935d113ffc8911bf974fe01619864ec5d8162f621"
+  },
+  "ios/Resources/BB3/brick_square_brick_27.png": {
+    "bytes": 5332,
+    "sha256": "4ef6286fc6d20cb18e8096002b1633d4a01726b640c38d4750197db6689e0e25"
   },
   "ios/Resources/BB3/brick_square_brick_28.png": {
     "bytes": 5089,
@@ -383,477 +1315,437 @@
     "bytes": 4995,
     "sha256": "7a3ccf029aa5ad267ccaa857c11aeee82a771bf9c83a240aa8d83b70eb0ced21"
   },
-  "ios/Resources/BB3/brick_square_brick_15.png": {
-    "bytes": 4716,
-    "sha256": "f7f943ba55af2c16db66fcf769211cf497bfa5bdabe90c62170c933e6dd5ea46"
-  },
-  "ios/Resources/BB3/brick_square_brick_01.png": {
-    "bytes": 4673,
-    "sha256": "c8ecf98a20f5128ec96196b8a471dc780e363bfd5a0996ff6c60972f32423b10"
-  },
-  "ios/Resources/BB3/boss_boss3_plasma_ball.png": {
-    "bytes": 20578,
-    "sha256": "172c2c5fdcb0caa3b478d36f2b96b670fa2e9272f9167b66bf304f4709ac0af8"
-  },
-  "ios/Resources/BB3/background_bg_lightGreen.png": {
-    "bytes": 61183,
-    "sha256": "a382602a526dd24e25de6c67600b6de5b99c704bebef2727cf4a2323c800749c"
-  },
-  "ios/Resources/BB3/enemy_connector_layer_2.png": {
-    "bytes": 1903,
-    "sha256": "546d53c135c885c7f110769916c570204c1e38a5a915b8119108178495cf8d70"
-  },
-  "ios/Resources/BB3/brick_brick_chain.png": {
-    "bytes": 6535,
-    "sha256": "ec53b4d59b656ccf0c4bb10ff691adcb2173b235a8c033fb033af8de45902ec0"
-  },
-  "ios/Resources/BB3/brick_Triangular2x2.png": {
-    "bytes": 4869,
-    "sha256": "cea4ef508f93275d1b658c6ce5bbab122eede6a3ed74d2d9ad4f7ec40d03ca60"
-  },
-  "ios/Resources/BB3/enemy_cherry_layer_1.png": {
-    "bytes": 7821,
-    "sha256": "fc099dc5aa7439992ea744c39a515253386dc350133bf5fc87d110ce73637976"
-  },
-  "ios/Resources/BB3/enemy_cloud_layer_3.png": {
-    "bytes": 1659,
-    "sha256": "8d1ed85c3e8c1a7bd57cc34dba35f48b94d22a3de1c298aa0b9d50a491f1f4cb"
-  },
-  "ios/Resources/BB3/brick_square_brick_05.png": {
-    "bytes": 4352,
-    "sha256": "677336361973b525a77dab44fb2fa724c9df38e1170b01aca7f905c0faa08f17"
-  },
-  "ios/Resources/BB3/brick_square_brick_11.png": {
-    "bytes": 4723,
-    "sha256": "693262e2cc64b6a6108a66325733888492db83ec11bc27e7e354257a77ecdd76"
-  },
-  "ios/Resources/BB3/brick_brick_two_hit_stone.png": {
-    "bytes": 1543,
-    "sha256": "3ce2d1dc7293664b810ed620f28820b3891ee2a12ae34e0996788c20cab726b9"
-  },
-  "ios/Resources/BB3/brick_square_brick_10.png": {
-    "bytes": 4513,
-    "sha256": "c98e4ee57c84c2cb6bafd5bd74d8517d751190e1f375e08b06daa95aed78a4b5"
-  },
-  "ios/Resources/BB3/brick_square_brick_04.png": {
-    "bytes": 4835,
-    "sha256": "54f4e83a58343f16ae05489bd69e312f8fcf3de19aec6d168412f769b0bafda3"
-  },
-  "ios/Resources/BB3/powerup_SmallPaddle.png": {
-    "bytes": 8532,
-    "sha256": "a18664aa5c1c5ecda75361b66dcb53a7ef9873ef0df9f4f8ca44d0ba1623c808"
-  },
-  "ios/Resources/BB3/enemy_cloud_layer_2.png": {
-    "bytes": 6434,
-    "sha256": "6797b6651f18e668fbfaf457f867e353b42c7b91661fd32422fbd95451a750f9"
-  },
-  "ios/Resources/BB3/brick_brick_two_hit_stone_2x2.png": {
-    "bytes": 2699,
-    "sha256": "1af5faa28b118d81621d70013f448dd28b2ccd2258765cb92e9db4d339b89443"
-  },
-  "ios/Resources/BB3/enemy_cherry_layer_0.png": {
-    "bytes": 9076,
-    "sha256": "fa84be51e85107864e7d1e024a68121eaaa1cbb789989c7dc4f396120f30f9c3"
-  },
-  "ios/Resources/BB3/powerup_Flash.png": {
-    "bytes": 8515,
-    "sha256": "3069f027644dd9aef9b26de42a51ab0cb7cd0a2c316d81ab0d2ff3c7e5317531"
-  },
-  "ios/Resources/BB3/brick_brick_25_vert.png": {
-    "bytes": 3138,
-    "sha256": "3a993f169c1c3747742e81ad1a1dc38957aae9e0071c1343465e6fc61a806276"
-  },
-  "ios/Resources/BB3/brick_brick_24_vert.png": {
-    "bytes": 3168,
-    "sha256": "daff8b6b02ad740e796f82e249fda55779e8edaf9add158f2ef6319a2835c30e"
-  },
-  "ios/Resources/BB3/boss_boss5_ring.png": {
-    "bytes": 17345,
-    "sha256": "2ee6bbad4bdd10a950fdae43510fd30e0b2210fae843bade220c727ec166a65d"
-  },
-  "ios/Resources/BB3/boss_boss2_body_01_recycle.png": {
-    "bytes": 120351,
-    "sha256": "7f8c87074565e779665e666590ffb23cedf51577fd954aebd5792a0dbe014154"
-  },
-  "ios/Resources/BB3/background_bg_bluewaves_v2.png": {
-    "bytes": 151248,
-    "sha256": "8305dd14d44170ccf440cc98b060b6f20b7ec93e06cd2993c5b04cbff2850c5e"
-  },
-  "ios/Resources/BB3/enemy_cloud_layer_0.png": {
-    "bytes": 7075,
-    "sha256": "6b8a9d63b58c7038c24334cb59078ed476a8a7b610a1c4a70aca801cc3bedb4d"
-  },
-  "ios/Resources/BB3/brick_square_brick_12.png": {
-    "bytes": 4958,
-    "sha256": "2b8458a3e4b6c5d784e6c28402bd08fd1db979be5fb4943f10fe96a383831491"
-  },
-  "ios/Resources/BB3/brick_square_brick_06.png": {
-    "bytes": 4731,
-    "sha256": "3bd2a379b192a00ef0f524b1c0854b9d8ed25e893250d7e9f47accc43cc0fbfa"
-  },
-  "ios/Resources/BB3/brick_Triangular2x2_FLIP_unbrake.png": {
-    "bytes": 3812,
-    "sha256": "9be2504d980bcf3ec410c0cad42bbba2ffb28f760c574b959a862538da88c1d3"
-  },
-  "ios/Resources/BB3/background_bg_cloud_blue.png": {
-    "bytes": 106002,
-    "sha256": "902985829bf5136c28503f85221184166f84e021db4f93085c35d3e71ca23432"
-  },
-  "ios/Resources/BB3/brick_square_brick_07.png": {
-    "bytes": 4935,
-    "sha256": "9c74c7d0907b1d3222a964908971850ac07559cd0a46434dc1499f4f03c40831"
-  },
-  "ios/Resources/BB3/brick_brick_unbrakeable_2x2.png": {
-    "bytes": 3738,
-    "sha256": "ee576e6950cef1a174e4fbb21dad932d24f492783d8d81139d1363444af51652"
-  },
-  "ios/Resources/BB3/brick_square_brick_13.png": {
-    "bytes": 4980,
-    "sha256": "75c06e3619851e5e393562dc537182af0a14b6d59daa51022d76212c25dcc998"
-  },
-  "ios/Resources/BB3/enemy_cloud_layer_1.png": {
-    "bytes": 6074,
-    "sha256": "d009776afce09dc75276edf5775a77b9ae3497731346a5426c2ea32bf85b665c"
-  },
-  "ios/Resources/BB3/boss1_leg.png": {
-    "bytes": 5010,
-    "sha256": "aabe87c18099bed05bf409255fc1099190163431ffea10b704db4c9b8d1e5651"
-  },
-  "ios/Resources/BB3/brick_brick_nuke.png": {
-    "bytes": 5585,
-    "sha256": "47a92ca247f3146db729506d5bc93050439eaf603d07a0b46a6c97db601432eb"
-  },
-  "ios/Resources/BB3/enemy_vortex_layer_4.png": {
-    "bytes": 2789,
-    "sha256": "e2a529528fa7b1425db916c1f364184f6a830ac6da641d6014f6ee7bee12fb65"
-  },
-  "ios/Resources/BB3/enemy_cherry_layer_3.png": {
-    "bytes": 2389,
-    "sha256": "86d07abb846f5e20bae0b444e2206787fc0993f5261eb99fe59857867f6687ce"
-  },
-  "ios/Resources/BB3/powerup_Attach.png": {
-    "bytes": 8460,
-    "sha256": "47010629b30336a4a570aadba73c4bc9bce2e98f91ba67534a16691fc6cdb7d0"
-  },
-  "ios/Resources/BB3/powerup_TwinPaddles.png": {
-    "bytes": 8247,
-    "sha256": "7afb24b8100570014c35e8a8e3cecd5e68efe54f0b5cd2bb6cd5e811ce065214"
-  },
-  "ios/Resources/BB3/enemy_pumpkin_layer_3.png": {
-    "bytes": 4094,
-    "sha256": "64dc507258ec7d50e984a487ca32c951247b6aface3bc4d1307837c3053a7e30"
-  },
-  "ios/Resources/BB3/brick_Triangular2x2_FLIP.png": {
-    "bytes": 4803,
-    "sha256": "6d7678d2baecc0d2ecfb5dc0f639475529f2a41f90dbbc60c2561ff25b09088a"
-  },
-  "ios/Resources/BB3/brick_square_brick_22.png": {
-    "bytes": 5208,
-    "sha256": "ca4287ce1a83d81d6dd28f73fa2ecc50f40678701ef528c958abb5910cf4712d"
-  },
-  "ios/Resources/BB3/powerup_Hovering.png": {
-    "bytes": 8419,
-    "sha256": "10e5db31de5fc0d4842175362a4dda012cadfdbbb531a206489a28e3038cdd87"
-  },
-  "ios/Resources/BB3/powerup_PhantomPaddle.png": {
-    "bytes": 8310,
-    "sha256": "6824e4bcb2835ae20f509607e683dba23f46984978ad59ba16f1cf420860ae5e"
-  },
-  "ios/Resources/BB3/brick_brick_gravity_attract.png": {
-    "bytes": 7832,
-    "sha256": "bbc02b420ef910f52cc6f19f42163dd931f647e90134ce7c938e727386331da2"
-  },
-  "ios/Resources/BB3/brick_square_brick_23.png": {
-    "bytes": 5434,
-    "sha256": "cc72af9bca8508751842822992917379ceec65b5c7a513b394e2b363eab808ff"
-  },
-  "ios/Resources/BB3/brick_brick_unbrakeable.png": {
-    "bytes": 2040,
-    "sha256": "9d9fafd32ff6570c1c506c0fc4f7475b05b21a116ba5c5c5679c099c7c6633f3"
-  },
-  "ios/Resources/BB3/enemy_pumpkin_layer_2.png": {
-    "bytes": 2525,
-    "sha256": "d36f90bd801e82acc1d55716c23ce74a390b6ffa88eda85db43f1937fb9cc529"
-  },
-  "ios/Resources/BB3/brick_brick_08_vert.png": {
-    "bytes": 3112,
-    "sha256": "2b34983d6e607fa6b8cc47739cd09eb0526debb0af488cc9d4e6d2eb79cf7780"
-  },
-  "ios/Resources/BB3/brick_brick_09_vert.png": {
-    "bytes": 3065,
-    "sha256": "b2d31d8babec25f541187ec33bc0a8077f14acfd42d6573fcd2cbec22f32ab42"
-  },
-  "ios/Resources/BB3/boss_Boss1WheelsLeft.png": {
-    "bytes": 8607,
-    "sha256": "a8833020245f77e7439415158deb7a1f6789d7676442e12e3dea83947eac9056"
-  },
-  "ios/Resources/BB3/powerup_BlasterBall.png": {
-    "bytes": 8317,
-    "sha256": "e88199b9f49870006da1a95490e1e2a9d45d8c52613dd0ce0142152759a85f0e"
-  },
-  "ios/Resources/BB3/boss_boss5_fuse.png": {
-    "bytes": 10036,
-    "sha256": "77136ea2f202c150198ac9349211606c9fce6cf471304b5cbe1c4c399c5b98fb"
-  },
-  "ios/Resources/BB3/enemy_pumpkin_layer_0.png": {
-    "bytes": 8255,
-    "sha256": "ec7d46ad33a4e8d33ecfacb99ce1d6f21de7743945044ae20bad0718ca203f66"
-  },
-  "ios/Resources/BB3/brick_square_brick_21.png": {
-    "bytes": 4928,
-    "sha256": "84dc839331916fab58e4190bd8209a2d30d07617539bd4e8e1a3343bcd54b315"
-  },
-  "ios/Resources/BB3/background_bg_abstract_green.png": {
-    "bytes": 122800,
-    "sha256": "ce0d599b68c0b71a796f4896a5c2570a5a497d976196a40b4ea95475bb61d2d5"
-  },
-  "ios/Resources/BB3/top_bar.png": {
-    "bytes": 339,
-    "sha256": "e09549d46549ec17d4ad4ab42069628e47178cd5d8ab9d156635cbf24e0e16de"
-  },
-  "ios/Resources/BB3/brick_square_brick_09.png": {
-    "bytes": 4650,
-    "sha256": "c8be68bb5f9c21f49f00f5ab6b694e51d15566e1f157efbc164aae1bf1a1a5ef"
-  },
-  "ios/Resources/BB3/powerup_Zap.png": {
-    "bytes": 8347,
-    "sha256": "10e317a2adac109de7206833333e96e2435cf609992f0427cd00eeb3a46f12c9"
-  },
-  "ios/Resources/BB3/brick_square_brick_08.png": {
-    "bytes": 4792,
-    "sha256": "723970cd443cab907d89e41d58c7aed1be50c8654ca0d50f85c01b162c96d9d8"
-  },
-  "ios/Resources/BB3/brick_square_brick_20.png": {
-    "bytes": 4818,
-    "sha256": "0dfe901dcded1bfed48dc19db23004c1882216df1ef9eb2f36e00a825b67c12b"
-  },
-  "ios/Resources/BB3/boss_boss5_body_recycle.png": {
-    "bytes": 71757,
-    "sha256": "1a8a3567e6cabfcb7cd3778077d8d0ce0f8f690908d17b242c5a13976a4822d5"
-  },
-  "ios/Resources/BB3/brick_brick_02_vert.png": {
-    "bytes": 3111,
-    "sha256": "20b08c6993781e57b4ac58b31ae90527efa4b45051fa44bfa8e7f5b9ab36d5c4"
-  },
-  "ios/Resources/BB3/brick_brick_03_vert.png": {
-    "bytes": 3179,
-    "sha256": "f4a188285b73f89ea99828dc4f8f1f541cca00820f47086c0bdfd952f236921a"
-  },
-  "ios/Resources/BB3/powerup_InertialPaddle.png": {
-    "bytes": 8225,
-    "sha256": "8d0dc394d5c7584832cb7208c3288ce3d10e1dd4f0cf5195c1a308cbdf58e0f1"
-  },
-  "ios/Resources/BB3/brick_brick_21_vert.png": {
-    "bytes": 3106,
-    "sha256": "42a2ca6bd9d4ef460d4d0b2b10b029cba2c38b4cd06fc15330fd079547311807"
-  },
-  "ios/Resources/BB3/brick_brick_20_vert.png": {
-    "bytes": 2873,
-    "sha256": "5a536bce4676fe5aaba38fd29aeea04b78091df2d4bfa6a8ecc6651071f21633"
-  },
-  "ios/Resources/BB3/door_panel_0.png": {
-    "bytes": 1795,
-    "sha256": "8855773f33b8173dabc960979e6f98ad470ffb3a9b9ac5587d12141bffb79584"
-  },
-  "ios/Resources/BB3/brick_square_brick_18.png": {
-    "bytes": 5378,
-    "sha256": "63c81e1f75064cb865028d0527352190cab8184f6d812ee66f1fceb9b3466eaf"
-  },
-  "ios/Resources/BB3/enemy_leaf_layer_0.png": {
-    "bytes": 7186,
-    "sha256": "e9166897ca530bd9aecd2b41890b162efb304d390c85efe93cb00e30e2125a36"
-  },
-  "ios/Resources/BB3/brick_square_brick_24.png": {
-    "bytes": 5287,
-    "sha256": "bd731508acd6d3ff3eecc7677e146f029fa808e437cec6d5aa89c1aabb234c9f"
-  },
   "ios/Resources/BB3/brick_square_brick_30.png": {
     "bytes": 3980,
     "sha256": "0a8a9b3a2facc6a834f8bc65885d17060247be70cbcff8dea8386b48ff382edc"
-  },
-  "ios/Resources/BB3/background_bg_abstract_orange.png": {
-    "bytes": 131692,
-    "sha256": "c0e0a25a4eb1bf5d4b88872913b1ee58fdbcc50e0a8486f71f593956d3beba6d"
   },
   "ios/Resources/BB3/brick_square_brick_31.png": {
     "bytes": 4083,
     "sha256": "affb56c16260d75e82c9f55e832fabf5c6b4d0b7687d0631f68f84c70cf4f68d"
   },
-  "ios/Resources/BB3/brick_square_brick_25.png": {
-    "bytes": 5083,
-    "sha256": "e75fe622f37ee8d84f7471f0379675e545e8e5b5ef88164b7815d1fb01c35704"
+  "ios/Resources/BB3/campaign.json": {
+    "bytes": 9663857,
+    "sha256": "44ba913a709bc381f89ae49245f04f38f9b7a8320d5840240014153b1c753ab1"
   },
-  "ios/Resources/BB3/background_bg_lightBluewaves_v2.png": {
-    "bytes": 78883,
-    "sha256": "cef9524ad016212e3e2c37f090d6ac66bed3618e77281e4cb99e5ef815cded09"
+  "ios/Resources/BB3/cherry_explode_layer_0.png": {
+    "bytes": 8056,
+    "sha256": "43dd3fd7a7be016aa1db6592b222e02b1edb7e17a65e7298fcc56cd2bc0dde21"
   },
-  "ios/Resources/BB3/enemy_leaf_layer_1.png": {
-    "bytes": 7305,
-    "sha256": "9b05a1773d5352d5a0d864a1fea9c94781cd04605554d87e1f165a8771bbf14a"
-  },
-  "ios/Resources/BB3/brick_square_brick_19.png": {
-    "bytes": 5143,
-    "sha256": "b9ccb3d7ce9c2e8602e1d0841bebdb55ce72d3d05eb3ee8d306f795e41112e5b"
+  "ios/Resources/BB3/door_panel_0.png": {
+    "bytes": 1795,
+    "sha256": "8855773f33b8173dabc960979e6f98ad470ffb3a9b9ac5587d12141bffb79584"
   },
   "ios/Resources/BB3/door_panel_1.png": {
     "bytes": 389,
     "sha256": "2458ff8472a5a14ca71961f9e3de2748e5c2abe8e087b8117c4acf048d6ea5f5"
   },
-  "ios/Resources/BB3/boss_boss4_body.png": {
-    "bytes": 41889,
-    "sha256": "02500d0e6c69cfb6c2c412ad99c8a9c6d4895fe2497ab7127253f34d9cbd4423"
-  },
-  "ios/Resources/BB3/boss_boss5_body.png": {
-    "bytes": 73500,
-    "sha256": "58a6e5361658928f97d379b3b513907d10942f52b8ff23801cae8a17149ac3c2"
-  },
-  "ios/Resources/BB3/manifest.json": {
-    "bytes": 69807,
-    "sha256": "ce0c7e711a3200ce5bf1c4b7ccc8f075316efbb3008f9b6c634eba2e03bcdf7d"
-  },
-  "ios/Resources/BB3/enemy-specs.json": {
-    "bytes": 8105,
-    "sha256": "af9d6d66f0beae247e06f6b33a61c9de42edb82b18a523f32de84c6196a1a7f2"
+  "ios/Resources/BB3/door_panel_2.png": {
+    "bytes": 2531,
+    "sha256": "1173abe26ef241665328fa601209ad296a8a1b4afb70eb3c68cadc8efb70660b"
   },
   "ios/Resources/BB3/door_panel_3.png": {
     "bytes": 3259,
     "sha256": "13c51abd57601562e6721e9e5b94c7c59209879167a6bb5d2813ddde9482a083"
   },
-  "ios/Resources/BB3/powerup_8Ball.png": {
-    "bytes": 8339,
-    "sha256": "272c8fd6e4ea5eae973874000157c4231ec075564a07c7c2cd3941b249bc6da8"
+  "ios/Resources/BB3/enemy-assets-manifest.json": {
+    "bytes": 15886,
+    "sha256": "5dac5d5f35b7392ae0e9d1a2fe267adb1b313ebc52357a187f884ba797b8f031"
   },
-  "ios/Resources/BB3/brick_brick_hardside_2x2.png": {
-    "bytes": 3755,
-    "sha256": "3bd525d51048e28984b6301152a0a184291af4cadef1b214d4eb20fdbef9c7a8"
+  "ios/Resources/BB3/enemy-effects-manifest.json": {
+    "bytes": 3328,
+    "sha256": "632966f15f418d71985ef778e4ec88f279af77accb291aa18ad6a12f434588fd"
   },
-  "ios/Resources/BB3/enemy_leaf_layer_3.png": {
-    "bytes": 1545,
-    "sha256": "5d84654bd9074fd8fb74c4a0614290b9c3f6d6368a1d09298d6fcb42e36f550f"
+  "ios/Resources/BB3/enemy-specs.json": {
+    "bytes": 8105,
+    "sha256": "af9d6d66f0beae247e06f6b33a61c9de42edb82b18a523f32de84c6196a1a7f2"
   },
-  "ios/Resources/BB3/boss1_body.png": {
-    "bytes": 48462,
-    "sha256": "605f4d85da8be8f077c6774f84f7dbf2c1d0d5d65c0945c86ea66432a03eab64"
+  "ios/Resources/BB3/enemy_cherry_layer_0.png": {
+    "bytes": 9076,
+    "sha256": "fa84be51e85107864e7d1e024a68121eaaa1cbb789989c7dc4f396120f30f9c3"
   },
-  "ios/Resources/BB3/brick_square_brick_27.png": {
-    "bytes": 5332,
-    "sha256": "4ef6286fc6d20cb18e8096002b1633d4a01726b640c38d4750197db6689e0e25"
+  "ios/Resources/BB3/enemy_cherry_layer_1.png": {
+    "bytes": 7821,
+    "sha256": "fc099dc5aa7439992ea744c39a515253386dc350133bf5fc87d110ce73637976"
   },
-  "ios/Resources/BB3/background_bg_yellowaves.png": {
-    "bytes": 49225,
-    "sha256": "0b4888b55c70f2d04e869f1fdae8e7eef2671ab6e00e587cef7152822ead4b2b"
+  "ios/Resources/BB3/enemy_cherry_layer_3.png": {
+    "bytes": 2389,
+    "sha256": "86d07abb846f5e20bae0b444e2206787fc0993f5261eb99fe59857867f6687ce"
   },
-  "ios/Resources/BB3/brick_square_brick_26.png": {
-    "bytes": 5193,
-    "sha256": "b95948beffc09f002ae445b935d113ffc8911bf974fe01619864ec5d8162f621"
+  "ios/Resources/BB3/enemy_cloud_layer_0.png": {
+    "bytes": 7075,
+    "sha256": "6b8a9d63b58c7038c24334cb59078ed476a8a7b610a1c4a70aca801cc3bedb4d"
   },
-  "ios/Resources/BB3/brick_brick_gold.png": {
-    "bytes": 8184,
-    "sha256": "90f4f83563dda159d9b458bdd4d448e2e6dff521032472c6abcf28befa34f830"
+  "ios/Resources/BB3/enemy_cloud_layer_1.png": {
+    "bytes": 6074,
+    "sha256": "d009776afce09dc75276edf5775a77b9ae3497731346a5426c2ea32bf85b665c"
+  },
+  "ios/Resources/BB3/enemy_cloud_layer_2.png": {
+    "bytes": 6434,
+    "sha256": "6797b6651f18e668fbfaf457f867e353b42c7b91661fd32422fbd95451a750f9"
+  },
+  "ios/Resources/BB3/enemy_cloud_layer_3.png": {
+    "bytes": 1659,
+    "sha256": "8d1ed85c3e8c1a7bd57cc34dba35f48b94d22a3de1c298aa0b9d50a491f1f4cb"
+  },
+  "ios/Resources/BB3/enemy_cloud_layer_4.png": {
+    "bytes": 1659,
+    "sha256": "8d1ed85c3e8c1a7bd57cc34dba35f48b94d22a3de1c298aa0b9d50a491f1f4cb"
+  },
+  "ios/Resources/BB3/enemy_connector_layer_0.png": {
+    "bytes": 10849,
+    "sha256": "b2b3fffbf68f08192864d638f43c243c751efc11957aee6bd5d0486114f801f4"
+  },
+  "ios/Resources/BB3/enemy_connector_layer_2.png": {
+    "bytes": 1903,
+    "sha256": "546d53c135c885c7f110769916c570204c1e38a5a915b8119108178495cf8d70"
+  },
+  "ios/Resources/BB3/enemy_electric_ball_layer_0.png": {
+    "bytes": 9635,
+    "sha256": "164781b075e8a9446eda55f04f971846f7bfbb6d8f314f53c3accf969d00a92b"
+  },
+  "ios/Resources/BB3/enemy_electric_ball_layer_1.png": {
+    "bytes": 1666,
+    "sha256": "2beb1bc30aed4219dc8bc6acdf664d7bc313a098a098de79133f95fbf1a96de1"
+  },
+  "ios/Resources/BB3/enemy_explosion.png": {
+    "bytes": 21545,
+    "sha256": "b7c448ce5e98da2122cb74572745bc8d344812fdbdbb4d7ec14a9b2508e482a5"
+  },
+  "ios/Resources/BB3/enemy_leaf_layer_0.png": {
+    "bytes": 7186,
+    "sha256": "e9166897ca530bd9aecd2b41890b162efb304d390c85efe93cb00e30e2125a36"
+  },
+  "ios/Resources/BB3/enemy_leaf_layer_1.png": {
+    "bytes": 7305,
+    "sha256": "9b05a1773d5352d5a0d864a1fea9c94781cd04605554d87e1f165a8771bbf14a"
   },
   "ios/Resources/BB3/enemy_leaf_layer_2.png": {
     "bytes": 2177,
     "sha256": "675372a782a859f1ff115bc02a57fbb2d0e41dc910bcda572cd6af589cc61991"
   },
-  "ios/Resources/BB3/door_panel_2.png": {
-    "bytes": 2531,
-    "sha256": "1173abe26ef241665328fa601209ad296a8a1b4afb70eb3c68cadc8efb70660b"
+  "ios/Resources/BB3/enemy_leaf_layer_3.png": {
+    "bytes": 1545,
+    "sha256": "5d84654bd9074fd8fb74c4a0614290b9c3f6d6368a1d09298d6fcb42e36f550f"
   },
-  "ios/Resources/BB3/brick_brick_15_vert.png": {
-    "bytes": 3053,
-    "sha256": "885e67dac058283bfcb790dcf7c22472ceeb11a9261383bc6a131d672dbe2370"
+  "ios/Resources/BB3/enemy_pumpkin_layer_0.png": {
+    "bytes": 8255,
+    "sha256": "ec7d46ad33a4e8d33ecfacb99ce1d6f21de7743945044ae20bad0718ca203f66"
   },
-  "ios/Resources/BB3/brick_brick_14_vert.png": {
-    "bytes": 3066,
-    "sha256": "f2c90d5a29c8ed4a2cedf4288375f55451129c0254873537bb9e5c1012bd38bc"
+  "ios/Resources/BB3/enemy_pumpkin_layer_2.png": {
+    "bytes": 2525,
+    "sha256": "d36f90bd801e82acc1d55716c23ce74a390b6ffa88eda85db43f1937fb9cc529"
   },
-  "ios/Resources/BB3/powerup_NightBall.png": {
-    "bytes": 8515,
-    "sha256": "cba348e0ed0f9f584516bf483a862212c7b308386096d08d070333a28070f6d6"
-  },
-  "ios/Resources/BB3/paddle_1.png": {
-    "bytes": 21300,
-    "sha256": "bc079b715ee1fa581c34de36cf5427a5907d5bb0a80431508ce120dacb232a31"
-  },
-  "ios/Resources/BB3/brick_brick_26_vert.png": {
-    "bytes": 3156,
-    "sha256": "b1805815b723c458e3337ba86b9da5e6fc1c9fcfd9acc6d7bb47e888f0e6ce0a"
+  "ios/Resources/BB3/enemy_pumpkin_layer_3.png": {
+    "bytes": 4094,
+    "sha256": "64dc507258ec7d50e984a487ca32c951247b6aface3bc4d1307837c3053a7e30"
   },
   "ios/Resources/BB3/enemy_shadowvortex_layer_1.png": {
     "bytes": 25163,
     "sha256": "320b861eeda354e75149285a2c94aead0dce007ddc1ed7ad4008f58ad8d14988"
   },
-  "ios/Resources/BB3/background_bg_lightBluewaves.png": {
-    "bytes": 78883,
-    "sha256": "cef9524ad016212e3e2c37f090d6ac66bed3618e77281e4cb99e5ef815cded09"
+  "ios/Resources/BB3/enemy_shadowvortex_layer_2.png": {
+    "bytes": 3115,
+    "sha256": "6d2d06e9699566c4f9513fd2819db39bec85d1217ccd33f779fa35257d2b0e7d"
   },
-  "ios/Resources/BB3/brick_brick_15.png": {
-    "bytes": 2566,
-    "sha256": "0c9db11abe7c14a9ddcee942bf94a1e9a2862a53513be10692bb8144e11228e1"
+  "ios/Resources/BB3/enemy_shielded_layer_0.png": {
+    "bytes": 5921,
+    "sha256": "bf8a6ce81b5f1bbbfc144eb0408952fe2267ff91ff4a6a0aaec3123f306316c6"
   },
-  "ios/Resources/BB3/brick_brick_01.png": {
-    "bytes": 2556,
-    "sha256": "6b328868faac839997551f63ff81a21199f6c793f085ab2fbbb4fe5a7ff35df7"
+  "ios/Resources/BB3/enemy_shielded_layer_3.png": {
+    "bytes": 1414,
+    "sha256": "e638e448f7be49a75bcdd26b4fb940db80598b46f88222fe256dbc144ff60de1"
   },
-  "ios/Resources/BB3/brick_brick_29.png": {
-    "bytes": 2548,
-    "sha256": "5c633c3e1ee7a7f54ac8d87d1775cac1ee4540117dfc81394604c0f94b68bc18"
+  "ios/Resources/BB3/enemy_snowflake_layer_0.png": {
+    "bytes": 3115,
+    "sha256": "6d2d06e9699566c4f9513fd2819db39bec85d1217ccd33f779fa35257d2b0e7d"
   },
-  "ios/Resources/BB3/brick_brick_18_vert.png": {
-    "bytes": 3227,
-    "sha256": "57c3dc0bb22d2b50eeddcb16c201f8f8cf5e379d6c52d4ec9fce7fc8533d11bd"
+  "ios/Resources/BB3/enemy_snowflake_layer_1.png": {
+    "bytes": 7529,
+    "sha256": "86dd60baa84b52a37879f32565ffe2612ed15877725e07fee57c3df2ff35fdac"
   },
-  "ios/Resources/BB3/brick_brick_19_vert.png": {
-    "bytes": 3093,
-    "sha256": "902a6875fccde6a951f5a7b3b8ccc731971c17379ebe99c97ff6e79cfd703996"
+  "ios/Resources/BB3/enemy_snowflake_layer_2.png": {
+    "bytes": 1837,
+    "sha256": "00a9d1ab4a46981a3a74b92084fd0a07d92d04e2d0e6d6bc208d27b4b5ac69d8"
   },
-  "ios/Resources/BB3/brick_brick_28.png": {
-    "bytes": 2546,
-    "sha256": "8e801ab0aa9c6724d250ac69914cd0901a8797f56f7af9b68c8285da50b75336"
+  "ios/Resources/BB3/enemy_snowflake_layer_3.png": {
+    "bytes": 1010,
+    "sha256": "3b53fe6cbef34561243e73adf12dee6e6a761c493aae6bf01f86c40451c58f30"
   },
-  "ios/Resources/BB3/brick_brick_00.png": {
-    "bytes": 2443,
-    "sha256": "ce7e097162cbf331607b7d9c113aa4abaab67f3a7538c8589d4013562c3769e4"
+  "ios/Resources/BB3/enemy_vortex_layer_0.png": {
+    "bytes": 9529,
+    "sha256": "eaf6977c00e11acb65ddf9bd75b0afd93cce206704f34ed57488bfc7ad7f1549"
   },
-  "ios/Resources/BB3/brick_brick_14.png": {
-    "bytes": 2612,
-    "sha256": "f967a3c8dd495966e5bfc85eccfa0469ce949e8f687126435d0b5db3af3df296"
+  "ios/Resources/BB3/enemy_vortex_layer_1.png": {
+    "bytes": 6836,
+    "sha256": "7f553200bb08a5988d04e3e77dc27044785523258396f5491a0afff021e87215"
   },
-  "ios/Resources/BB3/powerup_BigBall.png": {
-    "bytes": 8247,
-    "sha256": "3697f2bf8a090741b5af24e1e552051e977cf494567b579467ad16443609f260"
+  "ios/Resources/BB3/enemy_vortex_layer_3.png": {
+    "bytes": 2411,
+    "sha256": "dcaa8cf43767dbbae7f7a7727fc69a995f940a5e495121a5a97f2f5bbb55cb60"
   },
-  "ios/Resources/BB3/background_bg_abstract_red.png": {
-    "bytes": 132419,
-    "sha256": "df54b16d68352f04eebdd2f513484e09eab78f6a2605d43b7c03ffd1671c6f9d"
+  "ios/Resources/BB3/enemy_vortex_layer_4.png": {
+    "bytes": 2789,
+    "sha256": "e2a529528fa7b1425db916c1f364184f6a830ac6da641d6014f6ee7bee12fb65"
+  },
+  "ios/Resources/BB3/fxs_explosion02_0.png": {
+    "bytes": 5094,
+    "sha256": "e36f3c38babd1e70d64f3ba7583590efd7c4beb4c2c12d76dc3f2e546759047e"
+  },
+  "ios/Resources/BB3/fxs_explosion02_1.png": {
+    "bytes": 9652,
+    "sha256": "39acc4a58a3279a2ba50a1b96e5055e43e1a1d418cb5b0f9860231320452b9eb"
+  },
+  "ios/Resources/BB3/fxs_explosion02_10.png": {
+    "bytes": 6115,
+    "sha256": "acb765be20c2c76e164308ecc0af0ef48ed9facb74824184b4fd32b25deb3d99"
+  },
+  "ios/Resources/BB3/fxs_explosion02_11.png": {
+    "bytes": 4942,
+    "sha256": "f2abc4bf61452fa9e3ef891b36a7fff1626947726a435ef5778d0b00274c089c"
+  },
+  "ios/Resources/BB3/fxs_explosion02_12.png": {
+    "bytes": 2984,
+    "sha256": "eef3126a64ee6023d0b2fad75e4edc8b03ca30a9fd625136ea36cd9d1a88f1a6"
+  },
+  "ios/Resources/BB3/fxs_explosion02_13.png": {
+    "bytes": 390,
+    "sha256": "acf548744b89fc028affe4fe678220433c8731f9eff0d741012d6f1391f8786a"
+  },
+  "ios/Resources/BB3/fxs_explosion02_14.png": {
+    "bytes": 390,
+    "sha256": "acf548744b89fc028affe4fe678220433c8731f9eff0d741012d6f1391f8786a"
+  },
+  "ios/Resources/BB3/fxs_explosion02_15.png": {
+    "bytes": 390,
+    "sha256": "acf548744b89fc028affe4fe678220433c8731f9eff0d741012d6f1391f8786a"
+  },
+  "ios/Resources/BB3/fxs_explosion02_2.png": {
+    "bytes": 14950,
+    "sha256": "1ca7f3d89be50f9291eec5c7037ca5c1e9f368501dd2fd27591f96a4393c9c55"
+  },
+  "ios/Resources/BB3/fxs_explosion02_3.png": {
+    "bytes": 20057,
+    "sha256": "00e58c2110fe2dbbc4b3d5de47b7e863917999f229989d46b10d8aa125dd71a9"
+  },
+  "ios/Resources/BB3/fxs_explosion02_4.png": {
+    "bytes": 23860,
+    "sha256": "1ceee302e3c03c146cd6d0aa1e963bea1005b9d2cb2075c9fbe3c9491f8b3d4c"
+  },
+  "ios/Resources/BB3/fxs_explosion02_5.png": {
+    "bytes": 25620,
+    "sha256": "23c2c720c3c46ce846b8a4730eb85bbf7306d4aabf2e8bc3e609995109e3025f"
+  },
+  "ios/Resources/BB3/fxs_explosion02_6.png": {
+    "bytes": 25575,
+    "sha256": "03f6c69d1d450b9d2ec71eb8f308c9fd97dbe94c370916f5cc1f9d265219753e"
+  },
+  "ios/Resources/BB3/fxs_explosion02_7.png": {
+    "bytes": 23128,
+    "sha256": "c614c83cf8637d80aa85d933170bba8827f8a88d2e49685fdbc4b13645f61cfc"
+  },
+  "ios/Resources/BB3/fxs_explosion02_8.png": {
+    "bytes": 17268,
+    "sha256": "b524eee67fa5b32252acf34b0bcea0a5a60f0ffe2dd3d5969889c32c0ae06571"
+  },
+  "ios/Resources/BB3/fxs_explosion02_9.png": {
+    "bytes": 10004,
+    "sha256": "0541ff0e2be0b5cbdf10f3ff538e636f56e2462873c35f41428deab60ad579b9"
+  },
+  "ios/Resources/BB3/fxs_spacexplosion01_0.png": {
+    "bytes": 22377,
+    "sha256": "8b6beba2d81339a934e1be0f8848350b6637972f2067f2d7cc19251e71aa5660"
+  },
+  "ios/Resources/BB3/fxs_spacexplosion02_0.png": {
+    "bytes": 16141,
+    "sha256": "ec7bd76840661c0b7504d6b8717aa4c2be833140adc19e79885078b869c02657"
+  },
+  "ios/Resources/BB3/left_side_blue.png": {
+    "bytes": 92748,
+    "sha256": "8df2142c3c3bc0ffab35b996b1debdf9786c810a5daef2a4eaccc543c4a8004e"
+  },
+  "ios/Resources/BB3/left_side_blue_w.png": {
+    "bytes": 25273,
+    "sha256": "67bb510c798195dcb01d2d0530ea034eb9af990ba1d16879bc28e783f9d44942"
+  },
+  "ios/Resources/BB3/manifest.json": {
+    "bytes": 69807,
+    "sha256": "ce0c7e711a3200ce5bf1c4b7ccc8f075316efbb3008f9b6c634eba2e03bcdf7d"
   },
   "ios/Resources/BB3/paddle_0.png": {
     "bytes": 21049,
     "sha256": "19c2e4a02befe15ebca52ffa9225d6f9c37af0dd6d07a9e1d26df127001d0d92"
   },
+  "ios/Resources/BB3/paddle_1.png": {
+    "bytes": 21300,
+    "sha256": "bc079b715ee1fa581c34de36cf5427a5907d5bb0a80431508ce120dacb232a31"
+  },
   "ios/Resources/BB3/paddle_2.png": {
     "bytes": 20609,
     "sha256": "0540d004603594640d508faa6f0bb0883f2ba46cafe536daa399263932383e01"
   },
-  "ios/Resources/BB3/enemy_shadowvortex_layer_2.png": {
-    "bytes": 3115,
-    "sha256": "6d2d06e9699566c4f9513fd2819db39bec85d1217ccd33f779fa35257d2b0e7d"
+  "ios/Resources/BB3/paddle_3.png": {
+    "bytes": 21016,
+    "sha256": "b351c7b5fff83b3accae734a074512181db6f2a42b8c384aaaa645f4e1a4f6a2"
   },
-  "ios/Resources/BB3/boss_boss3_body.png": {
-    "bytes": 94432,
-    "sha256": "aa6849da7ec29caa1954714f21abca50b968cbf59c08d625c79ed223a227c7f8"
+  "ios/Resources/BB3/paddle_4.png": {
+    "bytes": 20590,
+    "sha256": "fe642044fd8b470e8680d503eaf7062218667cec0b16929cf2094f28f8c10064"
   },
-  "ios/Resources/BB3/brick_brick_02.png": {
-    "bytes": 2701,
-    "sha256": "0a361a8aba01f391ac88ee0503f53176d175ae0477dda3e83aaa58a3b72de33e"
+  "ios/Resources/BB3/paddle_5.png": {
+    "bytes": 20781,
+    "sha256": "b8e1f1b2af523b0598b8930d2353e2cd8c5737e7673879b7d47e5e215f13ca36"
   },
-  "ios/Resources/BB3/brick_brick_16.png": {
-    "bytes": 2766,
-    "sha256": "f54e86909cd58586e4cd2b68af24dad9b31d8b01f13fab3958e7d040cb80db35"
+  "ios/Resources/BB3/paddle_6.png": {
+    "bytes": 20829,
+    "sha256": "ee18ba22940a2806d0fa6759e624d8dc360632d51d32ba76156968cb28a85e9a"
   },
-  "ios/Resources/BB3/enemy_electric_ball_layer_0.png": {
-    "bytes": 9635,
-    "sha256": "164781b075e8a9446eda55f04f971846f7bfbb6d8f314f53c3accf969d00a92b"
+  "ios/Resources/BB3/paddle_7.png": {
+    "bytes": 21307,
+    "sha256": "316400b8d8df6c28e5b71f4880811b3be82fe2fb5a662429f9f4e10519172a08"
+  },
+  "ios/Resources/BB3/paddle_center.png": {
+    "bytes": 2939,
+    "sha256": "f787527895f5ad23679ae5f64549f56114de7f8586d0cf1529c4aee92be8cb6d"
+  },
+  "ios/Resources/BB3/paddle_end.png": {
+    "bytes": 15569,
+    "sha256": "64c3a2f79414273687d119b53de5311c32e7c9e7bc4c037ca8998a6d02ef8eb5"
+  },
+  "ios/Resources/BB3/paddle_end_0.png": {
+    "bytes": 15569,
+    "sha256": "64c3a2f79414273687d119b53de5311c32e7c9e7bc4c037ca8998a6d02ef8eb5"
+  },
+  "ios/Resources/BB3/paddle_end_1.png": {
+    "bytes": 15563,
+    "sha256": "93f814c29dc04bd0168cb00d915438299193bef108595311290db95874a2d137"
+  },
+  "ios/Resources/BB3/paddle_end_2.png": {
+    "bytes": 15243,
+    "sha256": "a5080d3bf49918e5fdb4652ab3eb8dc88e0d550a55384482226d06257e41240e"
+  },
+  "ios/Resources/BB3/paddle_end_3.png": {
+    "bytes": 15351,
+    "sha256": "10a1f2fd05fd15b7bb96d2297f9a6eda3e060b59ab6842fc957c2cf843681c31"
+  },
+  "ios/Resources/BB3/paddle_end_4.png": {
+    "bytes": 15418,
+    "sha256": "f1bd5faf883dc4903587e04bcdb76d1bafe34567966eb394a02c3ae35acfa523"
+  },
+  "ios/Resources/BB3/paddle_end_5.png": {
+    "bytes": 15331,
+    "sha256": "de201d7bfc4a02da9235b876ec34281ce5bc7e065a2695232362bb5405a4946d"
+  },
+  "ios/Resources/BB3/paddle_end_6.png": {
+    "bytes": 15526,
+    "sha256": "1166c0aa1a5c4aa49cf48f37c14ef6152b9e6843d4563868abfecb768aab0e4f"
+  },
+  "ios/Resources/BB3/paddle_end_7.png": {
+    "bytes": 15508,
+    "sha256": "0fa47d436eb49242a1b8d5cd32e276c525abcb7c97589f699985bb693ce7c55e"
+  },
+  "ios/Resources/BB3/powerup_1Up.png": {
+    "bytes": 8313,
+    "sha256": "c94119b125eb3f945a7fe5d67f624ac334249dc058902473393d41a0de097f1d"
+  },
+  "ios/Resources/BB3/powerup_8Ball.png": {
+    "bytes": 8339,
+    "sha256": "272c8fd6e4ea5eae973874000157c4231ec075564a07c7c2cd3941b249bc6da8"
+  },
+  "ios/Resources/BB3/powerup_Attach.png": {
+    "bytes": 8460,
+    "sha256": "47010629b30336a4a570aadba73c4bc9bce2e98f91ba67534a16691fc6cdb7d0"
+  },
+  "ios/Resources/BB3/powerup_BigBall.png": {
+    "bytes": 8247,
+    "sha256": "3697f2bf8a090741b5af24e1e552051e977cf494567b579467ad16443609f260"
+  },
+  "ios/Resources/BB3/powerup_BlasterBall.png": {
+    "bytes": 8317,
+    "sha256": "e88199b9f49870006da1a95490e1e2a9d45d8c52613dd0ce0142152759a85f0e"
+  },
+  "ios/Resources/BB3/powerup_Catcher.png": {
+    "bytes": 8354,
+    "sha256": "2d9a66886730772ca8cdf89b9f78008c8bd6c5e8cde57f6778aa031d3b91afa0"
+  },
+  "ios/Resources/BB3/powerup_EnergyBall.png": {
+    "bytes": 8181,
+    "sha256": "7a2acc1c2dc7f7dd790270e0d28dab3109c05886c5fe7bc3ff6e00f1e976183d"
+  },
+  "ios/Resources/BB3/powerup_ExplosiveBall.png": {
+    "bytes": 8520,
+    "sha256": "49b56086466c730a4aa503625b1a2c6b6586b7f005327dcfbadf7bf975a44fe6"
+  },
+  "ios/Resources/BB3/powerup_FastBall.png": {
+    "bytes": 8279,
+    "sha256": "7e1c14820eb648a9f985331fba23ba14f513543040d7472759d0246de7ec0c2f"
+  },
+  "ios/Resources/BB3/powerup_Flash.png": {
+    "bytes": 8515,
+    "sha256": "3069f027644dd9aef9b26de42a51ab0cb7cd0a2c316d81ab0d2ff3c7e5317531"
+  },
+  "ios/Resources/BB3/powerup_GrowPaddle.png": {
+    "bytes": 8230,
+    "sha256": "c47c7e1be88b54c98d63dad43d7f541f003ab8c9d2b8e6a4ae2fa067e6055f96"
+  },
+  "ios/Resources/BB3/powerup_Hovering.png": {
+    "bytes": 8419,
+    "sha256": "10e5db31de5fc0d4842175362a4dda012cadfdbbb531a206489a28e3038cdd87"
+  },
+  "ios/Resources/BB3/powerup_InertialPaddle.png": {
+    "bytes": 8225,
+    "sha256": "8d0dc394d5c7584832cb7208c3288ce3d10e1dd4f0cf5195c1a308cbdf58e0f1"
+  },
+  "ios/Resources/BB3/powerup_Laser.png": {
+    "bytes": 8281,
+    "sha256": "e0ef0637aa931f0f7c8c67e03eeae6ec868278aae25c5b201e245d4cf84f2cfb"
+  },
+  "ios/Resources/BB3/powerup_NightBall.png": {
+    "bytes": 8515,
+    "sha256": "cba348e0ed0f9f584516bf483a862212c7b308386096d08d070333a28070f6d6"
+  },
+  "ios/Resources/BB3/powerup_PhantomPaddle.png": {
+    "bytes": 8310,
+    "sha256": "6824e4bcb2835ae20f509607e683dba23f46984978ad59ba16f1cf420860ae5e"
+  },
+  "ios/Resources/BB3/powerup_ReplicateBall.png": {
+    "bytes": 8391,
+    "sha256": "d91c98e7ecc5dd086316ff3faa1cbc2e210a1149929603e2076313e1c7f5b9d4"
+  },
+  "ios/Resources/BB3/powerup_Scorex2.png": {
+    "bytes": 8681,
+    "sha256": "4790b2e0ba821e5367e8427fb4950fb6b261f54588e81c9b14802875159ab7c4"
+  },
+  "ios/Resources/BB3/powerup_Scorex3.png": {
+    "bytes": 8637,
+    "sha256": "28b45c101db77ddb9af97ed69084ac6225094c71c05b366dcf117d23c9ee57f9"
+  },
+  "ios/Resources/BB3/powerup_SlowBall.png": {
+    "bytes": 8408,
+    "sha256": "e330ee1e98d1b123f35d9eef3ee5f2ac2f9545461f194c9b103f5afddf440d35"
+  },
+  "ios/Resources/BB3/powerup_SmallPaddle.png": {
+    "bytes": 8532,
+    "sha256": "a18664aa5c1c5ecda75361b66dcb53a7ef9873ef0df9f4f8ca44d0ba1623c808"
+  },
+  "ios/Resources/BB3/powerup_SplitBall.png": {
+    "bytes": 8437,
+    "sha256": "42e0072d9798e2cbb39d6a8b888dbec124d18880d1b6903345ed74220391724b"
+  },
+  "ios/Resources/BB3/powerup_TwinPaddles.png": {
+    "bytes": 8247,
+    "sha256": "7afb24b8100570014c35e8a8e3cecd5e68efe54f0b5cd2bb6cd5e811ce065214"
+  },
+  "ios/Resources/BB3/powerup_Vision.png": {
+    "bytes": 8487,
+    "sha256": "488f0bed91dc3054e13cd0d3f8001ed9886c1f40a79e1f34d31eb66b22406316"
+  },
+  "ios/Resources/BB3/powerup_Zap.png": {
+    "bytes": 8347,
+    "sha256": "10e317a2adac109de7206833333e96e2435cf609992f0427cd00eeb3a46f12c9"
+  },
+  "ios/Resources/BB3/top_bar.png": {
+    "bytes": 339,
+    "sha256": "e09549d46549ec17d4ad4ab42069628e47178cd5d8ab9d156635cbf24e0e16de"
   },
   "ios/Resources/BB3/vista_left.png": {
     "bytes": 27141,
@@ -863,185 +1755,13 @@
     "bytes": 3026,
     "sha256": "cebe0e515a8458081a11522752982a6106ddae9daf62bce418f5c39daf9baf2e"
   },
-  "ios/Resources/BB3/brick_brick_plague.png": {
-    "bytes": 4601,
-    "sha256": "5d659a434487f34b67884ec50d4d4f2484b36680459caeeb8a6fbe11f15f1580"
+  "ios/Resources/BB3/vista_top.png": {
+    "bytes": 642,
+    "sha256": "103a4fb4a3fa1b46b52ca3fbfa357eca3ab05592e8e8de5bdeaf689d851f8c7a"
   },
-  "ios/Resources/BB3/enemy_electric_ball_layer_1.png": {
-    "bytes": 1666,
-    "sha256": "2beb1bc30aed4219dc8bc6acdf664d7bc313a098a098de79133f95fbf1a96de1"
-  },
-  "ios/Resources/BB3/brick_brick_17.png": {
-    "bytes": 2716,
-    "sha256": "d15805c38c04a49cc66aeb6cbaae440251cefeedc6c5951f7eebcd3f3f9b18a6"
-  },
-  "ios/Resources/BB3/brick_brick_03.png": {
-    "bytes": 2801,
-    "sha256": "a3e2531833a6da8c775e4a3908c773014c881c995a9adb52f859847efa0f7eb8"
-  },
-  "ios/Resources/BB3/paddle_3.png": {
-    "bytes": 21016,
-    "sha256": "b351c7b5fff83b3accae734a074512181db6f2a42b8c384aaaa645f4e1a4f6a2"
-  },
-  "ios/Resources/BB3/brick_brick_13_vert.png": {
-    "bytes": 3138,
-    "sha256": "d8e7ae7f387a777ca87db288163c49da3b03f692da0b6fa0b91dc8a902e85a41"
-  },
-  "ios/Resources/BB3/paddle_7.png": {
-    "bytes": 21307,
-    "sha256": "316400b8d8df6c28e5b71f4880811b3be82fe2fb5a662429f9f4e10519172a08"
-  },
-  "ios/Resources/BB3/boss-config.json": {
-    "bytes": 1990,
-    "sha256": "1059037443882164c70d2d124304ba087da19fd3565df6a2035f50b16397076d"
-  },
-  "ios/Resources/BB3/enemy_snowflake_layer_2.png": {
-    "bytes": 1837,
-    "sha256": "00a9d1ab4a46981a3a74b92084fd0a07d92d04e2d0e6d6bc208d27b4b5ac69d8"
-  },
-  "ios/Resources/BB3/background_bg_abstract_blue.png": {
-    "bytes": 129892,
-    "sha256": "b5b9ffcc231b4ddf5a499af2e024043140f02a4312ea76105da204d393a439c3"
-  },
-  "ios/Resources/BB3/brick_brick_07.png": {
-    "bytes": 2731,
-    "sha256": "35c6809ea4f97a5681fae578d411eb76fbf804960d310cff8652fdeb30235331"
-  },
-  "ios/Resources/BB3/brick_brick_13.png": {
-    "bytes": 2614,
-    "sha256": "e7d64b26ee3db11d57bfbf74c01174edb1c630c4b98689027c69b10273644c5d"
-  },
-  "ios/Resources/BB3/powerup_EnergyBall.png": {
-    "bytes": 8181,
-    "sha256": "7a2acc1c2dc7f7dd790270e0d28dab3109c05886c5fe7bc3ff6e00f1e976183d"
-  },
-  "ios/Resources/BB3/brick_brick_30_vert.png": {
-    "bytes": 2528,
-    "sha256": "89f730d291acd2b2f4a17f831adc79c040dc3fc52f123176563446b8e4d1a688"
-  },
-  "ios/Resources/BB3/brick_brick_12.png": {
-    "bytes": 2560,
-    "sha256": "f98eae2c563186407260a85d2232120627b27879f4185df031a9957ebc17e005"
-  },
-  "ios/Resources/BB3/brick_brick_06.png": {
-    "bytes": 2729,
-    "sha256": "57840fae7d6c312843f5f70ab78df36b6fc8de49595d64ee1e17b062e3776aeb"
-  },
-  "ios/Resources/BB3/enemy_snowflake_layer_3.png": {
-    "bytes": 1010,
-    "sha256": "3b53fe6cbef34561243e73adf12dee6e6a761c493aae6bf01f86c40451c58f30"
-  },
-  "ios/Resources/BB3/powerup_ExplosiveBall.png": {
-    "bytes": 8520,
-    "sha256": "49b56086466c730a4aa503625b1a2c6b6586b7f005327dcfbadf7bf975a44fe6"
-  },
-  "ios/Resources/BB3/paddle_6.png": {
-    "bytes": 20829,
-    "sha256": "ee18ba22940a2806d0fa6759e624d8dc360632d51d32ba76156968cb28a85e9a"
-  },
-  "ios/Resources/BB3/boss1_knee.png": {
-    "bytes": 9363,
-    "sha256": "ce911abc744d495df89bae26ce933f171f0897af525bbb2b4090617f25c68688"
-  },
-  "ios/Resources/BB3/paddle_4.png": {
-    "bytes": 20590,
-    "sha256": "fe642044fd8b470e8680d503eaf7062218667cec0b16929cf2094f28f8c10064"
-  },
-  "ios/Resources/BB3/enemy_snowflake_layer_1.png": {
-    "bytes": 7529,
-    "sha256": "86dd60baa84b52a37879f32565ffe2612ed15877725e07fee57c3df2ff35fdac"
-  },
-  "ios/Resources/BB3/brick_Triangular2x2_unbrake.png": {
-    "bytes": 3835,
-    "sha256": "9a9f5524b7bf8c52850eeeaa7a0062e9de3e4dd98023d0757b5ec4cfe1da4ed6"
-  },
-  "ios/Resources/BB3/boss_boss2_body_01.png": {
-    "bytes": 129822,
-    "sha256": "62d3893db4eb41fc911aa41166dbc9bf615f3e6ffeba1a75ea15c75ee8a50017"
-  },
-  "ios/Resources/BB3/brick_brick_10.png": {
-    "bytes": 2484,
-    "sha256": "9ac87860b876d59d986d1e526724f963f0f6cc68f828a30b5d1dd8a74247d437"
-  },
-  "ios/Resources/BB3/brick_brick_04.png": {
-    "bytes": 2807,
-    "sha256": "82d5be0121739f85aa65d7bf07ce6a03bda88f7d936a10ef4248f34a053e097e"
-  },
-  "ios/Resources/BB3/powerup_Scorex2.png": {
-    "bytes": 8681,
-    "sha256": "4790b2e0ba821e5367e8427fb4950fb6b261f54588e81c9b14802875159ab7c4"
-  },
-  "ios/Resources/BB3/paddle_center.png": {
-    "bytes": 2939,
-    "sha256": "f787527895f5ad23679ae5f64549f56114de7f8586d0cf1529c4aee92be8cb6d"
-  },
-  "ios/Resources/BB3/brick_brick_05_vert.png": {
-    "bytes": 2893,
-    "sha256": "4110fce3dc9a17a856baec2b82fb194264e3c302db3da5a9001cf95256cbe160"
-  },
-  "ios/Resources/BB3/brick_brick_04_vert.png": {
-    "bytes": 3099,
-    "sha256": "f0f400ec1bff601e125ac6ecce2d19b41d5423983ef9391b2798ae780e9a513f"
-  },
-  "ios/Resources/BB3/enemy-assets-manifest.json": {
-    "bytes": 15886,
-    "sha256": "5dac5d5f35b7392ae0e9d1a2fe267adb1b313ebc52357a187f884ba797b8f031"
-  },
-  "ios/Resources/BB3/powerup_Scorex3.png": {
-    "bytes": 8637,
-    "sha256": "28b45c101db77ddb9af97ed69084ac6225094c71c05b366dcf117d23c9ee57f9"
-  },
-  "ios/Resources/BB3/brick_brick_05.png": {
-    "bytes": 2634,
-    "sha256": "8df46eda91a0cc9d9fb64e1c0f1dfb840eae1a641321a40c37fe3122c4f3ae66"
-  },
-  "ios/Resources/BB3/brick_brick_11.png": {
-    "bytes": 2629,
-    "sha256": "6b46f12e0df02c95c49e49ee009aadd92a0fe8d99848df0baecbbbdfb86df7d3"
-  },
-  "ios/Resources/BB3/brick_brick_hardside_darkside.png": {
-    "bytes": 2394,
-    "sha256": "b7fe08071ce6a13db5624cf52695c3acef904e2d2d1d53a7a793d95d0c9d06a7"
-  },
-  "ios/Resources/BB3/boss_Boss1Glows.png": {
-    "bytes": 8592,
-    "sha256": "e6e2660e33fcdd25d33980cd7bdf3b659ec0cee09f7791644d71f619ec6d6d97"
-  },
-  "ios/Resources/BB3/brick_brick_speedup.png": {
-    "bytes": 6621,
-    "sha256": "c98ae779576a26e9a7df68d8c758b157692844edf466aba68a4f9832e13cad95"
-  },
-  "ios/Resources/BB3/enemy_snowflake_layer_0.png": {
-    "bytes": 3115,
-    "sha256": "6d2d06e9699566c4f9513fd2819db39bec85d1217ccd33f779fa35257d2b0e7d"
-  },
-  "ios/Resources/BB3/powerup_Catcher.png": {
-    "bytes": 8354,
-    "sha256": "2d9a66886730772ca8cdf89b9f78008c8bd6c5e8cde57f6778aa031d3b91afa0"
-  },
-  "ios/Resources/BB3/paddle_5.png": {
-    "bytes": 20781,
-    "sha256": "b8e1f1b2af523b0598b8930d2353e2cd8c5737e7673879b7d47e5e215f13ca36"
-  },
-  "ios/Resources/Audio/provenance.json": {
-    "bytes": 45639,
-    "sha256": "2ebed40d6d5b08058b886a743ed976d2379038902f1ba5eb4cca60e5fdfb0d0f"
-  },
-  "ios/Resources/Menu/provenance.json": {
-    "bytes": 287,
-    "sha256": "b948ac56fc53425a99fda4e244bd11cd218d8f716e4adcb89da2ba35ccf44844"
-  },
-  "ios/Resources/Menu/BB3-title.png": {
-    "bytes": 164331,
-    "sha256": "27d238693c10bcc15a3b38c4ce2f049aa4fc6d2152701a3e5db14606e0e20620"
-  },
-  "ios/Resources/Menu/ArcadeGameSelection.png": {
-    "bytes": 1999055,
-    "sha256": "b86f4c138f9344b8099c47de485879c7251cf2deb51a5b15e8ab9441bf881807"
-  },
-  "ios/Resources/Menu/ArcadeEditionSelection.png": {
-    "bytes": 2222762,
-    "sha256": "26f7075be6ae8e6bacb7c1253ec79578813db587715cae4ef6a11e769d386d2d"
+  "ios/Resources/Backdrop.png": {
+    "bytes": 1735304,
+    "sha256": "8e78348b08bdb42af82e58f3d844893988d98bc41b16ba36610434819414ee97"
   },
   "ios/Resources/Campaigns/holidays.json": {
     "bytes": 215695,
@@ -1055,745 +1775,89 @@
     "bytes": 215720,
     "sha256": "d5fc4e1b61f1b60f73cd60b1a984b745a9a3ef0d0782b0b79d51a29fb29e7e17"
   },
-  "ios/Resources/Audio/holidays/firework_explode.wav": {
-    "bytes": 13984,
-    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
-  },
-  "ios/Resources/Audio/holidays/laser.wav": {
-    "bytes": 1832,
-    "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
-  },
-  "ios/Resources/Audio/holidays/shrink.wav": {
-    "bytes": 8794,
-    "sha256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547"
-  },
-  "ios/Resources/Audio/holidays/die.wav": {
-    "bytes": 53096,
-    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
-  },
-  "ios/Resources/Audio/holidays/loss.wav": {
-    "bytes": 53096,
-    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
-  },
-  "ios/Resources/Audio/holidays/slow.wav": {
-    "bytes": 13538,
-    "sha256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997"
-  },
-  "ios/Resources/Audio/holidays/music2.m4a": {
-    "bytes": 1242425,
-    "sha256": "f79d841020eca947adda9a9428eca817f46c5e563740b27cbafa3a699bb7d329"
-  },
-  "ios/Resources/Audio/holidays/bloop.wav": {
-    "bytes": 1724,
-    "sha256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c"
-  },
-  "ios/Resources/Audio/holidays/music1.m4a": {
-    "bytes": 1193191,
-    "sha256": "4f5083afc3987dea98e677539bbeae4094dbd11140a753e0b7099d22ce06b15e"
-  },
-  "ios/Resources/Audio/holidays/stickyoff.wav": {
-    "bytes": 5292,
-    "sha256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153"
-  },
-  "ios/Resources/Audio/holidays/grow.wav": {
-    "bytes": 8794,
-    "sha256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930"
-  },
-  "ios/Resources/Audio/holidays/bosshit.wav": {
-    "bytes": 3626,
-    "sha256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359"
-  },
-  "ios/Resources/Audio/holidays/hitbarrier.wav": {
-    "bytes": 11904,
-    "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
-  },
-  "ios/Resources/Audio/holidays/blast.wav": {
-    "bytes": 11860,
-    "sha256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529"
-  },
-  "ios/Resources/Audio/holidays/gunout.wav": {
-    "bytes": 10272,
-    "sha256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c"
-  },
-  "ios/Resources/Audio/holidays/barrier.wav": {
-    "bytes": 17666,
-    "sha256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf"
-  },
-  "ios/Resources/Audio/holidays/firework_launch.wav": {
-    "bytes": 15520,
-    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
-  },
-  "ios/Resources/Audio/holidays/pdestroy.wav": {
-    "bytes": 1316,
-    "sha256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78"
-  },
-  "ios/Resources/Audio/holidays/1up.wav": {
-    "bytes": 12966,
-    "sha256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e"
-  },
-  "ios/Resources/Audio/holidays/flourish1.wav": {
-    "bytes": 5824,
-    "sha256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598"
-  },
-  "ios/Resources/Audio/holidays/stickylaunch.wav": {
-    "bytes": 3756,
-    "sha256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301"
-  },
-  "ios/Resources/Audio/holidays/flourish3.wav": {
-    "bytes": 4914,
-    "sha256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af"
-  },
-  "ios/Resources/Audio/holidays/flourish2.wav": {
-    "bytes": 6492,
-    "sha256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701"
-  },
-  "ios/Resources/Audio/holidays/metal.wav": {
-    "bytes": 2558,
-    "sha256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067"
-  },
-  "ios/Resources/Audio/holidays/break.wav": {
-    "bytes": 10946,
-    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
-  },
-  "ios/Resources/Audio/holidays/gunin.wav": {
-    "bytes": 9506,
-    "sha256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b"
-  },
-  "ios/Resources/Audio/holidays/critter.wav": {
-    "bytes": 1644,
-    "sha256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812"
-  },
-  "ios/Resources/Audio/holidays/stickyon.wav": {
-    "bytes": 4268,
-    "sha256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702"
-  },
-  "ios/Resources/Audio/holidays/bighit.wav": {
-    "bytes": 1316,
-    "sha256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f"
-  },
-  "ios/Resources/Audio/holidays/bhit.wav": {
-    "bytes": 7596,
-    "sha256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021"
-  },
-  "ios/Resources/Audio/holidays/w1.wav": {
-    "bytes": 2792,
-    "sha256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525"
-  },
-  "ios/Resources/Audio/holidays/bbreak.wav": {
-    "bytes": 11344,
-    "sha256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59"
-  },
-  "ios/Resources/Audio/holidays/w3.wav": {
-    "bytes": 8312,
-    "sha256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897"
-  },
-  "ios/Resources/Audio/holidays/buildup.wav": {
-    "bytes": 5708,
-    "sha256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc"
-  },
-  "ios/Resources/Audio/holidays/w2.wav": {
-    "bytes": 3272,
-    "sha256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9"
-  },
-  "ios/Resources/Audio/holidays/fast.wav": {
-    "bytes": 13538,
-    "sha256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731"
-  },
-  "ios/Resources/Audio/holidays/e1.wav": {
-    "bytes": 3272,
-    "sha256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c"
-  },
-  "ios/Resources/Audio/holidays/e3.wav": {
-    "bytes": 3992,
-    "sha256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d"
-  },
-  "ios/Resources/Audio/holidays/e2.wav": {
-    "bytes": 2552,
-    "sha256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584"
-  },
-  "ios/Resources/Audio/holidays/blasterball.wav": {
-    "bytes": 10946,
-    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
-  },
-  "ios/Resources/Audio/holidays/e5.wav": {
-    "bytes": 4952,
-    "sha256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6"
-  },
-  "ios/Resources/Audio/holidays/gameover.wav": {
-    "bytes": 113464,
-    "sha256": "f3818c4de4b749323828ef8109a54483817264179a61a0bed2dcdb62271e7308"
-  },
-  "ios/Resources/Audio/holidays/phit.wav": {
-    "bytes": 11318,
-    "sha256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234"
-  },
-  "ios/Resources/Audio/holidays/e4.wav": {
-    "bytes": 4712,
-    "sha256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037"
-  },
-  "ios/Resources/Audio/holidays/stagestart.wav": {
-    "bytes": 39606,
-    "sha256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3"
-  },
-  "ios/Resources/Audio/bb3/firework_explode.wav": {
-    "bytes": 13984,
-    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
-  },
-  "ios/Resources/Audio/bb3/shrink.wav": {
-    "bytes": 6304,
-    "sha256": "85413cd793687cd9a92d7015c48799e3821911a07653f8e96e05c6544ff84333"
-  },
-  "ios/Resources/Audio/bb3/die.wav": {
-    "bytes": 92762,
-    "sha256": "c59b3d49008c00b3aa2f92f4c6473f0bc1061124764538b8785a77bfefeec54a"
-  },
-  "ios/Resources/Audio/bb3/respawn.wav": {
-    "bytes": 25420,
-    "sha256": "c986a632ebaf3c4dbbb45fc1f83eb20196fa4dd4e74f43973d3d1982614e1de4"
-  },
-  "ios/Resources/Audio/bb3/additional-music-manifest.json": {
-    "bytes": 715,
-    "sha256": "d8014b15907da30ce1c7a2d7d654cdca25a9349428eed4059a38fe2003e290be"
-  },
-  "ios/Resources/Audio/bb3/music3.m4a": {
-    "bytes": 1897128,
-    "sha256": "0c445f9ebe5fd0e0c231c85875e583c35f63674f0fdf9dac7ec549f05d12d7cf"
-  },
-  "ios/Resources/Audio/bb3/loss.wav": {
-    "bytes": 6816,
-    "sha256": "be6901fcdc31d0052bcecabafd60e57b73ff44584aa99e7077d7be0df04a82e3"
-  },
-  "ios/Resources/Audio/bb3/slow.wav": {
-    "bytes": 11936,
-    "sha256": "322dab3503dd92cefdc0493c19f7010ac9e127a4247135338ec1c51ba1bf4bb6"
-  },
-  "ios/Resources/Audio/bb3/music2.m4a": {
-    "bytes": 1666689,
-    "sha256": "6b2b20da8d2a4cf636646b5ddfb2f1c4a6f04f581f39eb11540e4ddcb901f313"
-  },
-  "ios/Resources/Audio/bb3/music0.m4a": {
-    "bytes": 999747,
-    "sha256": "d3a022542e86b5f4350af91d01ef52b88b8043547310813e862faa13d3d23108"
-  },
-  "ios/Resources/Audio/bb3/music1.m4a": {
-    "bytes": 1561571,
-    "sha256": "1fe174d397b4dfdbd945945188453b860066a455e1966d9e60d06008951a8e1a"
-  },
-  "ios/Resources/Audio/bb3/enemy.wav": {
-    "bytes": 6816,
-    "sha256": "be6901fcdc31d0052bcecabafd60e57b73ff44584aa99e7077d7be0df04a82e3"
-  },
-  "ios/Resources/Audio/bb3/grow.wav": {
-    "bytes": 8352,
-    "sha256": "7945236af1633eb88590cccf53209a448846292c1c6223c8049c5af0d51c9610"
-  },
-  "ios/Resources/Audio/bb3/x3.wav": {
-    "bytes": 11936,
-    "sha256": "72313ac954decfcfe278b4cfc9c1d76c4da9ee68c9f0c6b4d23c458ecc9e811c"
-  },
-  "ios/Resources/Audio/bb3/power38.wav": {
-    "bytes": 4256,
-    "sha256": "b9837270ecdded1ef769df9e159c7846a9d3324dc0c5ba02342f6155aef3364f"
-  },
-  "ios/Resources/Audio/bb3/x2.wav": {
-    "bytes": 10912,
-    "sha256": "127f57c394f30385aaed0571d3e522a2623cbf848814e561503affdb75de525f"
-  },
-  "ios/Resources/Audio/bb3/firework_launch.wav": {
-    "bytes": 15520,
-    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
-  },
-  "ios/Resources/Audio/bb3/power29.wav": {
-    "bytes": 3744,
-    "sha256": "c4c731e4814a8339fdb791007d8ce02bd679a47e5dbd1fa86ea20e89eff03d6a"
-  },
-  "ios/Resources/Audio/bb3/power28.wav": {
-    "bytes": 7936,
-    "sha256": "ea461520c6fad93263002bd3c8d43f0d5ff1bad034d38d611cc03e2577c7b00d"
-  },
-  "ios/Resources/Audio/bb3/1up.wav": {
-    "bytes": 11936,
-    "sha256": "84f31cb26ac3c5ffbb00d96addd635077075eaba13e0013f3f5974a1894ce624"
-  },
-  "ios/Resources/Audio/bb3/power26.wav": {
-    "bytes": 20640,
-    "sha256": "56fdac467b1b0db50db6228d661767bd9b4d8db5dadd8800a8ba742031a36dce"
-  },
-  "ios/Resources/Audio/bb3/power33.wav": {
-    "bytes": 28832,
-    "sha256": "fea02416a77f40082023c9c8b0fb355812633716effe4bf903820029cd336e31"
-  },
-  "ios/Resources/Audio/bb3/power27.wav": {
-    "bytes": 9376,
-    "sha256": "6992f89a5435636a90344ecf5dd99c961ca7b78694cf5287ee0ee2c3612be7f1"
-  },
-  "ios/Resources/Audio/bb3/power31.wav": {
-    "bytes": 11454,
-    "sha256": "2c78ec212c9195361799255852ce29536e87bd83ef2151333766f6605246ebd1"
-  },
-  "ios/Resources/Audio/bb3/power25.wav": {
-    "bytes": 14110,
-    "sha256": "37793fc0d9e51627342a559bbede04a7fdc4dadafded805ff1629ee9711765d7"
-  },
-  "ios/Resources/Audio/bb3/break.wav": {
-    "bytes": 8352,
-    "sha256": "be29d38ab135c3fcd1523784ef5091a6b4007ac6c338a84cca3083fad0e81757"
-  },
-  "ios/Resources/Audio/bb3/power24.wav": {
-    "bytes": 13512,
-    "sha256": "6f6e4e67bf6f87e96f1e30afd11f12eda96e26181ae00cb5a1b8f45618a64ee7"
-  },
-  "ios/Resources/Audio/bb3/power30.wav": {
-    "bytes": 6816,
-    "sha256": "eaff66afbf7b6b945f03830d2f28b8cd5a4652174caadf54bd6e82f5f5cc0bd4"
-  },
-  "ios/Resources/Audio/bb3/secret.wav": {
-    "bytes": 7916,
-    "sha256": "bc3852c8ca0e84203f47c169c779e54436f4362199a2e8281c480eaa67d879a8"
-  },
-  "ios/Resources/Audio/bb3/power34.wav": {
-    "bytes": 4768,
-    "sha256": "80e722efaea6939572ec9a6e9ed5916251579cd93363c25a548ac7df6db54e42"
-  },
-  "ios/Resources/Audio/bb3/power20.wav": {
-    "bytes": 10912,
-    "sha256": "127f57c394f30385aaed0571d3e522a2623cbf848814e561503affdb75de525f"
-  },
-  "ios/Resources/Audio/bb3/power21.wav": {
-    "bytes": 11936,
-    "sha256": "72313ac954decfcfe278b4cfc9c1d76c4da9ee68c9f0c6b4d23c458ecc9e811c"
-  },
-  "ios/Resources/Audio/bb3/power35.wav": {
-    "bytes": 11424,
-    "sha256": "bfb3d4d39db5c237eb154118aa36ac816fcd812f15fe9ef2b70808e27c377887"
-  },
-  "ios/Resources/Audio/bb3/bhit.wav": {
-    "bytes": 7328,
-    "sha256": "abc5474c92454a9503c250690881d9568f4956c573cacd49b68c5e14314a678b"
-  },
-  "ios/Resources/Audio/bb3/bbreak.wav": {
-    "bytes": 7328,
-    "sha256": "c9e4a1914f226c7d3aed3cf5752b35a7e68800909ffb6a6d7fb576b773bc0132"
-  },
-  "ios/Resources/Audio/bb3/manifest.json": {
-    "bytes": 793,
-    "sha256": "d9bdd325530bb9b7a73f08add3f0d033210028d0120d236b7cef9a83f0e8b47c"
-  },
-  "ios/Resources/Audio/bb3/power23.wav": {
-    "bytes": 13472,
-    "sha256": "4a0ad301833c4d788ad7476f66e82d867756dfe4a5be1e1ccab4bc4fbdd91a0d"
-  },
-  "ios/Resources/Audio/bb3/power37.wav": {
-    "bytes": 6838,
-    "sha256": "b94b438328e8ea6bf199de248a736c6cc7451f63ccad37e927909329cc913431"
-  },
-  "ios/Resources/Audio/bb3/power36.wav": {
-    "bytes": 7328,
-    "sha256": "328a12a3202a29b8ad4365856e4075c06ddb168ceab09da0d2c9940b00e1e6bf"
-  },
-  "ios/Resources/Audio/bb3/power22.wav": {
-    "bytes": 7840,
-    "sha256": "1b7663cb06eb86c2dbec20c13e6bfebf5b8973d0bc1292527dda38808108f7fc"
-  },
-  "ios/Resources/Audio/bb3/fast.wav": {
-    "bytes": 11936,
-    "sha256": "79250333495b77cc52ffc620e9f75ba924a0931a026992d1ecc7b652fc79b5d8"
-  },
-  "ios/Resources/Audio/bb3/additional-events-manifest.json": {
-    "bytes": 3937,
-    "sha256": "294780087f303ee8b499cc63f488ae134cd64f45160ea9946b2cfcef9217aa1a"
-  },
-  "ios/Resources/Audio/bb3/wall.wav": {
-    "bytes": 8352,
-    "sha256": "a6c1f613940eeb3910e9db8f9e1ebed593a701e3084cfe547804dcc8ebd6494c"
-  },
-  "ios/Resources/Audio/bb3/gameover.wav": {
-    "bytes": 92762,
-    "sha256": "c59b3d49008c00b3aa2f92f4c6473f0bc1061124764538b8785a77bfefeec54a"
-  },
-  "ios/Resources/Audio/bb3/phit.wav": {
-    "bytes": 7952,
-    "sha256": "2ae007cea9079707aef4738e53902e0febec7fe71555132823d32fb5a2d05b38"
-  },
-  "ios/Resources/Audio/bb3/stagestart.wav": {
-    "bytes": 45302,
-    "sha256": "22a40c40019e910e31813acf7a76db54d1616dc35294aaf2ba6aa128acbbd94f"
-  },
-  "ios/Resources/Audio/revolution/firework_explode.wav": {
-    "bytes": 13984,
-    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
-  },
-  "ios/Resources/Audio/revolution/laser.wav": {
-    "bytes": 1832,
-    "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
-  },
-  "ios/Resources/Audio/revolution/shrink.wav": {
-    "bytes": 8794,
-    "sha256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547"
-  },
-  "ios/Resources/Audio/revolution/die.wav": {
-    "bytes": 53096,
-    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
-  },
-  "ios/Resources/Audio/revolution/loss.wav": {
-    "bytes": 53096,
-    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
-  },
-  "ios/Resources/Audio/revolution/slow.wav": {
-    "bytes": 13538,
-    "sha256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997"
-  },
-  "ios/Resources/Audio/revolution/music2.m4a": {
-    "bytes": 345941,
-    "sha256": "5642b3363d600503b0012d430d080004fd3bc49d70a876f40c39766b0dc07126"
-  },
-  "ios/Resources/Audio/revolution/bloop.wav": {
-    "bytes": 1724,
-    "sha256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c"
-  },
-  "ios/Resources/Audio/revolution/music1.m4a": {
-    "bytes": 402304,
-    "sha256": "e3deb06e6c1d76c32b32fc83d51aa872867c8ebc374f76a4806011b7d6944cc6"
-  },
-  "ios/Resources/Audio/revolution/stickyoff.wav": {
-    "bytes": 5292,
-    "sha256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153"
-  },
-  "ios/Resources/Audio/revolution/grow.wav": {
-    "bytes": 8794,
-    "sha256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930"
-  },
-  "ios/Resources/Audio/revolution/bosshit.wav": {
-    "bytes": 3626,
-    "sha256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359"
-  },
-  "ios/Resources/Audio/revolution/hitbarrier.wav": {
-    "bytes": 11904,
-    "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
-  },
-  "ios/Resources/Audio/revolution/blast.wav": {
-    "bytes": 11860,
-    "sha256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529"
-  },
-  "ios/Resources/Audio/revolution/gunout.wav": {
-    "bytes": 10272,
-    "sha256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c"
-  },
-  "ios/Resources/Audio/revolution/barrier.wav": {
-    "bytes": 17666,
-    "sha256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf"
-  },
-  "ios/Resources/Audio/revolution/firework_launch.wav": {
-    "bytes": 15520,
-    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
-  },
-  "ios/Resources/Audio/revolution/pdestroy.wav": {
-    "bytes": 1316,
-    "sha256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78"
-  },
-  "ios/Resources/Audio/revolution/1up.wav": {
-    "bytes": 12966,
-    "sha256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e"
-  },
-  "ios/Resources/Audio/revolution/flourish1.wav": {
-    "bytes": 5824,
-    "sha256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598"
-  },
-  "ios/Resources/Audio/revolution/stickylaunch.wav": {
-    "bytes": 3756,
-    "sha256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301"
-  },
-  "ios/Resources/Audio/revolution/flourish3.wav": {
-    "bytes": 4914,
-    "sha256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af"
-  },
-  "ios/Resources/Audio/revolution/flourish2.wav": {
-    "bytes": 6492,
-    "sha256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701"
-  },
-  "ios/Resources/Audio/revolution/metal.wav": {
-    "bytes": 2558,
-    "sha256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067"
-  },
-  "ios/Resources/Audio/revolution/break.wav": {
-    "bytes": 10946,
-    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
-  },
-  "ios/Resources/Audio/revolution/gunin.wav": {
-    "bytes": 9506,
-    "sha256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b"
-  },
-  "ios/Resources/Audio/revolution/critter.wav": {
-    "bytes": 1644,
-    "sha256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812"
-  },
-  "ios/Resources/Audio/revolution/stickyon.wav": {
-    "bytes": 4268,
-    "sha256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702"
-  },
-  "ios/Resources/Audio/revolution/bighit.wav": {
-    "bytes": 1316,
-    "sha256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f"
-  },
-  "ios/Resources/Audio/revolution/bhit.wav": {
-    "bytes": 7596,
-    "sha256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021"
-  },
-  "ios/Resources/Audio/revolution/w1.wav": {
-    "bytes": 2792,
-    "sha256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525"
-  },
-  "ios/Resources/Audio/revolution/bbreak.wav": {
-    "bytes": 11344,
-    "sha256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59"
-  },
-  "ios/Resources/Audio/revolution/w3.wav": {
-    "bytes": 8312,
-    "sha256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897"
-  },
-  "ios/Resources/Audio/revolution/buildup.wav": {
-    "bytes": 5708,
-    "sha256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc"
-  },
-  "ios/Resources/Audio/revolution/w2.wav": {
-    "bytes": 3272,
-    "sha256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9"
-  },
-  "ios/Resources/Audio/revolution/fast.wav": {
-    "bytes": 13538,
-    "sha256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731"
-  },
-  "ios/Resources/Audio/revolution/e1.wav": {
-    "bytes": 3272,
-    "sha256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c"
-  },
-  "ios/Resources/Audio/revolution/e3.wav": {
-    "bytes": 3992,
-    "sha256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d"
-  },
-  "ios/Resources/Audio/revolution/e2.wav": {
-    "bytes": 2552,
-    "sha256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584"
-  },
-  "ios/Resources/Audio/revolution/blasterball.wav": {
-    "bytes": 10946,
-    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
-  },
-  "ios/Resources/Audio/revolution/e5.wav": {
-    "bytes": 4952,
-    "sha256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6"
-  },
-  "ios/Resources/Audio/revolution/gameover.wav": {
-    "bytes": 53070,
-    "sha256": "40a17c1bec7e04b32c4bbfb06c369af8fa7bd70253536087129756699457caab"
-  },
-  "ios/Resources/Audio/revolution/phit.wav": {
-    "bytes": 11318,
-    "sha256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234"
-  },
-  "ios/Resources/Audio/revolution/e4.wav": {
-    "bytes": 4712,
-    "sha256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037"
-  },
-  "ios/Resources/Audio/revolution/stagestart.wav": {
-    "bytes": 9132,
-    "sha256": "491f0d3453b2b381b0702297cfa5f520dd7cb82fc70fd32cd67bb18fb1228c62"
-  },
-  "ios/Resources/Audio/remix/firework_explode.wav": {
-    "bytes": 13984,
-    "sha256": "ca561cc24d9861bc5847543fd3c5407e31caa0d929787563c2c2de62dd68cd5a"
-  },
-  "ios/Resources/Audio/remix/laser.wav": {
-    "bytes": 1832,
-    "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
-  },
-  "ios/Resources/Audio/remix/shrink.wav": {
-    "bytes": 8794,
-    "sha256": "e7a94d6fb279eba396bf2e810bb9a7fcb5b96c697d21c2919b59617c7fbbe547"
-  },
-  "ios/Resources/Audio/remix/die.wav": {
-    "bytes": 53096,
-    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
-  },
-  "ios/Resources/Audio/remix/loss.wav": {
-    "bytes": 53096,
-    "sha256": "a876133c03c44b5ad9ef8bad215996c573f29a94c6c6108922fde813bb2184c0"
-  },
-  "ios/Resources/Audio/remix/slow.wav": {
-    "bytes": 13538,
-    "sha256": "3cb2f272b92b661ca412883bf6012a5e3603d6ca04f03aff117ee787e8dce997"
-  },
-  "ios/Resources/Audio/remix/music2.m4a": {
-    "bytes": 583949,
-    "sha256": "42aa49d616bce4f66867cf52f4ebc471039ab4f8c8b743bdb236cc2ca953d379"
-  },
-  "ios/Resources/Audio/remix/bloop.wav": {
-    "bytes": 1724,
-    "sha256": "375ab3d1af9c437637cbb0cbcd3687245cbc137b2c5494e0f5565e00a150026c"
-  },
-  "ios/Resources/Audio/remix/music1.m4a": {
-    "bytes": 391053,
-    "sha256": "b5a2ba96d699e6b6c33702ed256c683a7ad78e866e2bd6d28973560fc684f2c7"
-  },
-  "ios/Resources/Audio/remix/stickyoff.wav": {
-    "bytes": 5292,
-    "sha256": "fcd26fcee91e9a4b482ff3d6da6f64867209cfcd7faba35c972f9f68e29b3153"
-  },
-  "ios/Resources/Audio/remix/grow.wav": {
-    "bytes": 8794,
-    "sha256": "d360a1f0f588db6d0259d53ed3a085bff713f33b421cec813dc3f0118f585930"
-  },
-  "ios/Resources/Audio/remix/bosshit.wav": {
-    "bytes": 3626,
-    "sha256": "885381ac8090188f2d7b2f8b2b014fe77109dc4a303646373d15362712c43359"
-  },
-  "ios/Resources/Audio/remix/hitbarrier.wav": {
-    "bytes": 11904,
-    "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
-  },
-  "ios/Resources/Audio/remix/blast.wav": {
-    "bytes": 11860,
-    "sha256": "3f8f96786c9469892b3f9d03b8af0f011ea2b8a915f6690e3bffcceedeb74529"
-  },
-  "ios/Resources/Audio/remix/gunout.wav": {
-    "bytes": 10272,
-    "sha256": "a8b8083651c7e398904a750ac90b6ac8dbc51577b1579372328bd08e5051a70c"
-  },
-  "ios/Resources/Audio/remix/barrier.wav": {
-    "bytes": 17666,
-    "sha256": "f155c93bf1a6ed8bc8d11471ee15e275e60de91c023643c1f0f92948ab7b2aaf"
-  },
-  "ios/Resources/Audio/remix/firework_launch.wav": {
-    "bytes": 15520,
-    "sha256": "d9806e9a460717494d38ac579f715d37158c4d2ccbcf66b5c8034c79613d2689"
-  },
-  "ios/Resources/Audio/remix/pdestroy.wav": {
-    "bytes": 1316,
-    "sha256": "6eb8e3cd3655c8d68bf59986ab36c22dc95b43b3969ddfc266f1bcf0dea49b78"
-  },
-  "ios/Resources/Audio/remix/1up.wav": {
-    "bytes": 12966,
-    "sha256": "88e4f0922e11653da71f92ed7a87178cdb6d0a1a66a1bba3ae0ceafb7c967c4e"
-  },
-  "ios/Resources/Audio/remix/flourish1.wav": {
-    "bytes": 5824,
-    "sha256": "761917a3b5a40568d3b50106a08b9f9ccca698b92a7e92b369f8c335668a0598"
-  },
-  "ios/Resources/Audio/remix/stickylaunch.wav": {
-    "bytes": 3756,
-    "sha256": "6622f9356256bcd9715f82e562a821ac309a65be432c7deacb8bbdff9cabe301"
-  },
-  "ios/Resources/Audio/remix/flourish3.wav": {
-    "bytes": 4914,
-    "sha256": "bb25948a94f401264f0bb7d551c3cc250196c67f913691917b948c689ab244af"
-  },
-  "ios/Resources/Audio/remix/flourish2.wav": {
-    "bytes": 6492,
-    "sha256": "a04bab5c0b6290114c8872c66b1e69e6e1d4625403a5a2b14d4450aa66a1b701"
-  },
-  "ios/Resources/Audio/remix/metal.wav": {
-    "bytes": 2558,
-    "sha256": "9e8373c0a403b4fe226533bba17be56a550a30a44f0d64dc9ffffcc912ff0067"
-  },
-  "ios/Resources/Audio/remix/break.wav": {
-    "bytes": 10946,
-    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
-  },
-  "ios/Resources/Audio/remix/gunin.wav": {
-    "bytes": 9506,
-    "sha256": "8c0ede6a33f910b95646a79e4d7c4c45ef080a862667eca09a719aaeca42ba6b"
-  },
-  "ios/Resources/Audio/remix/critter.wav": {
-    "bytes": 1644,
-    "sha256": "c1c4bb47c9b1576e840dd689f81c58f746c668babff908c4ff3ae0cd64870812"
-  },
-  "ios/Resources/Audio/remix/stickyon.wav": {
-    "bytes": 4268,
-    "sha256": "3fc5c08711b47cb73bc18e7c6d6f7b66893c6da9809b142029307171a394d702"
-  },
-  "ios/Resources/Audio/remix/bighit.wav": {
-    "bytes": 1316,
-    "sha256": "22875f96fe09354dd12da4f176f157b6984d698255d9f21c17e44293cbfac13f"
-  },
-  "ios/Resources/Audio/remix/bhit.wav": {
-    "bytes": 7596,
-    "sha256": "6f96e5f544b90f9873ffa54198c0d08f7732ca068c503557111a0a2b93750021"
-  },
-  "ios/Resources/Audio/remix/w1.wav": {
-    "bytes": 2792,
-    "sha256": "9f37462de4fc5cf2335e01e5c70ba0b75352a199bc2083b1ae7a018aa19df525"
-  },
-  "ios/Resources/Audio/remix/bbreak.wav": {
-    "bytes": 11344,
-    "sha256": "bed7d19fbc433ff0e0c32ad4434cbc686254328d8b63e2a905bd8908a2400d59"
-  },
-  "ios/Resources/Audio/remix/w3.wav": {
-    "bytes": 8312,
-    "sha256": "9597594c2ef03bf4deb684aeae10f1bb93fbe603d02f31c255ebd317cc3c4897"
-  },
-  "ios/Resources/Audio/remix/buildup.wav": {
-    "bytes": 5708,
-    "sha256": "3a037523e19bb66085af7512b18667cd10cff5192404eb2e475424d94abb36cc"
-  },
-  "ios/Resources/Audio/remix/w2.wav": {
-    "bytes": 3272,
-    "sha256": "d346d96619edf1ce59809ef3364337ab06e481a3b5e483756b1db618ca6c81d9"
-  },
-  "ios/Resources/Audio/remix/fast.wav": {
-    "bytes": 13538,
-    "sha256": "cc7fa164a71e04b5592c39146efaffc8f06d7dd654e13c4d72bab24069e26731"
-  },
-  "ios/Resources/Audio/remix/e1.wav": {
-    "bytes": 3272,
-    "sha256": "b7db36ea4471a9ea514e496b46bc78d15bda7bae6e04ac1ce7628edea8137a2c"
-  },
-  "ios/Resources/Audio/remix/e3.wav": {
-    "bytes": 3992,
-    "sha256": "7cc809786f6fa65cafb75b40f07d6ce54fa161eb9bf288306262c35df325c11d"
-  },
-  "ios/Resources/Audio/remix/e2.wav": {
-    "bytes": 2552,
-    "sha256": "7e1699fc2f823f9d744987b0aca4c8f79c104a2cc0a9d862825e72bc61561584"
-  },
-  "ios/Resources/Audio/remix/blasterball.wav": {
-    "bytes": 10946,
-    "sha256": "7f21abe6013cc18ed51e7207bbafd2d922b623a60f4878c8f8e2843fa0a1bd25"
-  },
-  "ios/Resources/Audio/remix/e5.wav": {
-    "bytes": 4952,
-    "sha256": "1b7a0544e04a304be48c8a199ce671a6507ba8cdcd121efc052d022235d6b8b6"
-  },
-  "ios/Resources/Audio/remix/gameover.wav": {
-    "bytes": 113464,
-    "sha256": "f3818c4de4b749323828ef8109a54483817264179a61a0bed2dcdb62271e7308"
-  },
-  "ios/Resources/Audio/remix/phit.wav": {
-    "bytes": 11318,
-    "sha256": "8136f1b4de566393d7fce53d7c8eaed4d098054d4403d44d32a776e87a842234"
-  },
-  "ios/Resources/Audio/remix/e4.wav": {
-    "bytes": 4712,
-    "sha256": "1d5a12741eadbe03fb63021d19ff7f3b4578d72a49e77f5a3cf5cc15a271b037"
-  },
-  "ios/Resources/Audio/remix/stagestart.wav": {
-    "bytes": 39606,
-    "sha256": "36b88026aba8841717bf18c2cb713f0677cbfd1d730e311de8cfde92207569e3"
+  "ios/Resources/Editions/holidays/BB2-background-2.png": {
+    "bytes": 382917,
+    "sha256": "3b4075dad61f334d0491b723714ed7f563a7d093557c88021b4d3fa5960323ca"
+  },
+  "ios/Resources/Editions/holidays/BB2-background-3.png": {
+    "bytes": 246968,
+    "sha256": "e82c16d383dcf42dab7d83dd40614e3cd4dedc33bd3401fedbc794955cfa8297"
+  },
+  "ios/Resources/Editions/holidays/BB2-background-4.png": {
+    "bytes": 248790,
+    "sha256": "195e85dee57eace2b52b95e757d81f117fcd332c9ebe908705323d448e9abed6"
+  },
+  "ios/Resources/Editions/holidays/BB2-background-5.png": {
+    "bytes": 323162,
+    "sha256": "140ed7eb0b2a360f4633aa61c5ca9ba46082ac059e30887e2844d2f5249434c1"
+  },
+  "ios/Resources/Editions/holidays/BB2-background-7.png": {
+    "bytes": 392672,
+    "sha256": "9f008844dec725f0cc5e126e75c182921ee701fb3b79826a760998e643df092e"
+  },
+  "ios/Resources/Editions/holidays/BB2-background-8.png": {
+    "bytes": 405884,
+    "sha256": "fdbde054c9709a2204846eee3718bd8d6761fc7daa57796e07e7b27f5af3dced"
+  },
+  "ios/Resources/Editions/holidays/BB2-background-9.png": {
+    "bytes": 281915,
+    "sha256": "0ecff8c33fcfd6097b9918ada7f2166b9cc6007b2a9a5a8ee5fb09fb25dfb3c9"
+  },
+  "ios/Resources/Editions/holidays/BB2-ball.png": {
+    "bytes": 1591,
+    "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
+  },
+  "ios/Resources/Editions/holidays/BB2-breaker.png": {
+    "bytes": 22550,
+    "sha256": "6ff0429466fd836efdd11b3dd5e728dd0dcca20b6d6b70dcb9c6023a1be21714"
+  },
+  "ios/Resources/Editions/holidays/BB2-bricks.png": {
+    "bytes": 29810,
+    "sha256": "bbdeacf90f6fba781ddae4bf184986944d289c522c30d43f78f6382000747131"
+  },
+  "ios/Resources/Editions/holidays/BB2-broken.png": {
+    "bytes": 3859,
+    "sha256": "dbaeac167ac53763c01e586a6e348a12778fb07a1d4f396c5be8b990aebe70cf"
   },
   "ios/Resources/Editions/holidays/BB2-darter.png": {
     "bytes": 13615,
     "sha256": "c03ff57c2cbadf98a9c0fe4dc64d6d38d80b96fcfa60b81960cd53f3a74daff9"
   },
-  "ios/Resources/Editions/holidays/BB2-ring-pattern.png": {
-    "bytes": 238,
-    "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
-  },
   "ios/Resources/Editions/holidays/BB2-door.png": {
     "bytes": 6705,
     "sha256": "42e2c2f38454706f072e971f45b7c01ee34f33eafb8a30707ae4d0fcc8986a00"
   },
+  "ios/Resources/Editions/holidays/BB2-drifter.png": {
+    "bytes": 10788,
+    "sha256": "7b36f67d4e4ad9441b36eb18f115af69354752fabc3c4f3ac33f0a68f8b63805"
+  },
+  "ios/Resources/Editions/holidays/BB2-explode.png": {
+    "bytes": 6430,
+    "sha256": "c787d5f88227080ddb8c44be3f6a2e91a13b2efdb15665bc2f58cbc7343d34e0"
+  },
   "ios/Resources/Editions/holidays/BB2-exploder.png": {
     "bytes": 17784,
     "sha256": "357b0d49e784dd08a01e0e38032fd6719cc0f1b9f2ee9f60e91a1993ae4d6c5b"
+  },
+  "ios/Resources/Editions/holidays/BB2-gspark.png": {
+    "bytes": 12046,
+    "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
+  },
+  "ios/Resources/Editions/holidays/BB2-layer.png": {
+    "bytes": 17490,
+    "sha256": "4dfaeebdf0b94a46c7d10f5d6927b64dbccd142d95112aca22d08753121bc9dc"
+  },
+  "ios/Resources/Editions/holidays/BB2-paddle.png": {
+    "bytes": 67186,
+    "sha256": "5c5e7784bae0bf2b358209b4f5d7a32a188dbf66451f8be94be19a841dcc0ebd"
+  },
+  "ios/Resources/Editions/holidays/BB2-powerup.png": {
+    "bytes": 163584,
+    "sha256": "ed3b1c7934909c5d6fc4491890f73fb21139aa1b1ea5c5f1758cc906d6b19687"
+  },
+  "ios/Resources/Editions/holidays/BB2-ring-pattern.png": {
+    "bytes": 238,
+    "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
   },
   "ios/Resources/Editions/holidays/BB2-title.png": {
     "bytes": 43259,
@@ -1803,205 +1867,21 @@
     "bytes": 5300,
     "sha256": "117d05fd19afef45a804d417fbb9ae07b87d8e529a72478d292e4bf3abb6bd4f"
   },
-  "ios/Resources/Editions/holidays/BB2-paddle.png": {
-    "bytes": 67186,
-    "sha256": "5c5e7784bae0bf2b358209b4f5d7a32a188dbf66451f8be94be19a841dcc0ebd"
+  "ios/Resources/Editions/remix/BB2-background-1.png": {
+    "bytes": 303887,
+    "sha256": "78d2510950dcc26628ab7cff5176528421737c7de03ff6da135cdef7b4b9f0e2"
   },
-  "ios/Resources/Editions/holidays/BB2-explode.png": {
-    "bytes": 6430,
-    "sha256": "c787d5f88227080ddb8c44be3f6a2e91a13b2efdb15665bc2f58cbc7343d34e0"
+  "ios/Resources/Editions/remix/BB2-background-2.png": {
+    "bytes": 302421,
+    "sha256": "306e0df343eaa5eba4f6ae0460e5ad2f0c72778262e9e913b4259c46fc7f2ade"
   },
-  "ios/Resources/Editions/holidays/BB2-background-5.png": {
-    "bytes": 323162,
-    "sha256": "140ed7eb0b2a360f4633aa61c5ca9ba46082ac059e30887e2844d2f5249434c1"
-  },
-  "ios/Resources/Editions/holidays/BB2-bricks.png": {
-    "bytes": 29810,
-    "sha256": "bbdeacf90f6fba781ddae4bf184986944d289c522c30d43f78f6382000747131"
-  },
-  "ios/Resources/Editions/holidays/BB2-background-4.png": {
-    "bytes": 248790,
-    "sha256": "195e85dee57eace2b52b95e757d81f117fcd332c9ebe908705323d448e9abed6"
-  },
-  "ios/Resources/Editions/holidays/BB2-background-7.png": {
-    "bytes": 392672,
-    "sha256": "9f008844dec725f0cc5e126e75c182921ee701fb3b79826a760998e643df092e"
-  },
-  "ios/Resources/Editions/holidays/BB2-powerup.png": {
-    "bytes": 163584,
-    "sha256": "ed3b1c7934909c5d6fc4491890f73fb21139aa1b1ea5c5f1758cc906d6b19687"
-  },
-  "ios/Resources/Editions/holidays/BB2-background-3.png": {
-    "bytes": 246968,
-    "sha256": "e82c16d383dcf42dab7d83dd40614e3cd4dedc33bd3401fedbc794955cfa8297"
-  },
-  "ios/Resources/Editions/holidays/BB2-background-2.png": {
-    "bytes": 382917,
-    "sha256": "3b4075dad61f334d0491b723714ed7f563a7d093557c88021b4d3fa5960323ca"
-  },
-  "ios/Resources/Editions/holidays/BB2-layer.png": {
-    "bytes": 17490,
-    "sha256": "4dfaeebdf0b94a46c7d10f5d6927b64dbccd142d95112aca22d08753121bc9dc"
-  },
-  "ios/Resources/Editions/holidays/BB2-ball.png": {
-    "bytes": 1591,
-    "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
-  },
-  "ios/Resources/Editions/holidays/BB2-background-9.png": {
-    "bytes": 281915,
-    "sha256": "0ecff8c33fcfd6097b9918ada7f2166b9cc6007b2a9a5a8ee5fb09fb25dfb3c9"
-  },
-  "ios/Resources/Editions/holidays/BB2-background-8.png": {
-    "bytes": 405884,
-    "sha256": "fdbde054c9709a2204846eee3718bd8d6761fc7daa57796e07e7b27f5af3dced"
-  },
-  "ios/Resources/Editions/holidays/BB2-gspark.png": {
-    "bytes": 12046,
-    "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
-  },
-  "ios/Resources/Editions/holidays/BB2-breaker.png": {
-    "bytes": 22550,
-    "sha256": "6ff0429466fd836efdd11b3dd5e728dd0dcca20b6d6b70dcb9c6023a1be21714"
-  },
-  "ios/Resources/Editions/holidays/BB2-broken.png": {
-    "bytes": 3859,
-    "sha256": "dbaeac167ac53763c01e586a6e348a12778fb07a1d4f396c5be8b990aebe70cf"
-  },
-  "ios/Resources/Editions/holidays/BB2-drifter.png": {
-    "bytes": 10788,
-    "sha256": "7b36f67d4e4ad9441b36eb18f115af69354752fabc3c4f3ac33f0a68f8b63805"
-  },
-  "ios/Resources/Editions/revolution/BB2-darter.png": {
-    "bytes": 24112,
-    "sha256": "a4a2df2dd6fe1866f09a3f329641185402cf519f03c10b5849d04f959b854eeb"
-  },
-  "ios/Resources/Editions/revolution/BB2-ring-pattern.png": {
-    "bytes": 238,
-    "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
-  },
-  "ios/Resources/Editions/revolution/BB2-door.png": {
-    "bytes": 3286,
-    "sha256": "086ebe40cc0ed884ac1cea5215cb403d0c38aa111e050a99839dba3cd6c1db83"
-  },
-  "ios/Resources/Editions/revolution/BB2-exploder.png": {
-    "bytes": 23145,
-    "sha256": "b86c4649d811f71d5e830a33c4949b261e09fbe20a9630f48cfaf07d6e44042d"
-  },
-  "ios/Resources/Editions/revolution/BB2-title.png": {
-    "bytes": 23787,
-    "sha256": "5d3f2ff93f8dcc179a4c9916682df3df05bc0dd5be93b6721bbb7a7c2e2d4bc1"
-  },
-  "ios/Resources/Editions/revolution/provenance.json": {
-    "bytes": 4961,
-    "sha256": "44de4964a2c5b0bb6d51c93d6e491b670c9f262a3af4f61238d97104a1cc2625"
-  },
-  "ios/Resources/Editions/revolution/BB2-paddle.png": {
-    "bytes": 75309,
-    "sha256": "7eb28b01a8a68e27082685127c3d690bf4ebb322260a4f49c50440ca71c06901"
-  },
-  "ios/Resources/Editions/revolution/BB2-explode.png": {
-    "bytes": 6430,
-    "sha256": "c787d5f88227080ddb8c44be3f6a2e91a13b2efdb15665bc2f58cbc7343d34e0"
-  },
-  "ios/Resources/Editions/revolution/BB2-background-5.png": {
-    "bytes": 109742,
-    "sha256": "d1c1aae419a2bf72d90ed13ead01d205b919d554b79f527cb3755955ad41ec10"
-  },
-  "ios/Resources/Editions/revolution/BB2-bricks.png": {
-    "bytes": 25772,
-    "sha256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a"
-  },
-  "ios/Resources/Editions/revolution/BB2-background-4.png": {
-    "bytes": 53767,
-    "sha256": "074eb9923d45ad68c69c3fe914bba9957c3c5a2b1c6d4d786ad6576189f3ca4e"
-  },
-  "ios/Resources/Editions/revolution/BB2-background-6.png": {
-    "bytes": 53188,
-    "sha256": "c2243996ec36e40df18a94cce5772240da47a0c5254ba8bb269feb6c160b349a"
-  },
-  "ios/Resources/Editions/revolution/BB2-background-7.png": {
-    "bytes": 92468,
-    "sha256": "ccce63daeb677ce3c1a595ce1f2c97d48a705f638a4dfb56e3612d03529abdff"
-  },
-  "ios/Resources/Editions/revolution/BB2-powerup.png": {
-    "bytes": 172956,
-    "sha256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b"
-  },
-  "ios/Resources/Editions/revolution/BB2-background-2.png": {
-    "bytes": 104249,
-    "sha256": "112578ad19807a37f09f712d329ff7f79ec61ccbd3fdfaaa4be3c17bcbb53bd9"
-  },
-  "ios/Resources/Editions/revolution/BB2-background-1.png": {
-    "bytes": 100316,
-    "sha256": "cb02caa09a32d5684089f6553ca2aacb27b031097e57d4c50f193b9f0680102c"
-  },
-  "ios/Resources/Editions/revolution/BB2-layer.png": {
-    "bytes": 8530,
-    "sha256": "5f4bb3b26dda5023ad0005dfb780318b7dafc6858bff826a716b3ee65a6b61a7"
-  },
-  "ios/Resources/Editions/revolution/BB2-ball.png": {
-    "bytes": 1591,
-    "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
-  },
-  "ios/Resources/Editions/revolution/BB2-background-9.png": {
-    "bytes": 59105,
-    "sha256": "2a32c1227bb8f60c631b915c55b718c6cdd38a548063d18cd8ee5592eb9676bc"
-  },
-  "ios/Resources/Editions/revolution/BB2-gspark.png": {
-    "bytes": 12046,
-    "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
-  },
-  "ios/Resources/Editions/revolution/BB2-breaker.png": {
-    "bytes": 18049,
-    "sha256": "01c450d98b01aa79533149988f1b846860c367b1142bde5b5d4b3bc480ead9e3"
-  },
-  "ios/Resources/Editions/revolution/BB2-broken.png": {
-    "bytes": 2618,
-    "sha256": "e5f1c7b22d4e688117f20719c98a91c0ce8711a3ba2dcbe510716b512c60f26b"
-  },
-  "ios/Resources/Editions/revolution/BB2-drifter.png": {
-    "bytes": 17458,
-    "sha256": "e62546e4248b4f907038cfec25da562e7ab8d39aa8e1a66a4e122e6abae26b80"
-  },
-  "ios/Resources/Editions/remix/BB2-darter.png": {
-    "bytes": 24112,
-    "sha256": "a4a2df2dd6fe1866f09a3f329641185402cf519f03c10b5849d04f959b854eeb"
-  },
-  "ios/Resources/Editions/remix/BB2-ring-pattern.png": {
-    "bytes": 238,
-    "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
-  },
-  "ios/Resources/Editions/remix/BB2-door.png": {
-    "bytes": 6705,
-    "sha256": "42e2c2f38454706f072e971f45b7c01ee34f33eafb8a30707ae4d0fcc8986a00"
-  },
-  "ios/Resources/Editions/remix/BB2-exploder.png": {
-    "bytes": 23145,
-    "sha256": "b86c4649d811f71d5e830a33c4949b261e09fbe20a9630f48cfaf07d6e44042d"
-  },
-  "ios/Resources/Editions/remix/BB2-title.png": {
-    "bytes": 37525,
-    "sha256": "fb7bbdbdfa45362ba25ff49a3fc19f5b16ffb07b24a414c3c9d4b4adb902a09e"
-  },
-  "ios/Resources/Editions/remix/provenance.json": {
-    "bytes": 5255,
-    "sha256": "212be9b9b2df5f5ba7f45933a84ae0dc8f77d7a6cea8c44298308fc7a1ff1da6"
-  },
-  "ios/Resources/Editions/remix/BB2-paddle.png": {
-    "bytes": 245161,
-    "sha256": "d94ebbb4a05d9e07291a287ec9f6e13045bb28d18462c23f4a6968586b7bd583"
-  },
-  "ios/Resources/Editions/remix/BB2-explode.png": {
-    "bytes": 6430,
-    "sha256": "c787d5f88227080ddb8c44be3f6a2e91a13b2efdb15665bc2f58cbc7343d34e0"
+  "ios/Resources/Editions/remix/BB2-background-3.png": {
+    "bytes": 233715,
+    "sha256": "92904cdf6982f67c6eb78b9df1377512d61a9c30a82f58d450d6f351d41d462f"
   },
   "ios/Resources/Editions/remix/BB2-background-5.png": {
     "bytes": 202503,
     "sha256": "b2a9ef7cbaeb575d8ec70d3dabbc776d8ff22bad5020883f8d1baa33c297aa59"
-  },
-  "ios/Resources/Editions/remix/BB2-bricks.png": {
-    "bytes": 25772,
-    "sha256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a"
   },
   "ios/Resources/Editions/remix/BB2-background-6.png": {
     "bytes": 222003,
@@ -2011,120 +1891,316 @@
     "bytes": 238566,
     "sha256": "ee4f41ffd05dec2baa2f4b25f3101b7b09715b7f3ee4d82ce1c4248ff7371053"
   },
-  "ios/Resources/Editions/remix/BB2-powerup.png": {
-    "bytes": 172956,
-    "sha256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b"
-  },
-  "ios/Resources/Editions/remix/BB2-background-3.png": {
-    "bytes": 233715,
-    "sha256": "92904cdf6982f67c6eb78b9df1377512d61a9c30a82f58d450d6f351d41d462f"
-  },
-  "ios/Resources/Editions/remix/BB2-background-2.png": {
-    "bytes": 302421,
-    "sha256": "306e0df343eaa5eba4f6ae0460e5ad2f0c72778262e9e913b4259c46fc7f2ade"
-  },
-  "ios/Resources/Editions/remix/BB2-background-1.png": {
-    "bytes": 303887,
-    "sha256": "78d2510950dcc26628ab7cff5176528421737c7de03ff6da135cdef7b4b9f0e2"
-  },
-  "ios/Resources/Editions/remix/BB2-layer.png": {
-    "bytes": 8530,
-    "sha256": "5f4bb3b26dda5023ad0005dfb780318b7dafc6858bff826a716b3ee65a6b61a7"
+  "ios/Resources/Editions/remix/BB2-background-8.png": {
+    "bytes": 206298,
+    "sha256": "612daf9d0c1d7d7d2d320407b23a4c4f6320cf46e9c74a3395f19864a9a2015e"
   },
   "ios/Resources/Editions/remix/BB2-ball.png": {
     "bytes": 1591,
     "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
   },
-  "ios/Resources/Editions/remix/BB2-background-8.png": {
-    "bytes": 206298,
-    "sha256": "612daf9d0c1d7d7d2d320407b23a4c4f6320cf46e9c74a3395f19864a9a2015e"
-  },
-  "ios/Resources/Editions/remix/BB2-gspark.png": {
-    "bytes": 12046,
-    "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
-  },
   "ios/Resources/Editions/remix/BB2-breaker.png": {
     "bytes": 18049,
     "sha256": "01c450d98b01aa79533149988f1b846860c367b1142bde5b5d4b3bc480ead9e3"
+  },
+  "ios/Resources/Editions/remix/BB2-bricks.png": {
+    "bytes": 25772,
+    "sha256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a"
   },
   "ios/Resources/Editions/remix/BB2-broken.png": {
     "bytes": 2618,
     "sha256": "e5f1c7b22d4e688117f20719c98a91c0ce8711a3ba2dcbe510716b512c60f26b"
   },
+  "ios/Resources/Editions/remix/BB2-darter.png": {
+    "bytes": 24112,
+    "sha256": "a4a2df2dd6fe1866f09a3f329641185402cf519f03c10b5849d04f959b854eeb"
+  },
+  "ios/Resources/Editions/remix/BB2-door.png": {
+    "bytes": 6705,
+    "sha256": "42e2c2f38454706f072e971f45b7c01ee34f33eafb8a30707ae4d0fcc8986a00"
+  },
   "ios/Resources/Editions/remix/BB2-drifter.png": {
     "bytes": 17458,
     "sha256": "e62546e4248b4f907038cfec25da562e7ab8d39aa8e1a66a4e122e6abae26b80"
   },
-  "ios/Assets.xcassets/Contents.json": {
-    "bytes": 43,
-    "sha256": "47d7e4a36c59b0f8829154abe3a7f6b7ef0c5ea5cf8a9bfccbc6bdf85e811d1b"
+  "ios/Resources/Editions/remix/BB2-explode.png": {
+    "bytes": 6430,
+    "sha256": "c787d5f88227080ddb8c44be3f6a2e91a13b2efdb15665bc2f58cbc7343d34e0"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-29.png": {
-    "bytes": 2410,
-    "sha256": "3c43ff10846b9475b07fcb8bda0b95fe29fc6ce269d8261083b721459b895d83"
+  "ios/Resources/Editions/remix/BB2-exploder.png": {
+    "bytes": 23145,
+    "sha256": "b86c4649d811f71d5e830a33c4949b261e09fbe20a9630f48cfaf07d6e44042d"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-120.png": {
-    "bytes": 33015,
-    "sha256": "b19496a25a2bf115781b9e6f9620a566c7a518ed32cd85be9b6c8d667936ebc3"
+  "ios/Resources/Editions/remix/BB2-gspark.png": {
+    "bytes": 12046,
+    "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-76.png": {
-    "bytes": 13995,
-    "sha256": "de087a358a4a59558148bf7550693a03555b67e4355a3761e5e1094dd48ed15c"
+  "ios/Resources/Editions/remix/BB2-layer.png": {
+    "bytes": 8530,
+    "sha256": "5f4bb3b26dda5023ad0005dfb780318b7dafc6858bff826a716b3ee65a6b61a7"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-60.png": {
-    "bytes": 8987,
-    "sha256": "6663eaccc534dfe00f53015376967cbd6a1f5f5ee9268db9dd12aaa261a6dc4e"
+  "ios/Resources/Editions/remix/BB2-paddle.png": {
+    "bytes": 245161,
+    "sha256": "d94ebbb4a05d9e07291a287ec9f6e13045bb28d18462c23f4a6968586b7bd583"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-1024.png": {
-    "bytes": 1726722,
-    "sha256": "a6cb496a012e8b1d4386a0c1e37ef88731c97a00a44b0c63a2a1e54fc0c4437c"
+  "ios/Resources/Editions/remix/BB2-powerup.png": {
+    "bytes": 172956,
+    "sha256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-152.png": {
-    "bytes": 51339,
-    "sha256": "1dcfa26a02419e4be8847396e3193262e4a2c1480ec295358b1349600557037c"
+  "ios/Resources/Editions/remix/BB2-ring-pattern.png": {
+    "bytes": 238,
+    "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-180.png": {
-    "bytes": 70234,
-    "sha256": "cf77c0b3a17d26cd048fb0f9f26d14e9956659ad9fdc2689fd9a07c2bb1594a2"
+  "ios/Resources/Editions/remix/BB2-title.png": {
+    "bytes": 37525,
+    "sha256": "fb7bbdbdfa45362ba25ff49a3fc19f5b16ffb07b24a414c3c9d4b4adb902a09e"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-58.png": {
-    "bytes": 8452,
-    "sha256": "106683234ffb78f61076451d03c7ff28e48d12bc48c5f6b445a694201b36416a"
+  "ios/Resources/Editions/remix/provenance.json": {
+    "bytes": 5255,
+    "sha256": "212be9b9b2df5f5ba7f45933a84ae0dc8f77d7a6cea8c44298308fc7a1ff1da6"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-80.png": {
-    "bytes": 15414,
-    "sha256": "b24875a9db3eeb2d1e443460d1b8342b556de329f28dc24401f64f27c6138294"
+  "ios/Resources/Editions/revolution/BB2-background-1.png": {
+    "bytes": 100316,
+    "sha256": "cb02caa09a32d5684089f6553ca2aacb27b031097e57d4c50f193b9f0680102c"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-167.png": {
-    "bytes": 61002,
-    "sha256": "2173881cee9ace6697b21286af35caa293bfe12021c60bd70db1edeee2a92a0a"
+  "ios/Resources/Editions/revolution/BB2-background-2.png": {
+    "bytes": 104249,
+    "sha256": "112578ad19807a37f09f712d329ff7f79ec61ccbd3fdfaaa4be3c17bcbb53bd9"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-40.png": {
-    "bytes": 4263,
-    "sha256": "8c411178a3a658452acffd787b15efcaf40836ac43d15fb13747af4d8ba42624"
+  "ios/Resources/Editions/revolution/BB2-background-4.png": {
+    "bytes": 53767,
+    "sha256": "074eb9923d45ad68c69c3fe914bba9957c3c5a2b1c6d4d786ad6576189f3ca4e"
   },
-  "ios/Assets.xcassets/AppIcon.appiconset/icon-87.png": {
-    "bytes": 18132,
-    "sha256": "4470c9e9b995b02a8ac018c78dc73551ae5efdbacde591ed276db41aa0ee3a7f"
+  "ios/Resources/Editions/revolution/BB2-background-5.png": {
+    "bytes": 109742,
+    "sha256": "d1c1aae419a2bf72d90ed13ead01d205b919d554b79f527cb3755955ad41ec10"
+  },
+  "ios/Resources/Editions/revolution/BB2-background-6.png": {
+    "bytes": 53188,
+    "sha256": "c2243996ec36e40df18a94cce5772240da47a0c5254ba8bb269feb6c160b349a"
+  },
+  "ios/Resources/Editions/revolution/BB2-background-7.png": {
+    "bytes": 92468,
+    "sha256": "ccce63daeb677ce3c1a595ce1f2c97d48a705f638a4dfb56e3612d03529abdff"
+  },
+  "ios/Resources/Editions/revolution/BB2-background-9.png": {
+    "bytes": 59105,
+    "sha256": "2a32c1227bb8f60c631b915c55b718c6cdd38a548063d18cd8ee5592eb9676bc"
+  },
+  "ios/Resources/Editions/revolution/BB2-ball.png": {
+    "bytes": 1591,
+    "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
+  },
+  "ios/Resources/Editions/revolution/BB2-breaker.png": {
+    "bytes": 18049,
+    "sha256": "01c450d98b01aa79533149988f1b846860c367b1142bde5b5d4b3bc480ead9e3"
+  },
+  "ios/Resources/Editions/revolution/BB2-bricks.png": {
+    "bytes": 25772,
+    "sha256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a"
+  },
+  "ios/Resources/Editions/revolution/BB2-broken.png": {
+    "bytes": 2618,
+    "sha256": "e5f1c7b22d4e688117f20719c98a91c0ce8711a3ba2dcbe510716b512c60f26b"
+  },
+  "ios/Resources/Editions/revolution/BB2-darter.png": {
+    "bytes": 24112,
+    "sha256": "a4a2df2dd6fe1866f09a3f329641185402cf519f03c10b5849d04f959b854eeb"
+  },
+  "ios/Resources/Editions/revolution/BB2-door.png": {
+    "bytes": 3286,
+    "sha256": "086ebe40cc0ed884ac1cea5215cb403d0c38aa111e050a99839dba3cd6c1db83"
+  },
+  "ios/Resources/Editions/revolution/BB2-drifter.png": {
+    "bytes": 17458,
+    "sha256": "e62546e4248b4f907038cfec25da562e7ab8d39aa8e1a66a4e122e6abae26b80"
+  },
+  "ios/Resources/Editions/revolution/BB2-explode.png": {
+    "bytes": 6430,
+    "sha256": "c787d5f88227080ddb8c44be3f6a2e91a13b2efdb15665bc2f58cbc7343d34e0"
+  },
+  "ios/Resources/Editions/revolution/BB2-exploder.png": {
+    "bytes": 23145,
+    "sha256": "b86c4649d811f71d5e830a33c4949b261e09fbe20a9630f48cfaf07d6e44042d"
+  },
+  "ios/Resources/Editions/revolution/BB2-gspark.png": {
+    "bytes": 12046,
+    "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
+  },
+  "ios/Resources/Editions/revolution/BB2-layer.png": {
+    "bytes": 8530,
+    "sha256": "5f4bb3b26dda5023ad0005dfb780318b7dafc6858bff826a716b3ee65a6b61a7"
+  },
+  "ios/Resources/Editions/revolution/BB2-paddle.png": {
+    "bytes": 75309,
+    "sha256": "7eb28b01a8a68e27082685127c3d690bf4ebb322260a4f49c50440ca71c06901"
+  },
+  "ios/Resources/Editions/revolution/BB2-powerup.png": {
+    "bytes": 172956,
+    "sha256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b"
+  },
+  "ios/Resources/Editions/revolution/BB2-ring-pattern.png": {
+    "bytes": 238,
+    "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
+  },
+  "ios/Resources/Editions/revolution/BB2-title.png": {
+    "bytes": 23787,
+    "sha256": "5d3f2ff93f8dcc179a4c9916682df3df05bc0dd5be93b6721bbb7a7c2e2d4bc1"
+  },
+  "ios/Resources/Editions/revolution/provenance.json": {
+    "bytes": 4961,
+    "sha256": "44de4964a2c5b0bb6d51c93d6e491b670c9f262a3af4f61238d97104a1cc2625"
+  },
+  "ios/Resources/Menu/ArcadeEditionSelection.png": {
+    "bytes": 2222762,
+    "sha256": "26f7075be6ae8e6bacb7c1253ec79578813db587715cae4ef6a11e769d386d2d"
+  },
+  "ios/Resources/Menu/ArcadeGameSelection.png": {
+    "bytes": 1999055,
+    "sha256": "b86f4c138f9344b8099c47de485879c7251cf2deb51a5b15e8ab9441bf881807"
+  },
+  "ios/Resources/Menu/BB3-title.png": {
+    "bytes": 164331,
+    "sha256": "27d238693c10bcc15a3b38c4ce2f049aa4fc6d2152701a3e5db14606e0e20620"
+  },
+  "ios/Resources/Menu/provenance.json": {
+    "bytes": 287,
+    "sha256": "b948ac56fc53425a99fda4e244bd11cd218d8f716e4adcb89da2ba35ccf44844"
+  },
+  "ios/Resources/Original/BB2-background-1.png": {
+    "bytes": 100316,
+    "sha256": "cb02caa09a32d5684089f6553ca2aacb27b031097e57d4c50f193b9f0680102c"
+  },
+  "ios/Resources/Original/BB2-background-2.png": {
+    "bytes": 104249,
+    "sha256": "112578ad19807a37f09f712d329ff7f79ec61ccbd3fdfaaa4be3c17bcbb53bd9"
+  },
+  "ios/Resources/Original/BB2-background-3.png": {
+    "bytes": 69465,
+    "sha256": "a52012bd16433198e58072e06e55464c677d4047648abe3a4e8ef8f41fe4c53e"
+  },
+  "ios/Resources/Original/BB2-background-4.png": {
+    "bytes": 53767,
+    "sha256": "074eb9923d45ad68c69c3fe914bba9957c3c5a2b1c6d4d786ad6576189f3ca4e"
+  },
+  "ios/Resources/Original/BB2-background-5.png": {
+    "bytes": 109742,
+    "sha256": "d1c1aae419a2bf72d90ed13ead01d205b919d554b79f527cb3755955ad41ec10"
+  },
+  "ios/Resources/Original/BB2-background-6.png": {
+    "bytes": 53188,
+    "sha256": "c2243996ec36e40df18a94cce5772240da47a0c5254ba8bb269feb6c160b349a"
+  },
+  "ios/Resources/Original/BB2-background-7.png": {
+    "bytes": 92468,
+    "sha256": "ccce63daeb677ce3c1a595ce1f2c97d48a705f638a4dfb56e3612d03529abdff"
+  },
+  "ios/Resources/Original/BB2-background-8.png": {
+    "bytes": 101669,
+    "sha256": "f7c62ebb451ac87591719c376541950c704533600d07fcfa297bd2ab8a56d555"
+  },
+  "ios/Resources/Original/BB2-background-9.png": {
+    "bytes": 59105,
+    "sha256": "2a32c1227bb8f60c631b915c55b718c6cdd38a548063d18cd8ee5592eb9676bc"
+  },
+  "ios/Resources/Original/BB2-ball.png": {
+    "bytes": 1591,
+    "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
+  },
+  "ios/Resources/Original/BB2-bricks.png": {
+    "bytes": 25772,
+    "sha256": "ab5af92f7cc0ebb4c0346ffef41679bcbccd81fe52f213011bf727efd098fb5a"
+  },
+  "ios/Resources/Original/BB2-paddle.png": {
+    "bytes": 75309,
+    "sha256": "7eb28b01a8a68e27082685127c3d690bf4ebb322260a4f49c50440ca71c06901"
+  },
+  "ios/Resources/Original/BB2-powerup.png": {
+    "bytes": 172956,
+    "sha256": "57be670587c34e6afec581ac199d0672b7d356f4f8e1f58ee8f6e306c28fac0b"
+  },
+  "ios/Resources/Original/provenance.json": {
+    "bytes": 4394,
+    "sha256": "ae215a74ef0e8c0c5989639fc15911a51e3b6f30a7bcfda8216ca4ebcb59b46b"
+  },
+  "ios/Resources/campaign.json": {
+    "bytes": 497827,
+    "sha256": "025f25acb2d68268d9f88cad30f93fc9c575c888d5f8375b5c292bb5c08db2f9"
+  },
+  "ios/Resources/stage1.json": {
+    "bytes": 33226,
+    "sha256": "de484fa232c09b74f58bc7e91fad236d1765805b14483f1cd70ef72186b8f836"
   },
   "ios/Assets.xcassets/AppIcon.appiconset/Contents.json": {
     "bytes": 2133,
     "sha256": "2b76f4cd90899ff7160b28adc60a356799191b4d64a23e78f108e5d97d2dd0e4"
   },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-1024.png": {
+    "bytes": 1726722,
+    "sha256": "a6cb496a012e8b1d4386a0c1e37ef88731c97a00a44b0c63a2a1e54fc0c4437c"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-120.png": {
+    "bytes": 33015,
+    "sha256": "b19496a25a2bf115781b9e6f9620a566c7a518ed32cd85be9b6c8d667936ebc3"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-152.png": {
+    "bytes": 51339,
+    "sha256": "1dcfa26a02419e4be8847396e3193262e4a2c1480ec295358b1349600557037c"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-167.png": {
+    "bytes": 61002,
+    "sha256": "2173881cee9ace6697b21286af35caa293bfe12021c60bd70db1edeee2a92a0a"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-180.png": {
+    "bytes": 70234,
+    "sha256": "cf77c0b3a17d26cd048fb0f9f26d14e9956659ad9fdc2689fd9a07c2bb1594a2"
+  },
   "ios/Assets.xcassets/AppIcon.appiconset/icon-20.png": {
     "bytes": 1301,
     "sha256": "f98f7de9a2ef64fd00897f11114d1c17485f923591606078bf6baea6367438e3"
   },
-  "ios/Artwork/icon-prompt.txt": {
-    "bytes": 382,
-    "sha256": "69373b996dede8330ae9433919e8f758767ca3cfe6b19b9fce6c3b8da643a89f"
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-29.png": {
+    "bytes": 2410,
+    "sha256": "3c43ff10846b9475b07fcb8bda0b95fe29fc6ce269d8261083b721459b895d83"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-40.png": {
+    "bytes": 4263,
+    "sha256": "8c411178a3a658452acffd787b15efcaf40836ac43d15fb13747af4d8ba42624"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-58.png": {
+    "bytes": 8452,
+    "sha256": "106683234ffb78f61076451d03c7ff28e48d12bc48c5f6b445a694201b36416a"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-60.png": {
+    "bytes": 8987,
+    "sha256": "6663eaccc534dfe00f53015376967cbd6a1f5f5ee9268db9dd12aaa261a6dc4e"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-76.png": {
+    "bytes": 13995,
+    "sha256": "de087a358a4a59558148bf7550693a03555b67e4355a3761e5e1094dd48ed15c"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-80.png": {
+    "bytes": 15414,
+    "sha256": "b24875a9db3eeb2d1e443460d1b8342b556de329f28dc24401f64f27c6138294"
+  },
+  "ios/Assets.xcassets/AppIcon.appiconset/icon-87.png": {
+    "bytes": 18132,
+    "sha256": "4470c9e9b995b02a8ac018c78dc73551ae5efdbacde591ed276db41aa0ee3a7f"
+  },
+  "ios/Assets.xcassets/Contents.json": {
+    "bytes": 43,
+    "sha256": "47d7e4a36c59b0f8829154abe3a7f6b7ef0c5ea5cf8a9bfccbc6bdf85e811d1b"
+  },
+  "ios/Artwork/Icon-source.png": {
+    "bytes": 2186983,
+    "sha256": "48124ed618e89cd93d9ce15fbf1efd4e2f86058f949c49ed0b6ae3e08c3a2d3b"
   },
   "ios/Artwork/ORIGINAL-ASSETS.md": {
     "bytes": 1272,
     "sha256": "e731dc7160f1444d1c1f65aa0ce850e41b6052c47bd15a143e0e7e29a203b047"
   },
-  "ios/Artwork/Icon-source.png": {
-    "bytes": 2186983,
-    "sha256": "48124ed618e89cd93d9ce15fbf1efd4e2f86058f949c49ed0b6ae3e08c3a2d3b"
+  "ios/Artwork/icon-prompt.txt": {
+    "bytes": 382,
+    "sha256": "69373b996dede8330ae9433919e8f758767ca3cfe6b19b9fce6c3b8da643a89f"
   }
 }

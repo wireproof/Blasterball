@@ -4,9 +4,9 @@ An experimental UIKit and SpriteKit reconstruction of Blasterball for iPhone and
 
 ## Current release
 
-**0.7.19, build 37** keeps Pause hidden until game content is ready, eliminating the lone button on the black startup screen. It retains iPad trackpad steering: the paddle follows horizontal pointer movement without holding a click, over the game or lower control area. It also includes illustrated game and edition selection screens, rounded border-only hover and touch highlights (including Settings), and a laptop paddle-control deck aligned with the playfield. The iOS app identifier is now `com.wireproof.blasterball`; its name and icon are unchanged.
+**0.8.0, build 38** adds an in-app BB2 level editor with custom-level save/import/export/play, restores missing BB2 power-ups and special-brick behaviors, corrects several BB3 enemy/brick effects, and adds faithful cached 2× Revolution texture enhancement. It also reduces repeated save, HUD, trail, and overlay work. Open the launcher Settings gear → Level Editor / Custom Levels. See [custom-level documentation](docs/CUSTOM-LEVELS.md).
 
-This is a prerelease reconstruction. Gameplay mechanics and visual fidelity remain incomplete. The development-signed build37 was installed on iPhone Duo and iPad Pro with saved preferences and documents migrated and verified by file readback. Neither app was launched during delivery, so runtime save loading and current physical-device visuals remain unverified. Historical simulator checks are not a substitute for testing this release on a device.
+This is a prerelease reconstruction. Exact native AI, some BB3 abilities/effect timing, and the reported crescent-marked group-switch mechanic remain unverified. The first editor authors BB2 grids, not BB3 polygon/boss levels or original Windows world files. Simulator gameplay/editor checks passed. Version 0.8.0 (38) was installed on both iPhone Duo and iPad Pro, with preferences and Documents verified unchanged by before/after readback. Neither physical app was launched; physical runtime, performance, and visual testing were not performed.
 
 Changing from the previous `com.wireproof.blasterball.prototype` identifier creates a separate app container. The public IPA does not automatically transfer previous saves. Keep the old app and back up its data before migrating.
 
@@ -14,7 +14,7 @@ Changing from the previous `com.wireproof.blasterball.prototype` identifier crea
 
 Open [`ios/Blasterball.xcodeproj`](ios/Blasterball.xcodeproj) in Xcode, select your signing team, and build for iPhone or iPad. The standalone source has no dependency on the development workspace's shared-source symlinks. `ios/build.sh simulator` builds the simulator app; `ios/build-xcode.sh` wraps the Xcode build.
 
-The release IPA is **unsigned** and must be signed for your device. It corresponds to build37, with development signing and the embedded device provisioning profile removed. See [release notes](ios/RELEASE-0.7.19.md).
+The release IPA is **unsigned** and must be signed for your device. It corresponds to build38, with development signing and the embedded device provisioning profile removed. See [release notes](ios/RELEASE-0.8.0.md).
 
 ## Assets
 
