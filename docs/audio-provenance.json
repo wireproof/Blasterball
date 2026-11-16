@@ -1,0 +1,20 @@
+[
+  {
+    "edition": "revolution",
+    "originalSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "decodedSHA256": "7ce0036bf050ad609db39f2d1c4ae8b085f3ed497c419831361026a7ec7ac69b",
+    "operation": "decode original MPEG-in-WAV to PCM WAV for AVAudioPlayer; no resynthesis"
+  },
+  {
+    "edition": "remix",
+    "originalSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "decodedSHA256": "7ce0036bf050ad609db39f2d1c4ae8b085f3ed497c419831361026a7ec7ac69b",
+    "operation": "decode original MPEG-in-WAV to PCM WAV for AVAudioPlayer; no resynthesis"
+  },
+  {
+    "edition": "holidays",
+    "originalSHA256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d",
+    "decodedSHA256": "7ce0036bf050ad609db39f2d1c4ae8b085f3ed497c419831361026a7ec7ac69b",
+    "operation": "decode original MPEG-in-WAV to PCM WAV for AVAudioPlayer; no resynthesis"
+  }
+]

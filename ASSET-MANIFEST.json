@@ -299,6 +299,10 @@
     "bytes": 11904,
     "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
   },
+  "ios/Resources/Audio/holidays/laser-pcm.wav": {
+    "bytes": 16206,
+    "sha256": "7ce0036bf050ad609db39f2d1c4ae8b085f3ed497c419831361026a7ec7ac69b"
+  },
   "ios/Resources/Audio/holidays/laser.wav": {
     "bytes": 1832,
     "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
@@ -483,6 +487,10 @@
     "bytes": 11904,
     "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
   },
+  "ios/Resources/Audio/remix/laser-pcm.wav": {
+    "bytes": 16206,
+    "sha256": "7ce0036bf050ad609db39f2d1c4ae8b085f3ed497c419831361026a7ec7ac69b"
+  },
   "ios/Resources/Audio/remix/laser.wav": {
     "bytes": 1832,
     "sha256": "1087a100f70626affc3e6b9960237a99502b39cbda715db629bb86a54b2e3e7d"
@@ -662,6 +670,10 @@
   "ios/Resources/Audio/revolution/hitbarrier.wav": {
     "bytes": 11904,
     "sha256": "b9072566d2798a54997193b99592e373034e8a0d712e1f7a6a23aa3fd737fca4"
+  },
+  "ios/Resources/Audio/revolution/laser-pcm.wav": {
+    "bytes": 16206,
+    "sha256": "7ce0036bf050ad609db39f2d1c4ae8b085f3ed497c419831361026a7ec7ac69b"
   },
   "ios/Resources/Audio/revolution/laser.wav": {
     "bytes": 1832,
@@ -1807,6 +1819,10 @@
     "bytes": 1591,
     "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
   },
+  "ios/Resources/Editions/holidays/BB2-barrier.png": {
+    "bytes": 10361,
+    "sha256": "adc2ab58d48a5d5403cd40f24cfdaa46b6b02d1f45143b3b1df093fa80dd262f"
+  },
   "ios/Resources/Editions/holidays/BB2-breaker.png": {
     "bytes": 22550,
     "sha256": "6ff0429466fd836efdd11b3dd5e728dd0dcca20b6d6b70dcb9c6023a1be21714"
@@ -1843,6 +1859,10 @@
     "bytes": 12046,
     "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
   },
+  "ios/Resources/Editions/holidays/BB2-laser.png": {
+    "bytes": 3105,
+    "sha256": "0ef7064c598dfe80454f96e3ae917393f3b85a10587cbacdc75069dffff49236"
+  },
   "ios/Resources/Editions/holidays/BB2-layer.png": {
     "bytes": 17490,
     "sha256": "4dfaeebdf0b94a46c7d10f5d6927b64dbccd142d95112aca22d08753121bc9dc"
@@ -1858,6 +1878,10 @@
   "ios/Resources/Editions/holidays/BB2-ring-pattern.png": {
     "bytes": 238,
     "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
+  },
+  "ios/Resources/Editions/holidays/BB2-sticky.png": {
+    "bytes": 3718,
+    "sha256": "04783a87faaa9e8f680ab35b93340d2614730304c2ba582d63e93167ebc4bf57"
   },
   "ios/Resources/Editions/holidays/BB2-title.png": {
     "bytes": 43259,
@@ -1899,6 +1923,10 @@
     "bytes": 1591,
     "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
   },
+  "ios/Resources/Editions/remix/BB2-barrier.png": {
+    "bytes": 10361,
+    "sha256": "adc2ab58d48a5d5403cd40f24cfdaa46b6b02d1f45143b3b1df093fa80dd262f"
+  },
   "ios/Resources/Editions/remix/BB2-breaker.png": {
     "bytes": 18049,
     "sha256": "01c450d98b01aa79533149988f1b846860c367b1142bde5b5d4b3bc480ead9e3"
@@ -1935,6 +1963,10 @@
     "bytes": 12046,
     "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
   },
+  "ios/Resources/Editions/remix/BB2-laser.png": {
+    "bytes": 3105,
+    "sha256": "0ef7064c598dfe80454f96e3ae917393f3b85a10587cbacdc75069dffff49236"
+  },
   "ios/Resources/Editions/remix/BB2-layer.png": {
     "bytes": 8530,
     "sha256": "5f4bb3b26dda5023ad0005dfb780318b7dafc6858bff826a716b3ee65a6b61a7"
@@ -1950,6 +1982,10 @@
   "ios/Resources/Editions/remix/BB2-ring-pattern.png": {
     "bytes": 238,
     "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
+  },
+  "ios/Resources/Editions/remix/BB2-sticky.png": {
+    "bytes": 3718,
+    "sha256": "04783a87faaa9e8f680ab35b93340d2614730304c2ba582d63e93167ebc4bf57"
   },
   "ios/Resources/Editions/remix/BB2-title.png": {
     "bytes": 37525,
@@ -1991,6 +2027,10 @@
     "bytes": 1591,
     "sha256": "0b4f9715b128ae2144b5e41b7aaf191dd2921861682b00745bfee3c010271d9a"
   },
+  "ios/Resources/Editions/revolution/BB2-barrier.png": {
+    "bytes": 10361,
+    "sha256": "adc2ab58d48a5d5403cd40f24cfdaa46b6b02d1f45143b3b1df093fa80dd262f"
+  },
   "ios/Resources/Editions/revolution/BB2-breaker.png": {
     "bytes": 18049,
     "sha256": "01c450d98b01aa79533149988f1b846860c367b1142bde5b5d4b3bc480ead9e3"
@@ -2027,6 +2067,10 @@
     "bytes": 12046,
     "sha256": "a0a91ff2c038e89c849fc56c0b1064774dfebf6d5b844068cf8c552f8b8391f5"
   },
+  "ios/Resources/Editions/revolution/BB2-laser.png": {
+    "bytes": 3105,
+    "sha256": "0ef7064c598dfe80454f96e3ae917393f3b85a10587cbacdc75069dffff49236"
+  },
   "ios/Resources/Editions/revolution/BB2-layer.png": {
     "bytes": 8530,
     "sha256": "5f4bb3b26dda5023ad0005dfb780318b7dafc6858bff826a716b3ee65a6b61a7"
@@ -2042,6 +2086,10 @@
   "ios/Resources/Editions/revolution/BB2-ring-pattern.png": {
     "bytes": 238,
     "sha256": "830db6ebbb1b802b897f51ffc529012dea11d8ff38e87780630af69840d2fd82"
+  },
+  "ios/Resources/Editions/revolution/BB2-sticky.png": {
+    "bytes": 3718,
+    "sha256": "04783a87faaa9e8f680ab35b93340d2614730304c2ba582d63e93167ebc4bf57"
   },
   "ios/Resources/Editions/revolution/BB2-title.png": {
     "bytes": 23787,

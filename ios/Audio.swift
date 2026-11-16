@@ -10,6 +10,9 @@ final class GameAudio {
     private var events:[String:String] {
         var result=baseEvents
         result["firework_launch"]="firework_launch";result["firework_explode"]="firework_explode"
+        if edition != "bb3" {
+            for (event,file) in ["attach_on":"stickyon","attach_off":"stickyoff","laser_off":"gunout","attach_launch":"stickylaunch","catcher_on":"barrier","catcher_hit":"hitbarrier","laser_on":"gunin","laser_fire":"laser-pcm"] {result[event]=file}
+        }
         if edition=="bb3" {
             result["respawn"]="respawn"
             for id in [20,21,22,23,24,25,26,27,28,29,30,31,33,34,35,36,37,38] {result["power\(id)"]="power\(id)"}

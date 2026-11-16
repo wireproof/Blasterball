@@ -4,9 +4,11 @@ An experimental UIKit and SpriteKit reconstruction of Blasterball for iPhone and
 
 ## Current release
 
-**0.8.0, build 38** adds an in-app BB2 level editor with custom-level save/import/export/play, restores missing BB2 power-ups and special-brick behaviors, corrects several BB3 enemy/brick effects, and adds faithful cached 2× Revolution texture enhancement. It also reduces repeated save, HUD, trail, and overlay work. Open the launcher Settings gear → Level Editor / Custom Levels. See [custom-level documentation](docs/CUSTOM-LEVELS.md).
+**0.8.1, build 39** corrects the BB2 Laser, Attach and Catcher using original game code and artwork. Laser now fires paired travelling shots with the red paddle transformation; Attach shows its animated shield and retains the ball's contact position; Catcher remains until it saves one ball. Original power-up sounds are connected, including a PCM decode of the original laser recording for Apple playback. See [original-game evidence](docs/ORIGINAL-POWERUPS.md).
 
-This is a prerelease reconstruction. Exact native AI, some BB3 abilities/effect timing, and the reported crescent-marked group-switch mechanic remain unverified. The first editor authors BB2 grids, not BB3 polygon/boss levels or original Windows world files. Simulator gameplay/editor checks passed. Version 0.8.0 (38) was installed on both iPhone Duo and iPad Pro, with preferences and Documents verified unchanged by before/after readback. Neither physical app was launched; physical runtime, performance, and visual testing were not performed.
+The in-app BB2 level editor, custom-level import/export/play, cached 2× Revolution texture enhancement, and earlier gameplay improvements remain included. Open the launcher Settings gear → Level Editor / Custom Levels. See [custom-level documentation](docs/CUSTOM-LEVELS.md).
+
+This is a prerelease reconstruction. Exact native AI, some BB3 abilities/effect timing, and the reported crescent-marked group-switch mechanic remain unverified. The editor authors BB2 grids, not BB3 polygon/boss levels or original Windows world files. All 817 engine checks and all four edition audio checks passed in the simulator; the three corrected power-up visuals were inspected there. iOS Release and Mac Catalyst compilation passed. Version 0.8.1 (39) was installed on both iPhone Duo and iPad Pro, with preferences and Documents verified unchanged by before/after readback. Neither physical app was launched; physical runtime, performance, and visual testing were not performed.
 
 Changing from the previous `com.wireproof.blasterball.prototype` identifier creates a separate app container. The public IPA does not automatically transfer previous saves. Keep the old app and back up its data before migrating.
 
@@ -14,7 +16,7 @@ Changing from the previous `com.wireproof.blasterball.prototype` identifier crea
 
 Open [`ios/Blasterball.xcodeproj`](ios/Blasterball.xcodeproj) in Xcode, select your signing team, and build for iPhone or iPad. The standalone source has no dependency on the development workspace's shared-source symlinks. `ios/build.sh simulator` builds the simulator app; `ios/build-xcode.sh` wraps the Xcode build.
 
-The release IPA is **unsigned** and must be signed for your device. It corresponds to build38, with development signing and the embedded device provisioning profile removed. See [release notes](ios/RELEASE-0.8.0.md).
+The release IPA is **unsigned** and must be signed for your device. It corresponds to build39, with development signing and the embedded device provisioning profile removed. See [release notes](ios/RELEASE-0.8.1.md).
 
 ## Assets
 

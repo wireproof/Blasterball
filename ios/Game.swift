@@ -192,7 +192,7 @@ enum OriginalArt {
     }
     static func backdrop(_ id:Int)->SKTexture? { texture("BB2-background-\(id)",rect:CGRect(x:110,y:0,width:420,height:480)) }
     // Native first animation frame; variants horizontal, animation frames vertical.
-    static func paddle(frame:Int=0)->SKTexture? { if edition == "bb3" { return third("paddle_\(frame%8)") }; return texture("BB2-paddle",rect:CGRect(x:0,y:(frame%8)*24,width:128,height:24),maskRect:CGRect(x:0,y:192+(frame%8)*24,width:128,height:24),trimAlpha:true) }
+    static func paddle(frame:Int=0,variant:Int=0)->SKTexture? { if edition == "bb3" { return third("paddle_\(frame%8)") }; return texture("BB2-paddle",rect:CGRect(x:variant*128,y:(frame%8)*24,width:128,height:24),maskRect:CGRect(x:variant*128,y:192+(frame%8)*24,width:128,height:24),trimAlpha:true) }
     static func ball()->SKTexture? { if edition == "bb3" { return third("ball") }; return texture("BB2-ball",rect:CGRect(x:0,y:0,width:16,height:16),maskRect:CGRect(x:0,y:16,width:16,height:16),trimAlpha:true) }
     static func drop(_ id:Int,frame:Int=0)->SKTexture? {
         if edition == "bb3" { let names=[1:"SplitBall",3:"SlowBall",6:"SmallPaddle",8:"GrowPaddle",9:"1Up",15:"FastBall",20:"Scorex2",21:"Scorex3",22:"BigBall",23:"ExplosiveBall",24:"Flash",25:"8Ball",26:"Vision",27:"ReplicateBall",28:"InertialPaddle",29:"Laser",30:"Zap",31:"BlasterBall",32:"EnergyBall",33:"Hovering",34:"TwinPaddles",35:"PhantomPaddle",36:"Attach",37:"Catcher",38:"NightBall"]; return names[id].flatMap { third("powerup_\($0)") } }
@@ -472,11 +472,11 @@ struct DisplayLayout {
     }
 }
 final class SteeringStrip:UIView {
-    var steer:((CGPoint)->Void)?, release:(()->Void)?
-    override func touchesBegan(_ touches:Set<UITouch>,with event:UIEvent?) { move(touches) }
+    var steer:((CGPoint)->Void)?, release:(()->Void)?, contact:((Bool)->Void)?
+    override func touchesBegan(_ touches:Set<UITouch>,with event:UIEvent?) { contact?(true);move(touches) }
     override func touchesMoved(_ touches:Set<UITouch>,with event:UIEvent?) { move(touches) }
-    override func touchesEnded(_ touches:Set<UITouch>,with event:UIEvent?) { release?() }
-    override func touchesCancelled(_ touches:Set<UITouch>,with event:UIEvent?) { }
+    override func touchesEnded(_ touches:Set<UITouch>,with event:UIEvent?) { contact?(false);release?() }
+    override func touchesCancelled(_ touches:Set<UITouch>,with event:UIEvent?) { contact?(false) }
     private func move(_ touches:Set<UITouch>) { if let t=touches.first { steer?(t.location(in:superview)) } }
 }
 
@@ -597,6 +597,7 @@ final class GameController: UIViewController {
             self.scene.movePaddle(fraction:(x-self.scene.geometry.left)/(self.scene.geometry.right-self.scene.geometry.left))
         }
         steering.release={ [weak self] in self?.scene.launchOrContinue() }
+        steering.contact={ [weak self] held in self?.scene.laserHeld=held }
         scene.scaleMode = .fill
         if #available(iOS 27.1, *) {
             view.addInteraction(UIHingeInteraction { [weak self] _, update in
@@ -793,9 +794,14 @@ final class GameController: UIViewController {
                 scene.start(index:0);scene.testing=true;scene.launchOrContinue()
                 for brick in scene.bricks {brick.hits=100000}
                 while scene.balls.count<32 {scene.applyPowerup(1)}
-                scene.applyPowerup(edition == .bb3 ? 29:7)
+                scene.applyPowerup(edition == .bb3 ? 29:7);scene.laserHeld=true
                 scene.stressFrames=300;scene.stressIntervals=[];scene.stressPeakNodes=0
                 for i in 0..<8 {if let kind=scene.eligibleCritterKinds().first {scene.spawnCritter(kind,port:i%2);scene.critters.last?.node.position=CGPoint(x:scene.geometry.left+CGFloat(i+1)*(scene.geometry.right-scene.geometry.left)/9,y:scene.geometry.ceiling-100);scene.critters.last?.emerged=true}}
+            }
+            if let i=args.firstIndex(of:"--preview-power"),i+1<args.count,let power=Int(args[i+1]),edition != .bb3 {
+                scene.start(index:0);scene.testing=true;scene.applyPowerup(power)
+                if power==7 {scene.laserHeld=true;scene.advanceSecond(0.26);scene.advanceSecond(0.12);scene.laserHeld=false}
+                scene.renderSecondPowers();scene.launched=false
             }
             if args.contains("--preview-explosion") {scene.enemyExplosion(at:CGPoint(x:scene.geometry.center,y:scene.geometry.ceiling-100))}
             if args.contains("--preview-enemy-effects") {
@@ -1002,7 +1008,7 @@ struct BoardGeometry {
 }
 
 final class LiveBall {
-    let node: SKShapeNode; var velocity: CGVector; var trailClock: CGFloat = 0
+    let node: SKShapeNode; var velocity: CGVector; var attachedOffset:CGFloat=0; var trailClock: CGFloat = 0
     init(node:SKShapeNode,velocity:CGVector) { self.node=node; self.velocity=velocity }
 }
 final class LiveBrick {
@@ -1035,7 +1041,8 @@ final class GameScene: SKScene {
     private var presentationGeneration=0
     private var awaitingPresentation=false
     var onStatus:((String)->Void)?, onPause:((Bool)->Void)?
-    var frozen = false, launched = false, finished = false, cleared = false, loaded = false
+    var frozen = false {didSet {if frozen {laserHeld=false}}}
+    var launched = false, finished = false, cleared = false, loaded = false
     var campaign:[Stage] = [], stageIndex = 0, lives = 3, score = 0
     var nativeSidebar=false
     var animationTime:TimeInterval = 0
@@ -1322,7 +1329,7 @@ final class GameScene: SKScene {
     func start(index:Int,resume:SavedRun?=nil,keepRun:Bool=false) {
         guard loaded, campaign.indices.contains(index) else { return }
         placedCells=resume?.placed ?? []
-        removeAllChildren(); removeAllActions(); stageIndex=index; bricks=[]; balls=[]; drops=[]; hits=resume?.hits ?? [:]; thirdTime=0; thirdTimers=[:];secretFound=false;hiddenReturnStage=resume?.returnStage;laserClock=0;targetPaddleX=nil;enemyGenerationClock=0
+        secondShots=[];laserHeld=false;laserTap=false;laserVisualActive=false;laserVisualChangedAt = -1;removeAllChildren(); removeAllActions(); stageIndex=index; bricks=[]; balls=[]; drops=[]; hits=resume?.hits ?? [:]; thirdTime=0; thirdTimers=[:];secretFound=false;hiddenReturnStage=resume?.returnStage;laserClock=0;targetPaddleX=nil;enemyGenerationClock=0
         if let resume=resume { score=max(0,resume.score); lives=min(99,max(1,resume.lives)) } else if !keepRun { score=0; lives=3 }
         launched=false; finished=false; cleared=false; lastTime=0; bigBall=false; explosiveBall=false; multiplierTokens=resume?.tokens ?? []; multiplier=multiplierTokens.isEmpty ? 1:multiplierTokens.reduce(0){$0+$1.value}; critters=[]; portNodes=[]; portIndex=nil; paddleWidth=66*geometry.unit; ballSpeed=edition == .bb3 ? thirdBaseSpeed:285*geometry.unit; setPaused(false); makeChrome()
         if !testing { GameAudio.shared.setStage(index,boss:edition == .bb3 && (campaign[index].sourceSettings?["BossIndex"] ?? "0") != "0") }; sound("start")
@@ -1405,15 +1412,16 @@ final class GameScene: SKScene {
             if stageIndex+1<campaign.count && campaign[stageIndex+1].hidden != true {start(index:stageIndex+1,keepRun:true)} else {start(index:0)}
             return
         }
-        if launched {for b in balls where b.velocity.dx==0 && b.velocity.dy==0 {b.velocity=CGVector(dx:ballSpeed*0.25,dy:ballSpeed*0.9682458)};return}
+        if launched {if edition != .bb3 && thirdTimers[29] != nil {laserTap=true};let attached=balls.filter{$0.velocity == .zero};if !attached.isEmpty && edition != .bb3 {sound("attach_launch")};for b in attached {b.velocity=CGVector(dx:ballSpeed*0.25,dy:ballSpeed*0.9682458);b.attachedOffset=0};return}
         if cleared { if stageIndex+1 < campaign.count { start(index:stageIndex+1,keepRun:true) } else { start(index:0) }; return }
         guard !finished,!launched else { return }; launched=true; prompt.text=""; sound("launch")
         for b in balls { b.velocity=CGVector(dx:ballSpeed*0.25,dy:ballSpeed*0.9682458) }
     }
     func move(_ touches:Set<UITouch>) { if let t=touches.first { movePaddle(fraction:(t.location(in:self).x-geometry.left)/(geometry.right-geometry.left)) } }
-    override func touchesBegan(_ touches:Set<UITouch>,with event:UIEvent?) { move(touches) }
+    override func touchesBegan(_ touches:Set<UITouch>,with event:UIEvent?) {laserHeld=true;move(touches)}
     override func touchesMoved(_ touches:Set<UITouch>,with event:UIEvent?) { move(touches) }
-    override func touchesEnded(_ touches:Set<UITouch>,with event:UIEvent?) { launchOrContinue() }
+    override func touchesEnded(_ touches:Set<UITouch>,with event:UIEvent?) {laserHeld=false;launchOrContinue()}
+    override func touchesCancelled(_ touches:Set<UITouch>,with event:UIEvent?) {laserHeld=false}
     override func update(_ time:TimeInterval) {
         if stressFrames>0 {
             if lastTime>0 {stressIntervals.append(time-lastTime)}
@@ -1454,7 +1462,7 @@ final class GameScene: SKScene {
         if edition == .bb3 {advanceThird(dt)} else {advanceSecond(dt)}
         for b in balls {
             if edition == .bb3 {applyThirdGravity(b,dt:dt)}
-            if b.velocity == .zero {b.node.position=CGPoint(x:paddle.position.x,y:paddleY+13*geometry.unit);continue}
+            if b.velocity == .zero {b.node.position=CGPoint(x:paddle.position.x+b.attachedOffset,y:paddleY+13*geometry.unit);continue}
             if stressFrames>0 && b.node.position.y<radius {b.node.position.y=radius;b.velocity.dy=abs(b.velocity.dy)}
             let old=b.node.position; b.node.position.x += b.velocity.dx*dt; b.node.position.y += b.velocity.dy*dt
             if b.node.position.x < geometry.left+radius { b.node.position.x=geometry.left+radius; b.velocity.dx=abs(b.velocity.dx); sound("wall") }
@@ -1464,7 +1472,7 @@ final class GameScene: SKScene {
             if b.velocity.dy < 0,old.y >= top,b.node.position.y <= top,abs(b.node.position.x-paddle.position.x) < paddleWidth/2+radius, !(edition != .bb3 && thirdTimers[34] != nil && abs(b.node.position.x-paddle.position.x)<paddleWidth*0.12) {
                 b.node.position.y=top; sound("paddle"); let aim=max(-0.95,min(0.95,(b.node.position.x-paddle.position.x)/(paddleWidth/2+radius)))
                 b.velocity.dx=aim*ballSpeed*0.85; b.velocity.dy=sqrt(max(1,ballSpeed*ballSpeed-b.velocity.dx*b.velocity.dx))
-                if thirdTimers[36] != nil {b.velocity = .zero}
+                if thirdTimers[36] != nil {b.attachedOffset=b.node.position.x-paddle.position.x;b.velocity = .zero}
                 if edition == .bb3 && thirdTimers[27] != nil && balls.count<16 {addBall(at:b.node.position,velocity:CGVector(dx:-b.velocity.dx,dy:b.velocity.dy))}
             }
             if let brick=bricks.first(where:{thirdBrickSolid($0) && contactNormal($0,at:b.node.position) != nil}) {
@@ -1498,6 +1506,14 @@ final class GameScene: SKScene {
     }
     func renderSecondPowers() {
         let twin=thirdTimers[34] != nil
+        let laserActive=thirdTimers[29] != nil
+        if laserActive != laserVisualActive {laserVisualChangedAt=animationTime;laserVisualActive=laserActive}
+        let morph=laserVisualChangedAt>=0 ? animationTime-laserVisualChangedAt:1
+        let morphing=morph<0.4
+        let frame=morphing ? (laserActive ? max(0,7-Int(morph/0.05)):min(7,Int(morph/0.05))):Int(animationTime/0.1)%8
+        let texture=OriginalArt.paddle(frame:frame,variant:morphing ? 6:(laserActive ? 3:0))
+        (paddle.childNode(withName:"surface") as? SKSpriteNode)?.texture=texture
+        (paddle.childNode(withName:"shadow") as? SKSpriteNode)?.texture=texture
         paddle.childNode(withName:"surface")?.isHidden=twin;paddle.childNode(withName:"shadow")?.isHidden=twin
         let root:SKNode
         if let old=childNode(withName:"second-paddle-powers") {root=old} else {root=SKNode();root.name="second-paddle-powers";root.zPosition=5;addChild(root)}
@@ -1507,15 +1523,42 @@ final class GameScene: SKScene {
             sprite.isHidden = !visible
             if visible {sprite.texture=OriginalArt.paddle(frame:Int(animationTime/0.1)%8);sprite.position=CGPoint(x:x,y:paddleY);sprite.size=CGSize(width:width,height:14*geometry.unit);sprite.alpha=alpha}
         }
-        let catcher=(root.childNode(withName:"catcher") as? SKSpriteNode) ?? SKSpriteNode(color:.cyan,size:.zero)
-        if catcher.parent==nil {catcher.name="catcher";root.addChild(catcher)}
-        catcher.isHidden=thirdTimers[37]==nil;catcher.position=CGPoint(x:geometry.center,y:geometry.artworkExtension+4);catcher.size=CGSize(width:geometry.right-geometry.left,height:2*geometry.unit)
+        // Native 0x4080c0 draws two additive 390x50 windows from barrier.png,
+        // scrolling in opposite directions at 200 and 150 original pixels/sec.
+        for (name,speed) in [("catcher",CGFloat(200)),("catcher-back",CGFloat(-150))] {
+            let field=(root.childNode(withName:name) as? SKSpriteNode) ?? SKSpriteNode()
+            if field.parent==nil {field.name=name;root.addChild(field)}
+            field.isHidden=thirdTimers[37]==nil;field.blendMode = .add
+            if !field.isHidden,let source=OriginalArt.source("BB2-barrier") {
+                let key="\(OriginalArt.edition)-barrier-full"
+                let texture=OriginalArt.textures[key] ?? SKTexture(cgImage:source)
+                OriginalArt.textures[key]=texture
+                let raw=(thirdTime*speed).truncatingRemainder(dividingBy:220)
+                let offset=Int(raw<0 ? raw+220:raw),sliceKey="\(key)-\(offset)"
+                let slice=OriginalArt.textures[sliceKey] ?? SKTexture(rect:CGRect(x:CGFloat(offset)/880,y:0,width:390.0/880,height:1),in:texture)
+                OriginalArt.textures[sliceKey]=slice;field.texture=slice
+                field.position=CGPoint(x:geometry.center,y:geometry.artworkExtension+25*geometry.unit)
+                field.size=CGSize(width:geometry.right-geometry.left,height:50*geometry.unit)
+            }
+        }
+        let shield=(root.childNode(withName:"attach") as? SKSpriteNode) ?? SKSpriteNode()
+        if shield.parent==nil {shield.name="attach";root.addChild(shield)}
+        shield.isHidden=thirdTimers[36]==nil;shield.blendMode = .add
+        if !shield.isHidden {
+            shield.texture=OriginalArt.texture("BB2-sticky",rect:CGRect(x:0,y:(Int(animationTime/0.1)%4)*32,width:64,height:32))
+            shield.size=CGSize(width:paddleWidth,height:32*geometry.unit)
+            shield.position=CGPoint(x:paddle.position.x,y:paddleY+16*geometry.unit)
+        }
     }
     // BB2 uses the same timer keys as the shared HUD, but its original pickup IDs.
     private var phantomX:CGFloat=0
+    private var secondShots:[SKSpriteNode]=[]
+    var laserHeld=false
+    private var laserTap=false,laserVisualActive=false
+    private var laserVisualChangedAt:TimeInterval = -1
     func advanceSecond(_ dt:CGFloat) {
         thirdTime += dt;laserClock += dt
-        for id in Array(thirdTimers.keys) {thirdTimers[id,default:0] -= dt;if thirdTimers[id,default:0]<=0 {thirdTimers.removeValue(forKey:id);updateHUD()}}
+        for id in Array(thirdTimers.keys) where ![29,36,37].contains(id) {thirdTimers[id,default:0] -= dt;if thirdTimers[id,default:0]<=0 {thirdTimers.removeValue(forKey:id);updateHUD()}}
         for brick in bricks where brick.raw.type == 10 {brick.node.alpha=thirdBrickSolid(brick) ? 1:0}
         if thirdTimers[35] != nil {
             phantomX += (paddle.position.x-phantomX)*min(1,dt*5)
@@ -1523,21 +1566,33 @@ final class GameScene: SKScene {
                 ball.node.position.y=paddleY+13*geometry.unit;ball.velocity.dy=abs(ball.velocity.dy);sound("paddle")
             }
         } else {phantomX=paddle.position.x}
-        if thirdTimers[37] != nil,let ball=balls.first(where:{$0.velocity.dy<0 && $0.node.position.y<geometry.artworkExtension+8}) {
-            ball.node.position.y=geometry.artworkExtension+8;ball.velocity.dy=abs(ball.velocity.dy);thirdTimers.removeValue(forKey:37);sound("paddle");updateHUD()
+        if thirdTimers[37] != nil,let ball=balls.first(where:{$0.velocity.dy<0 && $0.node.position.y<geometry.artworkExtension+29*geometry.unit}) {
+            ball.node.position.y=geometry.artworkExtension+29*geometry.unit;ball.velocity.dy=abs(ball.velocity.dy);thirdTimers.removeValue(forKey:37);sound("catcher_hit");updateHUD()
         }
-        if thirdTimers[29] != nil && laserClock>=0.2 {
-            laserClock=0
-            for x in [paddle.position.x-paddleWidth*0.35,paddle.position.x+paddleWidth*0.35] {
-                let brick=bricks.filter{thirdBrickSolid($0) && $0.rect.minX<=x && $0.rect.maxX>=x && $0.rect.minY>paddleY}.min{$0.rect.minY<$1.rect.minY}
-                let enemy=critters.filter{$0.emerged && abs($0.node.position.x-x)<$0.collisionRadius && $0.node.position.y>paddleY}.min{$0.node.position.y<$1.node.position.y}
-                var end=brick?.rect.minY ?? geometry.ceiling
-                if let enemy=enemy,enemy.node.position.y<end {end=enemy.node.position.y;destroyCritter(enemy,ballHit:false)} else if let brick=brick {hit(brick)}
-                let beam=SKSpriteNode(color:.red,size:CGSize(width:2*geometry.unit,height:max(1,end-paddleY)))
-                beam.position=CGPoint(x:x,y:(end+paddleY)/2);beam.zPosition=8;addChild(beam);beam.run(.sequence([.fadeOut(withDuration:0.1),.removeFromParent()]))
+        // Travel and sweep each bolt through its segment: it must not damage distant
+        // targets at firing time or pass through a nearer solid brick.
+        for shot in secondShots where shot.parent != nil {
+            let oldY=shot.position.y,newY=oldY+360*geometry.unit*dt,x=shot.position.x
+            let brick=bricks.filter{thirdBrickSolid($0) && $0.rect.minX<=x+2*geometry.unit && $0.rect.maxX>=x-2*geometry.unit && $0.rect.maxY>=oldY && $0.rect.minY<=newY}.min{$0.rect.minY<$1.rect.minY}
+            let enemy=critters.filter{$0.emerged && abs($0.node.position.x-x)<$0.collisionRadius && $0.node.position.y+$0.collisionRadius>=oldY && $0.node.position.y-$0.collisionRadius<=newY}.min{$0.node.position.y-$0.collisionRadius<$1.node.position.y-$1.collisionRadius}
+            if let enemy=enemy,enemy.node.position.y-enemy.collisionRadius < (brick?.rect.minY ?? .greatestFiniteMagnitude) {destroyCritter(enemy,ballHit:false);shot.removeFromParent()}
+            else if let brick=brick {hit(brick);shot.removeFromParent()}
+            else if newY>geometry.ceiling {shot.removeFromParent()}
+            else {shot.position.y=newY}
+        }
+        secondShots.removeAll{$0.parent==nil}
+        if thirdTimers[29] != nil && (laserHeld || laserTap) && laserClock>=0.25 {
+            laserClock=0;laserTap=false;sound("laser_fire")
+            for x in [paddle.position.x-14*geometry.unit,paddle.position.x+14*geometry.unit] {
+                let shot=SKSpriteNode(texture:OriginalArt.texture("BB2-laser",rect:CGRect(x:0,y:0,width:32,height:32)))
+                shot.blendMode = .add;shot.size=CGSize(width:32*geometry.unit,height:32*geometry.unit)
+                shot.position=CGPoint(x:x,y:paddleY+24*geometry.unit);shot.zPosition=8;addChild(shot);secondShots.append(shot)
+                let frames=(0..<4).compactMap{OriginalArt.texture("BB2-laser",rect:CGRect(x:($0%2)*32,y:($0/2)*32,width:32,height:32))}
+                if frames.count==4 {shot.run(.repeatForever(.animate(with:frames,timePerFrame:0.1)))}
             }
         }
     }
+
     func thirdBrickSolid(_ brick:LiveBrick)->Bool {
         if edition != .bb3 {return thirdTime>=brick.hiddenUntil}
         if brick.raw.special == "PHANTOM" {return thirdTime>=brick.hiddenUntil}
@@ -2110,6 +2165,12 @@ final class GameScene: SKScene {
         originalSurface(n,texture:OriginalArt.drop(kind),size:CGSize(width:24*geometry.unit,height:24*geometry.unit));n.childNode(withName:"surface")?.yScale=roundYScale;n.childNode(withName:"shadow")?.yScale=roundYScale
         addChild(n); drops.append(Drop(node:n,kind:kind))
     }
+    private func clearSecondPaddlePower() {
+        if thirdTimers[36] != nil {sound("attach_off")}
+        if thirdTimers[29] != nil {sound("laser_off")}
+        for id in [29,36,34,35] {thirdTimers.removeValue(forKey:id)}
+        for ball in balls where launched && ball.velocity == .zero {ball.velocity=CGVector(dx:ballSpeed*0.25,dy:ballSpeed*0.9682458);ball.attachedOffset=0}
+    }
     func applyPowerup(_ kind:Int) {
         switch kind {
         case 1:
@@ -2120,11 +2181,11 @@ final class GameScene: SKScene {
                 }
             }
         case 2: thirdTimers[31]=10
-        case 4: thirdTimers[36]=15
-        case 5: thirdTimers[37]=30
-        case 7: thirdTimers[29]=15
-        case 13: thirdTimers[34]=15
-        case 14: thirdTimers[35]=15
+        case 4: clearSecondPaddlePower();setWidth(65);thirdTimers[36]=1;sound("attach_on")
+        case 5: thirdTimers[37]=1;sound("catcher_on")
+        case 7: clearSecondPaddlePower();setWidth(65);thirdTimers[29]=1;laserClock=0.25;sound("laser_on")
+        case 13: clearSecondPaddlePower();thirdTimers[34]=15
+        case 14: clearSecondPaddlePower();thirdTimers[35]=15
         case 12: for critter in Array(critters) where critter.emerged {destroyCritter(critter,ballHit:false)}
         case 16:
             for ball in Array(balls) {
@@ -2132,8 +2193,8 @@ final class GameScene: SKScene {
             }
         case 3: setSpeed(edition == .bb3 ? thirdBaseSpeed*0.7:215*geometry.unit);if edition == .bb3 {thirdTimers[3]=6;thirdTimers.removeValue(forKey:15)}
         case 15: setSpeed(edition == .bb3 ? thirdBaseSpeed*1.25:370*geometry.unit);if edition == .bb3 {thirdTimers[15]=6;thirdTimers.removeValue(forKey:3)}
-        case 6: setWidth(44)
-        case 8: setWidth(94)
+        case 6: if edition != .bb3 {clearSecondPaddlePower()};setWidth(44)
+        case 8: if edition != .bb3 {clearSecondPaddlePower()};setWidth(94)
         case 9: lives=min(99,lives+1)
         case 10,11,20,21:
             if multiplierTokens.count<5 { multiplierTokens.append(MultiplierToken(value:(kind==10 || kind==20) ? 2:3,seconds:20)) }
@@ -2161,7 +2222,7 @@ final class GameScene: SKScene {
     func setWidth(_ w:CGFloat) { paddleWidth=w*geometry.unit; paddle.xScale=w/66; paddle.position.x=min(geometry.right-paddleWidth/2,max(geometry.left+paddleWidth/2,paddle.position.x)) }
     func setSpeed(_ s:CGFloat) { ballSpeed=s; for b in balls { let magnitude=hypot(b.velocity.dx,b.velocity.dy); if magnitude > 0 { b.velocity.dx=b.velocity.dx/magnitude*s; b.velocity.dy=b.velocity.dy/magnitude*s } } }
     func loseLife() {
-        multiplier=1; multiplierTokens=[]; bigBall=false; explosiveBall=false;thirdTimers=[:];targetPaddleX=nil;childNode(withName:"third-effects")?.removeFromParent()
+        secondShots.forEach{$0.removeFromParent()};secondShots=[];multiplier=1; multiplierTokens=[]; bigBall=false; explosiveBall=false;thirdTimers=[:];targetPaddleX=nil;childNode(withName:"third-effects")?.removeFromParent()
         lives -= 1; launched=false; drops.forEach{$0.node.removeFromParent()}; drops=[]; setWidth(66); ballSpeed=edition == .bb3 ? thirdBaseSpeed:285*geometry.unit; sound("loss")
         if lives<=0 {run(.sequence([.wait(forDuration:0.8),.run { [weak self] in self?.sound("gameover") }]))}
         if lives <= 0 { finished=true; prompt.text="Game over • Restart or choose a stage"; prompt.fontSize=13 }
@@ -2343,12 +2404,44 @@ final class GameScene: SKScene {
         hit(explosive);checks["explosion_normal_damage"]=neighbor.hits==1
         let plague=fixture(12,9);hit(plague);checks["plague_spawns_neighbors"]=placedCells.count==8 && !cleared
         let laser=fixture(1,3,7);hit(laser);checks["laser_drops_from_brick"]=drops.contains{$0.kind==7}
-        applyPowerup(7);paddle.position.x=neighbor.rect.midX+paddleWidth*0.35;advanceSecond(0.21)
+        applyPowerup(7);laserHeld=true;paddle.position.x=neighbor.rect.midX+14*geometry.unit;advanceSecond(0.26)
+        checks["laser_does_not_hit_instantly"] = bricks.contains{$0===neighbor}
+        for _ in 0..<180 {advanceSecond(1.0/120)}
         checks["laser_hits_brick"] = !bricks.contains{$0===neighbor}
         checks["laser_in_sidebar"]=activePowerups.contains("LASER")
         start(index:0);applyPowerup(16);checks["eight_way_bb2"]=balls.count==8
         applyPowerup(4);checks["attach_bb2"]=thirdTimers[36] != nil
         applyPowerup(5);checks["catcher_bb2"]=thirdTimers[37] != nil
+        balls.forEach{$0.velocity = .zero};advanceSecond(60)
+        checks["catcher_waits_until_used"]=thirdTimers[37] != nil
+        if let ball=balls.first {ball.node.position.y=geometry.artworkExtension+5;ball.velocity=CGVector(dx:0,dy:-100);advanceSecond(0.01);checks["catcher_saves_once"]=ball.velocity.dy>0 && thirdTimers[37]==nil}
+        applyPowerup(4);renderSecondPowers();checks["attach_shield_visible"]=(childNode(withName:"second-paddle-powers/attach") as? SKSpriteNode)?.texture != nil
+        start(index:0);bricks.forEach{$0.node.removeFromParent()};bricks=[]
+        let stop=fixture(8,6),behind=fixture(1,6)
+        behind.rect.origin.y += 60*geometry.unit;behind.node.position.y += 60*geometry.unit
+        paddle.position.x=stop.rect.midX+14*geometry.unit;applyPowerup(7);laserHeld=true
+        for _ in 0..<300 {advanceSecond(1.0/120)}
+        checks["laser_stops_at_metal"]=bricks.contains{$0===stop} && bricks.contains{$0===behind}
+        renderSecondPowers();animationTime += 0.41;renderSecondPowers()
+        checks["laser_original_paddle"]=(paddle.childNode(withName:"surface") as? SKSpriteNode)?.texture === OriginalArt.paddle(frame:Int(animationTime/0.1)%8,variant:3)
+        start(index:0);launched=true;applyPowerup(4)
+        if let ball=balls.first {
+            let offset=paddleWidth*0.2
+            ball.node.position=CGPoint(x:paddle.position.x+offset,y:paddleY+9*geometry.unit)
+            ball.velocity=CGVector(dx:0,dy:-100*geometry.unit);advance(0.03)
+            checks["attach_captures_ball"]=ball.velocity == .zero
+            movePaddle(fraction:0.6);advance(0.01)
+            checks["attach_preserves_contact_offset"]=abs(ball.node.position.x-paddle.position.x-offset)<0.01
+            launchOrContinue();checks["attach_releases_ball"]=ball.velocity.dy>0
+        }
+        start(index:0);applyPowerup(7);advanceSecond(60)
+        checks["laser_waits_for_input"]=secondShots.isEmpty
+        checks["laser_persists_until_replaced"]=thirdTimers[29] != nil
+        laserHeld=true;advanceSecond(0.01);checks["laser_fires_pair_on_hold"]=secondShots.count==2
+        laserHeld=false;secondShots.forEach{$0.removeFromParent()};secondShots=[];advanceSecond(0.5)
+        checks["laser_stops_when_released"]=secondShots.isEmpty
+        applyPowerup(4);advanceSecond(60)
+        checks["attach_replaces_laser_and_persists"]=thirdTimers[36] != nil && thirdTimers[29]==nil
         checks.merge(LevelEditorController().regressionChecks()){_,new in new}
         let custom=CustomLevel(cells:[Cell(row:0,column:0,type:1,property:0,powerup:7,critter:0)])
         let encoded=try? JSONEncoder().encode(custom)
