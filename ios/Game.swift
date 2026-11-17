@@ -19,6 +19,7 @@ struct MultiplierToken:Codable { var value:Int; var seconds:Double }
 enum StageLoadError: Error { case missingResource, invalidGrid }
 
 @main class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application:UIApplication,supportedInterfaceOrientationsFor window:UIWindow?)->UIInterfaceOrientationMask { .landscape }
     #if targetEnvironment(macCatalyst)
     override func buildMenu(with builder: UIMenuBuilder) {
         super.buildMenu(with: builder)
@@ -546,7 +547,7 @@ final class GameController: UIViewController {
     var gameplayPresented=false
     var initialPresentation=false
     override var prefersStatusBarHidden:Bool { !nativeRail }
-    override var supportedInterfaceOrientations:UIInterfaceOrientationMask { .allButUpsideDown }
+    override var supportedInterfaceOrientations:UIInterfaceOrientationMask { .landscape }
     override func viewDidLoad() {
         super.viewDidLoad(); overrideUserInterfaceStyle = .dark; view.backgroundColor = .black
         gameView.preferredFramesPerSecond=120; gameView.ignoresSiblingOrder=true; gameView.backgroundColor = .black; view.addSubview(gameView)
@@ -903,7 +904,7 @@ final class GameController: UIViewController {
         sheet.addAction(UIAlertAction(title:"Resume",style:.cancel){ [weak self] _ in self?.scene.setPaused(false) })
         sheet.addAction(UIAlertAction(title:"Restart stage",style:.default){ [weak self] _ in guard let self=self else{return}; self.scene.start(index:self.scene.stageIndex) })
         sheet.addAction(UIAlertAction(title:"Choose stage",style:.default){ [weak self] _ in DispatchQueue.main.async { self?.selectStage() } })
-        sheet.addAction(UIAlertAction(title:laptopActive ? "Display: Automatic (portrait uses deck)" : "Display: Laptop mode",style:.default){ [weak self] _ in
+        sheet.addAction(UIAlertAction(title:laptopActive ? "Display: Automatic" : "Display: Laptop mode",style:.default){ [weak self] _ in
             guard let self=self else {return}
             UserDefaults.standard.set(self.laptopActive ? "auto":"laptop",forKey:"wireproof.bb2.display")
             self.view.setNeedsLayout(); self.scene.setPaused(false)
